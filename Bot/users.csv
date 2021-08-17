@@ -1,2 +1,2 @@
-user1,100.00,gift.1 wood.10
-user2,1000.10,gift.2 stone.1
+user1*764.0*{'Stone': 10, 'Rock': 4, 'Gift': 1, 'Training Point': 20}*{'Combat': 0, 'Defense': 2, 'Thievery': 5}*Aids 88.0
+user2*21000.1*{'Wood': 0, 'Rock': 1, 'Gift': 2, 'Training Point': 2}*{'Combat': 1, 'Defense': 0, 'Thievery': 0}*None 0.0
