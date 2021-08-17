@@ -19,8 +19,8 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
 
                     # job title length check
                     if len(job_title) > 30:
-                        print("Job name too long at max 30 characters")
-                        return
+                        return "Job name too long at max 30 characters"
+
                     args[0].job = str(job_title).title()
 
                     # give random start pay
@@ -30,11 +30,10 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                     update_user_data(args[2])
 
                 else:
-                    print("You need to write the job title you want")
-                    return
+                    return "You need to write the job title you want"
             else:
-                print("You already have a job, \nType ```job work``` instead")
-                return
+
+                return "You already have a job, \nType job work instead"
 
         elif args[3][0] == "quit":
             if args[0].job != "None":
@@ -46,16 +45,10 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
         elif args[3][0] == "check":
             for user in args[2]:
                 if len(args[3]) > 1:
-                    if args[3][1] == user.user_id:
-                        print(f"{user.user_id}'s Job Info:")
-                        print(f"Title:\t{user.job}")
-                        print(f"Pay:\t{user.pay}")
-                        return
+                    if args[3][1] == f"<@!{user.user_id}>":
+                        return f"{user.username}s Job Info:\nTitle:\t{user.job}\nPay:\t{user.pay}"
 
-            print(f"{args[0].user_id}'s Job Info:")
-            print(f"Title:\t{args[0].job}")
-            print(f"Pay:\t{args[0].pay}")
-            return
+            return f"{args[0].username}s Job Info:\nTitle:\t{args[0].job}\nPay:\t{args[0].pay}"
 
         elif args[3][0] == "work":
             # need cooldown timer module for this to work
@@ -65,5 +58,4 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
             pass
 
         else:
-            print("Incorrect argument, \nMust be: get, work, quit or check")
-            return
+            return "Incorrect argument, \nMust be: get, work, quit or check"

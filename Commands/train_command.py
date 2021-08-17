@@ -3,6 +3,6 @@ def train_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
         if args[0].inv['Training Point'] > 0:
             pass
         else:
-            print('Must have at least 1 training point')
+            return 'Must have at least 1 training point'
     else:
-        print("Incorrect use of train command\nuse ```train (skill) (optional: amount of points to spend)")
+        return "Incorrect use of train command\nuse train (skill) (optional: amount of points to spend)"
