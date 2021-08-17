@@ -4,6 +4,7 @@ from Commands.help_command import help_c
 from Commands.give_command import give_c
 from Commands.inv_command import inv_c
 from Commands.job_command import job_c
+from Commands.train_command import train_c
 
 
 # controls inputted and outputted commands
@@ -14,7 +15,8 @@ class Commands:
             "bal": bal_c,
             "give": give_c,
             "inv": inv_c,
-            "job": job_c
+            "job": job_c,
+            "train": train_c
         }
 
     def run_command(self, name, user_data, c, users, args):
