@@ -3,10 +3,10 @@ import ast
 
 class Player:
     def __init__(self, user_id, bal, inv, skills, job):
-        u_id, username = user_id.split(' ')
+        u_id, username = user_id.split(' ', 1)
         self.user_id = str(u_id)
         self.username = str(username)
-        self.bal = float(bal)
+        self.bal = round(float(bal), 2)
         self.inv = ast.literal_eval(inv)
         self.skills = ast.literal_eval(skills)
         self.job = str(job)
@@ -33,10 +33,6 @@ def get_data():
     return items  # return list of users (classes)
 
 
-def run_setup():
+def run_setup_users():
     users = get_data()  # list of classes
-    for user in users:
-        print(user.user_id, user.bal, user.inv, user.skills, user.job, user.pay)
-
-    from command_manager import start
     return users
