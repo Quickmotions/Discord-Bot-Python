@@ -9,23 +9,25 @@ from Commands.agree_command import agree_c
 from Commands.skill_command import skill_c
 from Commands.rob_command import rob_c
 from Commands.hunt_command import hunt_c
+from Commands.source_command import source_c
 
 
 # controls inputted and outputted commands
 class Commands:
     def __init__(self):
         self.command_list = {
-            "help": [help_c, 1],
-            "bal": [bal_c, 1],
-            "give": [give_c, 1],
-            "inv": [inv_c, 1],
-            "job": [job_c, 1],
-            "work": [work_c, 1200],
+            "help": [help_c, 10],
+            "bal": [bal_c, 5],
+            "give": [give_c, 5],
+            "inv": [inv_c, 5],
+            "job": [job_c, 3],
+            "work": [work_c, 5],
             "train": [train_c, 1],
             "agree": [agree_c, 1],
-            "skill": [skill_c, 1],
-            "rob": [rob_c, 1],
-            "hunt": [hunt_c, 1]
+            "skill": [skill_c, 5],
+            "rob": [rob_c, 86400],
+            "hunt": [hunt_c, 5],
+            "source": [source_c, 3]
         }
 
     def run_command(self, name, user_data, c, users, args):
