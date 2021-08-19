@@ -23,6 +23,8 @@ def rob_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                             chance = 10
                         if user_steal > victim_defense:
                             chance = 60
+                        if user_steal - victim_defense >= 2:
+                            chance = 60 + random.randint(5, 15)
 
                         if random.randint(1, 100) > chance:
                             # steal failed

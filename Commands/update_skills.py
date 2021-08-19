@@ -1,7 +1,7 @@
 def give_xp(xp_amount, skill_name, user_data, all_user_data):
     # unpack users data for specified skill
     level, current_xp, next_level_xp = user_data.skills[skill_name]
-    current_xp = xp_amount
+    current_xp = xp_amount + current_xp
     # loop leveling up until you dont have enough xp to level up
     while current_xp >= next_level_xp:
         current_xp -= next_level_xp
