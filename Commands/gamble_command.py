@@ -1,4 +1,4 @@
-from update_csv import start_update_csv
+from Commands.update_csv import start_update_csv
 
 
 def gamble_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
