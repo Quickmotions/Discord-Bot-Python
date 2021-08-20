@@ -109,7 +109,7 @@ async def on_message(message):
                 event_list.append(Events(response[2][0], response[2][1], response[2][2]))
                 await message.channel.send(f"```yaml\n{response[1]}```")
         else:
-            await message.channel.send(f"```yaml\nLive Dev Bot (pls Ignore):\n{response}```")
+            await message.channel.send(f"```yaml\n{response}```")
 
 if __name__ == '__main__':
     client.run(TOKEN)
