@@ -61,9 +61,7 @@ async def on_message(message):
                             "0.0",
                             "{}",
                             "{'Combat': [0, 0, 100], 'Defense': [0, 0, 100], 'Stealing': [0, 0, 100]}",
-                            "None 0.0",
-                            "None",
-                            "No"
+                            "None 0.0"
                             ))
 
         start_update_csv(USERS)

@@ -22,7 +22,9 @@ def train_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
 
                 from Commands.update_skills import give_xp
                 import random
-                random_xp = (random.randint(20, 80) * points_used)  # sets xp to gain
+                random_xp = 0
+                for point in range(points_used):
+                    random_xp += random.randint(20, 100)  # sets xp to gain
                 args[0].inv['Training Point'] -= points_used
                 give_xp(random_xp, skill_to_train, args[0], args[2])
 

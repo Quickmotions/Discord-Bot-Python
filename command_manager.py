@@ -11,6 +11,7 @@ from Commands.rob_command import rob_c
 from Commands.hunt_command import hunt_c
 from Commands.source_command import source_c
 from Commands.steal_command import steal_c
+from Commands.gamble_command import gamble_c
 
 
 # controls inputted and outputted commands
@@ -26,10 +27,11 @@ class Commands:
             "train": [train_c, 1],
             "agree": [agree_c, 1],
             "skill": [skill_c, 5],
-            "rob": [rob_c, 86400],
+            "rob": [rob_c, 72000],
             "hunt": [hunt_c, 5],
             "source": [source_c, 3],
-            "steal": [steal_c, 60]
+            "steal": [steal_c, 60],
+            "gamble": [gamble_c, 5]
         }
 
     def run_command(self, name, user_data, c, users, args, events):

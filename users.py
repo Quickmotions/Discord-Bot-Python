@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Player:
-    def __init__(self, user_id, bal, inv, skills, job, last_work, in_event):
+    def __init__(self, user_id, bal, inv, skills, job):
         u_id, username = user_id.split(' ', 1)
         self.user_id = str(u_id)
         self.username = str(username)
@@ -14,11 +14,6 @@ class Player:
         job, pay = job.split(' ')
         self.job = str(job)
         self.pay = float(pay)
-        self.in_event = in_event
-        if last_work != "None":
-            self.last_work = datetime.strptime(str(last_work), '%Y-%m-%d %H:%M:%S.%f')
-        else:
-            self.last_work = "None"
 
     def change_bal(self, val):
         self.bal += val
@@ -36,7 +31,7 @@ def get_data():
         item = item.strip()  # remove \n
         item = item.split('*')  # split into items
         # create class for each user
-        items.append(Player(item[0], item[1], item[2], item[3], item[4], item[5], item[6]))
+        items.append(Player(item[0], item[1], item[2], item[3], item[4]))
     return items  # return list of users (classes)
 
 

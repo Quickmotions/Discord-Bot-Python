@@ -12,10 +12,10 @@ def bal_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                 for player in args[2]:
                     balls.append([player.bal, player.username])
                 for bal in sorted(balls, key=itemgetter(0), reverse=True)[:6]:
-                    bal_top += f"{bal[1]}: £{bal[0]}\n"
+                    bal_top += f"{bal[1]}: £{round(bal[0], 2)}\n"
                 return bal_top
 
-        return f'Bal for {args[0].username}: £{args[0].bal}'
+        return f'Bal for {args[0].username}: £{round(args[0].bal, 2)}'
 
     else:
-        return f'Bal for {args[0].username}: £{args[0].bal}'
+        return f'Bal for {args[0].username}: £{round(args[0].bal, 2)}'
