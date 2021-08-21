@@ -1,6 +1,7 @@
 from datetime import datetime
 import random
 from Commands.update_csv import start_update_csv
+from Commands.update_skills import give_xp
 
 fish_list = [
     'Cod',
@@ -35,21 +36,28 @@ def fish_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                                'Catfish': 0,
                                'Tuna': 0}
 
-                fish_gained_total = round(duration_in_hour * 20)
+                if 'Fishing' not in args[0].skills:
+                    args[0].skills['Fishing'] = [0, 0, 100]
+                fish_gained_total = round(duration_in_hour * (20 + args[0].skills['Fishing'][0]))
                 for _ in range(fish_gained_total):
                     fish_gained[random.choice(fish_list)] += 1
 
                 args[0].gathering = "gathering=no"
                 args[0].gathering_time = "None"
-                start_update_csv(args[2])
+
                 fish_got_str = "You managed to catch:\n"
                 for fish in fish_gained:
                     fish_got_str += f"-{fish_gained[fish]} {fish.title()}\n"
                     if fish.title() not in args[0].inv:  # add item to card list if it doesnt exist
                         args[0].inv[fish.title()] = 0
                     args[0].inv[fish] += fish_gained[fish]
+                    if 'Fishing' not in args[0].skills:
+                        args[0].skills['Fishing'] = [0, 0, 100]
+                    xp_got = round(duration_in_hour * 20) * 20
+                    give_xp(xp_got, "Fishing", args[0], args[2])
 
-                return ["multiple", f"You fished for {round(duration_in_hour, 2)} hours:", fish_got_str]
+                start_update_csv(args[2])
+                return ["multiple", f"You fished for {round(duration_in_hour, 2)} hours:\n and got {xp_got} Fishing xp.", fish_got_str]
             else:
                 return f"You have only been fishing for {round(duration_in_hour, 2)} hours:\n" \
                        f"-You need to fish for at least 1 hour"
