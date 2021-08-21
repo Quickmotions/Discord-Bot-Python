@@ -6,7 +6,7 @@ def gamble_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data
         # adds luck skill if the user has never had any
         if 'Luck' not in args[0].skills:
             args[0].skills['Luck'] = [0, 0, 100]
-        amount_to_gamble = round(int(args[3][0]), 2)
+        amount_to_gamble = round(float(args[3][0]), 2)
         user_luck = int(args[0].skills['Luck'][0])
         luck_multiplier = round(user_luck * 0.3)
         user_bal = args[0].bal

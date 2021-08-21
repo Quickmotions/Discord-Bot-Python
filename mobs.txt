@@ -1,1 +1,4 @@
-1,slime,100,5
+1,Slime,20,6,24
+2,Skeleton,100,6,60
+3,Goat,220,12,120
+4,King Graham,500,14,300
