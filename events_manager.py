@@ -145,6 +145,8 @@ def check_event_response(*args):
                         if 'Training Point' not in args[0].inv:
                             args[0].inv['Training Point'] = 0
                         args[0].inv['Training Point'] += tp_gain
+                        start_update_csv(args[2])
+                        start_update_events(args[4])
                         return f"You defeated {event.mob_name}:\n You looted £{coins_gained} and {tp_gain} Training Points from it"
 
                     enemy_damage = random.randint(event.mob_dmg - 1, event.mob_dmg + 1)
@@ -162,7 +164,8 @@ def check_event_response(*args):
                         if args[0].bal < coins_lost:
                             coins_lost = args[0].bal
                         args[0].bal -= coins_lost
-                        start_update_csv()
+                        start_update_csv(args[2])
+                        start_update_events(args[4])
                         return f"You were defeated by {event.mob_name}:\n They stole £{coins_lost} from you"
 
                     event.draw = new_draw

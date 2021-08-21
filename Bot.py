@@ -84,7 +84,6 @@ async def on_message(message):
                              ))
 
         start_update_events(EVENTS)
-        await message.channel.send(f"```yaml\n Generated user data for {username}:\nYou can now use the bot.```")
 
     if user_command in C.command_list:
         if user_found:
@@ -123,7 +122,7 @@ async def on_message(message):
                 for text in response[1:]:
                     await message.channel.send(f"```yaml\n{text}```")
         else:
-            await message.channel.send(f"```yaml\nDEBUG: {response}```")
+            await message.channel.send(f"```yaml\n{response}```")
 
 
 if __name__ == '__main__':
