@@ -84,26 +84,6 @@ def get_data():
     return items  # return list of users (classes)
 
 
-def use_card(card, user, event):
-    combat = 1 + (0.1 * user.skills['Combat'][0])
-    defense = 1 + (0.1 * user.skills['Defense'][0])
-    damage_dealt = 0
-    shield_gained = 0
-    extra_draw = False
-
-    if card == "Slash":
-        damage_dealt = round(3 * combat)
-    if card == "Defend":
-        shield_gained = round(10 * defense)
-    if card == "Charge":
-        damage_dealt = round(1 * combat)
-        extra_draw = True
-
-    event.mob_hp -= damage_dealt
-    event.shield += shield_gained
-    return [damage_dealt, shield_gained, extra_draw]
-
-
 def check_event_response(*args):
     # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list 4 = events 5 = input message
     if args[5] == "1" or args[5] == "2" or args[5] == "3" or args[5] == "4":  # test if user input is valid for fight
@@ -124,9 +104,19 @@ def check_event_response(*args):
                         else:
                             return "Only 3 cards were drawn."
 
+                    from Commands.card_command import use_card
+
                     info = use_card(draw[choice], args[0], event)
 
-                    if info[2]:  # can player draw extra card
+                    # healing
+                    healing = info[3]
+                    if event.hp + healing > event.max_hp:
+                        event.hp = event.max_hp
+                    else:
+                        event.hp += healing
+
+                    # can player draw extra card
+                    if info[2]:
                         new_draw = draw_card_deck(args[0], 4)
                     else:
                         new_draw = draw_card_deck(args[0])

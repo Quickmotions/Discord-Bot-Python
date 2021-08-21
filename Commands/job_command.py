@@ -29,7 +29,7 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                     # give random start pay
                     import random
                     import datetime
-                    args[0].pay = float(random.randint(30, 60))
+                    args[0].pay = float(random.randint(90, 140))
 
                     # if user never had a start working time then start it now
                     if args[0].last_work == "None":
@@ -97,9 +97,9 @@ def work_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         # reset last time worked
         args[0].last_work = current_time
 
-        if random.randint(1, 4) == 1 and duration_in_hour > 2:
+        if random.randint(1, 3) == 1 and duration_in_hour > 1:
             update_user_data(args[2])
-            args[0].pay = round(args[0].pay * 1.15, 2)
+            args[0].pay = round(args[0].pay * 1.35, 2)
             update_user_data(args[2])
             return f"You worked for {round(duration_in_hour, 2)} hours:\nYou earned £{amount_earned} and" \
                    f" got {tp_earned} Training Points.\n You also got a promotion, Congrats"

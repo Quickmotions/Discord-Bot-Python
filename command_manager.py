@@ -12,6 +12,8 @@ from Commands.hunt_command import hunt_c
 from Commands.source_command import source_c
 from Commands.steal_command import steal_c
 from Commands.gamble_command import gamble_c
+from Commands.card_command import card_c
+from Commands.shop_command import shop_c
 
 
 # controls inputted and outputted commands
@@ -22,13 +24,15 @@ class Commands:
             "bal": [bal_c, 5],
             "give": [give_c, 5],
             "inv": [inv_c, 5],
+            "card": [card_c, 5],
+            "shop": [shop_c, 10],
             "job": [job_c, 3],
             "work": [work_c, 5],
             "train": [train_c, 1],
             "agree": [agree_c, 1],
             "skill": [skill_c, 5],
             "rob": [rob_c, 72000],
-            "hunt": [hunt_c, 5],
+            "hunt": [hunt_c, 10],
             "source": [source_c, 3],
             "steal": [steal_c, 60],
             "gamble": [gamble_c, 5]
