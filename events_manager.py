@@ -138,7 +138,7 @@ def check_event_response(*args):
 
                         coins_gained = float(event.mob_coins) / 100
                         coins_gained = round(coins_gained * random.randint(90, 110), 2)
-                        tp_gain = round(event.mob_coins / random.randint(9, 16))
+                        tp_gain = round(event.mob_coins / random.randint(12, 16))
 
                         args[0].bal += coins_gained
 
