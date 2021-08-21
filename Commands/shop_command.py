@@ -22,6 +22,7 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         if len(args[3]) > 1:
             if args[3][0] == "buy":
                 for item in shop_list:
+                    print(item)
                     if item == str(args[3][1]):
                         if args[0].bal >= shop_list[item]:
                             args[0].bal -= shop_list[item]
@@ -31,8 +32,7 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                             return f"Bought 1 {item}"
                         else:
                             return f"You dont own enough money:\nItem - {item} costs £{shop_list[item]}"
-                    else:
-                        return "Item not in found in shop"
+                return "Item not in found in shop"
             else:
                 return "To buy an item from the shop:\nUse 'shop buy (item)'"
         else:
