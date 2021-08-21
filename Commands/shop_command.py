@@ -63,7 +63,7 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         shop_menu = "Shop Menu:\n--Cards--\n"
         for item in shop_list:
             shop_menu += f"{item.title()} - £{shop_list[item]}\n"
-        shop_menu += "--Items--\n"
+        shop_menu_item = "Shop Menu:\n--Items--\n"
         for item in shop_item_list:
-            shop_menu += f"{item.title()} - £{shop_list[item]}\n"
-        return shop_menu
+            shop_menu_item += f"{item.title()} - £{shop_item_list[item]}\n"
+        return ["multiple", shop_menu, shop_menu_item]
