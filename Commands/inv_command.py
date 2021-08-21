@@ -5,7 +5,7 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
         if int(value) > 0:
             response += f"\n{item} : {value}"
 
-    response2 = f"{args[0].username}s Cards:\n--------------------"
+    response2 = f"{args[0].username}s Deck:\n--------------------"
     for item, value in args[0].cards.items():
         if int(value) > 0:
             response2 += f"\n{item} : {value}"

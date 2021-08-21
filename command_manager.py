@@ -14,6 +14,8 @@ from Commands.steal_command import steal_c
 from Commands.gamble_command import gamble_c
 from Commands.card_command import card_c
 from Commands.shop_command import shop_c
+from Commands.item_command import item_c
+from Commands.gathering_command import fish_c
 
 
 # controls inputted and outputted commands
@@ -24,8 +26,9 @@ class Commands:
             "bal": [bal_c, 5],
             "give": [give_c, 5],
             "inv": [inv_c, 5],
-            "card": [card_c, 5],
-            "shop": [shop_c, 10],
+            "card": [card_c, 2],
+            "item": [item_c, 2],
+            "shop": [shop_c, 3],
             "job": [job_c, 3],
             "work": [work_c, 5],
             "train": [train_c, 1],
@@ -35,10 +38,9 @@ class Commands:
             "hunt": [hunt_c, 10],
             "source": [source_c, 3],
             "steal": [steal_c, 60],
-            "gamble": [gamble_c, 5]
+            "gamble": [gamble_c, 5],
+            "fish": [fish_c, 5]
         }
 
     def run_command(self, name, user_data, c, users, args, events):
         return self.command_list[name[0]][0](user_data, c, users, args, events)
-
-
