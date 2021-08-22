@@ -17,8 +17,7 @@ shop_list = {
 }
 shop_item_list = {
     'pickaxe': 150,
-    'fishingrod': 300,
-    'removalsigil': 500
+    'fishingrod': 300
 
 }
 

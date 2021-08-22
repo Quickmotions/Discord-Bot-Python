@@ -1,7 +1,6 @@
 item_list = {
     'pickaxe': 'Used to mine rocks',
-    'fishingrod': 'Used to fish',
-    'removalsigil': 'Can be consumed to remove one card from your deck'
+    'fishingrod': 'Used to fish'
 }
 
 
@@ -16,3 +15,9 @@ def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
 # def use_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
 #     if len(args[3]) > 0:
+#         if args[3][0] == "removalsigil":
+#             if len(args[3]) > 1:
+#
+#
+#     else:
+#         return "Incorrect use of 'use':\nTry 'use (item)'"
