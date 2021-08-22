@@ -39,6 +39,12 @@ mine_list = [
 
 ]
 
+def quit_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
+    if args[0].gathering != "gathering=no":
+        args[0].gathering = "gathering=no"
+        args[0].gathering_time = "None"
+        start_update_csv(args[2])
+        return "You quit your gathering, and got nothing, lol."
 
 def fish_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     if 'Fishingrod' in args[0].inv:
@@ -148,3 +154,4 @@ def mine_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         return "You are already doing a different type of gathering"
     else:
         return "You must own a Pickaxe to mine:\n-Try buying one from the shop"
+
