@@ -15,7 +15,7 @@ from Commands.gamble_command import gamble_c
 from Commands.card_command import card_c
 from Commands.shop_command import shop_c
 from Commands.item_command import item_c
-from Commands.gathering_command import fish_c
+from Commands.gathering_command import fish_c, mine_c
 
 
 # controls inputted and outputted commands
@@ -39,7 +39,8 @@ class Commands:
             "source": [source_c, 3],
             "steal": [steal_c, 60],
             "gamble": [gamble_c, 5],
-            "fish": [fish_c, 5]
+            "fish": [fish_c, 5],
+            "mine": [mine_c, 5]
         }
 
     def run_command(self, name, user_data, c, users, args, events):

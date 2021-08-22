@@ -54,6 +54,7 @@ def start_combat(user, users, mob, battle_type, events):
                 draw = draw_card_deck(user)
                 event.draw = draw
                 event.hp = event.max_hp
+                event.shield = 0
 
                 start_update_events(events)
 
