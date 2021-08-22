@@ -55,6 +55,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     enemy = mob.strip().split(',')
                     mob_list.append(enemy)
 
+
                 # mob data: 0 = difficulty, 1 = name, 2 = hp, 3 = dmg, 4 = coins dropped
 
                 # loop until random mob is right level

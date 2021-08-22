@@ -87,10 +87,15 @@ def fish_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                         args[0].skills['Fishing'] = [0, 0, 100]
                     xp_got = round(duration_in_hour * 20) * 20
                     give_xp(xp_got, "Fishing", args[0], args[2])
+                    tp_earned = round(duration_in_hour * 2.5)
+                    # adds training points to inv if the user has never had any
+                    if 'Training Point' not in args[0].inv:
+                        args[0].inv['Training Point'] = 0
+                    args[0].inv['Training Point'] += tp_earned
 
                 start_update_csv(args[2])
                 return ["multiple",
-                        f"You fished for {round(duration_in_hour, 2)} hours:\n and got {xp_got} Fishing xp.",
+                        f"You fished for {round(duration_in_hour, 2)} hours:\nYou got {xp_got} Fishing xp and {tp_earned} Training Points.",
                         fish_got_str]
             else:
                 return f"You have only been fishing for {round(duration_in_hour, 2)} hours:\n" \
@@ -143,10 +148,15 @@ def mine_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                         args[0].skills['Mining'] = [0, 0, 100]
                     xp_got = round(duration_in_hour * 20) * 20
                     give_xp(xp_got, "Mining", args[0], args[2])
+                    tp_earned = round(duration_in_hour * 2.5)
+                    # adds training points to inv if the user has never had any
+                    if 'Training Point' not in args[0].inv:
+                        args[0].inv['Training Point'] = 0
+                    args[0].inv['Training Point'] += tp_earned
 
                 start_update_csv(args[2])
                 return ["multiple",
-                        f"You Mined for {round(duration_in_hour, 2)} hours:\n and got {xp_got} Mining xp.",
+                        f"You Mined for {round(duration_in_hour, 2)} hours:\nYou got {xp_got} Mining xp and {tp_earned} Training Points.",
                         mine_got_str]
             else:
                 return f"You have only been Mining for {round(duration_in_hour, 2)} hours:\n" \
