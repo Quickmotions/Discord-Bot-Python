@@ -123,9 +123,11 @@ def check_event_response(*args):
                         new_draw = draw_card_deck(args[0])
 
                     # enemy turn
+
                     if event.mob_hp <= 0:  # is mob dead?
                         event.active = "Active=No"
                         start_update_events(args[4])
+
 
                         coins_gained = float(event.mob_coins) / 100
                         coins_gained = round(coins_gained * random.randint(90, 110), 2)
@@ -140,14 +142,22 @@ def check_event_response(*args):
                         start_update_events(args[4])
                         return f"You defeated {event.mob_name}:\n You looted £{coins_gained} and {tp_gain} Training Points from it"
 
+                    piercing_attack = False
+                    if random.randint(1, 6) == 1:
+                        piercing_attack = True
+
                     enemy_damage = random.randint(event.mob_dmg - 1, event.mob_dmg + 1)
+                    if not piercing_attack:
+                        for _ in range(enemy_damage):
+                            if event.shield > 0:
+                                event.shield -= 1
+                            else:
+                                event.hp -= 1
+                    if piercing_attack:
+                                event.hp -= enemy_damage
 
-                    for _ in range(enemy_damage):
-                        if event.shield > 0:
-                            event.shield -= 1
-                        else:
-                            event.hp -= 1
 
+                    # is player dead
                     if event.hp <= 0:
                         event.active = "Active=No"
                         start_update_events(args[4])
@@ -167,10 +177,15 @@ def check_event_response(*args):
                     for card in new_draw:
                         draw_menu += f"{num} = {card}\n"
                         num += 1
-
-                    return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - {enemy_damage}\n🛡️:"
+                    if not piercing_attack:
+                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - {enemy_damage}\n🛡️:"
                                         f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
                                         f"❤️: {event.mob_hp} - {info[0]}\n🗡️: {enemy_damage}",
                                         f"{draw_menu}"]
+                    else:
+                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - 🪡{enemy_damage}\n🛡️:"
+                                            f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
+                                            f"❤️: {event.mob_hp} - {info[0]}\n🗡️: {enemy_damage}",
+                                f"{draw_menu}"]
 
     return None
