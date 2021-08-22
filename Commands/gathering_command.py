@@ -95,7 +95,7 @@ def fish_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
 
 def mine_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
-    # if 'Pickaxe' in args[0].inv:
+    if 'Pickaxe' in args[0].inv:
         if args[0].gathering == "gathering=no":
             args[0].gathering = "gathering=mining"
             args[0].gathering_time = datetime.today()
@@ -146,5 +146,5 @@ def mine_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                 return f"You have only been Mining for {round(duration_in_hour, 2)} hours:\n" \
                        f"-You need to Mine for at least 1 hour"
         return "You are already doing a different type of gathering"
-    # else:
-    #     return "You must own a Pickaxe to mine:\n-Try buying one from the shop"
+    else:
+        return "You must own a Pickaxe to mine:\n-Try buying one from the shop"
