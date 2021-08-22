@@ -58,6 +58,11 @@ def start_combat(user, users, mob, battle_type, events):
 
                 start_update_events(events)
 
+                # set up health
+                if 'Health' not in user.skills:
+                    user.skills['Health'] = [0, 0, 100]
+                event.max_hp = round(100 * (1 + (0.05 * user.skills['Health'][0])))
+
                 draw_menu = "Your Cards:\n"
                 num = 1
                 for card in draw:
