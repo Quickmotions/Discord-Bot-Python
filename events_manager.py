@@ -53,13 +53,14 @@ def start_combat(user, users, mob, battle_type, events):
 
                 draw = draw_card_deck(user)
                 event.draw = draw
-                event.hp = event.max_hp
+
                 event.shield = 0
 
                 # set up health
                 if 'Health' not in user.skills:
                     user.skills['Health'] = [0, 0, 100]
                 event.max_hp = round(100 * (1 + (0.05 * user.skills['Health'][0])))
+                event.hp = event.max_hp
 
                 start_update_events(events)
 
@@ -148,7 +149,7 @@ def check_event_response(*args):
                         return f"You defeated {event.mob_name}:\n You looted £{coins_gained} and {tp_gain} Training Points from it"
 
                     piercing_attack = False
-                    if random.randint(1, 6) == 1:
+                    if random.randint(1, 12) == 1:
                         piercing_attack = True
 
                     enemy_damage = random.randint(event.mob_dmg - 1, event.mob_dmg + 1)
@@ -159,14 +160,14 @@ def check_event_response(*args):
                             else:
                                 event.hp -= 1
                     if piercing_attack:
-                                event.hp -= enemy_damage
+                        event.hp -= enemy_damage
 
 
                     # is player dead
                     if event.hp <= 0:
                         event.active = "Active=No"
                         start_update_events(args[4])
-                        coins_lost = event.mob_hp
+                        coins_lost = round(event.mob_coins * 3, 2)
                         if args[0].bal < coins_lost:
                             coins_lost = args[0].bal
                         args[0].bal -= coins_lost
