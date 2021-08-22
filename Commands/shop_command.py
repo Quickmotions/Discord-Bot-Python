@@ -12,6 +12,12 @@ shop_list = {
     'whirlwind': 2600,
     'bomb': 1999,
     'towershield': 4200,
+    'slam': 5500,
+    'incinerate': 4100,
+    'devastate': 2800,
+    'bite': 3600,
+    'venom': 4300,
+    'smash': 3100,
     'regeneration': 7500,
     'onepunch': 100000
 }
