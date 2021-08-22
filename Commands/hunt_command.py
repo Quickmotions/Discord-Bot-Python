@@ -5,23 +5,48 @@ from events_manager import start_combat
 def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     if len(args[3]) > 0:
         if args[3][0] == "list":
-            return ["multiple",
-                    "All hunting Locations:",
-                    "Plains: (easy)",
-                    "Swamp: (medium)",
-                    "Mountains: (hard)",
-                    "Volcano: (pog)"]
+            return "All hunting Locations:\n" \
+                   "Plains: (level 1)\n" \
+                   "Forrest: (level 2)\n" \
+                   "Swamp: (level 3)\n" \
+                   "Pond: (level 4)\n" \
+                   "Grasslands: (level 5)\n" \
+                   "Ruins: (level 6)\n" \
+                   "China: (level 7)\n" \
+                   "Artic: (level 8)\n" \
+                   "Savanna: (level 9)\n" \
+                   "Russia: (level 10)\n" \
+                   "Mountains: (level 11)\n" \
+                   "Volcano: (level 12)\n" \
+
+
 
         else:
             if args[0].gathering == "gathering=no":
                 if args[3][0] == "plains":
                     difficulty = 1
-                elif args[3][0] == "swamp":
+                elif args[3][0] == "forrest":
                     difficulty = 2
-                elif args[3][0] == "mountains":
+                elif args[3][0] == "swamp":
                     difficulty = 3
-                elif args[3][0] == "volcano":
+                elif args[3][0] == "pond":
                     difficulty = 4
+                elif args[3][0] == "grasslands":
+                    difficulty = 5
+                elif args[3][0] == "ruins":
+                    difficulty = 6
+                elif args[3][0] == "china":
+                    difficulty = 7
+                elif args[3][0] == "artic":
+                    difficulty = 8
+                elif args[3][0] == "savanna":
+                    difficulty = 9
+                elif args[3][0] == "russia":
+                    difficulty = 10
+                elif args[3][0] == "mountains":
+                    difficulty = 11
+                elif args[3][0] == "volcano":
+                    difficulty = 12
                 else:
                     return "Unknown Location:\nUse 'hunt list' to see locations"
                 f = open('mobs.txt', 'r')
