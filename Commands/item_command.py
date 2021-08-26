@@ -1,6 +1,31 @@
 item_list = {
     'pickaxe': 'Used to mine rocks',
-    'fishingrod': 'Used to fish'
+    'fishingrod': 'Used to fish',
+    'TinBoots': 'Gives +2 Defense Skill',
+    'TinLeggings': 'Gives +2 Defense Skill',
+    'TinChestplate': 'Gives +2 Defense Skill',
+    'TinHelmet': 'Gives +2 Defense Skill',
+    'ThiefHelmet': 'Gives +2 Stealing, +2 Agility Skill',
+    'ThiefChestplate': 'Gives +2 Stealing, +2 Agility Skill',
+    'ThiefLeggings': 'Gives +2 Stealing, +2 Agility Skill',
+    'ThiefBoots': 'Gives +2 Stealing, +2 Agility Skill',
+    'WarriorBoots': 'Gives +2 Combat Skill',
+    'WarriorLeggings': 'Gives +2 Combat Skill',
+    'WarriorChestplate': 'Gives +2 Combat Skill',
+    'WarriorHelmet': 'Gives +2 Combat Skill',
+    'FishBoots': 'Gives +2 Fishing Skill',
+    'FishChestplate': 'Gives +2 Fishing Skill',
+    'FishLeggings': 'Gives +2 Fishing Skill',
+    'FishHelmet': 'Gives +2 Fishing Skill',
+    'MinerBoots': 'Gives +2 Mining Skill',
+    'MinerHelmet': 'Gives +2 Mining Skill',
+    'MinerChestplate': 'Gives +2 Mining Skill',
+    'MinerLeggings': 'Gives +2 Mining Skill',
+    'IronSword': 'Gives +4 Combat Skill',
+    'MagicStaff': 'Gives +4 Magic Skill',
+    'GemFishingRod': 'Gives +5 Fishing Skill',
+    'LuckyStick': 'Gives +5 Luck Skill'
+
 }
 
 
