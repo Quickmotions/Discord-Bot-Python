@@ -49,7 +49,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     difficulty = 12
                 else:
                     return "Unknown Location:\nUse 'hunt list' to see locations"
-                f = open('mobs.txt', 'r')
+                f = open('Mobs/mobs.txt', 'r')
                 mob_list = []
                 for mob in f.readlines():
                     enemy = mob.strip().split(',')

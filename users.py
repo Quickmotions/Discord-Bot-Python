@@ -1,19 +1,24 @@
 import ast
+
 from datetime import datetime
 
 
 class Player:
-    def __init__(self, user_id, bal, inv, skills, job, last_work, cards, gathering, gathering_time):
+    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}", gathering="gathering=no", gathering_time="None", equipment="{}/{}"):
         u_id, username = user_id.split(' ', 1)
         self.user_id = str(u_id)
         self.username = str(username)
         self.bal = round(float(bal), 2)
         self.inv = ast.literal_eval(inv)
+        equipment, equipment_stats = equipment.split('/')
+        self.equipment = ast.literal_eval(equipment)
+        self.equipment_stats = ast.literal_eval(equipment_stats)
         self.skills = ast.literal_eval(skills)
         self.job = str(job)
-        job, pay = job.split(' ')
+        job, pay, promotion = job.split(' ')
         self.job = str(job)
         self.pay = float(pay)
+        self.promotion = int(promotion)
         if last_work != "None":
             self.last_work = datetime.strptime(str(last_work), '%Y-%m-%d %H:%M:%S.%f')
         else:
@@ -35,14 +40,14 @@ class Player:
 
 
 def get_data():
-    items = []
+    users = []
     f = open("users.csv", "r")
     for item in f.readlines():
         item = item.strip()  # remove \n
-        item = item.split('*')  # split into items
+        items = item.split('*')  # split into items
         # create class for each user
-        items.append(Player(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8]))
-    return items  # return list of users (classes)
+        users.append(Player(items[0], items[1], items[2], items[3], items[4], items[5], items[6], items[7], items[8], items[9]))
+    return users  # return list of users (classes)
 
 
 def run_setup_users():

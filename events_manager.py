@@ -1,10 +1,14 @@
 from Commands.update_csv import start_update_events, start_update_csv
 import random
 import ast
+from Mobs.mob_loot import award_hunt_loot
+
+
 
 
 class Events:
-    def __init__(self, user, active, mob_name, mob_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins):
+    def __init__(self, user, active, mob_name, mob_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty):
+        self.difficulty = difficulty
         user_stuff = user.split(' ')
         self.user_id = str(user_stuff[0])
         self.username = str(user_stuff[1])
@@ -50,7 +54,7 @@ def start_combat(user, users, mob, battle_type, events):
                 event.mob_hp = mob[2]
                 event.mob_dmg = mob[3]
                 event.mob_coins = mob[4]
-
+                event.difficulty = mob[0]
                 draw = draw_card_deck(user)
                 event.draw = draw
 
@@ -59,7 +63,7 @@ def start_combat(user, users, mob, battle_type, events):
                 # set up health
                 if 'Health' not in user.skills:
                     user.skills['Health'] = [0, 0, 100]
-                event.max_hp = round(100 * (1 + (0.05 * user.skills['Health'][0])))
+                event.max_hp = round(100 * (1 + (0.06 * (user.skills['Health'][0] + user.equipment_stats['Health']))))
                 event.hp = event.max_hp
 
                 start_update_events(events)
@@ -87,7 +91,7 @@ def get_data():
         item = item.strip()  # remove \n
         item = item.split('*')  # split into items
         # create class for each user
-        items.append(Events(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9]))
+        items.append(Events(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9], item[10]))
     return items  # return list of users (classes)
 
 
@@ -137,16 +141,25 @@ def check_event_response(*args):
 
                         coins_gained = float(event.mob_coins) / 100
                         coins_gained = round(coins_gained * random.randint(90, 110), 2)
-                        tp_gain = round(event.mob_coins / random.randint(12, 16))
+                        huntp_gain = round(event.mob_coins / random.randint(4, 7))
 
                         args[0].bal += coins_gained
+                        if 'HuntPoint' not in args[0].inv:
+                            args[0].inv['HuntPoint'] = 0
+                        args[0].inv['HuntPoint'] += huntp_gain
 
-                        if 'Training Point' not in args[0].inv:
-                            args[0].inv['Training Point'] = 0
-                        args[0].inv['Training Point'] += tp_gain
+
+                        loot_gained = award_hunt_loot(event.difficulty, args[0], args[2])
+                        loot_message = ""
+                        if loot_gained is not None:
+                            loot_message = f"\n"
+                            for item, amount in loot_gained:
+                                loot_message += f"{amount} {item}\n"
+
                         start_update_csv(args[2])
                         start_update_events(args[4])
-                        return f"You defeated {event.mob_name}:\n You looted £{coins_gained} and {tp_gain} Training Points from it"
+                        return f"You defeated {event.mob_name}:\nYou looted:\n{coins_gained} money\n{huntp_gain} " \
+                               f"HuntPoint{loot_message}"
 
                     piercing_attack = False
                     if random.randint(1, 12) == 1:

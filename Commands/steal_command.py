@@ -2,7 +2,7 @@ import random
 
 
 def steal_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
-    user_steal = args[0].skills['Stealing'][0]
+    user_steal = args[0].skills['Stealing'][0] + args[0].equipment_stats['Stealing']
     coins = random.randint(1, 10)
     steal_multiplier = float((user_steal / 100) + 1)
 

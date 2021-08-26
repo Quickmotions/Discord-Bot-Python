@@ -5,11 +5,13 @@ from discord.ext import commands
 from env import env
 from datetime import datetime, timedelta
 
+from Commands.update_skills import setup_skills
 from command_manager import Commands
 from users import run_setup_users
 from cooldown_manager import run_setup_cool_down, CoolDowns
 from Commands.update_csv import start_update_csv, start_update_cooldown, start_update_events
 from events_manager import check_event_response, Events, get_data
+from Commands.inv_command import setup_equipment, set_equipment_stats
 
 TOKEN = env()
 client = discord.Client()
@@ -26,6 +28,11 @@ CDS = run_setup_cool_down()
 @client.event
 async def on_ready():
     print("logged in as {0.user}\n\n".format(client))
+
+    for user in USERS:
+        setup_skills(user, USERS)
+        setup_equipment(user, USERS)
+        set_equipment_stats(user, USERS)
 
 
 @client.event
@@ -60,14 +67,8 @@ async def on_message(message):
     if not user_found:  # user data missing creates new default for user
 
         from users import Player
-        USERS.append(Player(f"{user_id} {username}",
-                            "0.0",
-                            "{}",
-                            "{'Combat': [0, 0, 100], 'Defense': [0, 0, 100], 'Stealing': [0, 0, 100]}",
-                            "None 0.0",
-                            "None",
-                            "{'Slash': 3, 'Defend': 1, 'Charge': 1}"
-                            ))
+        USERS.append(Player(f"{user_id} {username}"))
+        setup_skills(USERS)
         start_update_csv(USERS)
     if not event_found:  # user data missing creates new default for user
 

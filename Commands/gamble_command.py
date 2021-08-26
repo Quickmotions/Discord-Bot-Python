@@ -7,7 +7,7 @@ def gamble_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data
         if 'Luck' not in args[0].skills:
             args[0].skills['Luck'] = [0, 0, 100]
         amount_to_gamble = round(float(args[3][0]), 2)
-        user_luck = int(args[0].skills['Luck'][0])
+        user_luck = int(args[0].skills['Luck'][0] + args[0].equipment_stats['Luck'])
         luck_multiplier = round(user_luck * 0.3)
         user_bal = args[0].bal
         if amount_to_gamble > user_bal:

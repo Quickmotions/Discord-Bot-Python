@@ -1,4 +1,5 @@
 import random
+import datetime
 
 
 def update_user_data(data):
@@ -27,9 +28,7 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                     args[0].job = str(job_title).title()
 
                     # give random start pay
-                    import random
-                    import datetime
-                    args[0].pay = float(random.randint(90, 140))
+                    args[0].pay = float(random.randint(40, 60))
 
                     # if user never had a start working time then start it now
                     if args[0].last_work == "None":
@@ -60,12 +59,28 @@ def job_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                         return f"{user.username}s Job Info:\nTitle:\t{user.job}\nPay:\t{user.pay}"
 
             return f"{args[0].username}s Job Info:\nTitle:\t{args[0].job}\nPay:\t{args[0].pay}"
+        elif args[3][0] == "promote":
+            if args[0].job != "None":
+                if 'WorkPoint' not in args[0].inv:
+                    args[0].inv['WorkPoint'] = 0
+                if args[0].inv['WorkPoint'] >= args[0].promotion:
+                    pay_rise = random.randint(15, 20)
+                    args[0].pay += pay_rise
 
+                    args[0].inv['WorkPoint'] -= args[0].promotion
+                    args[0].promotion = round(args[0].promotion * 1.12)
+                    update_user_data(args[2])
+                    return f"You gained a promotion for {round(args[0].promotion / 1.12)} WorkPoints:\nYou gained a " \
+                           f"pay increase of £{pay_rise}, bringing your pay up to £{args[0].pay}."
+
+                else:
+                    return f"You need {args[0].promotion} WorkPoints in order to gain a promotion:\n" \
+                           f"Use 'work' to get some."
         else:
-            return "Incorrect argument,\nUse job get (title), or job check or job quit"
+            return "Incorrect argument,\nUse job get (title), job check, job promote or job quit"
 
     else:
-        return "Incorrect argument,\nUse job get (title), or job check or job quit"
+        return "Incorrect argument,\nUse job get (title), job check, job promote or job quit"
 
 
 def work_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
@@ -84,28 +99,26 @@ def work_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         duration_in_hour = duration_in_sec / 60 / 60
 
         amount_earned = round(args[0].pay * duration_in_hour, 2)
-        tp_earned = round(duration_in_hour * 3.5)
+        tp_earned = round(duration_in_hour * 1.5)
+        wp_earned = round(duration_in_hour * random.randint(13, 15))
 
-        # adds training points to inv if the user has never had any
-        if 'Training Point' not in args[0].inv:
-            args[0].inv['Training Point'] = 0
+        # adds TrainingPoints to inv if the user has never had any
+        if 'TrainingPoint' not in args[0].inv:
+            args[0].inv['TrainingPoint'] = 0
+        if 'WorkPoint' not in args[0].inv:
+            args[0].inv['WorkPoint'] = 0
 
         # add items gained
-        args[0].inv['Training Point'] += tp_earned
+        args[0].inv['TrainingPoint'] += tp_earned
+        args[0].inv['WorkPoint'] += wp_earned
+
         args[0].bal += amount_earned
 
         # reset last time worked
         args[0].last_work = current_time
 
-        if random.randint(1, 3) == 1 and duration_in_hour > 1:
-            update_user_data(args[2])
-            args[0].pay = round(args[0].pay * 1.35, 2)
-            update_user_data(args[2])
-            return f"You worked for {round(duration_in_hour, 2)} hours:\nYou earned £{amount_earned} and" \
-                   f" got {tp_earned} Training Points.\n You also got a promotion, Congrats"
-
         update_user_data(args[2])
-        return f"You worked for {round(duration_in_hour, 2)} hours:\nYou earned £{amount_earned} and" \
-               f" got {tp_earned} Training Points."
+        return f"You worked for {round(duration_in_hour, 2)} hours:\nYou earned £{amount_earned}.\n+{tp_earned} " \
+               f"TrainingPoints\n+{wp_earned} WorkPoints"
     else:
         return "You need a job first, \nTry job get (job title)"

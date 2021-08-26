@@ -19,11 +19,13 @@ shop_list = {
     'venom': 4300,
     'smash': 3100,
     'regeneration': 7500,
-    'onepunch': 100000
+    'onepunch': 100000,
 }
 shop_item_list = {
-    'pickaxe': 150,
-    'fishingrod': 300
+    'pickaxe': 300,
+    'fishingrod': 300,
+    'axe': 300,
+    'coal': 20,
 
 }
 
@@ -37,27 +39,33 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                 # card shop
                 for item in shop_list:
                     if item == str(args[3][1]):
-                        if args[0].bal >= shop_list[item]:
-                            args[0].bal -= shop_list[item]
+                        amount = 1
+                        if len(args[3]) > 2:
+                            amount = int(args[3][2])
+                        if args[0].bal >= shop_list[item] * amount:
+                            args[0].bal -= shop_list[item] * amount
                             if item.title() not in args[0].cards:  # add item to card list if it doesnt exist
                                 args[0].cards[item.title()] = 0
-                            args[0].cards[item.title()] += 1
+                            args[0].cards[item.title()] += amount
                             start_update_csv(args[2])
-                            return f"Bought 1 {item}"
+                            return f"Bought {amount} {item} for £{shop_list[item] * amount}"
                         else:
-                            return f"You dont own enough money:\nItem - {item} costs £{shop_list[item]}"
+                            return f"You don't own enough money:\nItem - {amount} {item} costs £{shop_list[item] * amount}"
                 # item shop
                 for item in shop_item_list:
                     if item == str(args[3][1]):
-                        if args[0].bal >= shop_item_list[item]:
-                            args[0].bal -= shop_item_list[item]
+                        amount = 1
+                        if len(args[3]) > 2:
+                            amount = int(args[3][2])
+                        if args[0].bal >= shop_item_list[item] * amount:
+                            args[0].bal -= shop_item_list[item] * amount
                             if item.title() not in args[0].inv:  # add item to card list if it doesnt exist
                                 args[0].inv[item.title()] = 0
-                            args[0].inv[item.title()] += 1
+                            args[0].inv[item.title()] += amount
                             start_update_csv(args[2])
-                            return f"Bought 1 {item}"
+                            return f"Bought {amount} {item} for £{shop_item_list[item] * amount}"
                         else:
-                            return f"You dont own enough money:\nItem - {item} costs £{shop_list[item]}"
+                            return f"You don't own enough money:\nItem - {amount} {item} costs £{shop_list[item] * amount}"
                 return "Item not in found in shop"
             else:
                 return "To buy an item from the shop:\nUse 'shop buy (item)'"
@@ -67,8 +75,10 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
     else:
         shop_menu = "Shop Menu:\n--Cards--\n"
         for item in shop_list:
-            shop_menu += f"{item.title()} - £{shop_list[item]}\n"
+            shop_menu += f"{item.title()} : £{shop_list[item]}\n"
         shop_menu_item = "Shop Menu:\n--Items--\n"
         for item in shop_item_list:
-            shop_menu_item += f"{item.title()} - £{shop_item_list[item]}\n"
+            shop_menu_item += f"{item.title()} : £{shop_item_list[item]}\n"
+        shop_menu += "Type: 'shop (item) (amount)' to buy it:"
+        shop_menu_item += "Type: 'shop (item) (amount)' to buy it:"
         return ["multiple", shop_menu, shop_menu_item]
