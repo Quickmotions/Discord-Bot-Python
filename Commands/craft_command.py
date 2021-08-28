@@ -37,7 +37,6 @@ craft_list = {
     '1MagicChestplate': [{'Paper': 50}, {'Leather': 50}],
     '2MagicChestplate': [{'1MagicChestplate': 1}, {'WaterRune': 75}],
     '3MagicChestplate': [{'2MagicChestplate': 1}, {'IceRune': 100}, {'EarthRune': 200}, {'SandRune': 40}],
-
     '    ': '',
     'FishHelmet': [{'FishIngot': 20}],
     'FishChestplate': [{'FishIngot': 20}],

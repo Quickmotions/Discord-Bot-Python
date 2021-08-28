@@ -116,10 +116,12 @@ def setup_equipment(user, users_data):
 
 
 helmets = ['TinHelmet', 'ThiefHelmet', 'WarriorHelmet', 'FishHelmet', 'MinerHelmet']
-chestplates = ['TinChestplate', 'ThiefChestplate', 'WarriorChestplate', 'FishChestplate', 'MinerChestplate']
+chestplates = ['TinChestplate', 'ThiefChestplate', 'WarriorChestplate', 'FishChestplate', 'MinerChestplate',
+               '2WarBornChestplate', '1WarBornChestplate', '3WarBornChestplate', '1MagicChestplate', '2MagicChestplate',
+               '3MagicChestplate', 'AncientChestplate']
 leggings = ['TinLeggings', 'ThiefLeggings', 'WarriorLeggings', 'FishLeggings', 'MinerLeggings']
 boots = ['TinBoots', 'ThiefBoots', 'WarriorBoots', 'FishBoots', 'MinerBoots']
-hands = ['IronSword', 'MagicStaff', 'GemFishingRod', 'LuckyStick', 'BonerSword']
+hands = ['IronSword', 'MagicStaff', 'GemFishingRod', 'LuckyStick', 'BonerSword', 'WandOfHealing']
 fingers = []
 
 
@@ -163,6 +165,9 @@ def set_equipment_stats(user, users):
     if user.equipment['Chest'] == '3MagicChestplate':
         temp_stats['Magic'] += 10
 
+    if user.equipment['Chest'] == 'AncientChestplate':
+        temp_stats['Health'] += 3
+
     if user.equipment['Legs'] == 'TinLeggings':
         temp_stats['Defense'] += 2
     if user.equipment['Legs'] == 'ThiefLeggings':
@@ -197,6 +202,8 @@ def set_equipment_stats(user, users):
         temp_stats['Luck'] += 5
     if user.equipment['Hand'] == 'BonerSword':
         temp_stats['Agility'] += 6
+    if user.equipment['Hand'] == 'WandOfHealing':
+        temp_stats['Healing'] += 4
     user.equipment_stats = temp_stats
     start_update_csv(users)
 
