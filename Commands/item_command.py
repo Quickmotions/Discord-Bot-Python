@@ -34,6 +34,7 @@ item_list = {
     '3MagicChestplate': 'Gives +10 Magic Skill',
     'AncientChestplate': 'Gives +3 Health Skill',
     'WandOfHealing': 'Gives +4 Healing Skill',
+    'ElectrumWand': 'Gives +5 Magic Skill',
 
 }
 

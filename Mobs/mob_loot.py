@@ -35,6 +35,14 @@ loot_table = [
     [6, 'WandOfHealing', 1, 50],
     [7, 'WandOfHealing', 1, 80],
 
+    [5, 'ElectrumWand', 1, 10],
+    [6, 'ElectrumWand', 1, 15],
+    [7, 'ElectrumWand', 1, 20],
+    [8, 'ElectrumWand', 1, 30],
+    [9, 'ElectrumWand', 1, 50],
+
+
+
 ]
 
 
