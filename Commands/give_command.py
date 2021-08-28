@@ -6,7 +6,8 @@ def give_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
             if f"<@!{user.user_id}>" == str(args[3][0]) or f"<@{user.user_id}>" == str(args[3][0]):  # test @
 
                 amount_to_send = int(args[3][1])  # set amount
-
+                if amount_to_send <= 0:
+                    return f"Cannot send {amount_to_send}:\nTry an amount above 0 that's not a decimal."
                 # send item
                 if len(args[3]) > 2:
                     item_to_send = str(args[3][2]).lower()
@@ -40,7 +41,9 @@ def give_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     user.bal += amount_to_send
                     start_update_csv(args[2])
                     return f"{args[0].username} sent £{amount_to_send} to {user.username}"
-        return "Missing User:\ntry 'give (@user) (amount £)' or 'give (@user) (amount) (itemname)'"
+        return "Missing User:\ntry 'give (@user) (amount £)' or 'give (@user) (amount) (itemname):" \
+               "\nGive doesnt work with decimals'"
     else:
-        return "Missing args:\ntry 'give (@user) (amount £)' or 'give (@user) (amount) (itemname)'"
+        return "Missing args:\ntry 'give (@user) (amount £)' or 'give (@user) (amount) (itemname)':" \
+               "\nGive doesnt work with decimals"
 
