@@ -24,7 +24,14 @@ item_list = {
     'IronSword': 'Gives +4 Combat Skill',
     'MagicStaff': 'Gives +4 Magic Skill',
     'GemFishingRod': 'Gives +5 Fishing Skill',
-    'LuckyStick': 'Gives +5 Luck Skill'
+    'LuckyStick': 'Gives +5 Luck Skill',
+    'BonerSword': 'Gives +6 Agility Skill',
+    '1WarBornChestplate': 'Gives +2 Combat Skill',
+    '2WarBornChestplate': 'Gives +5 Combat Skill',
+    '3WarBornChestplate': 'Gives +10 Combat Skill',
+    '1MagicChestplate': 'Gives +2 Magic Skill',
+    '2MagicChestplate': 'Gives +5 Magic Skill',
+    '3MagicChestplate': 'Gives +10 Magic Skill',
 
 }
 

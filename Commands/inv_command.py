@@ -88,7 +88,8 @@ def sort_inventory(inv):
     special = ['TrainingPoint', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune', 'EarthRune', 'FireRune']
     resource = ['Coal', 'Cod', 'Mackerel', 'Carp', 'Trout', 'Salmon', 'Catfish', 'Tuna', 'Stone', 'Limestone',
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
-                'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart']
+                'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
+                'TinIngot', 'GoldIngot']
 
     sorted_inv = [{}, {}, {}]
     for item, amount in inv.items():
@@ -118,7 +119,7 @@ helmets = ['TinHelmet', 'ThiefHelmet', 'WarriorHelmet', 'FishHelmet', 'MinerHelm
 chestplates = ['TinChestplate', 'ThiefChestplate', 'WarriorChestplate', 'FishChestplate', 'MinerChestplate']
 leggings = ['TinLeggings', 'ThiefLeggings', 'WarriorLeggings', 'FishLeggings', 'MinerLeggings']
 boots = ['TinBoots', 'ThiefBoots', 'WarriorBoots', 'FishBoots', 'MinerBoots']
-hands = ['IronSword', 'MagicStaff', 'GemFishingRod', 'LuckyStick']
+hands = ['IronSword', 'MagicStaff', 'GemFishingRod', 'LuckyStick', 'BonerSword']
 fingers = []
 
 
@@ -147,6 +148,20 @@ def set_equipment_stats(user, users):
         temp_stats['Fishing'] += 2
     if user.equipment['Chest'] == 'MinerChestplate':
         temp_stats['Mining'] += 2
+
+    if user.equipment['Chest'] == '1WarBornChestplate':
+        temp_stats['Combat'] += 2
+    if user.equipment['Chest'] == '2WarBornChestplate':
+        temp_stats['Combat'] += 5
+    if user.equipment['Chest'] == '3WarBornChestplate':
+        temp_stats['Combat'] += 10
+
+    if user.equipment['Chest'] == '1MagicChestplate':
+        temp_stats['Magic'] += 2
+    if user.equipment['Chest'] == '2MagicChestplate':
+        temp_stats['Magic'] += 5
+    if user.equipment['Chest'] == '3MagicChestplate':
+        temp_stats['Magic'] += 10
 
     if user.equipment['Legs'] == 'TinLeggings':
         temp_stats['Defense'] += 2
@@ -180,6 +195,8 @@ def set_equipment_stats(user, users):
         temp_stats['Fishing'] += 5
     if user.equipment['Hand'] == 'LuckyStick':
         temp_stats['Luck'] += 5
+    if user.equipment['Hand'] == 'BonerSword':
+        temp_stats['Agility'] += 6
     user.equipment_stats = temp_stats
     start_update_csv(users)
 
