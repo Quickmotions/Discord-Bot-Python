@@ -103,7 +103,7 @@ def use_card(card, user, event):
         heal_gained = round(10 * healing)
 
     if user.equipment['Hand'] == "Shield":
-        shield_gained = round(3 * defense)
+        shield_gained += round(3 * defense)
 
     event.mob_hp -= damage_dealt
     event.shield += shield_gained
