@@ -89,7 +89,7 @@ def sort_inventory(inv):
     resource = ['Coal', 'Cod', 'Mackerel', 'Carp', 'Trout', 'Salmon', 'Catfish', 'Tuna', 'Stone', 'Limestone',
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
                 'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
-                'TinIngot', 'GoldIngot']
+                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot']
 
     sorted_inv = [{}, {}, {}]
     for item, amount in inv.items():
@@ -121,7 +121,8 @@ chestplates = ['TinChestplate', 'ThiefChestplate', 'WarriorChestplate', 'FishChe
                '3MagicChestplate', 'AncientChestplate']
 leggings = ['TinLeggings', 'ThiefLeggings', 'WarriorLeggings', 'FishLeggings', 'MinerLeggings']
 boots = ['TinBoots', 'ThiefBoots', 'WarriorBoots', 'FishBoots', 'MinerBoots']
-hands = ['IronSword', 'MagicStaff', 'GemFishingRod', 'LuckyStick', 'BonerSword', 'WandOfHealing', 'ElectrumWand']
+hands = ['IronSword', 'MagicStaff', 'GemFishingRod', 'LuckyStick', 'BonerSword', 'WandOfHealing', 'ElectrumWand',
+         'Shield']
 fingers = []
 
 

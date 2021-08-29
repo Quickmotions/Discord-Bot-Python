@@ -35,6 +35,8 @@ item_list = {
     'AncientChestplate': 'Gives +3 Health Skill',
     'WandOfHealing': 'Gives +4 Healing Skill',
     'ElectrumWand': 'Gives +5 Magic Skill',
+    'Shield': 'Grants 3 shield each turn',
+
 
 }
 

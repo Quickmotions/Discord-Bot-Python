@@ -53,6 +53,7 @@ craft_list = {
     'MagicStaff': [{'GoldIngot': 80}],
     'GemFishingRod': [{'GemIngot': 20}],
     'LuckyStick': [{'GemIngot': 20}],
+    'Shield': [{'IronIngot': 150}],
     'TrainingPoint': [{'Diamond': 1}, {'Ruby': 1}, {'Trout': 3}, {'Catfish': 3}],
 }
 

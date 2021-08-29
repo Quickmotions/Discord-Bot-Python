@@ -97,10 +97,13 @@ def use_card(card, user, event):
         damage_dealt = round(10 * agility)
     if card == "Venom":
         damage_dealt = round(3 * magic)
-        shield_gained = round(8 * defense)
+
     if card == "Smash":
         damage_dealt = round(3 * combat)
         heal_gained = round(10 * healing)
+
+    if user.equipment['Hand'] == "Shield":
+        shield_gained = round(3 * defense)
 
     event.mob_hp -= damage_dealt
     event.shield += shield_gained
