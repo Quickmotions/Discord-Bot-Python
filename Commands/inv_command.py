@@ -39,20 +39,12 @@ def equip_c(*args):
                 if item_name.lower() == user_input and item_name in args[0].inv:
                     previous = args[0].equipment[slot]
                     args[0].equipment[slot] = item_name
-                    response = update_and_return(args[2], previous, item_name, slot)
+                    start_update_csv(args[2])
+                    set_equipment_stats(args[0], args[2])
+                    return f"Replaced {previous} with {item} in {slot} Slot."
         return response
     else:
         return "Incorrect use of equip command:\nTry 'equip (itemname)'"
-
-
-def update_and_return(user_data, previous, item, slot):
-    start_update_csv(user_data)
-
-    return f"Replaced {previous} with {item} in {slot} Slot."
-
-
-# equipment has been split into a list of 2 dictioinarys, use first to store equipment, and use second to store the
-# temp stats gained. need to set up a rule to split these in the users class
 
 
 def sort_inventory(inv):
@@ -90,12 +82,11 @@ def setup_equipment(user, users_data):
 def set_equipment_stats(user, users):
     temp_stats = {'Combat': 0, 'Magic': 0, 'Agility': 0, 'Healing': 0, 'Defense': 0, 'Stealing': 0, 'Strength': 0, 'Healing': 0, 'Luck': 0, 'Fishing': 0, 'Mining': 0, 'Woodcut': 0, 'Health': 0}
     for item, slot, stats in item_list:
-        for item_name, desc in item.items():
-            for equipment_slot, equipment in user.equipment.items():
+        for equipment_slot, equipment in user.equipment.items():
+            for item_name, desc in item.items():
                 if equipment == item_name:
                     for stat, amount in stats.items():
                         temp_stats[stat] += amount
-
     user.equipment_stats = temp_stats
     start_update_csv(users)
 
