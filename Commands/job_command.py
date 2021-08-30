@@ -99,7 +99,7 @@ def work_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         duration_in_hour = duration_in_sec / 60 / 60
 
         amount_earned = round(args[0].pay * duration_in_hour, 2)
-        tp_earned = round(duration_in_hour * 1.5)
+        tp_earned = round(amount_earned / 15)
         wp_earned = round(duration_in_hour * random.randint(13, 15))
 
         # adds TrainingPoints to inv if the user has never had any

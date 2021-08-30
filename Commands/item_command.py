@@ -1,51 +1,52 @@
-item_list = {
-    'pickaxe': 'Used to mine rocks',
-    'fishingrod': 'Used to fish',
-    'TinBoots': 'Gives +2 Defense Skill',
-    'TinLeggings': 'Gives +2 Defense Skill',
-    'TinChestplate': 'Gives +2 Defense Skill',
-    'TinHelmet': 'Gives +2 Defense Skill',
-    'ThiefHelmet': 'Gives +2 Stealing, +2 Agility Skill',
-    'ThiefChestplate': 'Gives +2 Stealing, +2 Agility Skill',
-    'ThiefLeggings': 'Gives +2 Stealing, +2 Agility Skill',
-    'ThiefBoots': 'Gives +2 Stealing, +2 Agility Skill',
-    'WarriorBoots': 'Gives +2 Combat Skill',
-    'WarriorLeggings': 'Gives +2 Combat Skill',
-    'WarriorChestplate': 'Gives +2 Combat Skill',
-    'WarriorHelmet': 'Gives +2 Combat Skill',
-    'FishBoots': 'Gives +2 Fishing Skill',
-    'FishChestplate': 'Gives +2 Fishing Skill',
-    'FishLeggings': 'Gives +2 Fishing Skill',
-    'FishHelmet': 'Gives +2 Fishing Skill',
-    'MinerBoots': 'Gives +2 Mining Skill',
-    'MinerHelmet': 'Gives +2 Mining Skill',
-    'MinerChestplate': 'Gives +2 Mining Skill',
-    'MinerLeggings': 'Gives +2 Mining Skill',
-    'IronSword': 'Gives +4 Combat Skill',
-    'MagicStaff': 'Gives +4 Magic Skill',
-    'GemFishingRod': 'Gives +5 Fishing Skill',
-    'LuckyStick': 'Gives +5 Luck Skill',
-    'BonerSword': 'Gives +6 Agility Skill',
-    '1WarBornChestplate': 'Gives +2 Combat Skill',
-    '2WarBornChestplate': 'Gives +5 Combat Skill',
-    '3WarBornChestplate': 'Gives +10 Combat Skill',
-    '1MagicChestplate': 'Gives +2 Magic Skill',
-    '2MagicChestplate': 'Gives +5 Magic Skill',
-    '3MagicChestplate': 'Gives +10 Magic Skill',
-    'AncientChestplate': 'Gives +3 Health Skill',
-    'WandOfHealing': 'Gives +4 Healing Skill',
-    'ElectrumWand': 'Gives +5 Magic Skill',
-    'Shield': 'Grants 3 shield each turn',
+item_list = [
+    [{'pickaxe': 'Used to mine rocks'}, 'None', {}],
+    [{'fishingrod': 'Used to fish'}, 'None', {}],
+    [{'TinBoots': 'Gives +2 Defense Skill'}, 'Feet', {'Defense': 2}],
+    [{'TinLeggings': 'Gives +2 Defense Skill'}, 'Legs', {'Defense': 2}],
+    [{'TinChestplate': 'Gives +2 Defense Skill'}, 'Chest', {'Defense': 2}],
+    [{'TinHelmet': 'Gives +2 Defense Skill'}, 'Head', {'Defense': 2}],
+    [{'ThiefHelmet': 'Gives +2 Stealing, +2 Agility Skill'}, 'Head', {'Stealing': 2, 'Agility': 2}],
+    [{'ThiefChestplate': 'Gives +2 Stealing, +2 Agility Skill'}, 'Chest', {'Stealing': 2, 'Agility': 2}],
+    [{'ThiefLeggings': 'Gives +2 Stealing, +2 Agility Skill'}, 'Legs', {'Stealing': 2, 'Agility': 2}],
+    [{'ThiefBoots': 'Gives +2 Stealing, +2 Agility Skill'}, 'Feet', {'Stealing': 2, 'Agility': 2}],
+    [{'WarriorBoots': 'Gives +2 Combat Skill'}, 'Feet', {'Combat': 2}],
+    [{'WarriorLeggings': 'Gives +2 Combat Skill'}, 'Legs', {'Combat': 2}],
+    [{'WarriorChestplate': 'Gives +2 Combat Skill'}, 'Chest', {'Combat': 2}],
+    [{'WarriorHelmet': 'Gives +2 Combat Skill'}, 'Head', {'Combat': 2}],
+    [{'FishBoots': 'Gives +2 Fishing Skill'}, 'Feet', {'Fishing': 2}],
+    [{'FishChestplate': 'Gives +2 Fishing Skill'}, 'Chest', {'Fishing': 2}],
+    [{'FishLeggings': 'Gives +2 Fishing Skill'}, 'Legs', {'Fishing': 2}],
+    [{'FishHelmet': 'Gives +2 Fishing Skill'}, 'Head', {'Fishing': 2}],
+    [{'MinerBoots': 'Gives +2 Mining Skill'}, 'Feet', {'Mining': 2}],
+    [{'MinerHelmet': 'Gives +2 Mining Skill'}, 'Head', {'Mining': 2}],
+    [{'MinerChestplate': 'Gives +2 Mining Skill'}, 'Chest', {'Mining': 2}],
+    [{'MinerLeggings': 'Gives +2 Mining Skill'}, 'Legs', {'Mining': 2}],
+    [{'IronSword': 'Gives +4 Combat Skill'}, 'Hand', {'Combat': 4}],
+    [{'MagicStaff': 'Gives +4 Magic Skill'}, 'Hand', {'Magic': 4}],
+    [{'GemFishingRod': 'Gives +5 Fishing Skill'}, 'Hand', {'Fishing': 5}],
+    [{'LuckyStick': 'Gives +5 Luck Skill'}, 'Hand', {'Luck': 5}],
+    [{'BonerSword': 'Gives +6 Agility Skill'}, 'Hand', {'Agility': 6}],
+    [{'CombatChestplate': 'Gives +2 Combat Skill'}, 'Chest', {'Combat': 2}],
+    [{'ChampionChestplate': 'Gives +5 Combat Skill'}, 'Chest', {'Combat': 5}],
+    [{'WarBornChestplate': 'Gives +10 Combat Skill'}, 'Chest', {'Combat': 10}],
+    [{'MagicChestplate': 'Gives +2 Magic Skill'}, 'Chest', {'Magic': 2}],
+    [{'ElementalChestplate': 'Gives +5 Magic Skill'}, 'Chest', {'Magic': 5}],
+    [{'ArchMageChestplate': 'Gives +10 Magic Skill'}, 'Chest', {'Magic': 10}],
+    [{'AncientChestplate': 'Gives +3 Health Skill'}, 'Chest', {'Health': 3}],
+    [{'WandOfHealing': 'Gives +4 Healing Skill'}, 'Hand', {'Healing': 3}],
+    [{'ElectrumWand': 'Gives +5 Magic Skill'}, 'Hand', {'Magic': 5}],
+    [{'Shield': 'Grants 3 shield each turn'}, 'Hand', {}],
 
 
-}
+]
 
 
 def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     if len(args[3]) > 0:
-        for item in item_list:
-            if args[3][0] == item.lower():
-                return f"Info for {item}:\n{item_list[item]}"
+        for item, slot, stats in item_list:
+            for item_name, desc in item.items():
+                if args[3][0] == item_name.lower():
+                    return f"Info for {item_name}:\n{desc}"
     else:
         return f"Incorrect use of item:\ntry 'item (item-name)'"
 
