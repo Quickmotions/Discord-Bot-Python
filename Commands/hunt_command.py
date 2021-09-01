@@ -14,7 +14,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                    "Ruins: (level 6)\n" \
                    "China: (level 7)\n" \
                    "Artic: (level 8)\n" \
-                   "Savanna: (level 9)\n" \
+                   "Egypt: (level 9)\n" \
                    "Russia: (level 10)\n" \
                    "Mountains: (level 11)\n" \
                    "Volcano: (level 12)\n" \
@@ -38,7 +38,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     difficulty = 7
                 elif args[3][0] == "arctic":
                     difficulty = 8
-                elif args[3][0] == "savanna":
+                elif args[3][0] == "egypt":
                     difficulty = 9
                 elif args[3][0] == "russia":
                     difficulty = 10

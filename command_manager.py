@@ -20,6 +20,7 @@ from Commands.craft_command import craft_c
 from Commands.quest_command import quest_c
 from Commands.skill_to_stats import skill_c
 from Commands.removal_command import removal_c
+from Commands.hguild_command import hguild_c
 
 # controls inputted and outputted commands
 class Commands:
@@ -50,7 +51,8 @@ class Commands:
             "woodcut": [woodcut_c, 5],
             "quit": [quit_c, 30],
             "quest": [quest_c, 5],
-            "removal": [removal_c, 5]
+            "removal": [removal_c, 5],
+            "hguild": [hguild_c, 5],
         }
 
     def run_command(self, name, user_data, c, users, args, events):

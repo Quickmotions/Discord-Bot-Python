@@ -36,9 +36,21 @@ item_list = [
     [{'WandOfHealing': 'Gives +4 Healing Skill'}, 'Hand', {'Healing': 3}],
     [{'ElectrumWand': 'Gives +5 Magic Skill'}, 'Hand', {'Magic': 5}],
     [{'Shield': 'Grants 3 shield each turn'}, 'Hand', {}],
-
+    [{'EternalHelmet': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Head', {'Defense': 5, 'Health': 5}],
+    [{'EternalChestplate': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Chest', {'Defense': 5, 'Health': 5}],
+    [{'EternalLeggings': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Legs', {'Defense': 5, 'Health': 5}],
+    [{'EternalBoots': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Feet', {'Defense': 5, 'Health': 5}],
+    [{'EternalGuardianShield': 'Gives +15 Defense Skill'}, 'Hand', {'Defense': 15}],
+    [{'AssassinsHelmet': 'Gives +3 Agility Skill'}, 'Head', {'Agility': 3}],
+    [{'AssassinsChestplate': 'Gives +3 Agility Skill'}, 'Chest', {'Agility': 3}],
+    [{'AssassinsLeggings': 'Gives +3 Agility Skill'}, 'Legs', {'Agility': 3}],
+    [{'AssassinsBoots': 'Gives +3 Agility Skill'}, 'Feet', {'Agility': 3}],
+    [{'HunterRing': 'Gives +1 Combat Skill, +1 Agility Skill, +1 Magic Skill'}, 'Finger', {'Agility': 1, 'Magic': 1, 'Combat': 1}],
+    [{'SorcererWand': 'Gives +5 Magic Skill, +2 Defense Skill'}, 'Hand', {'Magic': 5, 'Defense': 2}],
+    [{'MagicDagger': 'Gives +3 Magic Skill, +4 Agility Skill'}, 'Hand', {'Magic': 3, 'Agility': 4}],
 
 ]
+
 
 
 def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
