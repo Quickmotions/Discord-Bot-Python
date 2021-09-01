@@ -1,3 +1,5 @@
+from Commands.update_csv import start_update_csv
+
 shop_list = {
     'slash': 200,
     'defend': 320,
@@ -28,8 +30,6 @@ shop_item_list = {
     'coal': 20,
 
 }
-
-from Commands.update_csv import start_update_csv
 
 
 def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list

@@ -51,7 +51,7 @@ craft_list = {
 
 
 def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
-    if len(args[3]) > 1:
+    if len(args[3]) > 0:
         for craftable in craft_list:
             if args[3][0] == craftable.lower() or args[3][0] == craftable:
                 # check for components

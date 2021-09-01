@@ -48,6 +48,10 @@ item_list = [
     [{'HunterRing': 'Gives +1 Combat Skill, +1 Agility Skill, +1 Magic Skill'}, 'Finger', {'Agility': 1, 'Magic': 1, 'Combat': 1}],
     [{'SorcererWand': 'Gives +5 Magic Skill, +2 Defense Skill'}, 'Hand', {'Magic': 5, 'Defense': 2}],
     [{'MagicDagger': 'Gives +3 Magic Skill, +4 Agility Skill'}, 'Hand', {'Magic': 3, 'Agility': 4}],
+    [{'DiabloRing': 'Gives +4 Magic Skill'}, 'Ring', {'Magic': 4}],
+    [{'CosmicLeggings': 'Gives +4 magic Skill'}, 'Legs', {'magic': 4}],
+    [{'InfinityBoots': 'Gives +5 Magic Skill'}, 'Feet', {'Magic': 5}],
+    [{'SpectralHelmet': 'Gives +6 Magic Skill'}, 'Head', {'Magic': 6}],
 
 ]
 
