@@ -59,5 +59,5 @@ def guild_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
         shop_menu = "Hunt Guild Shop:\n\n"
         for item in guild_list:
             shop_menu += f"{item.title()} : {guild_list[item]} HuntPoints\n"
-        shop_menu += "Type: 'guild (item) (amount)' to buy it:"
+        shop_menu += "Type: 'guild buy (item) (amount)' to buy it:"
         return shop_menu
