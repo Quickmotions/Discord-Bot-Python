@@ -69,7 +69,21 @@ item_list = [
     [{'AngelBoots': 'Gives +10 Healing Skill'}, 'Feet', {'Healing': 10}],
     [{'StaffOfAegis': 'Gives +18 Magic Skill'}, 'Hand', {'Magic': 18}],
     [{'LavaSword': 'Gives +12 Combat Skill'}, 'Hand', {'Combat': 12}],
-
+    [{'PurityChestplate': 'Gives +6 Health Skill'}, 'Chest', {'Health': 6}],
+    [{'CursedMask': 'Gives -5 Defense Skill, -5 Luck Skill, +8 Magic Skill'}, 'Head', {'Magic': 8, 'Luck': -5, 'Defense': -5}],
+    [{'TormentShard': 'Gives +3 Magic Skill, +3 Healing Skill'}, 'Hand', {'Magic': 3, 'Healing': 3}],
+    [{'HallowedHelmet': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Head', {'Defense': 4, 'Luck': 6}],
+    [{'HallowedChestplate': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Chest', {'Defense': 4, 'Luck': 6}],
+    [{'HallowedLeggings': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Legs', {'Defense': 4, 'Luck': 6}],
+    [{'HallowedBoots': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Feet', {'Defense': 4, 'Luck': 6}],
+    [{'HallowedSpear': 'Gives +2 Defense Skill, +8 Combat Skill'}, 'Hand', {'Defense': 2, 'Combat': 8}],
+    [{'PunySword': 'Gives +1 Combat Skill'}, 'Hand', {'Combat': 1}],
+    [{'OldIronChestplate': 'Gives +2 Defense Skill'}, 'Chest', {'Defense': 2}],
+    [{'SlimeRing': 'Gives +4 Magic Skill, +4 Agility Skill'}, 'Finger', {'Magic': 4, 'Agility': 4}],
+    [{'Katana': 'Gives +3 Combat Skill, +3 Agility Skill'}, 'Hand', {'Combat': 3, 'Agility': 3}],
+    [{'WarlockLeggings': 'Gives +5 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 5, 'Healing': -3}],
+    [{'WarlockBoots': 'Gives +5 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 5, 'Healing': -3}],
+    [{'MagicRing': 'Gives +2 Magic Skill'}, 'Finger', {'Magic': 2}],
 ]
 
 
