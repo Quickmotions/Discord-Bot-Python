@@ -37,8 +37,15 @@ loot_table = [
     [7, 'ElectrumWand', 1, 20],
     [8, 'ElectrumWand', 1, 30],
     [9, 'ElectrumWand', 1, 50],
-
-
+    [3, 'AbyssalDagger', 1, 50],
+    [5, 'AbyssalDagger', 1, 50],
+    [6, 'AbyssalDagger', 1, 50],
+    [8, 'BasaltHelmet', 1, 70],
+    [14, 'AngelHelmet', 1, 10],
+    [14, 'AngelChestplate', 1, 10],
+    [14, 'AngelLeggings', 1, 10],
+    [14, 'AngelBoots', 1, 10],
+    [14, 'StaffOfAegis', 1, 2],
 
 ]
 
