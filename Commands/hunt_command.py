@@ -18,8 +18,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                    "Russia: (level 10)\n" \
                    "Mountains: (level 11)\n" \
                    "Volcano: (level 12)\n" \
-
-
+                   "Heaven: (level 13)\n" \
 
         else:
             if args[0].gathering == "gathering=no":
@@ -37,7 +36,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     difficulty = 6
                 elif args[3][0] == "china":
                     difficulty = 7
-                elif args[3][0] == "artic":
+                elif args[3][0] == "arctic":
                     difficulty = 8
                 elif args[3][0] == "savanna":
                     difficulty = 9
@@ -47,6 +46,8 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     difficulty = 11
                 elif args[3][0] == "volcano":
                     difficulty = 12
+                elif args[3][0] == "heaven":
+                    difficulty = 13
                 else:
                     return "Unknown Location:\nUse 'hunt list' to see locations"
                 f = open('Mobs/mobs.txt', 'r')

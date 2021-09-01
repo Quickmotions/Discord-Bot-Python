@@ -20,3 +20,14 @@ def start_update_events(events):
     for event in events:
         f.write(f"{event.user_id} {event.username}*{event.active}*{event.mob_name}*{event.mob_hp}*{event.mob_dmg}*{event.draw}*{event.shield}*{event.hp}*{event.max_hp}*{event.mob_coins}*{event.difficulty}\n")
     f.close()
+
+
+def start_update_quests(quests):
+    f = open("Quests/quest.csv", 'w').close  # clear file
+    f = open("Quests/quest.csv", 'a')
+    for quest in quests:
+        user_list = ""
+        for user in quest.users:
+            user_list += str(user) + '*'
+        f.write(f"{quest.info},{quest.start},{quest.cost},{quest.reward},{user_list}\n")
+    f.close()

@@ -13,7 +13,7 @@ def rob_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                         # largest amount to steal
                         user_steal = args[0].skills['Stealing'][0] + args[0].equipment_stats['Stealing']
                         victim_defense = victim.skills['Defense'][0] + victim.equipment_stats['Defense']
-                        base_steal = 0.4
+                        base_steal = 0.3
 
                         steal_multiplier = float(((user_steal - victim_defense) / 100) + 1)
 

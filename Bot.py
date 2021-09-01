@@ -1,7 +1,5 @@
 # bot.py
-import os
 import discord
-from discord.ext import commands
 from env import env
 from datetime import datetime, timedelta
 
@@ -12,6 +10,7 @@ from cooldown_manager import run_setup_cool_down, CoolDowns
 from Commands.update_csv import start_update_csv, start_update_cooldown, start_update_events
 from events_manager import check_event_response, Events, get_data
 from Commands.inv_command import setup_equipment, set_equipment_stats
+from Commands.quest_command import setup_quests
 
 TOKEN = env()
 client = discord.Client()
@@ -37,16 +36,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    EVENTS = get_data()
+    if message.author == client.user:  # stops bot responding to its self
+        return
+    events = get_data()
     # collect some data from message
     user_id = str(message.author.id)
     username = str(message.author).split('#')[0]  # username only
     user_message = str(message.content).lower()
     channel = str(message.channel.name)
     guild = str(message.author.guild.name)
-
-    if message.author == client.user:  # stops bot responding to its self
-        return
 
     user_input = user_message.lower().split(' ')
     user_command = user_input[0].lower()
@@ -59,7 +57,7 @@ async def on_message(message):
             # finds the user who inputted command in the user data
             user_data_for_command = user
 
-    for event in EVENTS:
+    for event in events:
         if event.user_id == user_id:
             event_found = True
             # finds the user who inputted command in the user data
@@ -72,7 +70,7 @@ async def on_message(message):
         start_update_csv(USERS)
     if not event_found:  # user data missing creates new default for user
 
-        EVENTS.append(Events(f"{user_id} {username}",
+        events.append(events(f"{user_id} {username}",
                              "Active=No",
                              "mob_name",
                              "0",
@@ -84,7 +82,7 @@ async def on_message(message):
                              "0"
                              ))
 
-        start_update_events(EVENTS)
+        start_update_events(events)
 
     if user_command in C.command_list:
         if user_found:
@@ -109,10 +107,10 @@ async def on_message(message):
             start_update_cooldown(CDS)
 
             # run the command
-            response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:], EVENTS)
+            response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:], events)
 
     else:  # message not in commands list (responses check)
-        response = check_event_response(user_data_for_command, C, USERS, user_input[1:], EVENTS, user_input[0])
+        response = check_event_response(user_data_for_command, C, USERS, user_input[1:], events, user_input[0])
 
     # display output
     if response is not None:

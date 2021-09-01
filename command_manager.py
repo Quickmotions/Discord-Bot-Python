@@ -31,16 +31,16 @@ class Commands:
             "inv": [inv_c, 2],
             "card": [card_c, 2],
             "item": [item_c, 2],
-            "equip": [equip_c,3],
+            "equip": [equip_c, 3],
             "shop": [shop_c, 3],
-            "craft": [craft_c,3],
+            "craft": [craft_c, 3],
             "job": [job_c, 3],
             "work": [work_c, 5],
             "train": [train_c, 1],
             "agree": [agree_c, 1],
             "stats": [stats_c, 5],
             "skill": [skill_c, 1],
-            "rob": [rob_c, 72000],
+            "rob": [rob_c, 20000],
             "hunt": [hunt_c, 5],
             "source": [source_c, 3],
             "steal": [steal_c, 60],
@@ -53,5 +53,5 @@ class Commands:
             "removal": [removal_c, 5]
         }
 
-    def run_command(self, name, user_data, c, users, args, events):
-        return self.command_list[name[0]][0](user_data, c, users, args, events)
+    def run_command(self, name, user_data, c, users, args, events, quests):
+        return self.command_list[name[0]][0](user_data, c, users, args, events, quests)
