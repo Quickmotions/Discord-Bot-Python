@@ -41,11 +41,15 @@ loot_table = [
     [5, 'AbyssalDagger', 1, 50],
     [6, 'AbyssalDagger', 1, 50],
     [8, 'BasaltHelmet', 1, 70],
-    [14, 'AngelHelmet', 1, 10],
-    [14, 'AngelChestplate', 1, 10],
-    [14, 'AngelLeggings', 1, 10],
-    [14, 'AngelBoots', 1, 10],
-    [14, 'StaffOfAegis', 1, 2],
+    [13, 'AngelHelmet', 1, 10],
+    [13, 'AngelChestplate', 1, 10],
+    [13, 'AngelLeggings', 1, 10],
+    [13, 'AngelBoots', 1, 10],
+    [13, 'StaffOfAegis', 1, 2],
+    [12, 'LavaSword', 1, 50],
+    [9, 'InfinityBoots', 1, 30],
+    [10, 'InfinityBoots', 1, 80],
+    [6, 'SkeletalChestplate', 1, 8],
 
 ]
 

@@ -68,6 +68,7 @@ item_list = [
     [{'AngelLeggings': 'Gives +10 Healing Skill'}, 'Legs', {'Healing': 10}],
     [{'AngelBoots': 'Gives +10 Healing Skill'}, 'Feet', {'Healing': 10}],
     [{'StaffOfAegis': 'Gives +18 Magic Skill'}, 'Hand', {'Magic': 18}],
+    [{'LavaSword': 'Gives +12 Combat Skill'}, 'Hand', {'Combat': 12}],
 
 ]
 

@@ -54,6 +54,7 @@ craft_list = {
     'SteelLeggings': [{'IronIngot': 60, 'Coal': 60}],
     'SteelBoots': [{'IronIngot': 60, 'Coal': 60}],
     'DarkBoots': [{'BlackLeather': 300, 'ShadeWoodLog': 100}],
+
     'TrainingPoint': [{'Diamond': 1}, {'Ruby': 1}, {'Trout': 3}, {'Catfish': 3}],
 
 }
