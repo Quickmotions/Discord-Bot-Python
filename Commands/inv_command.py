@@ -53,7 +53,7 @@ def sort_inventory(inv):
     resource = ['Coal', 'Cod', 'Mackerel', 'Carp', 'Trout', 'Salmon', 'Catfish', 'Tuna', 'Stone', 'Limestone',
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
                 'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
-                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot']
+                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot', 'BlackLeather', 'ShadeWoodLog']
 
     sorted_inv = [{}, {}, {}]
     for item, amount in inv.items():

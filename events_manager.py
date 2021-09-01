@@ -197,12 +197,12 @@ def check_event_response(*args):
                         draw_menu += f"{num} = {card}\n"
                         num += 1
                     if not piercing_attack:
-                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - {enemy_damage}\n🛡️:"
+                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - {enemy_damage} + {healing}\n🛡️:"
                                         f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
                                         f"❤️: {event.mob_hp} - {info[0]}\n🗡️: {enemy_damage}",
                                         f"{draw_menu}"]
                     else:
-                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - 🪡{enemy_damage}\n🛡️:"
+                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - 🪡{enemy_damage} + {healing}\n🛡️:"
                                             f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
                                             f"❤️: {event.mob_hp} - {info[0]}\n🗡️: {enemy_damage}",
                                 f"{draw_menu}"]

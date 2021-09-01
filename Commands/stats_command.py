@@ -6,5 +6,5 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
 
     response += f"\n\n💗️: {round(100 * (1 + (0.06 * (args[0].skills['Health'][0] + args[0].equipment_stats['Health']))))}"
     response += f"\n💵: {args[0].bal}"
-
+    response += f"\n🔨: {args[0].gathering}"
     return response

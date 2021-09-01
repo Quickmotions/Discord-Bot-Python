@@ -50,7 +50,7 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                             start_update_csv(args[2])
                             return f"Bought {amount} {item} for £{shop_list[item] * amount}"
                         else:
-                            return f"You don't own enough money:\nItem - {amount} {item} costs £{shop_list[item] * amount}"
+                            return f"You dont own enough money:\nItem - {amount} {item} costs £{shop_list[item] * amount}"
                 # item shop
                 for item in shop_item_list:
                     if item == str(args[3][1]):
@@ -65,12 +65,12 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                             start_update_csv(args[2])
                             return f"Bought {amount} {item} for £{shop_item_list[item] * amount}"
                         else:
-                            return f"You don't own enough money:\nItem - {amount} {item} costs £{shop_list[item] * amount}"
+                            return f"You dont own enough money:\nItem - {amount} {item} costs £{shop_list[item] * amount}"
                 return "Item not in found in shop"
             else:
-                return "To buy an item from the shop:\nUse 'shop buy (item)'"
+                return "To buy an item from the shop:\nUse 'shop buy (item) (amount)'"
         else:
-            return "To buy an item from the shop:\nUse 'shop buy (item)'"
+            return "To buy an item from the shop:\nUse 'shop buy (item) (amount)'"
 
     else:
         shop_menu = "Shop Menu:\n--Cards--\n"

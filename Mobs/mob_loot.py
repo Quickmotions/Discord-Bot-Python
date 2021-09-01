@@ -26,15 +26,12 @@ loot_table = [
     [10, 'GunPart', 1, 900],
     [11, 'EarthRune', 1, 300],
     [12, 'FireRune', 1, 300],
-
     [3, 'AncientChestplate', 1, 10],
     [4, 'AncientChestplate', 1, 20],
     [5, 'AncientChestplate', 1, 30],
     [6, 'AncientChestplate', 1, 40],
-
     [6, 'WandOfHealing', 1, 50],
     [7, 'WandOfHealing', 1, 80],
-
     [5, 'ElectrumWand', 1, 10],
     [6, 'ElectrumWand', 1, 15],
     [7, 'ElectrumWand', 1, 20],

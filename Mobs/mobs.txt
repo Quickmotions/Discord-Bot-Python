@@ -1,4 +1,35 @@
-1,Slime,20,6,24
-2,Skeleton,100,6,60
-3,Goat,220,12,120
-4,King Graham,500,14,300
+1,Sheep,10,2,4
+1,Cow,20,1,6
+1,Chicken,6,4,7
+1,Goat,20,2,5
+2,Spider,20,10,10
+2,Fox,19,8,12
+2,Bear,40,6,15
+3,Shrek,100,3,25
+3,Slime,60,7,23
+3,Squid,80,6,25
+4,Shrimp,140,8,41
+4,Gold Fish,90,14,39
+4,Mosqitto,60,19,42
+5,Horse,200,25,69
+5,Chad Goat,140,30,75
+6,Zombie,200,30,99
+6,Skeleton,160,35,104
+6,Ghoul,220,30,110
+7,Ninja,240,42,160
+7,Dragon,300,36,180
+7,Samurai,195,50,200
+8,Snow Monster,300,50,270
+8,Yeti,250,59,290
+9,Chuck Norris,480,63,350
+9,Boris,750,90,420
+9,Vladmir,800,73,380
+10,Zombie Mummy,950,100,420
+10,Anubis,1000,120,500
+10,Ancient Pharoah,900,130,380
+11,Shadow Goat,1200,102,620
+11,Giant Troll,1500,99,666
+12,Graham,10000,160,3800
+12,Graham Servant,5000,100,1500
+13,Jesus,7500,150,4000
+13,Fallen Angel,8200,170,4500
