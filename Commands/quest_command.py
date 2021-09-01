@@ -60,7 +60,6 @@ class Quests:
 
 def quest_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     quests = setup_quests()
-    quests = args[5]  # set default quest list
 
     # test to see if quests are valid today.
     if datetime.today() > (timedelta(days=1) + quests[0].start):
@@ -127,10 +126,6 @@ def quest_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
 def setup_quests():
     quests = []
     f = open('Quests/quest.csv', 'r')
-    if len(f.readlines()) == 0:  # fill csv if empty
-        new_quests()
-        f = open('Quests/quest.csv', 'r')  # update the read with newly filled csv
-
     for quest_data in f.readlines():
         quest_data = quest_data.split(',')
         quests.append(Quests(quest_data[0], quest_data[1], quest_data[2], quest_data[3], quest_data[4]))

@@ -53,5 +53,5 @@ class Commands:
             "removal": [removal_c, 5]
         }
 
-    def run_command(self, name, user_data, c, users, args, events, quests):
-        return self.command_list[name[0]][0](user_data, c, users, args, events, quests)
+    def run_command(self, name, user_data, c, users, args, events):
+        return self.command_list[name[0]][0](user_data, c, users, args, events)
