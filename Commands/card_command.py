@@ -9,11 +9,11 @@ def use_card(card, user, event):
     healing_base = user.skills['Healing'] + user.equipment_stats['Healing']
     health_base = user.skills['Health'] + user.equipment_stats['Health']
 
-    combat = (((4 * combat_base) - (2 * defense_base) - (1 * healing_base)) / 100) + 1
-    defense = (((10 * defense_base) - (4 * health_base)) / 100) + 1
-    magic = (((10 * magic_base) - (2 * defense_base) - (1 * healing_base)) / 100) + 1
-    agility = (((6 * agility_base) - (2 * defense_base) - (1 * healing_base)) / 100) + 1
-    healing = (((10 * healing_base) - (2 * combat_base) - (2 * agility_base) - (2 * magic_base)) / 100) + 1
+    combat = (((4 * combat_base) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
+    defense = (((10 * defense_base) - (2 * health_base)) / 100) + 1
+    magic = (((10 * magic_base) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
+    agility = (((6 * agility_base) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
+    healing = (((10 * healing_base) - (1 * combat_base) - (1 * agility_base) - (2 * magic_base)) / 100) + 1
 
     if combat < 0.01:
         combat = 0.01

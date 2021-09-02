@@ -2,13 +2,13 @@ from Commands.update_csv import start_update_csv
 from Commands.stats_command import stats_c
 
 skill_info = {
-    'Combat': '+4% Combat Damage, -0.2% Critical Chance, -2% Healing',
-    'Magic': '+10% Magic Damage, -4% Health, -2% Healing',
-    'Agility': '+6% Agility Damage, +0.2% Critical Chance, -2% Healing',
-    'Healing': '+10% Healing, -4% Defense',
-    'Defense': '+10% Shield Increase, -2% All Damage',
-    'Critical': '+1% Critical Chance, -2% Health',
-    'Health': '+6% Health, -1% All Damage',
+    'Combat': '+4% Combat Damage, -0.1% Critical Chance, -1% Healing',
+    'Magic': '+10% Magic Damage, -2% Health, -1% Healing',
+    'Agility': '+6% Agility Damage, +0.1% Critical Chance, -1% Healing',
+    'Healing': '+10% Healing, -2% Defense',
+    'Defense': '+10% Shield Increase, -1% All Damage',
+    'Critical': '+1% Critical Chance, -1% Health',
+    'Health': '+6% Health, -0.5% All Damage',
     'Stealing': '+1% Stealing Chance',
     'Luck': '+1% Gambling Chance',
 }
