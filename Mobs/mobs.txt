@@ -1,35 +1,35 @@
-1,Sheep,10,2,4
-1,Cow,20,1,6
-1,Chicken,6,4,7
-1,Goat,20,2,5
-2,Spider,20,10,10
-2,Fox,19,8,12
-2,Bear,40,6,15
-3,Shrek,100,3,25
-3,Slime,60,7,23
-3,Squid,80,6,25
-4,Shrimp,140,8,41
-4,Gold Fish,90,14,39
-4,Mosqitto,60,19,42
-5,Horse,200,25,69
-5,Chad Goat,140,30,75
-6,Zombie,200,30,99
-6,Skeleton,160,35,104
-6,Ghoul,220,30,110
-7,Ninja,240,42,160
-7,Dragon,300,36,180
-7,Samurai,195,50,200
-8,Snow Monster,300,50,270
-8,Yeti,250,59,290
-9,Ancient Pharoah,480,63,350
-9,Zombie Mummy,750,90,420
-9,Anubis,800,73,380
-10,Boris,950,100,420
-10,Vladmir,1000,120,500
-10,Local Slav,900,130,380
-11,Shadow Goat,1200,102,620
-11,Giant Troll,1500,99,666
-12,Graham,10000,160,3800
-12,Graham Servant,5000,100,1500
-13,Jesus,7500,150,4000
-13,Fallen Angel,8200,170,4500
+1,Sheep,15,4,4
+1,Cow,30,3,6
+1,Chicken,20,5,7
+1,Goat,35,4,5
+2,Spider,40,10,10
+2,Fox,45,12,12
+2,Bear,50,11,15
+3,Shrek,150,20,25
+3,Slime,100,24,23
+3,Squid,110,22,25
+4,Shrimp,140,39,41
+4,Gold Fish,160,41,39
+4,Mosqitto,135,45,42
+5,Horse,350,55,69
+5,Chad Goat,300,60,75
+6,Zombie,380,85,99
+6,Skeleton,400,71,104
+6,Ghoul,420,75,110
+7,Ninja,600,99,160
+7,Dragon,750,90,180
+7,Samurai,550,108,200
+8,Snow Monster,920,137,270
+8,Yeti,1084,152,290
+9,Chuck Norris,1280,172,350
+9,Boris,1300,160,420
+9,Vladmir,1271,152,380
+10,Zombie Mummy,1602,201,420
+10,Anubis,1818,202,500
+10,Ancient Pharoah,1750,195,380
+11,Shadow Goat,2400,250,620
+11,Giant Troll,2513,300,666
+12,Graham,10000,500,3800
+12,Graham Servant,5000,380,1500
+13,Jesus,7500,675,4000
+13,Fallen Angel,8200,700,4500

@@ -1,18 +1,108 @@
 item_list = [
+    # misc
+
     [{'pickaxe': 'Used to mine rocks'}, 'None', {}],
     [{'fishingrod': 'Used to fish'}, 'None', {}],
-    [{'TinBoots': 'Gives +2 Defense Skill'}, 'Feet', {'Defense': 2}],
-    [{'TinLeggings': 'Gives +2 Defense Skill'}, 'Legs', {'Defense': 2}],
-    [{'TinChestplate': 'Gives +2 Defense Skill'}, 'Chest', {'Defense': 2}],
-    [{'TinHelmet': 'Gives +2 Defense Skill'}, 'Head', {'Defense': 2}],
-    [{'ThiefHelmet': 'Gives +2 Stealing, +2 Agility Skill'}, 'Head', {'Stealing': 2, 'Agility': 2}],
-    [{'ThiefChestplate': 'Gives +2 Stealing, +2 Agility Skill'}, 'Chest', {'Stealing': 2, 'Agility': 2}],
-    [{'ThiefLeggings': 'Gives +2 Stealing, +2 Agility Skill'}, 'Legs', {'Stealing': 2, 'Agility': 2}],
-    [{'ThiefBoots': 'Gives +2 Stealing, +2 Agility Skill'}, 'Feet', {'Stealing': 2, 'Agility': 2}],
-    [{'WarriorBoots': 'Gives +2 Combat Skill'}, 'Feet', {'Combat': 2}],
-    [{'WarriorLeggings': 'Gives +2 Combat Skill'}, 'Legs', {'Combat': 2}],
-    [{'WarriorChestplate': 'Gives +2 Combat Skill'}, 'Chest', {'Combat': 2}],
-    [{'WarriorHelmet': 'Gives +2 Combat Skill'}, 'Head', {'Combat': 2}],
+    [{'HunterRing': 'Gives +5 Combat Skill, +4 Agility Skill, +5 Magic Skill'}, 'Ring', {'Agility': 4, 'Magic': 5, 'Combat': 5}],
+
+    # defense
+    [{'KnightHelmet': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Head', {'Defense': 4, 'Combat': 2}],
+    [{'KnightChestplate': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Chest', {'Defense': 4, 'Combat': 2}],
+    [{'KnightLeggings': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Legs', {'Defense': 4, 'Combat': 2}],
+    [{'KnightBoots': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Feet', {'Defense': 4, 'Combat': 2}],
+
+    [{'DarkKnightHelmet': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Head', {'Defense': 10, 'Combat': 5}],
+    [{'DarkKnightChestplate': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Chest', {'Defense': 10, 'Combat': 5}],
+    [{'DarkKnightLeggings': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Legs', {'Defense': 10, 'Combat': 5}],
+    [{'DarkKnightBoots': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Feet', {'Defense': 10, 'Combat': 5}],
+
+    [{'GolemHelmet': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Head', {'Defense': 15, 'Healing': 8}],
+    [{'GolemChestplate': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Chest', {'Defense': 15, 'Healing': 8}],
+    [{'GolemLeggings': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Legs', {'Defense': 15, 'Healing': 8}],
+    [{'GolemBoots': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Feet', {'Defense': 15, 'Healing': 8}],
+
+    [{'GriffinHelmet': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Head', {'Defense': 20, 'healing': 5, 'Agility': 5}],
+    [{'GriffinChestplate': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Chest', {'Defense': 20, 'healing': 5, 'Agility': 5}],
+    [{'GriffinLeggings': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Legs', {'Defense': 20, 'healing': 5, 'Agility': 5}],
+    [{'GriffinBoots': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Feet', {'Defense': 20, 'healing': 5, 'Agility': 5}],
+
+    [{'BasaltHelmet': 'Gives +16 Defense Skill, -7 Health Skill'}, 'Head', {'Defense': 16, 'Health': -7}],
+
+    [{'EternalHelmet': 'Gives +20 Defense Skill, +10 Health Skill'}, 'Head', {'Defense': 20, 'Health': 10}],
+    [{'EternalChestplate': 'Gives +20 Defense Skill, +10 Health Skill'}, 'Chest', {'Defense': 20, 'Health': 10}],
+    [{'EternalLeggings': 'Gives +20 Defense Skill, +10 Health Skill'}, 'Legs', {'Defense': 20, 'Health': 10}],
+    [{'EternalBoots': 'Gives +20 Defense Skill, +10 Health Skill'}, 'Feet', {'Defense': 20, 'Health': 10}],
+
+    [{'TinBoots': 'Gives +5 Defense Skill'}, 'Feet', {'Defense': 5}],
+    [{'TinLeggings': 'Gives +5 Defense Skill'}, 'Legs', {'Defense': 5}],
+    [{'TinChestplate': 'Gives +5 Defense Skill'}, 'Chest', {'Defense': 5}],
+    [{'TinHelmet': 'Gives +5 Defense Skill'}, 'Head', {'Defense': 5}],
+
+    [{'HallowedHelmet': 'Gives +12 Defense Skill, +6 Luck Skill'}, 'Head', {'Defense': 12, 'Luck': 6}],
+    [{'HallowedChestplate': 'Gives +12 Defense Skill, +6 Luck Skill'}, 'Chest', {'Defense': 12, 'Luck': 6}],
+    [{'HallowedLeggings': 'Gives +12 Defense Skill, +6 Luck Skill'}, 'Legs', {'Defense': 12, 'Luck': 6}],
+    [{'HallowedBoots': 'Gives +12 Defense Skill, +6 Luck Skill'}, 'Feet', {'Defense': 12, 'Luck': 6}],
+    [{'HallowedSpear': 'Gives +10 Defense Skill, +10 Combat Skill'}, 'Hand', {'Defense': 10, 'Combat': 10}],
+
+    [{'Shield': 'Grants 5 shield each turn'}, 'Hand', {}],
+    [{'EternalGuardianShield': 'Gives +30 Defense Skill'}, 'Hand', {'Defense': 30}],
+    [{'BasaltShield': 'Gives +15 Defense Skill'}, 'Hand', {'Defense': 15}],
+    [{'OldIronChestplate': 'Gives +6 Defense Skill'}, 'Chest', {'Defense': 6}],
+
+
+    # combat
+    [{'HellhoundHelmet': 'Gives +21 Combat Skill, -10 healing Skill, +5 Defense Skill'}, 'Head', {'Combat': 21, 'Healing': -10, 'Defense': 5}],
+    [{'HellhoundChestplate': 'Gives +21 Combat Skill, -9 healing Skill, +5 Defense Skill'}, 'Chest', {'Combat': 21, 'Healing': -9, 'Defense': 5}],
+    [{'HellhoundLeggings': 'Gives +21 Combat Skill, -7 healing Skill, +5 Defense Skill'}, 'Legs', {'Combat': 21, 'Healing': -7, 'Defense': 5}],
+    [{'HellhoundBoots': 'Gives +21 Combat Skill, -8 healing Skill, +5 Defense Skill'}, 'Feet', {'Combat': 21, 'Healing': -8, 'Defense': 5}],
+
+    [{'WarriorBoots': 'Gives +9 Combat Skill'}, 'Feet', {'Combat': 9}],
+    [{'WarriorLeggings': 'Gives +9 Combat Skill'}, 'Legs', {'Combat': 9}],
+    [{'WarriorChestplate': 'Gives +9 Combat Skill'}, 'Chest', {'Combat': 9}],
+    [{'WarriorHelmet': 'Gives +9 Combat Skill'}, 'Head', {'Combat': 9}],
+
+    [{'SteelHelmet': 'Gives +14 Combat Skill'}, 'Head', {'Combat': 14}],
+    [{'SteelChestplate': 'Gives +14 Combat Skill'}, 'Chest', {'Combat': 14}],
+    [{'SteelLeggings': 'Gives +14 Combat Skill'}, 'Legs', {'Combat': 14}],
+    [{'SteelBoots': 'Gives +14 Combat Skill'}, 'Feet', {'Combat': 14}],
+
+    [{'CombatChestplate': 'Gives +5 Combat Skill'}, 'Chest', {'Combat': 7}],
+    [{'ChampionChestplate': 'Gives +15 Combat Skill'}, 'Chest', {'Combat': 15}],
+    [{'WarBornChestplate': 'Gives +27 Combat Skill'}, 'Chest', {'Combat': 27}],
+
+    [{'IronSword': 'Gives +8 Combat Skill'}, 'Hand', {'Combat': 8}],
+    [{'LavaSword': 'Gives +27 Combat Skill'}, 'Hand', {'Combat': 27}],
+    [{'PunySword': 'Gives +4 Combat Skill'}, 'Hand', {'Combat': 4}],
+    [{'SteelGreatSword': 'Gives +14 Combat Skill'}, 'Hand', {'Combat': 14}],
+    [{'Katana': 'Gives +3 Combat Skill, +3 Agility Skill'}, 'Hand', {'Combat': 3, 'Agility': 3}],
+
+    # agility
+    [{'ShadowScaleHelmet': 'Gives +30 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 30, 'Health': -5}],
+    [{'ShadowScaleChestplate': 'Gives +30 Agility Skill, -8 Health Skill'}, 'Chest', {'Agility': 30, 'Health': -8}],
+    [{'ShadowScaleLeggings': 'Gives +30 Agility Skill, -4 Health Skill'}, 'Legs', {'Agility': 30, 'Health': -4}],
+    [{'ShadowScaleBoots': 'Gives +30 Agility Skill, -6 Health Skill'}, 'Feet', {'Agility': 30, 'Health': -6}],
+
+    [{'ThiefHelmet': 'Gives +10 Stealing, +10 Agility Skill'}, 'Head', {'Stealing': 10, 'Agility': 10}],
+    [{'ThiefChestplate': 'Gives +10 Stealing, +10 Agility Skill'}, 'Chest', {'Stealing': 10, 'Agility': 10}],
+    [{'ThiefLeggings': 'Gives +10 Stealing, +10 Agility Skill'}, 'Legs', {'Stealing': 10, 'Agility': 10}],
+    [{'ThiefBoots': 'Gives +10 Stealing, +10 Agility Skill'}, 'Feet', {'Stealing': 10, 'Agility': 10}],
+
+    [{'AssassinsHelmet': 'Gives +15 Agility Skill'}, 'Head', {'Agility': 15}],
+    [{'AssassinsChestplate': 'Gives +15 Agility Skill'}, 'Chest', {'Agility': 15}],
+    [{'AssassinsLeggings': 'Gives +15 Agility Skill'}, 'Legs', {'Agility': 15}],
+    [{'AssassinsBoots': 'Gives +15 Agility Skill'}, 'Feet', {'Agility': 15}],
+
+    [{'SkeletalChestplate': 'Gives +25 Agility Skill'}, 'Chest', {'Agility': 25}],
+    [{'DarkBoots': 'Gives +45 Agility Skill'}, 'Feet', {'Agility': 45}],
+
+    [{'AbyssalDagger': 'Gives +15 Agility Skill, +10 Defense Skill'}, 'Hand', {'Agility': 15, 'Defense': 10}],
+    [{'BonerSword': 'Gives +30 Agility Skill'}, 'Hand', {'Agility': 30}],
+
+
+
+
+    # gathering
+
     [{'FishBoots': 'Gives +2 Fishing Skill'}, 'Feet', {'Fishing': 2}],
     [{'FishChestplate': 'Gives +2 Fishing Skill'}, 'Chest', {'Fishing': 2}],
     [{'FishLeggings': 'Gives +2 Fishing Skill'}, 'Legs', {'Fishing': 2}],
@@ -21,70 +111,59 @@ item_list = [
     [{'MinerHelmet': 'Gives +2 Mining Skill'}, 'Head', {'Mining': 2}],
     [{'MinerChestplate': 'Gives +2 Mining Skill'}, 'Chest', {'Mining': 2}],
     [{'MinerLeggings': 'Gives +2 Mining Skill'}, 'Legs', {'Mining': 2}],
-    [{'IronSword': 'Gives +4 Combat Skill'}, 'Hand', {'Combat': 4}],
-    [{'MagicStaff': 'Gives +4 Magic Skill'}, 'Hand', {'Magic': 4}],
+
     [{'GemFishingRod': 'Gives +5 Fishing Skill'}, 'Hand', {'Fishing': 5}],
-    [{'LuckyStick': 'Gives +5 Luck Skill'}, 'Hand', {'Luck': 5}],
-    [{'BonerSword': 'Gives +6 Agility Skill'}, 'Hand', {'Agility': 6}],
-    [{'CombatChestplate': 'Gives +2 Combat Skill'}, 'Chest', {'Combat': 2}],
-    [{'ChampionChestplate': 'Gives +5 Combat Skill'}, 'Chest', {'Combat': 5}],
-    [{'WarBornChestplate': 'Gives +10 Combat Skill'}, 'Chest', {'Combat': 10}],
-    [{'MagicChestplate': 'Gives +2 Magic Skill'}, 'Chest', {'Magic': 2}],
-    [{'ElementalChestplate': 'Gives +5 Magic Skill'}, 'Chest', {'Magic': 5}],
-    [{'ArchMageChestplate': 'Gives +10 Magic Skill'}, 'Chest', {'Magic': 10}],
-    [{'AncientChestplate': 'Gives +3 Health Skill'}, 'Chest', {'Health': 3}],
-    [{'WandOfHealing': 'Gives +4 Healing Skill'}, 'Hand', {'Healing': 3}],
-    [{'ElectrumWand': 'Gives +5 Magic Skill'}, 'Hand', {'Magic': 5}],
-    [{'Shield': 'Grants 3 shield each turn'}, 'Hand', {}],
-    [{'EternalHelmet': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Head', {'Defense': 5, 'Health': 5}],
-    [{'EternalChestplate': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Chest', {'Defense': 5, 'Health': 5}],
-    [{'EternalLeggings': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Legs', {'Defense': 5, 'Health': 5}],
-    [{'EternalBoots': 'Gives +5 Defense Skill, +5 Health Skill'}, 'Feet', {'Defense': 5, 'Health': 5}],
-    [{'EternalGuardianShield': 'Gives +15 Defense Skill'}, 'Hand', {'Defense': 15}],
-    [{'AssassinsHelmet': 'Gives +3 Agility Skill'}, 'Head', {'Agility': 3}],
-    [{'AssassinsChestplate': 'Gives +3 Agility Skill'}, 'Chest', {'Agility': 3}],
-    [{'AssassinsLeggings': 'Gives +3 Agility Skill'}, 'Legs', {'Agility': 3}],
-    [{'AssassinsBoots': 'Gives +3 Agility Skill'}, 'Feet', {'Agility': 3}],
-    [{'HunterRing': 'Gives +1 Combat Skill, +1 Agility Skill, +1 Magic Skill'}, 'Ring', {'Agility': 1, 'Magic': 1, 'Combat': 1}],
-    [{'SorcererWand': 'Gives +5 Magic Skill, +2 Defense Skill'}, 'Hand', {'Magic': 5, 'Defense': 2}],
-    [{'MagicDagger': 'Gives +3 Magic Skill, +4 Agility Skill'}, 'Hand', {'Magic': 3, 'Agility': 4}],
-    [{'DiabloRing': 'Gives +4 Magic Skill'}, 'Ring', {'Magic': 4}],
-    [{'InfinityBoots': 'Gives +8 Magic Skill'}, 'Feet', {'Magic': 8}],
-    [{'SpectralHelmet': 'Gives +6 Magic Skill'}, 'Head', {'Magic': 6}],
-    [{'SpectralChestplate': 'Gives +6 Magic Skill'}, 'Chest', {'Magic': 6}],
-    [{'SpectralLeggings': 'Gives +6 Magic Skill'}, 'Legs', {'Magic': 6}],
-    [{'SpectralBoots': 'Gives +6 Magic Skill'}, 'Feet', {'Magic': 6}],
-    [{'BasaltShield': 'Gives +8 Defense Skill'}, 'Hand', {'Defense': 8}],
-    [{'BasaltHelmet': 'Gives +8 Defense Skill, -4 Health Skill'}, 'Head', {'Defense': 8, 'Health': -4}],
-    [{'SkeletalChestplate': 'Gives +5 Agility Skill'}, 'Chest', {'Agility': 5}],
-    [{'SteelHelmet': 'Gives +4 Combat Skill'}, 'Head', {'Combat': 4}],
-    [{'SteelChestplate': 'Gives +4 Combat Skill'}, 'Chest', {'Combat': 4}],
-    [{'SteelLeggings': 'Gives +4 Combat Skill'}, 'Legs', {'Combat': 4}],
-    [{'SteelBoots': 'Gives +4 Combat Skill'}, 'Feet', {'Combat': 4}],
-    [{'DarkBoots': 'Gives +9 Agility Skill'}, 'Feet', {'Agility': 9}],
-    [{'AbyssalDagger': 'Gives +3 Agility Skill, +2 Defense Skill'}, 'Hand', {'Agility': 3, 'Defense': 2}],
-    [{'AngelHelmet': 'Gives +10 Healing Skill'}, 'Head', {'Healing': 10}],
-    [{'AngelChestplate': 'Gives +10 Healing Skill'}, 'Chest', {'Healing': 10}],
-    [{'AngelLeggings': 'Gives +10 Healing Skill'}, 'Legs', {'Healing': 10}],
-    [{'AngelBoots': 'Gives +10 Healing Skill'}, 'Feet', {'Healing': 10}],
-    [{'StaffOfAegis': 'Gives +18 Magic Skill'}, 'Hand', {'Magic': 18}],
-    [{'LavaSword': 'Gives +12 Combat Skill'}, 'Hand', {'Combat': 12}],
-    [{'PurityChestplate': 'Gives +6 Health Skill'}, 'Chest', {'Health': 6}],
-    [{'CursedMask': 'Gives -5 Defense Skill, -5 Luck Skill, +8 Magic Skill'}, 'Head', {'Magic': 8, 'Luck': -5, 'Defense': -5}],
-    [{'TormentShard': 'Gives +3 Magic Skill, +3 Healing Skill'}, 'Hand', {'Magic': 3, 'Healing': 3}],
-    [{'HallowedHelmet': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Head', {'Defense': 4, 'Luck': 6}],
-    [{'HallowedChestplate': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Chest', {'Defense': 4, 'Luck': 6}],
-    [{'HallowedLeggings': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Legs', {'Defense': 4, 'Luck': 6}],
-    [{'HallowedBoots': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Feet', {'Defense': 4, 'Luck': 6}],
-    [{'HallowedSpear': 'Gives +2 Defense Skill, +8 Combat Skill'}, 'Hand', {'Defense': 2, 'Combat': 8}],
-    [{'PunySword': 'Gives +1 Combat Skill'}, 'Hand', {'Combat': 1}],
-    [{'SteelGreatSword': 'Gives +6 Combat Skill'}, 'Hand', {'Combat': 6}],
-    [{'OldIronChestplate': 'Gives +2 Defense Skill'}, 'Chest', {'Defense': 2}],
-    [{'SlimeRing': 'Gives +4 Magic Skill, +4 Agility Skill'}, 'Ring', {'Magic': 4, 'Agility': 4}],
-    [{'Katana': 'Gives +3 Combat Skill, +3 Agility Skill'}, 'Hand', {'Combat': 3, 'Agility': 3}],
-    [{'WarlockLeggings': 'Gives +5 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 5, 'Healing': -3}],
-    [{'WarlockBoots': 'Gives +5 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 5, 'Healing': -3}],
-    [{'MagicRing': 'Gives +2 Magic Skill'}, 'Ring', {'Magic': 2}],
+
+
+    # magic (done)
+    [{'InfinityBoots': 'Gives +20 Magic Skill'}, 'Feet', {'Magic': 20}],
+    [{'SpectralHelmet': 'Gives +15 Magic Skill'}, 'Head', {'Magic': 15}],
+    [{'SpectralChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
+    [{'SpectralLeggings': 'Gives +15 Magic Skill'}, 'Legs', {'Magic': 15}],
+    [{'CursedMask': 'Gives -10 Defense Skill, -5 Luck Skill, +23 Magic Skill'}, 'Head', {'Magic': 23, 'Luck': -5, 'Defense': -10}],
+    [{'SpectralBoots': 'Gives +12 Magic Skill'}, 'Feet', {'Magic': 12}],
+
+    [{'WarlockLeggings': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 8, 'Healing': -3}],
+    [{'WarlockBoots': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 8, 'Healing': -3}],
+
+    [{'MagicStaff': 'Gives +9 Magic Skill'}, 'Hand', {'Magic': 9}],
+    [{'ElectrumWand': 'Gives +14 Magic Skill'}, 'Hand', {'Magic': 14}],
+    [{'SorcererWand': 'Gives +14 Magic Skill, +2 Defense Skill'}, 'Hand', {'Magic': 14, 'Defense': 2}],
+    [{'MagicDagger': 'Gives +7 Magic Skill, +4 Agility Skill'}, 'Hand', {'Magic': 7, 'Agility': 4}],
+    [{'DiabloRing': 'Gives +14 Magic Skill'}, 'Ring', {'Magic': 14}],
+    [{'StaffOfAegis': 'Gives +38 Magic Skill'}, 'Hand', {'Magic': 38}],
+    [{'TormentShard': 'Gives +8 Magic Skill, +4 Healing Skill'}, 'Hand', {'Magic': 8, 'Healing': 4}],
+    [{'SlimeRing': 'Gives +14 Magic Skill, +8 Agility Skill'}, 'Ring', {'Magic': 14, 'Agility': 8}],
+    [{'MagicRing': 'Gives +6 Magic Skill'}, 'Ring', {'Magic': 6}],
+
+
+    # other
+    [{'LuckyStick': 'Gives +18 Luck Skill'}, 'Hand', {'Luck': 18}],
+
+
+
+
+    # health
+    [{'AncientChestplate': 'Gives +9 Health Skill'}, 'Chest', {'Health': 9}],
+    [{'PurityChestplate': 'Gives +16 Health Skill'}, 'Chest', {'Health': 16}],
+
+    # healing
+
+
+    [{'WandOfHealing': 'Gives +10 Healing Skill'}, 'Hand', {'Healing': 10}],
+
+    [{'AngelHelmet': 'Gives +30 Healing Skill'}, 'Head', {'Healing': 30}],
+    [{'AngelChestplate': 'Gives +30 Healing Skill'}, 'Chest', {'Healing': 30}],
+    [{'AngelLeggings': 'Gives +30 Healing Skill'}, 'Legs', {'Healing': 30}],
+    [{'AngelBoots': 'Gives +30 Healing Skill'}, 'Feet', {'Healing': 30}],
+
+
+
+
+
+
+    # cards
+
     [{'Slash':  "(combat) Damage - 3"}, 'Card', {'Combat': 3}],
     [{'Defend':  "Shield - 5"}, 'Card', {'Defense': 5}],
     [{'Charge': "(agility) Damage - 2, Extra Card Draw"}, 'Card', {'Agility': 2, 'Draw': 1}],
@@ -118,7 +197,6 @@ item_list = [
     [{'Wrath': "(magic) Damage - 15"}, 'Card', {'Magic': 15}],
     [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 20%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
     [{'Corruption': "(magic) Damage - 20, Self Damage - 30"}, 'Card', {'Magic': 20, 'Self': 30}],
-
 ]
 
 
