@@ -159,8 +159,9 @@ def check_event_response(*args):
                         loot_message = ""
                         if loot_gained is not None:
                             loot_message = ""
-                            for loot in loot_gained:
-                                for item, amount in loot:
+                            for loot in loot_gained.split('*'):
+                                if loot != "":
+                                    item, amount = loot.split('-')
                                     loot_message += f"{amount} {item}\n"
 
                         xp_gain = round((coins_gained / 3) * (1 + 0.1 * (random.randint(-4, 4))))
