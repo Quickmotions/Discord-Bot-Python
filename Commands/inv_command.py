@@ -80,7 +80,7 @@ def setup_equipment(user, users_data):
 
 
 def set_equipment_stats(user, users):
-    temp_stats = {'Combat': 0, 'Magic': 0, 'Agility': 0, 'Healing': 0, 'Defense': 0, 'Stealing': 0, 'Strength': 0, 'Healing': 0, 'Luck': 0, 'Fishing': 0, 'Mining': 0, 'Woodcut': 0, 'Health': 0, 'Critical': 0}
+    temp_stats = {'Combat': 0, 'Magic': 0, 'Agility': 0, 'Healing': 0, 'Defense': 0, 'Stealing': 0, 'Strength': 0, 'Healing': 0, 'Luck': 0, 'Fishing': 0, 'Mining': 0, 'Woodcut': 0, 'Health': 0, 'Critical': 0, 'Dodge': 0}
     for item, slot, stats in item_list:
         for equipment_slot, equipment in user.equipment.items():
             for item_name, desc in item.items():

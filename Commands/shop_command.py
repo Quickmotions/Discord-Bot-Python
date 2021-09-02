@@ -22,7 +22,7 @@ shop_list = {
     'smash': 3100,
     'regeneration': 6500,
     'wrath': 9500,
-    'frostArrow': 7340,
+    'frostarrow': 7340,
     'corruption': 14000,
     'onepunch': 100000,
 }

@@ -119,9 +119,9 @@ async def on_message(message):
                 await message.channel.send(f"{response[1]}")
             if response[0] == 'multiple':
                 for text in response[1:]:
-                    await message.channel.send(f"```apache\n{text}```")
+                    await message.channel.send(f"```yaml\n{text}```")
         else:
-            await message.channel.send(f"```apache\n{response}```")
+            await message.channel.send(f"```yaml\n{response}```")
 
 
 if __name__ == '__main__':

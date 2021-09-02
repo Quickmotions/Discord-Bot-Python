@@ -19,11 +19,13 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     defense_base = args[0].skills['Defense'] + args[0].equipment_stats['Defense']
     agility_base = args[0].skills['Agility'] + args[0].equipment_stats['Agility']
     healing_base = args[0].skills['Healing'] + args[0].equipment_stats['Healing']
+    dodge_base = args[0].skills['Dodge'] + args[0].equipment_stats['Dodge']
 
-    combat = ((4 * combat_base) - (1 * defense_base) - (0.5 * healing_base)) + 100
-    defense = (10 * defense_base - 2 * health_base) + 100
-    magic = ((10 * magic_base) - (1 * defense_base) - (0.5 * healing_base)) + 100
-    agility = ((6 * agility_base) - (1 * defense_base) - (0.5 * healing_base)) + 100
+    dodge = ((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
+    combat = ((4 * combat_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) + 100
+    defense = ((10 * defense_base) - (2 * health_base) - (5 * dodge_base)) + 100
+    magic = ((10 * magic_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) + 100
+    agility = ((6 * agility_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) + 100
     healing = ((10 * healing_base) - (1 * combat_base) - (0.5 * agility_base) - (2 * magic_base)) + 100
     health = round(100 * ((((6 * health_base) - (2 * magic_base) - (1 * critical_base)) / 100) + 1))
 
@@ -39,6 +41,10 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
         healing = 1
     if health < 1:
         health = 1
+    if dodge < 0:
+        dodge = 0
+    if dodge > 90:
+        dodge = 90
 
     response += f"\n\n️❤: {health}hp"
     response += f"    ⚔: {combat}%"
@@ -46,6 +52,7 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     response += f"    🪄: {magic}%"
     response += f"\n👟: {agility}%"
     response += f"     💔: {healing}%"
+    response += f"\n💨: {dodge}%"
     response += f"\n\n💵: {round(args[0].bal, 2)}"
     response += f"\n🔨: {args[0].gathering}"
     return response

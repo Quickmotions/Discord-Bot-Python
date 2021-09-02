@@ -138,6 +138,8 @@ def check_event_response(*args):
                     else:
                         new_draw = draw_card_deck(args[0])
 
+                    # dodge
+                    dodge_chance = info[4]
                     # enemy turn
 
                     if event.mob_hp <= 0:  # is mob dead?
@@ -177,15 +179,18 @@ def check_event_response(*args):
                     if random.randint(1, 12) == 1:
                         piercing_attack = True
 
-                    enemy_damage = random.randint(event.mob_dmg - 1, event.mob_dmg + 1)
-                    if not piercing_attack:
-                        for _ in range(enemy_damage):
-                            if event.shield > 0:
-                                event.shield -= 1
-                            else:
-                                event.hp -= 1
-                    if piercing_attack:
-                        event.hp -= enemy_damage
+                    dodged = True
+                    if random.randint(1, 100) > dodge_chance:
+                        dodged = False
+                        enemy_damage = random.randint(event.mob_dmg - 1, event.mob_dmg + 1)
+                        if not piercing_attack:
+                            for _ in range(enemy_damage):
+                                if event.shield > 0:
+                                    event.shield -= 1
+                                else:
+                                    event.hp -= 1
+                        if piercing_attack:
+                            event.hp -= enemy_damage
 
 
                     # is player dead
@@ -208,6 +213,12 @@ def check_event_response(*args):
                     for card in new_draw:
                         draw_menu += f"{num} = {card}\n"
                         num += 1
+                    if dodged:
+                        return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - Dodged + {healing}\n🛡️:"
+                                            f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
+                                            f"❤️: {event.mob_hp} - {info[0]}\n🗡️: Dodged",
+                                f"{draw_menu}"]
+
                     if not piercing_attack:
                         return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - {enemy_damage} + {healing}\n🛡️:"
                                         f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"

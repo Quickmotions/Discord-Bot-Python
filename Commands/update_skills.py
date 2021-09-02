@@ -4,13 +4,14 @@ from Commands.stats_command import stats_c
 skill_info = {
     'Combat': '+4% Combat Damage, -0.1% Critical Chance, -1% Healing',
     'Magic': '+10% Magic Damage, -2% Health, -1% Healing',
-    'Agility': '+6% Agility Damage, +0.1% Critical Chance, -1% Healing',
+    'Agility': '+6% Agility Damage, +0.2% Dodge, -1% Healing',
     'Healing': '+10% Healing, -2% Defense',
-    'Defense': '+10% Shield Increase, -1% All Damage',
+    'Defense': '+10% Shield Increase, -1% All Damage, -0.25% Dodge',
     'Critical': '+1% Critical Chance, -1% Health',
     'Health': '+6% Health, -0.5% All Damage',
     'Stealing': '+1% Stealing Chance',
     'Luck': '+1% Gambling Chance',
+    'Dodge': '+0.5% dodge, -1% All Damage, -5% Defense'
 }
 
 
@@ -92,6 +93,7 @@ def skills_c(*args):
             args[0].skills['Luck'] = 0
             args[0].skills['Critical'] = 0
             args[0].skills['Health'] = 0
+            args[0].skills['Dodge'] = 0
             start_update_csv(args[2])
             return f"Reset all skill level and gave you {args[0].skills['Player'][0]} skillpoints."
 
@@ -127,6 +129,8 @@ def setup_skills(user, users):
         user.skills['Critical'] = 0
     if 'Health' not in user.skills:
         user.skills['Health'] = 0
+    if 'Dodge' not in user.skills:
+        user.skills['Dodge'] = 0
     if 'Fishing' not in user.skills:
         user.skills['Fishing'] = [0, 0, 100]
     if 'Mining' not in user.skills:

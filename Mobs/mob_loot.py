@@ -152,7 +152,6 @@ def award_hunt_loot(level: int, user, users):
                     user.inv[item] = 0
                 user.inv[item] += amount
     start_update_csv(users)
-    print(loot_gained)
     return loot_gained
 
 
