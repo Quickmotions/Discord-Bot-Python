@@ -30,6 +30,9 @@ def use_card(card, user, event):
                     elif skill == "Healing":
                         heal_gained += round(amount * healing)
 
+                    elif skill == "Self":
+                        event.hp -= amount
+
                     elif skill == "Draw":
                         extra_draw = True
 

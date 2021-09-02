@@ -20,7 +20,10 @@ shop_list = {
     'bite': 3600,
     'venom': 4300,
     'smash': 3100,
-    'regeneration': 7500,
+    'regeneration': 6500,
+    'Wrath': 9500,
+    'FrostArrow': 7340,
+    'Corruption': 14000,
     'onepunch': 100000,
 }
 shop_item_list = {

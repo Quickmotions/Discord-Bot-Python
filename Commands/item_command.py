@@ -106,7 +106,6 @@ item_list = [
     [{'Bite': "(agility) Damage - 10"}, 'Card', {'Agility': 10}],
     [{'Venom': "(magic) Damage - 3, Shield - 8"}, 'Card', {'Magic': 3, 'Defense': 8}],
     [{'Smash': "(combat) Damage - 3, Heal - 10"}, 'Card', {'Agility': 4, 'Healing': 4}],
-
     [{'Assassinate': "(agility) Damage - 9, + 3 if target below 20%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
     [{'SkyShard': "(magic) Damage - 9, Extra Card Draw"}, 'Card', {'Magic': 9, 'Draw': 1}],
     [{'Stab': "(agility) Damage - 5, Extra Card Draw"}, 'Card', {'Agility': 5, 'Draw': 1}],
@@ -116,6 +115,9 @@ item_list = [
     [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Magic': 6, 'Defense': 7}],
     [{'Shatter': "(combat) Damage - 9, Heal - 5"}, 'Card', {'Combat': 9, 'Healing': 5}],
     [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
+    [{'Wrath': "(magic) Damage - 15"}, 'Card', {'Magic': 15}],
+    [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 20%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
+    [{'Corruption': "(magic) Damage - 20, Self Damage - 30"}, 'Card', {'Magic': 20, 'Self': 30}],
 
 ]
 
