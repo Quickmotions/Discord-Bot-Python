@@ -158,7 +158,6 @@ def check_event_response(*args):
                         loot_gained = award_hunt_loot(event.difficulty, args[0], args[2])
                         loot_message = ""
                         if loot_gained is not None:
-                            loot_message = ""
                             for loot in loot_gained:
                                 loot_message += f"{loot[1]} {loot[0]}\n"
 
