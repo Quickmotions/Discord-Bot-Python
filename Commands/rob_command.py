@@ -11,8 +11,8 @@ def rob_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                 else:
                     if victim.bal >= 100.0:  # target must have £100 or more
                         # largest amount to steal
-                        user_steal = args[0].skills['Stealing'][0] + args[0].equipment_stats['Stealing']
-                        victim_defense = victim.skills['Defense'][0] + victim.equipment_stats['Defense']
+                        user_steal = args[0].skills['Stealing'] + args[0].equipment_stats['Stealing']
+                        victim_defense = victim.skills['Defense'] + victim.equipment_stats['Defense']
                         base_steal = 0.3
 
                         steal_multiplier = float(((user_steal - victim_defense) / 100) + 1)
@@ -48,8 +48,8 @@ def rob_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                         from Commands.update_csv import start_update_csv
                         start_update_csv(args[2])
 
-                        return f"Robbed {victim.username}:\nYour Stealing: {args[0].skills['Stealing'][0]}" \
-                               f", Their Defense: {victim.skills['Defense'][0]}\nYou Got £{amount_to_steal} " \
+                        return f"Robbed {victim.username}:\nYour Stealing: {args[0].skills['Stealing']}" \
+                               f", Their Defense: {victim.skills['Defense']}\nYou Got £{amount_to_steal} " \
                                f"from your victim\nYou had a {chance}% to rob them."
                     else:
                         return "Victim doesnt even have enough money:\nTry when they have more than £100"

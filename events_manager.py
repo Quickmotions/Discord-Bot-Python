@@ -2,6 +2,7 @@ from Commands.update_csv import start_update_events, start_update_csv
 import random
 import ast
 from Mobs.mob_loot import award_hunt_loot
+from Commands.update_skills import give_xp
 
 
 
@@ -63,7 +64,7 @@ def start_combat(user, users, mob, battle_type, events):
                 # set up health
                 if 'Health' not in user.skills:
                     user.skills['Health'] = [0, 0, 100]
-                event.max_hp = round(100 * (1 + (0.06 * (user.skills['Health'][0] + user.equipment_stats['Health']))))
+                event.max_hp = round(100 * (1 + (0.1 * (user.skills['Health'] + user.equipment_stats['Health']))))
                 event.hp = event.max_hp
 
                 start_update_events(events)
@@ -152,14 +153,21 @@ def check_event_response(*args):
                         loot_gained = award_hunt_loot(event.difficulty, args[0], args[2])
                         loot_message = ""
                         if loot_gained is not None:
-                            loot_message = f"\n"
+                            loot_message = ""
                             for item, amount in loot_gained:
                                 loot_message += f"{amount} {item}\n"
 
+                        xp_gain = round((coins_gained / 3) * (1 + 0.1 * (random.randint(-4, 4))))
+                        give_xp(xp_gain, "Player", args[0], args[2])
+
                         start_update_csv(args[2])
                         start_update_events(args[4])
-                        return f"You defeated {event.mob_name}:\nYou looted:\n{coins_gained} money\n{huntp_gain} " \
-                               f"HuntPoint{loot_message}"
+                        return f"You defeated {event.mob_name}:\n" \
+                               f"You looted:\n" \
+                               f"{coins_gained} money\n" \
+                               f"{xp_gain} Player XP\n" \
+                               f"{huntp_gain} HuntPoint\n" \
+                               f"{loot_message}"
 
                     piercing_attack = False
                     if random.randint(1, 12) == 1:

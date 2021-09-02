@@ -96,7 +96,7 @@ def fish_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     args[0].inv[fish] += fish_gained[fish]
                 if 'Fishing' not in args[0].skills:
                     args[0].skills['Fishing'] = [0, 0, 100]
-                xp_got = round(duration_in_hour * 60)
+                xp_got = round(duration_in_hour * random.randing(90, 100))
                 give_xp(xp_got, "Fishing", args[0], args[2])
                 tp_earned = round(duration_in_hour * 1.2)
                 # adds TrainingPoints to inv if the user has never had any
@@ -157,7 +157,7 @@ def mine_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     args[0].inv[mine] += mine_gained[mine]
                 if 'Mining' not in args[0].skills:
                     args[0].skills['Mining'] = [0, 0, 100]
-                xp_got = round(duration_in_hour * 60)
+                xp_got = round(duration_in_hour * random.randing(90, 100))
                 give_xp(xp_got, "Mining", args[0], args[2])
                 tp_earned = round(duration_in_hour * 1.2)
                 # adds TrainingPoints to inv if the user has never had any
@@ -216,7 +216,7 @@ def woodcut_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user dat
                     args[0].inv[wood] += wood_gained[wood]
                 if 'Woodcut' not in args[0].skills:
                     args[0].skills['Woodcut'] = [0, 0, 100]
-                xp_got = round(duration_in_hour * 60)
+                xp_got = round(duration_in_hour * random.randing(90, 100))
                 give_xp(xp_got, "Woodcut", args[0], args[2])
                 tp_earned = round(duration_in_hour * 1.2)
                 # adds TrainingPoints to inv if the user has never had any

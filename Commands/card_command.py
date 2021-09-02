@@ -35,11 +35,11 @@ def card_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
 
 def use_card(card, user, event):
-    combat = 1 + (0.1 * (user.skills['Combat'][0] + user.equipment_stats['Combat']))
-    defense = 1 + (0.1 * (user.skills['Defense'][0] + user.equipment_stats['Defense']))
-    magic = 1 + (0.1 * (user.skills['Magic'][0] + user.equipment_stats['Magic']))
-    agility = 1 + (0.1 * (user.skills['Agility'][0] + user.equipment_stats['Agility']))
-    healing = 1 + (0.1 * (user.skills['Healing'][0] + user.equipment_stats['Healing']))
+    combat = 1 + (0.1 * (user.skills['Combat'] + user.equipment_stats['Combat']))
+    defense = 1 + (0.1 * (user.skills['Defense'] + user.equipment_stats['Defense']))
+    magic = 1 + (0.1 * (user.skills['Magic'] + user.equipment_stats['Magic']))
+    agility = 1 + (0.1 * (user.skills['Agility'] + user.equipment_stats['Agility']))
+    healing = 1 + (0.1 * (user.skills['Healing'] + user.equipment_stats['Healing']))
     damage_dealt = 0
     shield_gained = 0
     heal_gained = 0
