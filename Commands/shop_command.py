@@ -21,9 +21,9 @@ shop_list = {
     'venom': 4300,
     'smash': 3100,
     'regeneration': 6500,
-    'Wrath': 9500,
-    'FrostArrow': 7340,
-    'Corruption': 14000,
+    'wrath': 9500,
+    'frostArrow': 7340,
+    'corruption': 14000,
     'onepunch': 100000,
 }
 shop_item_list = {
