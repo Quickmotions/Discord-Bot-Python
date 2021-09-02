@@ -41,6 +41,12 @@ items = [
     ["IceRune", 350],
     ["FireRune", 500],
 
+    ["HallowedHelmet", 2000],
+    ["HallowedChestplate", 2000],
+    ["HallowedLeggings", 2000],
+    ["HallowedBoots", 2000],
+    ["HallowedSpear", 2000],
+
 ]
 
 
@@ -136,7 +142,7 @@ def new_quests():
     quests = []
     quest_value = 0
     for _ in range(3):  # create 3 quests each day
-        quest_value += random.randint(100, 1400)  # value for reward and price of the quest
+        quest_value += random.randint(300, 1400)  # value for reward and price of the quest
         item_chosen = ['None', 999999]  # empty base item
         # only select item which is worth less than the quest value so you cant get 0 item
         while item_chosen[1] > quest_value:

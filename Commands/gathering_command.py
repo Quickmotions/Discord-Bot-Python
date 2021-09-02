@@ -35,7 +35,10 @@ mine_list = [
     'Tinore',
     'Ruby',
     'Sapphire',
-    'Diamond'
+    'Diamond',
+    'Mithrilore',
+    'Obsidian',
+    'Titaniumore'
 
 ]
 
@@ -81,7 +84,8 @@ def fish_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
                 if 'Fishing' not in args[0].skills:
                     args[0].skills['Fishing'] = [0, 0, 100]
-                fish_gained_total = round(duration_in_hour * (20 + (2 * (args[0].skills['Fishing'][0] + args[0].equipment_stats['Fishing']))))
+                fish_gained_total = round(
+                    duration_in_hour * (20 + (2 * (args[0].skills['Fishing'][0] + args[0].equipment_stats['Fishing']))))
                 for _ in range(fish_gained_total):
                     fish_gained[random.choice(fish_list)] += 1
 
@@ -138,11 +142,16 @@ def mine_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                                'Tinore': 0,
                                'Ruby': 0,
                                'Sapphire': 0,
-                               'Diamond': 0}
+                               'Diamond': 0,
+                               'Mithrilore': 0,
+                               'Obsidian': 0,
+                               'Titaniumore': 0,
+                               }
 
                 if 'Mining' not in args[0].skills:
                     args[0].skills['Mining'] = [0, 0, 100]
-                mine_gained_total = round(duration_in_hour * (20 + (2 * (args[0].skills['Mining'][0] + args[0].equipment_stats['Mining']))))
+                mine_gained_total = round(
+                    duration_in_hour * (20 + (2 * (args[0].skills['Mining'][0] + args[0].equipment_stats['Mining']))))
                 for _ in range(mine_gained_total):
                     mine_gained[random.choice(mine_list)] += 1
 
@@ -201,7 +210,8 @@ def woodcut_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user dat
 
                 if 'Woodcut' not in args[0].skills:
                     args[0].skills['Woodcut'] = [0, 0, 100]
-                wood_gained_total = round(duration_in_hour * (20 + (2 * (args[0].skills['Woodcut'][0] + args[0].equipment_stats['Woodcut']))))
+                wood_gained_total = round(
+                    duration_in_hour * (20 + (2 * (args[0].skills['Woodcut'][0] + args[0].equipment_stats['Woodcut']))))
                 for _ in range(wood_gained_total):
                     wood_gained[random.choice(woodcut_list)] += 1
 

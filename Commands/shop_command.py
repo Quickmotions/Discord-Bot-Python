@@ -31,6 +31,8 @@ shop_item_list = {
     'fishingrod': 300,
     'axe': 300,
     'coal': 20,
+    'crystalium': 125,
+
 
 }
 

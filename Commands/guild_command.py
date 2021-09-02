@@ -19,6 +19,7 @@ guild_list = {
     'Sapphire': 50,
     'RemovalSigil': 2000,
     'TrainingPoint': 20,
+    'HunterRing': 2500,
     'SorcererWand': 5000,
     'MagicDagger': 5000,
     'AssassinsHelmet': 1000,
@@ -34,6 +35,8 @@ guild_list = {
     'DarkCharge': 1750,
     'Shatter': 2400,
     'RagingFury': 1950,
+    'TormentShard': 3100,
+
 
 }
 

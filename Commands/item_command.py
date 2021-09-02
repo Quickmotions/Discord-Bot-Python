@@ -74,7 +74,7 @@ item_list = [
     [{'LavaSword': 'Gives +27 Combat Skill'}, 'Hand', {'Combat': 27}],
     [{'PunySword': 'Gives +4 Combat Skill'}, 'Hand', {'Combat': 4}],
     [{'SteelGreatSword': 'Gives +14 Combat Skill'}, 'Hand', {'Combat': 14}],
-    [{'Katana': 'Gives +3 Combat Skill, +3 Agility Skill'}, 'Hand', {'Combat': 3, 'Agility': 3}],
+    [{'Katana': 'Gives +7 Combat Skill, +7 Agility Skill'}, 'Hand', {'Combat': 7, 'Agility': 7}],
 
     # agility
     [{'ShadowScaleHelmet': 'Gives +30 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 30, 'Health': -5}],
