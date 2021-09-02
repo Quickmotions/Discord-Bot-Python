@@ -20,7 +20,7 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     agility_base = args[0].skills['Agility'] + args[0].equipment_stats['Agility']
     healing_base = args[0].skills['Healing'] + args[0].equipment_stats['Healing']
 
-    combat = ((6 * combat_base) - (2 * defense_base) - (1 * healing_base)) + 100
+    combat = ((4 * combat_base) - (2 * defense_base) - (1 * healing_base)) + 100
     defense = (10 * defense_base - 4 * health_base) + 100
     magic = ((10 * magic_base) - (2 * defense_base) - (1 * healing_base)) + 100
     agility = ((4 * agility_base) - (2 * defense_base) - (1 * healing_base)) + 100
