@@ -63,9 +63,13 @@ def start_combat(user, users, mob, battle_type, events):
                 event.shield = 0
 
                 # set up health
-                if 'Health' not in user.skills:
-                    user.skills['Health'] = [0, 0, 100]
-                event.max_hp = round(100 * (1 + (0.1 * (user.skills['Health'] + user.equipment_stats['Health']))))
+                health_base = user.skills['Health'] + user.equipment_stats['Health']
+                magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
+                critical_base = user.skills['Critical'] + user.equipment_stats['Critical']
+
+                event.max_hp = round(100 * ((((10 * health_base) - (5 * magic_base) - (2 * critical_base)) / 100) + 1))
+                if event.max_hp < 1:
+                    event.max_hp = 1
                 event.hp = event.max_hp
 
                 start_update_events(events)

@@ -1,6 +1,19 @@
 from Commands.update_csv import start_update_csv
 from Commands.stats_command import stats_c
 
+skill_info = {
+    'Combat': '+6% Combat Damage, -0.5% Critical Chance, -2% Healing',
+    'Magic': '+10% Magic Damage, -5% Health, -2% Healing',
+    'Agility': '+4% Agility Damage, +0.2% Critical Chance, -2% Healing',
+    'Healing': '+10% Healing, -4% Defense',
+    'Defense': '+10% Shield Increase, -2% All Damage',
+    'Critical': '+1% Critical Chance, -2% Health',
+    'Health': '+6% Health, -1% All Damage',
+    'Stealing': '+1% Stealing Chance',
+    'Luck': '+1% Gambling Chance',
+}
+
+
 
 def give_xp(xp_amount, skill_name, user_data, all_user_data):
     # unpack users data for specified skill
@@ -65,7 +78,7 @@ def skills_c(*args):
                     except Exception as e:
                         return e
                 else:
-                    return f"{skill_name} - lvl {skills[skill_name]}"
+                    return f"{skill_name} : {skill_info[skill_name]}"
             else:
                 return f"Cannot put skillpoints into gathering skills."
         elif user_input.lower() == "reset":
@@ -82,12 +95,15 @@ def skills_c(*args):
             start_update_csv(args[2])
             return f"Reset all skill level and gave you {args[0].skills['Player'][0]} skillpoints."
 
+        elif user_input.lower() == "help":
+            return "'stats (skill name) (number)' - adds skillpoints\n" \
+                   "'stats reset' - reset skill points\n" \
+                   "'stats (skill name) - view info about skill"
         else:
             return f"Incorrect use of command:\nTry 'stats (skill name) (number)' to add skillpoints or " \
                    f"'stats reset' to reset skill points"
     else:
-        return ["multiple", stats_c(args[0]), "Try 'stats (skill name) (number)' to add skillpoints or "
-                                              f"'stats reset' to reset skill points"]
+        return stats_c(args[0])
 
 
 def setup_skills(user, users):
