@@ -5,7 +5,7 @@ def removal_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user dat
     if 'RemovalSigil' in args[0].inv:
         if args[0].inv['RemovalSigil'] > 0:
             if len(args[3]) > 0:
-                if len(args[0].cards) > 4:
+                if len(args[0].cards) > 5:
                     card_chosen = str(args[3][0]).lower()
                     for card in args[0].cards:
                         if card_chosen == card.lower():
