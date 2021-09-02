@@ -3,43 +3,43 @@ import random
 from Commands.update_csv import start_update_quests, start_update_csv
 
 items = [
-    ["Cod", 25],
-    ["Mackerel", 25],
-    ["Carp", 25],
-    ["Trout", 25],
-    ["Salmon", 25],
-    ["Catfish", 25],
-    ["Tuna", 25],
-    ["Stone", 10],
-    ["Limestone", 12],
-    ["Basalt", 15],
-    ["IronOre", 30],
-    ["TinOre", 30],
-    ["GoldOre", 40],
-    ["Ruby", 50],
-    ["Sapphire", 50],
-    ["Diamond", 50],
+    ["Cod", 40],
+    ["Mackerel", 40],
+    ["Carp", 40],
+    ["Trout", 40],
+    ["Salmon", 40],
+    ["Catfish", 40],
+    ["Tuna", 40],
+    ["Stone", 20],
+    ["Limestone", 25],
+    ["Basalt", 30],
+    ["IronOre", 50],
+    ["TinOre", 50],
+    ["GoldOre", 70],
+    ["Ruby", 100],
+    ["Sapphire", 100],
+    ["Diamond", 100],
     ["Coal", 20],
-    ["TinIngot", 80],
-    ["IronIngot", 80],
-    ["Leather", 30],
-    ["GoldIngot", 100],
+    ["TinIngot", 100],
+    ["IronIngot", 100],
+    ["Leather", 20],
+    ["GoldIngot", 140],
     ["Bone", 25],
-    ["OakLog", 25],
-    ["SpruceLog", 25],
-    ["PineLog", 25],
-    ["BeechLog", 25],
-    ["MapleLog", 25],
-    ["AshLog", 25],
-    ["Paper", 35],
-    ["CutStone", 20],
-    ["CutLimestone", 24],
-    ["CutBasalt", 28],
-    ["RemovalSigil", 3000],
-    ["WaterRune", 60],
-    ["AirRune", 200],
-    ["IceRune", 100],
-    ["FireRune", 400],
+    ["OakLog", 40],
+    ["SpruceLog", 40],
+    ["PineLog", 40],
+    ["BeechLog", 40],
+    ["MapleLog", 40],
+    ["AshLog", 40],
+    ["Paper", 75],
+    ["CutStone", 40],
+    ["CutLimestone", 50],
+    ["CutBasalt", 60],
+    ["RemovalSigil", 1000],
+    ["WaterRune", 100],
+    ["AirRune", 220],
+    ["IceRune", 350],
+    ["FireRune", 500],
 
 ]
 
@@ -134,8 +134,9 @@ def setup_quests():
 
 def new_quests():
     quests = []
+    quest_value = 0
     for _ in range(3):  # create 3 quests each day
-        quest_value = random.randint(100, 10000)  # value for reward and price of the quest
+        quest_value += random.randint(100, 1400)  # value for reward and price of the quest
         item_chosen = ['None', 999999]  # empty base item
         # only select item which is worth less than the quest value so you cant get 0 item
         while item_chosen[1] > quest_value:

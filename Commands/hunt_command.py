@@ -13,7 +13,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                    "Grasslands: (level 5)\n" \
                    "Ruins: (level 6)\n" \
                    "China: (level 7)\n" \
-                   "Artic: (level 8)\n" \
+                   "Arctic: (level 8)\n" \
                    "Egypt: (level 9)\n" \
                    "Russia: (level 10)\n" \
                    "Mountains: (level 11)\n" \

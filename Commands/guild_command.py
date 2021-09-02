@@ -1,4 +1,5 @@
 from Commands.update_csv import start_update_csv
+from Commands.item_command import item_list
 
 
 guild_list = {
@@ -24,6 +25,16 @@ guild_list = {
     'AssassinsChestplate': 1000,
     'AssassinsLeggings': 1000,
     'AssassinsBoots': 1000,
+    'Assassinate': 1400,
+    'SkyShard': 900,
+    'Stab': 400,
+    'ShadowSlice': 500,
+    'ShadowBeam': 2000,
+    'ShadowStep': 420,
+    'DarkCharge': 1750,
+    'Shatter': 2400,
+    'RagingFury': 1950,
+
 }
 
 
@@ -39,9 +50,18 @@ def guild_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                             amount = int(args[3][2])
                             
                         if args[0].inv['HuntPoint'] >= guild_list[item] * amount:
-                            
                             args[0].inv['HuntPoint'] -= guild_list[item] * amount
-                            
+
+                            # test if item being bought is a card and add it to card menu instead of inv
+                            for card in item_list:
+                                if item in card[0].keys():
+                                    if card[1] == 'Card':
+                                        if item not in args[0].cards:
+                                            args[0].cards[item] = 0
+                                        args[0].cards[item] += amount
+                                        start_update_csv(args[2])
+                                        return f"Bought {amount} {item} for {guild_list[item] * amount} HuntPoints"
+
                             if item not in args[0].inv:
                                 args[0].inv[item] = 0
                             args[0].inv[item] += amount

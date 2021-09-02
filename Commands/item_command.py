@@ -62,7 +62,7 @@ item_list = [
     [{'SteelLeggings': 'Gives +4 Combat Skill'}, 'Legs', {'Combat': 4}],
     [{'SteelBoots': 'Gives +4 Combat Skill'}, 'Feet', {'Combat': 4}],
     [{'DarkBoots': 'Gives +9 Agility Skill'}, 'Feet', {'Agility': 9}],
-    [{'AbyssalDagger': 'Gives +3 Agility Skill, +2 Defense Skill'}, 'Feet', {'Agility': 3, 'Defense': 2}],
+    [{'AbyssalDagger': 'Gives +3 Agility Skill, +2 Defense Skill'}, 'Hand', {'Agility': 3, 'Defense': 2}],
     [{'AngelHelmet': 'Gives +10 Healing Skill'}, 'Head', {'Healing': 10}],
     [{'AngelChestplate': 'Gives +10 Healing Skill'}, 'Chest', {'Healing': 10}],
     [{'AngelLeggings': 'Gives +10 Healing Skill'}, 'Legs', {'Healing': 10}],
@@ -78,14 +78,46 @@ item_list = [
     [{'HallowedBoots': 'Gives +4 Defense Skill, +6 Luck Skill'}, 'Feet', {'Defense': 4, 'Luck': 6}],
     [{'HallowedSpear': 'Gives +2 Defense Skill, +8 Combat Skill'}, 'Hand', {'Defense': 2, 'Combat': 8}],
     [{'PunySword': 'Gives +1 Combat Skill'}, 'Hand', {'Combat': 1}],
+    [{'SteelGreatSword': 'Gives +6 Combat Skill'}, 'Hand', {'Combat': 6}],
     [{'OldIronChestplate': 'Gives +2 Defense Skill'}, 'Chest', {'Defense': 2}],
     [{'SlimeRing': 'Gives +4 Magic Skill, +4 Agility Skill'}, 'Finger', {'Magic': 4, 'Agility': 4}],
     [{'Katana': 'Gives +3 Combat Skill, +3 Agility Skill'}, 'Hand', {'Combat': 3, 'Agility': 3}],
     [{'WarlockLeggings': 'Gives +5 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 5, 'Healing': -3}],
     [{'WarlockBoots': 'Gives +5 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 5, 'Healing': -3}],
     [{'MagicRing': 'Gives +2 Magic Skill'}, 'Finger', {'Magic': 2}],
-]
+    [{'Slash':  "(combat) Damage - 3"}, 'Card', {'Combat': 3}],
+    [{'Defend':  "Shield - 5"}, 'Card', {'Defense': 5}],
+    [{'Charge': "(agility) Damage - 2, Extra Card Draw"}, 'Card', {'Agility': 2, 'Draw': 1}],
+    [{'Recharge': "Heal - 8"}, 'Card', {'Healing': 8}],
+    [{'Punch': "(agility) Damage - 4"}, 'Card', {'Agility': 4}],
+    [{'Shieldbash': "(combat) Damage - 5"}, 'Card', {'Combat': 5}],
+    [{'Bash': "(combat) Damage - 2, Shield - 4"}, 'Card', {'Combat': 2, 'Defense': 4}],
+    [{'Slice': "(agility) Damage - 4, Heal - 4"}, 'Card', {'Agility': 4, 'Healing': 4}],
+    [{'Snipe': "(magic) Damage - 7"}, 'Card', {'Magic': 7}],
+    [{'Trickshot': "(magic) Damage - 5, Shield - 3"}, 'Card', {'Magic': 5, 'Defense': 3}],
+    [{'Whirlwind': "(combat) Damage - 5, Extra Card Draw"}, 'Card', {'Combat': 5, 'Draw': 1}],
+    [{'Bomb': "(agility) Damage - 30, Bonus - Gets permanently destroyed"}, 'Card', {'Agility': 30, 'Destroy': 1}],
+    [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
+    [{'Regeneration': "Heal - 25"}, 'Card', {'Healing': 25}],
+    [{'Onepunch': "(combat) Damage - 30"}, 'Card', {'Combat': 30}],
+    [{'Slam': "(combat) Damage - 5, Shield - 5, Heal - 4"}, 'Card', {'Combat': 5, 'Defense': 5, 'Healing': 4}],
+    [{'Incinerate': "(magic) Damage - 11"}, 'Card', {'Magic': 11}],
+    [{'Devastate': "(magic) Damage - 8, Shield - 2"}, 'Card', {'Magic': 8, 'Defense': 2}],
+    [{'Bite': "(agility) Damage - 10"}, 'Card', {'Agility': 10}],
+    [{'Venom': "(magic) Damage - 3, Shield - 8"}, 'Card', {'Magic': 3, 'Defense': 8}],
+    [{'Smash': "(combat) Damage - 3, Heal - 10"}, 'Card', {'Agility': 4, 'Healing': 4}],
 
+    [{'Assassinate': "(agility) Damage - 9, + 3 if target below 20%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
+    [{'SkyShard': "(magic) Damage - 9, Extra Card Draw"}, 'Card', {'Magic': 9, 'Draw': 1}],
+    [{'Stab': "(agility) Damage - 5, Extra Card Draw"}, 'Card', {'Agility': 5, 'Draw': 1}],
+    [{'ShadowSlice': "(agility) Damage - 4, (magic) Damage - 2"}, 'Card', {'Agility': 4, 'Magic': 2}],
+    [{'ShadowBeam': "(magic) Damage - 6, Shield - 7"}, 'Card', {'Magic': 6, 'Defense': 7}],
+    [{'ShadowStep': "(magic) Damage - 1, Shield - 4"}, 'Card', {'Magic': 1, 'Defense': 4}],
+    [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Magic': 6, 'Defense': 7}],
+    [{'Shatter': "(combat) Damage - 9, Heal - 5"}, 'Card', {'Combat': 9, 'Healing': 5}],
+    [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
+
+]
 
 
 def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
@@ -93,6 +125,6 @@ def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         for item, slot, stats in item_list:
             for item_name, desc in item.items():
                 if args[3][0] == item_name.lower():
-                    return f"Info for {item_name}:\n{desc}"
+                    return f"Info for  {item_name}: {slot}\n{desc}"
     else:
         return f"Incorrect use of item:\ntry 'item (item-name)'"

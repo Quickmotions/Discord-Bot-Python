@@ -11,7 +11,6 @@ from Commands.hunt_command import hunt_c
 from Commands.source_command import source_c
 from Commands.steal_command import steal_c
 from Commands.gamble_command import gamble_c
-from Commands.card_command import card_c
 from Commands.shop_command import shop_c
 from Commands.item_command import item_c
 from Commands.gathering_command import fish_c, mine_c, woodcut_c, quit_c
@@ -30,7 +29,7 @@ class Commands:
             "bal": [bal_c, 5],
             "give": [give_c, 5],
             "inv": [inv_c, 1],
-            "card": [card_c, 1],
+            "card": [item_c, 1],
             "item": [item_c, 1],
             "equip": [equip_c, 1],
             "shop": [shop_c, 1],

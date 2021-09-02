@@ -16,6 +16,7 @@ class Events:
         self.active = str(active)
         self.mob_name = str(mob_name)
         self.mob_hp = int(mob_hp)
+        self.mob_max_hp = int(mob_hp)
         self.mob_dmg = int(mob_dmg)
         self.draw = ast.literal_eval(draw)
         self.shield = int(shield)

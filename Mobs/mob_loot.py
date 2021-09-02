@@ -76,6 +76,27 @@ loot_table = [
     [4, 'MagicRing', 1, 120],
     [5, 'MagicRing', 1, 120],
     [6, 'MagicRing', 1, 120],
+    [1, 'RemovalSigil', 1, 50],
+    [2, 'RemovalSigil', 1, 50],
+    [3, 'RemovalSigil', 1, 50],
+    [4, 'RemovalSigil', 1, 50],
+    [5, 'RemovalSigil', 1, 50],
+    [6, 'RemovalSigil', 1, 50],
+    [7, 'RemovalSigil', 1, 50],
+    [8, 'RemovalSigil', 1, 50],
+    [9, 'RemovalSigil', 1, 50],
+    [10, 'RemovalSigil', 1, 50],
+    [11, 'RemovalSigil', 1, 50],
+    [12, 'RemovalSigil', 1, 50],
+    [13, 'RemovalSigil', 1, 50],
+    [5, 'SteelGreatSword', 1, 20],
+    [6, 'SteelGreatSword', 1, 40],
+    [7, 'SteelGreatSword', 1, 60],
+    [8, 'SteelGreatSword', 1, 80],
+    [9, 'SteelGreatSword', 1, 100],
+
+
+
 ]
 
 

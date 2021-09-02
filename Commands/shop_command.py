@@ -79,6 +79,5 @@ def shop_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         shop_menu_item = "Shop Menu:\n--Items--\n"
         for item in shop_item_list:
             shop_menu_item += f"{item.title()} : £{shop_item_list[item]}\n"
-        shop_menu += "Type: 'shop (item) (amount)' to buy it:"
-        shop_menu_item += "Type: 'shop (item) (amount)' to buy it:"
+        shop_menu_item += "Type: 'shop buy (item) (amount)' to buy it:"
         return ["multiple", shop_menu, shop_menu_item]
