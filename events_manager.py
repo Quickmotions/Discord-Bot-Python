@@ -67,7 +67,7 @@ def start_combat(user, users, mob, battle_type, events):
                 magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
                 critical_base = user.skills['Critical'] + user.equipment_stats['Critical']
 
-                event.max_hp = round(100 * ((((10 * health_base) - (5 * magic_base) - (2 * critical_base)) / 100) + 1))
+                event.max_hp = round(100 * ((((6 * health_base) - (4 * magic_base) - (2 * critical_base)) / 100) + 1))
                 if event.max_hp < 1:
                     event.max_hp = 1
                 event.hp = event.max_hp
