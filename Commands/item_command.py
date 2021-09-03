@@ -143,22 +143,22 @@ item_list = [
     [{'ShadowScaleLeggings': 'Gives +30 Agility Skill, -4 Health Skill'}, 'Legs', {'Agility': 30, 'Health': -4}],
     [{'ShadowScaleBoots': 'Gives +30 Agility Skill, -6 Health Skill'}, 'Feet', {'Agility': 30, 'Health': -6}],
 
-    [{'ThiefHelmet': 'Gives +10 Stealing, +10 Agility Skill'}, 'Head', {'Stealing': 10, 'Agility': 10}],
-    [{'ThiefChestplate': 'Gives +10 Stealing, +10 Agility Skill'}, 'Chest', {'Stealing': 10, 'Agility': 10}],
-    [{'ThiefLeggings': 'Gives +10 Stealing, +10 Agility Skill'}, 'Legs', {'Stealing': 10, 'Agility': 10}],
-    [{'ThiefBoots': 'Gives +10 Stealing, +10 Agility Skill'}, 'Feet', {'Stealing': 10, 'Agility': 10}],
+    [{'ThiefHelmet': 'Gives +8 Stealing, +10 Agility Skill'}, 'Head', {'Stealing': 8, 'Agility': 10}],
+    [{'ThiefChestplate': 'Gives +8 Stealing, +10 Agility Skill'}, 'Chest', {'Stealing': 8, 'Agility': 10}],
+    [{'ThiefLeggings': 'Gives +8 Stealing, +10 Agility Skill'}, 'Legs', {'Stealing': 8, 'Agility': 10}],
+    [{'ThiefBoots': 'Gives +8 Stealing, +10 Agility Skill'}, 'Feet', {'Stealing': 8, 'Agility': 10}],
+    [{'ThiefRing': 'Gives +15 Stealing, +10 Agility Skill'}, 'Ring', {'Stealing': 15, 'Agility': 10}],
 
-    [{'AssassinsHelmet': 'Gives +15 Agility Skill'}, 'Head', {'Agility': 15}],
-    [{'AssassinsChestplate': 'Gives +15 Agility Skill'}, 'Chest', {'Agility': 15}],
-    [{'AssassinsLeggings': 'Gives +15 Agility Skill'}, 'Legs', {'Agility': 15}],
-    [{'AssassinsBoots': 'Gives +15 Agility Skill'}, 'Feet', {'Agility': 15}],
+    [{'AssassinsHelmet': 'Gives +13 Agility Skill'}, 'Head', {'Agility': 13}],
+    [{'AssassinsChestplate': 'Gives +13 Agility Skill'}, 'Chest', {'Agility': 13}],
+    [{'AssassinsLeggings': 'Gives +13 Agility Skill'}, 'Legs', {'Agility': 13}],
+    [{'AssassinsBoots': 'Gives +13 Agility Skill'}, 'Feet', {'Agility': 13}],
 
-    [{'SkeletalChestplate': 'Gives +25 Agility Skill'}, 'Chest', {'Agility': 25}],
-    [{'DarkBoots': 'Gives +45 Agility Skill'}, 'Feet', {'Agility': 45}],
+    [{'SkeletalChestplate': 'Gives +19 Agility Skill'}, 'Chest', {'Agility': 19}],
+    [{'DarkBoots': 'Gives +18 Agility Skill'}, 'Feet', {'Agility': 18}],
 
     [{'AbyssalDagger': 'Gives +15 Agility Skill, +10 Defense Skill'}, 'Hand', {'Agility': 15, 'Defense': 10}],
-    [{'BonerSword': 'Gives +30 Agility Skill'}, 'Hand', {'Agility': 30}],
-
+    [{'BonerSword': 'Gives +10 Agility Skill, +10 Dodge Skill'}, 'Hand', {'Agility': 10, 'Dodge': 10}],
 
 
 
@@ -188,13 +188,13 @@ item_list = [
     [{'WarlockBoots': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 8, 'Healing': -3}],
 
     [{'MagicStaff': 'Gives +9 Magic Skill'}, 'Hand', {'Magic': 9}],
-    [{'ElectrumWand': 'Gives +14 Magic Skill'}, 'Hand', {'Magic': 14}],
+    [{'ElectrumWand': 'Gives +8 Magic Skill'}, 'Hand', {'Magic': 8}],
     [{'SorcererWand': 'Gives +14 Magic Skill, +2 Defense Skill'}, 'Hand', {'Magic': 14, 'Defense': 2}],
     [{'MagicDagger': 'Gives +7 Magic Skill, +4 Agility Skill'}, 'Hand', {'Magic': 7, 'Agility': 4}],
     [{'DiabloRing': 'Gives +14 Magic Skill'}, 'Ring', {'Magic': 14}],
     [{'StaffOfAegis': 'Gives +38 Magic Skill'}, 'Hand', {'Magic': 38}],
-    [{'TormentShard': 'Gives +8 Magic Skill, +4 Healing Skill'}, 'Hand', {'Magic': 8, 'Healing': 4}],
-    [{'SlimeRing': 'Gives +14 Magic Skill, +8 Agility Skill'}, 'Ring', {'Magic': 14, 'Agility': 8}],
+    [{'TormentShard': 'Gives +12 Magic Skill, +8 Healing Skill'}, 'Hand', {'Magic': 12, 'Healing': 8}],
+    [{'SlimeRing': 'Gives +7 Magic Skill, +7 Healing Skill'}, 'Ring', {'Magic': 7, 'Healing': 7}],
     [{'MagicRing': 'Gives +6 Magic Skill'}, 'Ring', {'Magic': 6}],
 
 

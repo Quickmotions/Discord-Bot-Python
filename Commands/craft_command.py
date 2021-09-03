@@ -62,7 +62,7 @@ craft_list = {
     'SteelLeggings': [{'IronIngot': 60, 'Coal': 60}],
     'SteelBoots': [{'IronIngot': 60, 'Coal': 60}],
     'SteelGreatSword': [{'IronIngot': 95, 'Coal': 95}],
-    'DarkBoots': [{'BlackLeather': 300, 'ShadeWoodLog': 100}],
+    'DarkBoots': [{'BlackLeather': 50, 'ShadeWoodLog': 100}],
     'KnightHelmet': [{'MithrilIngot': 40}],
     'KnightChestplate': [{'MithrilIngot': 40}],
     'KnightLeggings': [{'MithrilIngot': 40}],

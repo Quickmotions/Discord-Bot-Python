@@ -135,6 +135,8 @@ loot_table = [
     [12, 'HellhoundChestplate', 1, 100],
     [12, 'HellhoundLeggings', 1, 100],
     [12, 'HellhoundBoots', 1, 100],
+    [4, 'ThiefRing', 1, 10],
+    [5, 'ThiefRing', 1, 20],
 
 
 
