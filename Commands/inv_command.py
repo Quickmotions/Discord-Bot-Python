@@ -47,6 +47,20 @@ def equip_c(*args):
         return "Incorrect use of equip command:\nTry 'equip (itemname)'"
 
 
+def unequip_c(*args):
+    args[0].equipment['Head'] = "None"
+    args[0].equipment['Chest'] = "None"
+    args[0].equipment['Legs'] = "None"
+    args[0].equipment['Feet'] = "None"
+    args[0].equipment['Hand'] = "None"
+    args[0].equipment['Ring'] = "None"
+    start_update_csv(args[2])
+    set_equipment_stats(args[0], args[2])
+    return f"Replaced all items with None."
+
+
+
+
 def sort_inventory(inv):
     # categories: special, resource, else
     special = ['TrainingPoint', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune', 'EarthRune', 'FireRune']

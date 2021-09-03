@@ -2,7 +2,7 @@
 from Commands.bal_command import bal_c
 from Commands.help_command import help_c
 from Commands.give_command import give_c
-from Commands.inv_command import inv_c, equip_c
+from Commands.inv_command import inv_c, equip_c, unequip_c
 from Commands.job_command import job_c, work_c
 from Commands.train_command import train_c
 from Commands.agree_command import agree_c
@@ -32,6 +32,7 @@ class Commands:
             "card": [item_c, 1],
             "item": [item_c, 1],
             "equip": [equip_c, 1],
+            "unequip": [unequip_c, 5],
             "shop": [shop_c, 1],
             "craft": [craft_c, 1],
             "job": [job_c, 1],
