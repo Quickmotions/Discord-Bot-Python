@@ -69,7 +69,7 @@ def sort_inventory(inv):
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
                 'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
                 'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot', 'BlackLeather', 'ShadeWoodLog','Blood', 'DevilsHorn',
-                'DarkShard', 'CutStone', 'crystalium']
+                'DarkShard', 'CutStone', 'Crystalium']
 
     sorted_inv = [{}, {}, {}]
     for item, amount in inv.items():

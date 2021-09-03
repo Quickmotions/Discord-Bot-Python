@@ -1,4 +1,5 @@
 from Commands.update_csv import start_update_csv
+from Commands.item_command import item_list
 
 craft_list = {
     'IronIngot': [{'Ironore': 2}, {'Coal': 1}],
@@ -109,6 +110,17 @@ def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                 for component in craft_list[craftable]:
                     for item, quantity in component.items():
                         args[0].inv[item] -= quantity * amount
+
+                for item in item_list:
+                    if craftable in item[0].keys():
+                        if item[1] == 'Card':
+                            # add card to card menu
+                            if craftable not in args[0].cards:
+                                args[0].cards[craftable] = 0
+                            args[0].cards[craftable] += amount  # give player crafted item
+                            start_update_csv(args[2])
+                            return f"{args[0].username} crafted {amount} {craftable}."
+
 
                 # test if craftable exists
                 if craftable not in args[0].inv:
