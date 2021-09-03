@@ -208,7 +208,7 @@ def check_event_response(*args):
 
 
                     # mob hp left percent
-                    mob_hp_percent = round(event.mob_max_hp / 100 * event.mob_hp)
+                    mob_hp_percent = round((100 / event.mob_max_hp) * event.mob_hp)
 
                     event.draw = new_draw
                     start_update_events(args[4])
