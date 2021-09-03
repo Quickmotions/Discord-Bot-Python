@@ -16,10 +16,11 @@ shop_list = {
     'Towershield': 4200,
     'Slam': 5500,
     'Incinerate': 4100,
-    'Devastate': 2800,
+    'Devastate': 3000,
     'Bite': 3600,
     'Venom': 4300,
     'Smash': 3100,
+    'QuickStab': 4500,
     'Regeneration': 6500,
     'Onepunch': 100000,
 }

@@ -3,7 +3,7 @@ from Commands.stats_command import stats_c
 
 skill_info = {
     'Combat': '+4% Combat Damage, -0.1% Critical Chance, -1% Healing',
-    'Magic': '+10% Magic Damage, -2% Health, -1% Healing',
+    'Magic': '+10% Magic Damage, -2% Health',
     'Agility': '+6% Agility Damage, +0.2% Dodge, -1% Healing',
     'Healing': '+10% Healing, -2% Defense',
     'Defense': '+10% Shield Increase, -1% All Damage, -0.25% Dodge',

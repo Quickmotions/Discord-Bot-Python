@@ -83,6 +83,8 @@ craft_list = {
     'Wrath': [{'Blood': 40, 'Paper': 25}],
     'FrostArrow': [{'Crystalium': 20, 'DevilsHorn': 15}],
     'Corruption': [{'BlackLeather': 30, 'Obsidian': 10}],
+    'Evasion': [{'AncientRune': 40, 'Sapphire': 80}],
+    'Shockwave': [{'AncientRune': 40, 'DevilIngot': 10}],
 
     'TrainingPoint': [{'Diamond': 1}, {'Ruby': 1}, {'Trout': 3}, {'Catfish': 3}],
 

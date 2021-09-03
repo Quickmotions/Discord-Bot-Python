@@ -223,41 +223,54 @@ item_list = [
 
 
 
-    # cards
+    # cards -------------------
 
-    [{'Slash':  "(combat) Damage - 3"}, 'Card', {'Combat': 3}],
-    [{'Defend':  "Shield - 5"}, 'Card', {'Defense': 5}],
-    [{'Charge': "(agility) Damage - 2, Extra Card Draw"}, 'Card', {'Agility': 2, 'Draw': 1}],
-    [{'Recharge': "Heal - 8"}, 'Card', {'Healing': 8}],
-    [{'Punch': "(agility) Damage - 4"}, 'Card', {'Agility': 4}],
-    [{'Shieldbash': "(combat) Damage - 5"}, 'Card', {'Combat': 5}],
-    [{'Bash': "(combat) Damage - 2, Shield - 4"}, 'Card', {'Combat': 2, 'Defense': 4}],
-    [{'Slice': "(agility) Damage - 4, Heal - 4"}, 'Card', {'Agility': 4, 'Healing': 4}],
+    # magic
     [{'Snipe': "(magic) Damage - 7"}, 'Card', {'Magic': 7}],
     [{'Trickshot': "(magic) Damage - 5, Shield - 3"}, 'Card', {'Magic': 5, 'Defense': 3}],
-    [{'Whirlwind': "(combat) Damage - 5, Extra Card Draw"}, 'Card', {'Combat': 5, 'Draw': 1}],
-    [{'Bomb': "(agility) Damage - 30, Bonus - Gets permanently destroyed"}, 'Card', {'Agility': 30, 'Destroy': 1}],
-    [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
-    [{'Regeneration': "Heal - 25"}, 'Card', {'Healing': 25}],
-    [{'Onepunch': "(combat) Damage - 30"}, 'Card', {'Combat': 30}],
-    [{'Slam': "(combat) Damage - 5, Shield - 5, Heal - 4"}, 'Card', {'Combat': 5, 'Defense': 5, 'Healing': 4}],
     [{'Incinerate': "(magic) Damage - 11"}, 'Card', {'Magic': 11}],
     [{'Devastate': "(magic) Damage - 8, Shield - 2"}, 'Card', {'Magic': 8, 'Defense': 2}],
-    [{'Bite': "(agility) Damage - 10"}, 'Card', {'Agility': 10}],
     [{'Venom': "(magic) Damage - 3, Shield - 8"}, 'Card', {'Magic': 3, 'Defense': 8}],
-    [{'Smash': "(combat) Damage - 3, Heal - 10"}, 'Card', {'Agility': 4, 'Healing': 4}],
-    [{'Assassinate': "(agility) Damage - 9, + 3 if target below 20%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
     [{'SkyShard': "(magic) Damage - 9, Extra Card Draw"}, 'Card', {'Magic': 9, 'Draw': 1}],
-    [{'Stab': "(agility) Damage - 5, Extra Card Draw"}, 'Card', {'Agility': 5, 'Draw': 1}],
-    [{'ShadowSlice': "(agility) Damage - 4, (magic) Damage - 2"}, 'Card', {'Agility': 4, 'Magic': 2}],
     [{'ShadowBeam': "(magic) Damage - 6, Shield - 7"}, 'Card', {'Magic': 6, 'Defense': 7}],
     [{'ShadowStep': "(magic) Damage - 1, Shield - 4"}, 'Card', {'Magic': 1, 'Defense': 4}],
+    [{'Wrath': "(magic) Damage - 15"}, 'Card', {'Magic': 15}],
+    [{'Corruption': "(magic) Damage - 20, Self Damage - 30"}, 'Card', {'Magic': 20, 'Self': 30}],
+
+    # agility
+    [{'Charge': "(agility) Damage - 2, Extra Card Draw"}, 'Card', {'Agility': 2, 'Draw': 1}],
+    [{'Punch': "(agility) Damage - 4"}, 'Card', {'Agility': 4}],
+    [{'Slice': "(agility) Damage - 4, Heal - 4"}, 'Card', {'Agility': 4, 'Healing': 4}],
+    [{'Bomb': "(agility) Damage - 30, Bonus - Gets permanently destroyed"}, 'Card', {'Agility': 30, 'Destroy': 1}],
+    [{'Bite': "(agility) Damage - 10"}, 'Card', {'Agility': 10}],
+    [{'Assassinate': "(agility) Damage - 9, + 3 if target below 20%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
+    [{'Stab': "(agility) Damage - 5, Extra Card Draw"}, 'Card', {'Agility': 5, 'Draw': 1}],
+    [{'ShadowSlice': "(agility) Damage - 4, (magic) Damage - 2"}, 'Card', {'Agility': 4, 'Magic': 2}],
+    [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 20%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
+    [{'Shockwave': "(agility) Damage - 16, 2 - Healing, Self Damage - 15"}, 'Card', {'Agility': 16, 'Healing': 15, 'Self': 15}],
+    [{'Evasion': "(agility) Damage - 8, Dodge - +30% "}, 'Card', {'Agility': 8, 'Dodge': 60}],
+    [{'QuickStab': "(agility) Damage - 13"}, 'Card', {'Agility': 13}],
+
+    # combat
+    [{'Slash': "(combat) Damage - 3"}, 'Card', {'Combat': 3}],
+    [{'Shieldbash': "(combat) Damage - 5"}, 'Card', {'Combat': 5}],
+    [{'Bash': "(combat) Damage - 2, Shield - 4"}, 'Card', {'Combat': 2, 'Defense': 4}],
+    [{'Whirlwind': "(combat) Damage - 5, Extra Card Draw"}, 'Card', {'Combat': 5, 'Draw': 1}],
+    [{'Onepunch': "(combat) Damage - 30"}, 'Card', {'Combat': 30}],
+    [{'Slam': "(combat) Damage - 5, Shield - 5, Heal - 4"}, 'Card', {'Combat': 5, 'Defense': 5, 'Healing': 4}],
+    [{'Smash': "(combat) Damage - 3, Heal - 10"}, 'Card', {'Agility': 4, 'Healing': 4}],
     [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Magic': 6, 'Defense': 7}],
     [{'Shatter': "(combat) Damage - 9, Heal - 5"}, 'Card', {'Combat': 9, 'Healing': 5}],
     [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
-    [{'Wrath': "(magic) Damage - 15"}, 'Card', {'Magic': 15}],
-    [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 20%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
-    [{'Corruption': "(magic) Damage - 20, Self Damage - 30"}, 'Card', {'Magic': 20, 'Self': 30}],
+
+    # healing
+    [{'Recharge': "Heal - 8"}, 'Card', {'Healing': 8}],
+    [{'Regeneration': "Heal - 25"}, 'Card', {'Healing': 25}],
+
+    # defense
+    [{'Defend': "Shield - 5"}, 'Card', {'Defense': 5}],
+    [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
+
 ]
 
 

@@ -15,7 +15,7 @@ def use_card(card, user, event):
     defense = ((((10 * defense_base) - (2 * health_base)) - (5 * dodge_base)) / 100) + 1
     magic = (((10 * magic_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
     agility = (((6 * agility_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
-    healing = (((10 * healing_base) - (1 * combat_base) - (1 * agility_base) - (2 * magic_base)) / 100) + 1
+    healing = (((10 * healing_base) - (1 * combat_base) - (1 * agility_base)) / 100) + 1
 
     if combat < 0.01:
         combat = 0.01
@@ -27,10 +27,7 @@ def use_card(card, user, event):
         agility = 0.01
     if healing < 0.01:
         healing = 0.01
-    if dodge < 0:
-        dodge = 0
-    if dodge > 90:
-        dodge = 90
+
 
     damage_dealt = 0
     shield_gained = 0
@@ -61,6 +58,9 @@ def use_card(card, user, event):
                     elif skill == "Draw":
                         extra_draw = True
 
+                    elif skill == "Dodge":
+                        dodge += amount
+
                     elif skill == "Finisher":
                         if event.mob_hp / event.mob_max_hp <= 0.2:
                             damage_dealt += round(amount * agility)
@@ -73,6 +73,11 @@ def use_card(card, user, event):
 
     if user.equipment['Hand'] == "Shield":
         shield_gained += round(3 * defense)
+
+    if dodge < 0:
+        dodge = 0
+    if dodge > 90:
+        dodge = 90
 
     event.mob_hp -= damage_dealt
     event.shield += shield_gained

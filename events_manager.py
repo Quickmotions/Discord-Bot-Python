@@ -216,7 +216,7 @@ def check_event_response(*args):
                     if dodged:
                         return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - Dodged + {healing}\n🛡️:"
                                             f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
-                                            f"❤️: {event.mob_hp} - {info[0]}\n🗡️: Dodged",
+                                            f"❤️: {event.mob_hp} - {info[0]}\n🗡️: Dodged({dodge_chance}%)",
                                 f"{draw_menu}"]
 
                     if not piercing_attack:
