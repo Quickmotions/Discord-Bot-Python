@@ -54,6 +54,7 @@ def start_combat(user, users, mob, battle_type, events):
                 event.active = "Active=Yes"
                 event.mob_name = mob[1]
                 event.mob_hp = mob[2]
+                event.mob_max_hp = mob[2]
                 event.mob_dmg = mob[3]
                 event.mob_coins = mob[4]
                 event.difficulty = mob[0]
@@ -205,6 +206,10 @@ def check_event_response(*args):
                         start_update_events(args[4])
                         return f"You were defeated by {event.mob_name}:\n They stole £{coins_lost} from you"
 
+
+                    # mob hp left percent
+                    mob_hp_percent = round(event.mob_max_hp / 100 * event.mob_hp)
+
                     event.draw = new_draw
                     start_update_events(args[4])
 
@@ -216,18 +221,18 @@ def check_event_response(*args):
                     if dodged:
                         return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - Dodged + {healing}\n🛡️:"
                                             f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
-                                            f"❤️: {event.mob_hp} - {info[0]}\n🗡️: Dodged({dodge_chance}%)",
+                                            f"❤️: {event.mob_hp} ({mob_hp_percent}%) - {info[0]}\n🗡️: Dodged({dodge_chance}%)",
                                 f"{draw_menu}"]
 
                     if not piercing_attack:
                         return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - {enemy_damage} + {healing}\n🛡️:"
                                         f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
-                                        f"❤️: {event.mob_hp} - {info[0]}\n🗡️: {enemy_damage}",
+                                        f"❤️: {event.mob_hp} ({mob_hp_percent}%) - {info[0]}\n🗡️: {enemy_damage}",
                                         f"{draw_menu}"]
                     else:
                         return ["multiple", f"{args[0].username}:\n❤️: {event.hp} - 🪡{enemy_damage} + {healing}\n🛡️:"
                                             f" {event.shield} + {info[1]}\n🗡️: {info[0]}\n{event.mob_name}:\n"
-                                            f"❤️: {event.mob_hp} - {info[0]}\n🗡️: {enemy_damage}",
+                                            f"❤️: {event.mob_hp} ({mob_hp_percent}%) - {info[0]}\n🗡️: {enemy_damage}",
                                 f"{draw_menu}"]
 
     return None
