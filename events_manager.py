@@ -8,7 +8,7 @@ from Commands.update_skills import give_xp
 
 
 class Events:
-    def __init__(self, user, active, mob_name, mob_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty):
+    def __init__(self, user, active, mob_name, mob_hp, mob_max_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty):
         self.difficulty = difficulty
         user_stuff = user.split(' ')
         self.user_id = str(user_stuff[0])
@@ -16,13 +16,15 @@ class Events:
         self.active = str(active)
         self.mob_name = str(mob_name)
         self.mob_hp = int(mob_hp)
-        self.mob_max_hp = int(mob_hp)
+        self.mob_max_hp = int(mob_max_hp)
         self.mob_dmg = int(mob_dmg)
         self.draw = ast.literal_eval(draw)
         self.shield = int(shield)
         self.hp = int(hp)
         self.max_hp = int(max_hp)
         self.mob_coins = float(mob_coins)
+
+
 
 
 def draw_card_deck(user, draw_amount=3):
@@ -98,7 +100,7 @@ def get_data():
         item = item.strip()  # remove \n
         item = item.split('*')  # split into items
         # create class for each user
-        items.append(Events(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9], item[10]))
+        items.append(Events(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9], item[10], item[11]))
     return items  # return list of users (classes)
 
 
@@ -209,6 +211,8 @@ def check_event_response(*args):
 
                     # mob hp left percent
                     mob_hp_percent = round((100 / event.mob_max_hp) * event.mob_hp)
+                    print(event.mob_max_hp, event.mob_hp, mob_hp_percent)
+
 
                     event.draw = new_draw
                     start_update_events(args[4])

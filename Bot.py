@@ -75,6 +75,7 @@ async def on_message(message):
                              "mob_name",
                              "0",
                              "0",
+                             "0",
                              "None",
                              "0",
                              "100",

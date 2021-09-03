@@ -18,7 +18,7 @@ def start_update_events(events):
     f = open("events.csv", 'w').close  # clear file
     f = open("events.csv", 'a')
     for event in events:
-        f.write(f"{event.user_id} {event.username}*{event.active}*{event.mob_name}*{event.mob_hp}*{event.mob_dmg}*{event.draw}*{event.shield}*{event.hp}*{event.max_hp}*{event.mob_coins}*{event.difficulty}\n")
+        f.write(f"{event.user_id} {event.username}*{event.active}*{event.mob_name}*{event.mob_hp}*{event.mob_max_hp}*{event.mob_dmg}*{event.draw}*{event.shield}*{event.hp}*{event.max_hp}*{event.mob_coins}*{event.difficulty}\n")
     f.close()
 
 
