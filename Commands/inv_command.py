@@ -63,11 +63,13 @@ def unequip_c(*args):
 
 def sort_inventory(inv):
     # categories: special, resource, else
-    special = ['TrainingPoint', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune', 'EarthRune', 'FireRune']
+    special = ['TrainingPoint', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune', 'EarthRune', 'FireRune',
+               'AncientRune']
     resource = ['Coal', 'Cod', 'Mackerel', 'Carp', 'Trout', 'Salmon', 'Catfish', 'Tuna', 'Stone', 'Limestone',
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
                 'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
-                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot', 'BlackLeather', 'ShadeWoodLog']
+                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot', 'BlackLeather', 'ShadeWoodLog','Blood', 'DevilsHorn',
+                'DarkShard', 'CutStone', 'crystalium']
 
     sorted_inv = [{}, {}, {}]
     for item, amount in inv.items():

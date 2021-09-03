@@ -24,11 +24,11 @@ shop_list = {
     'Onepunch': 100000,
 }
 shop_item_list = {
-    'pickaxe': 300,
-    'fishingrod': 300,
-    'axe': 300,
-    'coal': 20,
-    'crystalium': 125,
+    'Pickaxe': 300,
+    'Fishingrod': 300,
+    'Axe': 300,
+    'Coal': 20,
+    'Crystalium': 125,
 
 
 }
