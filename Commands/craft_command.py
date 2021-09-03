@@ -75,10 +75,13 @@ craft_list = {
     'SpectralLeggings': [{'Ectoplasm': 500, 'BloodInfusedDiamond': 5, 'Crystalium': 100}],
     'SpectralBoots': [{'Ectoplasm': 500, 'BloodInfusedDiamond': 5, 'Crystalium': 100}],
     'CursedMask': [{'Coal': 1000, 'BloodInfusedIngot': 10}],
-    'GriffinHelmet': [{'ShadeWoodLog': 500, 'Obsidian': 200, 'Crystalium': 350, 'DevilsHorn': 50}],
-    'GriffinChestplate': [{'ShadeWoodLog': 500, 'Obsidian': 200, 'Crystalium': 350, 'DevilsHorn': 50}],
-    'GriffinLeggings': [{'ShadeWoodLog': 500, 'Obsidian': 200, 'Crystalium': 350, 'DevilsHorn': 50}],
-    'GriffinBoots': [{'ShadeWoodLog': 500, 'Obsidian': 200, 'Crystalium': 350, 'DevilsHorn': 50}],
+    'GriffinHelmet': [{'ShadeWoodLog': 60, 'Obsidian': 100, 'Crystalium': 60, 'DevilsHorn': 40}],
+    'GriffinChestplate': [{'ShadeWoodLog': 60, 'Obsidian': 100, 'Crystalium': 60, 'DevilsHorn': 40}],
+    'GriffinLeggings': [{'ShadeWoodLog': 60, 'Obsidian': 100, 'Crystalium': 60, 'DevilsHorn': 40}],
+    'GriffinBoots': [{'ShadeWoodLog': 60, 'Obsidian': 100, 'Crystalium': 60, 'DevilsHorn': 40}],
+    'Wrath': [{'Blood': 40, 'Paper': 25}],
+    'FrostArrow': [{'Crystalium': 20, 'DevilsHorn': 15}],
+    'Corruption': [{'BlackLeather': 30, 'Obsidian': 10}],
 
     'TrainingPoint': [{'Diamond': 1}, {'Ruby': 1}, {'Trout': 3}, {'Catfish': 3}],
 

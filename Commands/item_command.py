@@ -67,25 +67,25 @@ item_list = [
     [{'HunterRing': 'Gives +5 Combat Skill, +4 Agility Skill, +5 Magic Skill'}, 'Ring', {'Agility': 4, 'Magic': 5, 'Combat': 5}],
 
     # defense
-    [{'KnightHelmet': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Head', {'Defense': 4, 'Combat': 2}],
-    [{'KnightChestplate': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Chest', {'Defense': 4, 'Combat': 2}],
-    [{'KnightLeggings': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Legs', {'Defense': 4, 'Combat': 2}],
-    [{'KnightBoots': 'Gives +4 Defense Skill, +2 Combat Skill'}, 'Feet', {'Defense': 4, 'Combat': 2}],
+    [{'KnightHelmet': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Head', {'Defense': 5, 'Combat': 3}],
+    [{'KnightChestplate': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Chest', {'Defense': 5, 'Combat': 3}],
+    [{'KnightLeggings': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Legs', {'Defense': 5, 'Combat': 3}],
+    [{'KnightBoots': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Feet', {'Defense': 5, 'Combat': 3}],
 
-    [{'DarkKnightHelmet': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Head', {'Defense': 10, 'Combat': 5}],
-    [{'DarkKnightChestplate': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Chest', {'Defense': 10, 'Combat': 5}],
-    [{'DarkKnightLeggings': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Legs', {'Defense': 10, 'Combat': 5}],
-    [{'DarkKnightBoots': 'Gives +10 Defense Skill, +5 Combat Skill'}, 'Feet', {'Defense': 10, 'Combat': 5}],
+    [{'DarkKnightHelmet': 'Gives +11 Defense Skill, +7 Combat Skill'}, 'Head', {'Defense': 11, 'Combat': 7}],
+    [{'DarkKnightChestplate': 'Gives +11 Defense Skill, +7 Combat Skill'}, 'Chest', {'Defense': 11, 'Combat': 7}],
+    [{'DarkKnightLeggings': 'Gives +11 Defense Skill, +7 Combat Skill'}, 'Legs', {'Defense': 11, 'Combat': 7}],
+    [{'DarkKnightBoots': 'Gives +11 Defense Skill, +7 Combat Skill'}, 'Feet', {'Defense': 11, 'Combat': 7}],
 
     [{'GolemHelmet': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Head', {'Defense': 15, 'Healing': 8}],
     [{'GolemChestplate': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Chest', {'Defense': 15, 'Healing': 8}],
     [{'GolemLeggings': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Legs', {'Defense': 15, 'Healing': 8}],
     [{'GolemBoots': 'Gives +15 Defense Skill, +8 healing Skill'}, 'Feet', {'Defense': 15, 'Healing': 8}],
 
-    [{'GriffinHelmet': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Head', {'Defense': 20, 'healing': 5, 'Agility': 5}],
-    [{'GriffinChestplate': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Chest', {'Defense': 20, 'healing': 5, 'Agility': 5}],
-    [{'GriffinLeggings': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Legs', {'Defense': 20, 'healing': 5, 'Agility': 5}],
-    [{'GriffinBoots': 'Gives +20 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Feet', {'Defense': 20, 'healing': 5, 'Agility': 5}],
+    [{'GriffinHelmet': 'Gives +24 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Head', {'Defense': 24, 'Healing': 5, 'Agility': 5}],
+    [{'GriffinChestplate': 'Gives +24 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Chest', {'Defense': 24, 'Healing': 5, 'Agility': 5}],
+    [{'GriffinLeggings': 'Gives +24 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Legs', {'Defense': 24, 'Healing': 5, 'Agility': 5}],
+    [{'GriffinBoots': 'Gives +24 Defense Skill, +5 healing Skill, +5 Agility Skill'}, 'Feet', {'Defense': 24, 'Healing': 5, 'Agility': 5}],
 
     [{'BasaltHelmet': 'Gives +16 Defense Skill, -7 Health Skill'}, 'Head', {'Defense': 16, 'Health': -7}],
 
