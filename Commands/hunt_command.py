@@ -56,13 +56,11 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                     enemy = mob.strip().split(',')
                     mob_list.append(enemy)
 
-
-                # mob data: 0 = difficulty, 1 = name, 2 = hp, 3 = dmg, 4 = coins dropped
-
                 # loop until random mob is right level
                 random_mob = random.choice(mob_list)
                 while int(random_mob[0]) != difficulty:
                     random_mob = random.choice(mob_list)
+
                 return start_combat(args[0], args[2], random_mob, 'PVE', args[4])
             else:
                 return "You are already doing a different type of gathering"

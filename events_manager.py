@@ -8,7 +8,8 @@ from Commands.update_skills import give_xp
 
 
 class Events:
-    def __init__(self, user, active, mob_name, mob_hp, mob_max_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty):
+    def __init__(self, event):
+        user, active, mob_name, mob_hp, mob_max_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty = event
         self.difficulty = difficulty
         user_stuff = user.split(' ')
         self.user_id = str(user_stuff[0])
@@ -24,6 +25,14 @@ class Events:
         self.max_hp = int(max_hp)
         self.mob_coins = float(mob_coins)
 
+
+def setup_events():
+    events = []
+    f = open("events.csv", "r")
+    for event in f.readlines():
+        event = event.strip()
+        event = event.split('*')
+        events.append(event)
 
 
 
@@ -45,7 +54,6 @@ def draw_card_deck(user, draw_amount=3):
 
 
 def start_combat(user, users, mob, battle_type, events):
-    events = get_data()
     for event in events:
         if event.user_id == user.user_id:
             if event.active == "Active=Yes":
@@ -93,19 +101,18 @@ def start_combat(user, users, mob, battle_type, events):
                         f"Combat started with {mob[1]}:\nMob HP: {mob[2]}\nMob DMG: {mob[3]}\nYour attacks: {draw}"]
 
 
-def get_data():
-    items = []
-    f = open("events.csv", "r")
-    for item in f.readlines():
-        item = item.strip()  # remove \n
-        item = item.split('*')  # split into items
-        # create class for each user
-        items.append(Events(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9], item[10], item[11]))
-    return items  # return list of users (classes)
-
-
 def check_event_response(*args):
     # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list 4 = events 5 = input message
+    events = setup_events()
+
+
+
+
+
+
+
+
+
     if args[5] == "1" or args[5] == "2" or args[5] == "3" or args[5] == "4":  # test if user input is valid for fight
         for event in args[4]:
             if event.user_id == args[0].user_id:
@@ -211,8 +218,6 @@ def check_event_response(*args):
 
                     # mob hp left percent
                     mob_hp_percent = round((100 / event.mob_max_hp) * event.mob_hp)
-                    print(event.mob_max_hp, event.mob_hp, mob_hp_percent)
-
 
                     event.draw = new_draw
                     start_update_events(args[4])

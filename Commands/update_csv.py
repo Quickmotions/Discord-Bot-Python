@@ -2,7 +2,17 @@ def start_update_csv(users):
     f = open("users.csv", 'w').close  # clear file
     f = open("users.csv", 'a')
     for user in users:
-        f.write(f"{user.user_id} {user.username}*{user.bal}*{user.inv}*{user.skills}*{user.job} {user.pay} {user.promotion}*{user.last_work}*{user.cards}*{user.gathering}*{user.gathering_time}*{user.equipment}/{user.equipment_stats}\n")
+        f.write(f"{user.user_id} {user.username}*"
+                f"{user.bal}*"
+                f"{user.inv}*"
+                f"{user.skills}*"
+                f"{user.job} {user.pay} {user.promotion}*"
+                f"{user.last_work}*"
+                f"{user.cards}*"
+                f"{user.gathering}*"
+                f"{user.gathering_time}*"
+                f"{user.equipment}/{user.equipment_stats}*"
+                f"{user.party}\n")
     f.close()
 
 
@@ -18,7 +28,16 @@ def start_update_events(events):
     f = open("events.csv", 'w').close  # clear file
     f = open("events.csv", 'a')
     for event in events:
-        f.write(f"{event.user_id} {event.username}*{event.active}*{event.mob_name}*{event.mob_hp}*{event.mob_max_hp}*{event.mob_dmg}*{event.draw}*{event.shield}*{event.hp}*{event.max_hp}*{event.mob_coins}*{event.difficulty}\n")
+        f.write(f"{event.user_id} {event.username}*"
+                f"{event.active}*{event.mob_name}*"
+                f"{event.mob_hp}*{event.mob_max_hp}*"
+                f"{event.mob_dmg}*"
+                f"{event.draw}*"
+                f"{event.shield}*"
+                f"{event.hp}*"
+                f"{event.max_hp}*"
+                f"{event.mob_coins}*"
+                f"{event.difficulty}\n")
     f.close()
 
 
@@ -29,5 +48,9 @@ def start_update_quests(quests):
         user_list = ""
         for user in quest.users:
             user_list += str(user) + '*'
-        f.write(f"{quest.info},{quest.start},{quest.cost},{quest.reward},{user_list}\n")
+        f.write(f"{quest.info},"
+                f"{quest.start},"
+                f"{quest.cost},"
+                f"{quest.reward},"
+                f"{user_list}\n")
     f.close()

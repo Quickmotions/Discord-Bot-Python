@@ -8,7 +8,7 @@ from command_manager import Commands
 from users import run_setup_users
 from cooldown_manager import run_setup_cool_down, CoolDowns
 from Commands.update_csv import start_update_csv, start_update_cooldown, start_update_events
-from events_manager import check_event_response, Events, get_data
+from events_manager import check_event_response
 from Commands.inv_command import setup_equipment, set_equipment_stats
 from Commands.quest_command import setup_quests
 
@@ -23,7 +23,6 @@ USERS = run_setup_users()
 CDS = run_setup_cool_down()
 
 
-
 @client.event
 async def on_ready():
     print("logged in as {0.user}\n\n".format(client))
@@ -34,11 +33,11 @@ async def on_ready():
         set_equipment_stats(user, USERS)
 
 
+
 @client.event
 async def on_message(message):
     if message.author == client.user:  # stops bot responding to its self
         return
-    events = get_data()
     # collect some data from message
     user_id = str(message.author.id)
     username = str(message.author).split('#')[0]  # username only
@@ -49,7 +48,6 @@ async def on_message(message):
     user_input = user_message.lower().split(' ')
     user_command = user_input[0].lower()
     user_found = False
-    event_found = False
 
     for user in USERS:
         if user.user_id == user_id:
@@ -57,33 +55,14 @@ async def on_message(message):
             # finds the user who inputted command in the user data
             user_data_for_command = user
 
-    for event in events:
-        if event.user_id == user_id:
-            event_found = True
-            # finds the user who inputted command in the user data
 
     if not user_found:  # user data missing creates new default for user
 
         from users import Player
         USERS.append(Player(f"{user_id} {username}"))
-        setup_skills(USERS)
+        user = USERS[-1]
+        setup_skills(user, USERS)
         start_update_csv(USERS)
-    if not event_found:  # user data missing creates new default for user
-
-        events.append(events(f"{user_id} {username}",
-                             "Active=No",
-                             "mob_name",
-                             "0",
-                             "0",
-                             "0",
-                             "None",
-                             "0",
-                             "100",
-                             "100",
-                             "0"
-                             ))
-
-        start_update_events(events)
 
     if user_command in C.command_list:
         if user_found:
@@ -108,10 +87,10 @@ async def on_message(message):
             start_update_cooldown(CDS)
 
             # run the command
-            response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:], events)
+            response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:])
 
-    else:  # message not in commands list (responses check)
-        response = check_event_response(user_data_for_command, C, USERS, user_input[1:], events, user_input[0])
+    # else:  # message not in commands list (responses check)
+        # response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0])
 
     # display output
     if response is not None:
