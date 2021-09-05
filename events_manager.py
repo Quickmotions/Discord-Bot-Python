@@ -1,14 +1,24 @@
-from Commands.update_csv import start_update_events, start_update_csv
+from Commands.update_csv import start_update_csv
+from datetime import datetime
 import random
 import ast
 from Mobs.mob_loot import award_hunt_loot
 from Commands.update_skills import give_xp
 
 
-
-
 class Events:
-    def __init__(self, event):
+    def __init__(self, user_party, user_data, mob_data):
+        # new event: Event_time, user_party, user_data, mob_data
+        self.time = datetime.today()
+        for user in user_party:
+
+
+        for data in user_data:
+
+
+
+
+
         user, active, mob_name, mob_hp, mob_max_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty = event
         self.difficulty = difficulty
         user_stuff = user.split(' ')
@@ -35,7 +45,6 @@ def setup_events():
         events.append(event)
 
 
-
 def draw_card_deck(user, draw_amount=3):
     user_deck = user.cards
     deck = []
@@ -54,36 +63,75 @@ def draw_card_deck(user, draw_amount=3):
 
 
 def start_combat(user, users, mob, battle_type, events):
+    user_party = user.party
     for event in events:
         if event.user_id == user.user_id:
             if event.active == "Active=Yes":
-                return f"You already have an active combat:\nComplete or quit the event first."
-    if battle_type == 'PVE':
-        for event in events:
-            if event.user_id == user.user_id:
-                event.active = "Active=Yes"
-                event.mob_name = mob[1]
-                event.mob_hp = mob[2]
-                event.mob_max_hp = mob[2]
-                event.mob_dmg = mob[3]
-                event.mob_coins = mob[4]
-                event.difficulty = mob[0]
-                draw = draw_card_deck(user)
-                event.draw = draw
+                return f"You already have an active combat:\nComplete the event first."
 
-                event.shield = 0
-
+    event_data = []
+    # new event: Event_time, user_party, user_data, mob_data
+    event_data.append(datetime.now())
+    event_data.append(user_party)
+    user_data = []
+    for member in user_party:
+        for user in users:
+            if user.user_id == member[0]:
                 # set up health
                 health_base = user.skills['Health'] + user.equipment_stats['Health']
                 magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
                 critical_base = user.skills['Critical'] + user.equipment_stats['Critical']
 
-                event.max_hp = round(100 * ((((6 * health_base) - (2 * magic_base) - (1 * critical_base)) / 100) + 1))
-                if event.max_hp < 1:
-                    event.max_hp = 1
-                event.hp = event.max_hp
+                max_hp = round(100 * ((((6 * health_base) - (2 * magic_base) - (1 * critical_base)) / 100) + 1))
+                if max_hp < 1:
+                    max_hp = 1
+                hp = max_hp
 
-                start_update_events(events)
+                user_data.append(hp, max_hp, 0, draw_card_deck(user))
+    event_data.append(user_data)
+
+    difficulty = mob[0]
+    mob_name = mob[1]
+    mob_hp = mob[2]
+    mob_max_hp = mob[2]
+    mob_dmg = mob[3]
+    mob_coins = mob[4]
+
+    event_data.append([difficulty, mob_name, mob_hp, mob_max_hp, mob_dmg, mob_coins])
+
+        user_data.append()
+        uid = user.user_id
+        uname = user.username
+
+
+
+
+
+    f = open("events.csv", 'a')
+
+            f"{event.active}*{event.mob_name}*"
+            f"{event.mob_hp}*{event.mob_max_hp}*"
+            f"{event.mob_dmg}*"
+            f"{event.draw}*"
+            f"{event.shield}*"
+            f"{event.hp}*"
+            f"{event.max_hp}*"
+            f"{event.mob_coins}*"
+            f"{event.difficulty}\n")
+    f.close()
+
+
+
+    if battle_type == 'PVE':
+        for event in events:
+            if event.user_id == user.user_id:
+                event.active = "Active=Yes"
+
+                draw = draw_card_deck(user)
+                event.draw = draw
+
+                event.shield = 0
+
 
                 draw_menu = "Your Cards:\n"
                 num = 1
