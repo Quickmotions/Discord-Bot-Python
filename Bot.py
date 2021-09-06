@@ -89,8 +89,8 @@ async def on_message(message):
             # run the command
             response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:])
 
-    # else:  # message not in commands list (responses check)
-        # response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0])
+    else:  # message not in commands list (responses check)
+        response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0])
 
     # display output
     if response is not None:

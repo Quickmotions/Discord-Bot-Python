@@ -61,7 +61,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                 while int(random_mob[0]) != difficulty:
                     random_mob = random.choice(mob_list)
 
-                return start_combat(args[0], args[2], random_mob, 'PVE', args[4])
+                return start_combat(args[0], args[2], random_mob, 'PVE')
             else:
                 return "You are already doing a different type of gathering"
 

@@ -19,6 +19,7 @@ from Commands.quest_command import quest_c
 from Commands.update_skills import skills_c
 from Commands.removal_command import removal_c
 from Commands.guild_command import guild_c
+from Commands.party_command import party_c
 
 
 # controls inputted and outputted commands
@@ -53,7 +54,8 @@ class Commands:
             "quest": [quest_c, 1],
             "removal": [removal_c, 1],
             "guild": [guild_c, 1],
+            "party": [party_c, 3]
         }
 
-    def run_command(self, name, user_data, c, users, args, events):
-        return self.command_list[name[0]][0](user_data, c, users, args, events)
+    def run_command(self, name, user_data, c, users, args):
+        return self.command_list[name[0]][0](user_data, c, users, args)

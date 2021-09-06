@@ -46,13 +46,13 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     if dodge > 90:
         dodge = 90
 
-    response += f"\n\n️❤: {health}hp"
-    response += f"    ⚔: {combat}%"
-    response += f"\n🛡️: {defense}%"
-    response += f"    🪄: {magic}%"
-    response += f"\n👟: {agility}%"
-    response += f"     💔: {healing}%"
-    response += f"\n💨: {dodge}%"
+    response += f"\n\n️💗: {round(health)}hp"
+    response += f"    🔪️: {round(combat)}%"
+    response += f"\n🛡️: {round(defense)}%"
+    response += f"    ✨: {round(magic)}%"
+    response += f"\n🗡️: {round(agility)}%"
+    response += f"     ❤️‍🩹: {round(healing)}%"
+    response += f"\n💨: {round(dodge)}%"
     response += f"\n\n💵: {round(args[0].bal, 2)}"
     response += f"\n🔨: {args[0].gathering}"
     return response

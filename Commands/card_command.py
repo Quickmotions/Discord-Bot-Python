@@ -62,7 +62,7 @@ def use_card(card, user, event):
                         dodge += amount
 
                     elif skill == "Finisher":
-                        if event.mob_hp / event.mob_max_hp <= 0.2:
+                        if event.mob_hp / event.mob_max_hp <= 0.4:
                             damage_dealt += round(amount * agility)
 
                     elif skill == "Destroy":

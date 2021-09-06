@@ -6,43 +6,13 @@ from Mobs.mob_loot import award_hunt_loot
 from Commands.update_skills import give_xp
 
 
-class Events:
-    def __init__(self, user_party, user_data, mob_data):
-        # new event: Event_time, user_party, user_data, mob_data
-        self.time = datetime.today()
-        for user in user_party:
-
-
-        for data in user_data:
-
-
-
-
-
-        user, active, mob_name, mob_hp, mob_max_hp, mob_dmg, draw, shield, hp, max_hp, mob_coins, difficulty = event
-        self.difficulty = difficulty
-        user_stuff = user.split(' ')
-        self.user_id = str(user_stuff[0])
-        self.username = str(user_stuff[1])
-        self.active = str(active)
-        self.mob_name = str(mob_name)
-        self.mob_hp = int(mob_hp)
-        self.mob_max_hp = int(mob_max_hp)
-        self.mob_dmg = int(mob_dmg)
-        self.draw = ast.literal_eval(draw)
-        self.shield = int(shield)
-        self.hp = int(hp)
-        self.max_hp = int(max_hp)
-        self.mob_coins = float(mob_coins)
-
-
-def setup_events():
+def get_events():
     events = []
     f = open("events.csv", "r")
     for event in f.readlines():
-        event = event.strip()
-        event = event.split('*')
-        events.append(event)
+        event.strip()
+        events.append(ast.literal_eval(event))
+    return events
 
 
 def draw_card_deck(user, draw_amount=3):
@@ -62,17 +32,19 @@ def draw_card_deck(user, draw_amount=3):
     return draw
 
 
-def start_combat(user, users, mob, battle_type, events):
-    user_party = user.party
+def start_combat(user, users, mob, battle_type):
+    user_party = []
+    for member in user.party:
+        if member[2] == 'member':
+            user_party.append(member)
+
+    events = get_events()
     for event in events:
-        if event.user_id == user.user_id:
-            if event.active == "Active=Yes":
+        for member in event[2]:
+            if str(member[0]) == user.user_id:
                 return f"You already have an active combat:\nComplete the event first."
 
-    event_data = []
-    # new event: Event_time, user_party, user_data, mob_data
-    event_data.append(datetime.now())
-    event_data.append(user_party)
+    event_data = [0, battle_type, user_party]
     user_data = []
     for member in user_party:
         for user in users:
@@ -87,71 +59,48 @@ def start_combat(user, users, mob, battle_type, events):
                     max_hp = 1
                 hp = max_hp
 
-                user_data.append(hp, max_hp, 0, draw_card_deck(user))
+                user_data.append([hp, max_hp, 0, draw_card_deck(user)])
+
     event_data.append(user_data)
+    event_data.append([mob[0], mob[1], mob[2], mob[2], mob[3], mob[4]])
 
-    difficulty = mob[0]
-    mob_name = mob[1]
-    mob_hp = mob[2]
-    mob_max_hp = mob[2]
-    mob_dmg = mob[3]
-    mob_coins = mob[4]
-
-    event_data.append([difficulty, mob_name, mob_hp, mob_max_hp, mob_dmg, mob_coins])
-
-        user_data.append()
-        uid = user.user_id
-        uname = user.username
-
-
-
-
+    # info about EVENT_DATA: ----------------------------
+    # turn, battle_type, party, user_data, mob_data
+    # ---------------------------------------------------
+    # party = [user_id, username, 'member/invite'] * party
+    # user_data = [hp, maxhp, shield, draw] * party
+    # mob_data = [dificulty, name. hp, maxhp, dmg, coins]
+    # ---------------------------------------------------
 
     f = open("events.csv", 'a')
-
-            f"{event.active}*{event.mob_name}*"
-            f"{event.mob_hp}*{event.mob_max_hp}*"
-            f"{event.mob_dmg}*"
-            f"{event.draw}*"
-            f"{event.shield}*"
-            f"{event.hp}*"
-            f"{event.max_hp}*"
-            f"{event.mob_coins}*"
-            f"{event.difficulty}\n")
+    f.write(f'{event_data}\n')
     f.close()
 
+    gui = create_battle_gui(event_data, start=True)
+    return gui
 
 
-    if battle_type == 'PVE':
-        for event in events:
-            if event.user_id == user.user_id:
-                event.active = "Active=Yes"
-
-                draw = draw_card_deck(user)
-                event.draw = draw
-
-                event.shield = 0
+def create_battle_gui(event_data, start=False):
+    turn, battle_type, party, user_data, mob = event_data
+    gui = ["multiple"]
+    players_gui = ""
+    if start:
+        for pos in range(len(party)):
+            players_gui += f"{party[pos][1]}:\n💗: {user_data[pos][0]}/{user_data[pos][1]}\n🛡️: {user_data[pos][2]}\n"
 
 
-                draw_menu = "Your Cards:\n"
-                num = 1
-                for card in draw:
-                    draw_menu += f"{num} = {card}\n"
-                    num += 1
+    players_gui += f"{mob[1]}:\n💗: {mob[2]}/{mob[3]}\n🗡️: {mob[4]}"
+    gui.append(players_gui)
+    gui.append(f"{party[turn][1]}s Turn:\n{user_data[turn][3]}")
 
-                return ["multiple", f"Combat started with {mob[1]}:",
-                        f"{user.username}:\n❤️: {event.hp}\n🛡️:"
-                        f" {event.shield}\n{event.mob_name}:\n"
-                        f"❤️: {event.mob_hp}\n🗡️: {event.mob_dmg}",
-                        f"{draw_menu}"]
+    return gui
 
-                return ["event",
-                        f"Combat started with {mob[1]}:\nMob HP: {mob[2]}\nMob DMG: {mob[3]}\nYour attacks: {draw}"]
+
 
 
 def check_event_response(*args):
     # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list 4 = events 5 = input message
-    events = setup_events()
+    events = get_events()
 
 
 

@@ -137,6 +137,8 @@ item_list = [
     [{'SteelGreatSword': 'Gives +14 Combat Skill'}, 'Hand', {'Combat': 14}],
     [{'Katana': 'Gives +7 Combat Skill, +7 Agility Skill'}, 'Hand', {'Combat': 7, 'Agility': 7}],
 
+
+
     # agility
     [{'ShadowScaleHelmet': 'Gives +30 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 30, 'Health': -5}],
     [{'ShadowScaleChestplate': 'Gives +30 Agility Skill, -8 Health Skill'}, 'Chest', {'Agility': 30, 'Health': -8}],
@@ -177,6 +179,11 @@ item_list = [
 
 
     # magic (done)
+
+    [{'MagicChestplate': 'Gives +5 Magic Skill'}, 'Chest', {'Magic': 5}],
+    [{'ElementalChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
+    [{'ArchMageChestplate': 'Gives +27 Magic Skill'}, 'Chest', {'Magic': 27}],
+
     [{'InfinityBoots': 'Gives +20 Magic Skill'}, 'Feet', {'Magic': 20}],
     [{'SpectralHelmet': 'Gives +15 Magic Skill'}, 'Head', {'Magic': 15}],
     [{'SpectralChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
@@ -210,15 +217,38 @@ item_list = [
 
     # healing
 
-
+    [{'RestoreWand': 'Gives +6 Healing Skill, +4 Magic'}, 'Hand', {'Healing': 6, 'Magic': 4}],
+    [{'UnholyStaff': 'Gives +12 Healing Skill, +6 Health'}, 'Hand', {'Healing': 12, 'Health': 6}],
+    [{'DemonScythe': 'Gives +15 Healing Skill, +6 Magic, +6 Dodge'}, 'Hand', {'Healing': 15, 'Magic': 6, 'Dodge': 6}],
     [{'WandOfHealing': 'Gives +10 Healing Skill'}, 'Hand', {'Healing': 10}],
+    [{'Spellbinder': 'Gives +9 Healing Skill, +9 Defense'}, 'Hand', {'Healing': 9, 'Defense': 9}],
+    [{'ProtectorsCurse': 'Gives +10 Healing Skill, +16 Defense, -6 Health'}, 'Hand', {'Healing': 10, 'Defense': 16, 'Health': -6}],
+
 
     [{'AngelHelmet': 'Gives +30 Healing Skill'}, 'Head', {'Healing': 30}],
     [{'AngelChestplate': 'Gives +30 Healing Skill'}, 'Chest', {'Healing': 30}],
     [{'AngelLeggings': 'Gives +30 Healing Skill'}, 'Legs', {'Healing': 30}],
     [{'AngelBoots': 'Gives +30 Healing Skill'}, 'Feet', {'Healing': 30}],
 
+    [{'CrystalHelmet': 'Gives +6 Healing Skill'}, 'Head', {'Healing': 6}],
+    [{'CrystalChestplate': 'Gives +6 Healing Skill'}, 'Chest', {'Healing': 6}],
+    [{'CrystalLeggings': 'Gives +6 Healing Skill'}, 'Legs', {'Healing': 6}],
+    [{'CrystalBoots': 'Gives +6 Healing Skill'}, 'Feet', {'Healing': 6}],
 
+    [{'TrueSteelHelmet': 'Gives +9 Healing Skill, +6 Magic Skill'}, 'Head', {'Healing': 9, 'Magic': 6}],
+    [{'TrueSteelChestplate': 'Gives +9 Healing Skill, +6 Magic Skill'}, 'Chest', {'Healing': 9, 'Magic': 6}],
+    [{'TrueSteelLeggings': 'Gives +9 Healing Skill, +6 Magic Skill'}, 'Legs', {'Healing': 9, 'Magic': 6}],
+    [{'TrueSteelBoots': 'Gives +9 Healing Skill, +6 Magic Skill'}, 'Feet', {'Healing': 9, 'Magic': 6}],
+
+    [{'EbonHelmet': 'Gives +18 Healing Skill'}, 'Head', {'Healing': 18}],
+    [{'EbonChestplate': 'Gives +18 Healing Skill'}, 'Chest', {'Healing': 18}],
+    [{'EbonLeggings': 'Gives +18 Healing Skill'}, 'Legs', {'Healing': 18}],
+    [{'EbonBoots': 'Gives +18 Healing Skill'}, 'Feet', {'Healing': 18}],
+
+    [{'AberrantHelmet': 'Gives +20 Healing Skill, +8 Dodge'}, 'Head', {'Healing': 20, 'Dodge': 8}],
+    [{'AberrantChestplate': 'Gives +20 Healing Skill, +8 Dodge'}, 'Chest', {'Healing': 20, 'Dodge': 8}],
+    [{'AberrantLeggings': 'Gives +20 Healing Skill, +8 Dodge'}, 'Legs', {'Healing': 20, 'Dodge': 8}],
+    [{'AberrantBoots': 'Gives +20 Healing Skill, +8 Dodge'}, 'Feet', {'Healing': 20, 'Dodge': 8}],
 
 
 
@@ -243,10 +273,10 @@ item_list = [
     [{'Slice': "(agility) Damage - 4, Heal - 4"}, 'Card', {'Agility': 4, 'Healing': 4}],
     [{'Bomb': "(agility) Damage - 30, Bonus - Gets permanently destroyed"}, 'Card', {'Agility': 30, 'Destroy': 1}],
     [{'Bite': "(agility) Damage - 10"}, 'Card', {'Agility': 10}],
-    [{'Assassinate': "(agility) Damage - 9, + 3 if target below 20%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
+    [{'Assassinate': "(agility) Damage - 9, + 3 if target below 40%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
     [{'Stab': "(agility) Damage - 5, Extra Card Draw"}, 'Card', {'Agility': 5, 'Draw': 1}],
     [{'ShadowSlice': "(agility) Damage - 4, (magic) Damage - 2"}, 'Card', {'Agility': 4, 'Magic': 2}],
-    [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 20%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
+    [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 40%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
     [{'Shockwave': "(agility) Damage - 16, 2 - Healing, Self Damage - 15"}, 'Card', {'Agility': 16, 'Healing': 2, 'Self': 15}],
     [{'Evasion': "(agility) Damage - 8, Dodge - +15% "}, 'Card', {'Agility': 8, 'Dodge': 30}],
     [{'QuickStab': "(agility) Damage - 13"}, 'Card', {'Agility': 13}],
