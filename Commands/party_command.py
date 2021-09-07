@@ -13,11 +13,9 @@ def party_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
 
         elif args[3][0] == 'join':
             party_length = 0
-            for uid, name, member in args[0].party:
-                if member == 'member':
+            for uid, name, invite_type in args[0].party:
+                if invite_type == 'member':
                     party_length += 1
-
-            if party_length > 1:
                 for invite in args[0].party:
                     if invite[2] == 'invite':
                         party_invitee_user_id, party_leader, invite = invite
@@ -42,8 +40,8 @@ def party_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                             return f"You joined {party_leader}s Party"
                         else:
                             return f"You have no party invites"
-            else:
-                return "You're already in a party, type 'party quit'"
+            # else:
+            #     return "You're already in a party, type 'party quit'"
 
 
         elif args[3][0] == 'list':
