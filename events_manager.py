@@ -69,8 +69,9 @@ def start_combat(user, users, mob, battle_type):
 
 
                 user_data.append([hp, max_hp, 0, draw_card_deck(user), 0, dodge])
-
-    event_data.append(user_data.reverse())
+    if len(user_data) > 1:
+        user_data.reverse()
+    event_data.append(user_data)
     event_data.append([mob[0], mob[1], mob[2], mob[2], mob[3], mob[4]])
 
     # info about EVENT_DATA: ----------------------------
@@ -226,7 +227,6 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             for pos in range(len(party)):
                 missing_current = int(user_data[pos][1]) - int(user_data[pos][0])
                 missing_most = int(user_data[most_missing][1]) - int(user_data[most_missing][0])
-                print(f"current {missing_current}, most {missing_most}")
                 if missing_current > missing_most:
                     most_missing = pos
 
