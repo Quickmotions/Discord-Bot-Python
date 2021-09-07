@@ -1,5 +1,6 @@
 from Commands.update_csv import start_update_csv
 
+
 def party_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     if len(args[3]) > 0:
         if args[3][0] == 'invite':
@@ -11,7 +12,12 @@ def party_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                         return f"Invited {target.username} to your party:\nThey need to type `party join' to accept."
 
         elif args[3][0] == 'join':
-            if len(args[0].party) > 2:
+            party_length = 0
+            for uid, name, member in args[0].party:
+                if member == 'member':
+                    party_length += 1
+
+            if party_length > 1:
                 for invite in args[0].party:
                     if invite[2] == 'invite':
                         party_invitee_user_id, party_leader, invite = invite
