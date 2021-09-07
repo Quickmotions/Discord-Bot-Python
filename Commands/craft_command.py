@@ -97,7 +97,6 @@ craft_list = {
     'HelixBoots': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
     'HelixCoreSword': [{'GoldIngot': 10, 'HelixCore': 10}],
 
-
     # cards
     'Wrath': [{'AncientRune': 40, 'Blood': 40, 'Paper': 25}],
     'FrostArrow': [{'Crystalium': 20, 'DevilsHorn': 15}],
