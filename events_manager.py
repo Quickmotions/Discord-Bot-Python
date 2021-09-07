@@ -15,21 +15,23 @@ def get_events():
     return events
 
 
-def draw_card_deck(user, draw_amount=3):
-    user_deck = user.cards
-    deck = []
-    for card in user_deck:  # get all cards in deck
-        for _ in range(user_deck[card]):  # add card multiple times for how many user owns
-            deck.append(card)
+def draw_card_deck(user_id, users, draw_amount=3):
+    for user in users:
+        if user.user_id == user_id:
+            user_deck = user.cards
+            deck = []
+            for card in user_deck:  # get all cards in deck
+                for _ in range(user_deck[card]):  # add card multiple times for how many user owns
+                    deck.append(card)
 
-    draw = []
+            draw = []
 
-    for _ in range(draw_amount):  # draw an amount of cards
-        card_drawn = random.choice(deck)
-        deck.remove(card_drawn)
-        draw.append(card_drawn)
+            for _ in range(draw_amount):  # draw an amount of cards
+                card_drawn = random.choice(deck)
+                deck.remove(card_drawn)
+                draw.append(card_drawn)
 
-    return draw
+            return draw
 
 
 def start_combat(user, users, mob, battle_type):
@@ -68,7 +70,7 @@ def start_combat(user, users, mob, battle_type):
 
 
 
-                user_data.append([hp, max_hp, 0, draw_card_deck(user), 0, dodge])
+                user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge])
     if len(user_data) > 1:
         user_data.reverse()
     event_data.append(user_data)
@@ -236,11 +238,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 user_data[most_missing][0] += heal_gained
 
 
-        # can player draw extra card
-        if extra_draw:
-            new_draw = draw_card_deck(user, 4)
-        else:
-            new_draw = draw_card_deck(user)
+
 
         # enemy turn
 
@@ -341,13 +339,12 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 if turn == len(party):
                     turn = 0
 
+        # can player draw extra card
+        if extra_draw:
+            new_draw = draw_card_deck(party[turn][0], users, 4)
+        else:
+            new_draw = draw_card_deck(party[turn][0], users)
         user_data[turn][3] = new_draw
-
-        draw_menu = "Your Cards:\n"
-        num = 1
-        for card in new_draw:
-            draw_menu += f"{num} = {card}\n"
-            num += 1
 
 
 
