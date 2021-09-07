@@ -26,7 +26,7 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     defense = ((10 * defense_base) - (2 * health_base) - (5 * dodge_base)) + 100
     magic = ((10 * magic_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) + 100
     agility = ((6 * agility_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) + 100
-    healing = ((10 * healing_base) - (1 * combat_base) - (0.5 * agility_base)) + 100
+    healing = (10 * healing_base) + 100
     health = round(100 * ((((6 * health_base) - (2 * magic_base) - (1 * critical_base)) / 100) + 1))
 
     if combat < 1:

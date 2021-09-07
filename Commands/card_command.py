@@ -1,7 +1,8 @@
 from Commands.item_command import item_list
 
 
-def use_card(card, user, event):
+def use_card(card, user, mob):
+
     combat_base = user.skills['Combat'] + user.equipment_stats['Combat']
     defense_base = user.skills['Defense'] + user.equipment_stats['Defense']
     magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
@@ -10,12 +11,14 @@ def use_card(card, user, event):
     health_base = user.skills['Health'] + user.equipment_stats['Health']
     dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
 
+
     dodge = ((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
     combat = (((4 * combat_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
     defense = ((((10 * defense_base) - (2 * health_base)) - (5 * dodge_base)) / 100) + 1
     magic = (((10 * magic_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
     agility = (((6 * agility_base) - (1 * dodge) - (1 * defense_base) - (0.5 * healing_base)) / 100) + 1
-    healing = (((10 * healing_base) - (1 * combat_base) - (1 * agility_base)) / 100) + 1
+    healing = ((10 * healing_base) / 100) + 1
+    self_damage = 0
 
     if combat < 0.01:
         combat = 0.01
@@ -29,6 +32,7 @@ def use_card(card, user, event):
         healing = 0.01
 
 
+    dodge_bonus = 0
     damage_dealt = 0
     shield_gained = 0
     heal_gained = 0
@@ -53,16 +57,16 @@ def use_card(card, user, event):
                         heal_gained += round(amount * healing)
 
                     elif skill == "Self":
-                        event.hp -= amount
+                        self_damage = amount
 
                     elif skill == "Draw":
                         extra_draw = True
 
                     elif skill == "Dodge":
-                        dodge += amount
+                        dodge_bonus += amount
 
                     elif skill == "Finisher":
-                        if event.mob_hp / event.mob_max_hp <= 0.4:
+                        if int(mob[2]) / int(mob[3]) <= 0.4:
                             damage_dealt += round(amount * agility)
 
                     elif skill == "Destroy":
@@ -73,12 +77,4 @@ def use_card(card, user, event):
 
     if user.equipment['Hand'] == "Shield":
         shield_gained += round(3 * defense)
-
-    if dodge < 0:
-        dodge = 0
-    if dodge > 90:
-        dodge = 90
-
-    event.mob_hp -= damage_dealt
-    event.shield += shield_gained
-    return [damage_dealt, shield_gained, extra_draw, heal_gained, dodge]
+    return damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus
