@@ -91,15 +91,22 @@ craft_list = {
     'Spellbinder': [{'DarkShard': 50, 'Obsidian': 50, 'BloodInfusedStone': 50}],
     'WandOfHealing': [{'GoldIngot': 35, 'BloodInfusedIngot': 20}],
     'DemonScythe': [{'DarkShard': 200, 'BlackLeather': 80, 'MithrilIngot': 100}],
+    'HelixHelmet': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
+    'HelixChestplate': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
+    'HelixLeggings': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
+    'HelixBoots': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
+    'HelixCoreSword': [{'GoldIngot': 10, 'HelixCore': 10}],
+
 
     # cards
-    'Wrath': [{'Blood': 40, 'Paper': 25}],
+    'Wrath': [{'AncientRune': 40, 'Blood': 40, 'Paper': 25}],
     'FrostArrow': [{'Crystalium': 20, 'DevilsHorn': 15}],
-    'Corruption': [{'BlackLeather': 30, 'Obsidian': 10}],
+    'Corruption': [{'AncientRune': 20, 'BlackLeather': 30, 'Obsidian': 10}],
     'Evasion': [{'AncientRune': 40, 'Sapphire': 80}],
     'Shockwave': [{'AncientRune': 40, 'DevilIngot': 10}],
+    'DarkSlice': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
 
-    'TrainingPoint': [{'Diamond': 1}, {'Ruby': 1}, {'Trout': 3}, {'Catfish': 3}],
+    'TrainingPoint': [{'OakLog': 1}, {'Salmon': 1}, {'Blood': 1}, {'CutStone': 1}],
 
 }
 

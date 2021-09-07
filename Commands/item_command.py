@@ -55,6 +55,7 @@ mats = [
     [{'DevilIngot': 'Material used for crafting'}, 'None', {}],
     [{'BlackLeather': 'Material used for crafting'}, 'None', {}],
     [{'ShadeWoodLog': 'Material used for crafting'}, 'None', {}],
+    [{'HelixCore': 'Material used for crafting'}, 'None', {}],
 ]
 
 
@@ -112,10 +113,10 @@ item_list = [
 
 
     # combat
-    [{'HellhoundHelmet': 'Gives +21 Combat Skill, -10 healing Skill, +5 Defense Skill'}, 'Head', {'Combat': 21, 'Healing': -10, 'Defense': 5}],
-    [{'HellhoundChestplate': 'Gives +21 Combat Skill, -9 healing Skill, +5 Defense Skill'}, 'Chest', {'Combat': 21, 'Healing': -9, 'Defense': 5}],
-    [{'HellhoundLeggings': 'Gives +21 Combat Skill, -7 healing Skill, +5 Defense Skill'}, 'Legs', {'Combat': 21, 'Healing': -7, 'Defense': 5}],
-    [{'HellhoundBoots': 'Gives +21 Combat Skill, -8 healing Skill, +5 Defense Skill'}, 'Feet', {'Combat': 21, 'Healing': -8, 'Defense': 5}],
+    [{'HellHoundHelmet': 'Gives +21 Combat Skill, -7 healing Skill, +5 Defense Skill'}, 'Head', {'Combat': 21, 'Healing': -7, 'Defense': 5}],
+    [{'HellHoundChestplate': 'Gives +21 Combat Skill, -9 healing Skill, +5 Defense Skill'}, 'Chest', {'Combat': 21, 'Healing': -9, 'Defense': 5}],
+    [{'HellHoundLeggings': 'Gives +21 Combat Skill, -8 healing Skill, +5 Defense Skill'}, 'Legs', {'Combat': 21, 'Healing': -8, 'Defense': 5}],
+    [{'HellHoundBoots': 'Gives +21 Combat Skill, -6 healing Skill, +5 Defense Skill'}, 'Feet', {'Combat': 21, 'Healing': -6, 'Defense': 5}],
 
     [{'WarriorBoots': 'Gives +9 Combat Skill'}, 'Feet', {'Combat': 9}],
     [{'WarriorLeggings': 'Gives +9 Combat Skill'}, 'Legs', {'Combat': 9}],
@@ -140,10 +141,10 @@ item_list = [
 
 
     # agility
-    [{'ShadowScaleHelmet': 'Gives +30 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 30, 'Health': -5}],
-    [{'ShadowScaleChestplate': 'Gives +30 Agility Skill, -8 Health Skill'}, 'Chest', {'Agility': 30, 'Health': -8}],
-    [{'ShadowScaleLeggings': 'Gives +30 Agility Skill, -4 Health Skill'}, 'Legs', {'Agility': 30, 'Health': -4}],
-    [{'ShadowScaleBoots': 'Gives +30 Agility Skill, -6 Health Skill'}, 'Feet', {'Agility': 30, 'Health': -6}],
+    [{'ShadowScaleHelmet': 'Gives +28 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 28, 'Health': -5}],
+    [{'ShadowScaleChestplate': 'Gives +28 Agility Skill, -8 Health Skill'}, 'Chest', {'Agility': 28, 'Health': -8}],
+    [{'ShadowScaleLeggings': 'Gives +28 Agility Skill, -4 Health Skill'}, 'Legs', {'Agility': 28, 'Health': -4}],
+    [{'ShadowScaleBoots': 'Gives +28 Agility Skill, -6 Health Skill'}, 'Feet', {'Agility': 28, 'Health': -6}],
 
     [{'ThiefHelmet': 'Gives +8 Stealing, +10 Agility Skill'}, 'Head', {'Stealing': 8, 'Agility': 10}],
     [{'ThiefChestplate': 'Gives +8 Stealing, +10 Agility Skill'}, 'Chest', {'Stealing': 8, 'Agility': 10}],
@@ -151,17 +152,28 @@ item_list = [
     [{'ThiefBoots': 'Gives +8 Stealing, +10 Agility Skill'}, 'Feet', {'Stealing': 8, 'Agility': 10}],
     [{'ThiefRing': 'Gives +15 Stealing, +10 Agility Skill'}, 'Ring', {'Stealing': 15, 'Agility': 10}],
 
+    [{'HelixHelmet': 'Gives +10 Dodge, +10 Agility, +10 Health Skill'}, 'Head', {'Dodge': 10, 'Agility': 10, 'Health': 10}],
+    [{'HelixChestplate': 'Gives +10 Dodge, +10 Agility, +10 Health Skill'}, 'Chest', {'Dodge': 10, 'Agility': 10, 'Health': 10}],
+    [{'HelixLeggings': 'Gives +10 Dodge, +10 Agility, +10 Health Skill'}, 'Legs', {'Dodge': 10, 'Agility': 10, 'Health': 10}],
+    [{'HelixBoots': 'Gives +10 Dodge, +10 Agility, +10 Health Skill, '}, 'Feet', {'Dodge': 10, 'Agility': 10, 'Health': 10}],
+    [{'HelixCoreSword': '+18 Agility, +5 Health Skill, '}, 'Hand', {'Agility': 18, 'Health': 5}],
+
     [{'AssassinsHelmet': 'Gives +13 Agility Skill'}, 'Head', {'Agility': 13}],
     [{'AssassinsChestplate': 'Gives +13 Agility Skill'}, 'Chest', {'Agility': 13}],
     [{'AssassinsLeggings': 'Gives +13 Agility Skill'}, 'Legs', {'Agility': 13}],
     [{'AssassinsBoots': 'Gives +13 Agility Skill'}, 'Feet', {'Agility': 13}],
+
+    [{'SkyDarkHelmet': 'Gives +16 Dodge Skill'}, 'Head', {'Dodge': 16}],
+    [{'SkyDarkChestplate': 'Gives +16 Dodge Skill'}, 'Chest', {'Dodge': 16}],
+    [{'SkyDarkLeggings': 'Gives +16 Dodge Skill'}, 'Legs', {'Dodge': 16}],
+    [{'SkyDarkBoots': 'Gives +16 Dodge Skill'}, 'Feet', {'Dodge': 16}],
 
     [{'SkeletalChestplate': 'Gives +19 Agility Skill'}, 'Chest', {'Agility': 19}],
     [{'DarkBoots': 'Gives +18 Agility Skill'}, 'Feet', {'Agility': 18}],
 
     [{'AbyssalDagger': 'Gives +15 Agility Skill, +10 Defense Skill'}, 'Hand', {'Agility': 15, 'Defense': 10}],
     [{'BonerSword': 'Gives +10 Agility Skill, +10 Dodge Skill'}, 'Hand', {'Agility': 10, 'Dodge': 10}],
-
+    [{'WraithDagger': 'Gives +6 Agility Skill, +20 Dodge Skill'}, 'Hand', {'Agility': 6, 'Dodge': 20}],
 
 
     # gathering
@@ -280,6 +292,9 @@ item_list = [
     [{'Shockwave': "(agility) Damage - 16, 2 - Healing, Self Damage - 15"}, 'Card', {'Agility': 16, 'Healing': 2, 'Self': 15}],
     [{'Evasion': "(agility) Damage - 8, Dodge - +15% "}, 'Card', {'Agility': 8, 'Dodge': 30}],
     [{'QuickStab': "(agility) Damage - 13"}, 'Card', {'Agility': 13}],
+    [{'FirstAid': "(agility) Damage - 6, Healing - 8"}, 'Card', {'Agility': 6, 'Healing': 8}],
+    [{'MultiShot': "(agility) Damage - 12, Dodge - +5%"}, 'Card', {'Agility': 12, 'Dodge': 10}],
+    [{'DarkSlice': "(agility) Damage - 10, Healing - 5"}, 'Card', {'Agility': 10, 'Healing': 5}],
 
     # combat
     [{'Slash': "(combat) Damage - 3"}, 'Card', {'Combat': 3}],

@@ -153,7 +153,7 @@ def new_quests():
         required_amount = round(quest_value / item_chosen[1])
 
         # make the reward randomly worth more or less than the quest requirement
-        reward_value = round(quest_value * (1 + (0.1 * random.randint(0, 4))))
+        reward_value = round(quest_value * (1 + (0.1 * random.randint(4, 12))))
 
         reward_choice = ['None', 999999]
         # repeat same as above but for the reward

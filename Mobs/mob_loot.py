@@ -163,6 +163,26 @@ loot_table = [
     [6, 'ProtectorsCurse', 1, 3],
     [8, 'ProtectorsCurse', 1, 9],
     [4, 'ProtectorsCurse', 1, 1],
+    [6, 'WraithDagger', 1, 3],
+    [4, 'SkyDarkHelmet', 1, 2],
+    [4, 'SkyDarkChestplate', 1, 3],
+    [4, 'SkyDarkLeggings', 1, 3],
+    [4, 'SkyDarkBoots', 1, 2],
+    [5, 'SkyDarkHelmet', 1, 4],
+    [5, 'SkyDarkChestplate', 1, 5],
+    [5, 'SkyDarkLeggings', 1, 4],
+    [5, 'SkyDarkBoots', 1, 5],
+    [7, 'SkyDarkHelmet', 1, 9],
+    [7, 'SkyDarkChestplate', 1, 8],
+    [7, 'SkyDarkLeggings', 1, 9],
+    [7, 'SkyDarkBoots', 1, 8],
+    [4, 'HelixCore', 1, 10],
+    [5, 'HelixCore', 1, 20],
+    [6, 'HelixCore', 1, 30],
+    [7, 'HelixCore', 2, 40],
+    [8, 'HelixCore', 3, 50],
+
+
 
 ]
 

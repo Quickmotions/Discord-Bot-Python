@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class Player:
-    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}", gathering="gathering=no", gathering_time="None", equipment="{}/{}", party=None):
+    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}", gathering="gathering=no", gathering_time="None", equipment="{}/{}", party="None"):
         u_id, username = user_id.split(' ', 1)
         # user data
         self.user_id = str(u_id)
@@ -46,7 +46,7 @@ class Player:
             self.gathering_time = "None"
 
         # party
-        if party is None:
+        if party == "None":
             self.party = []
             self.party.append([u_id, username, 'member'])
         else:
