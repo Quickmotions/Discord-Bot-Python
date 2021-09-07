@@ -47,6 +47,7 @@ def start_combat(user, users, mob, battle_type):
 
     event_data = [0, battle_type, user_party]
     user_data = []
+
     for member in user_party:
         for user in users:
             if user.user_id == member[0]:
@@ -69,7 +70,7 @@ def start_combat(user, users, mob, battle_type):
 
                 user_data.append([hp, max_hp, 0, draw_card_deck(user), 0, dodge])
 
-    event_data.append(user_data)
+    event_data.append(user_data.reverse())
     event_data.append([mob[0], mob[1], mob[2], mob[2], mob[3], mob[4]])
 
     # info about EVENT_DATA: ----------------------------
@@ -103,6 +104,8 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
         damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge = info
         if extra == "pierce":
             mob[4] = "🪡" + mob[4]
+        if extra == "no_attack":
+            mob[4] = 0
         if extra == "dodged":
             mob[4] = "Dodged"
         user_data[turn][4] = dodge
@@ -120,7 +123,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
         for pos in range(len(party)):
             player_hp_percent = round((100 / user_data[pos][1]) * user_data[pos][0])
             players_gui += f"{party[pos][1]}:\n" \
-                           f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) - {mob[4]} + {heal_gained}\n" \
+                           f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + {heal_gained}\n" \
                            f"🛡️: {user_data[pos][2]} + {shield_gained}\n" \
                            f"🗡️: {damage_dealt}\n" \
 
@@ -279,7 +282,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
         piercing_attack = False
         dodged = False
-
+        mob_attacked = False
 
         turn += 1
 
@@ -302,6 +305,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 dodged = False
 
             if not dodged:
+                mob_attacked = True
                 if not piercing_attack:
                     for _ in range(enemy_damage):
                         if user_data[most_hp][2] > 0:
@@ -355,6 +359,8 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
         if dodged:
             return create_battle_gui(new_event, False, info, "dodged")
+        if not mob_attacked:
+            return create_battle_gui(new_event, False, info, "no_attack")
         if piercing_attack:
             return create_battle_gui(new_event, False, info, "pierce")
         else:
