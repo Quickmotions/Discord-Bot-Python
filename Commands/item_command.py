@@ -196,12 +196,27 @@ item_list = [
     [{'ElementalChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
     [{'ArchMageChestplate': 'Gives +27 Magic Skill'}, 'Chest', {'Magic': 27}],
 
+    [{'ArcaneHelmet': 'Gives +17 magic Skill'}, 'Head', {'magic': 17}],
+    [{'ArcaneChestplate': 'Gives +17 magic Skill'}, 'Chest', {'magic': 17}],
+    [{'ArcaneLeggings': 'Gives +17 magic Skill'}, 'Legs', {'magic': 17}],
+    [{'ArcaneBoots': 'Gives +17 magic Skill'}, 'Feet', {'magic': 17}],
+
+    [{'NecromancerHelmet': 'Gives +24 magic Skill, -9 health skill'}, 'Head', {'magic': 24, 'Health': -9}],
+    [{'NecromancerChestplate': 'Gives +24 magic Skill, -9 health skill'}, 'Chest', {'magic': 24, 'Health': -9}],
+    [{'NecromancerLeggings': 'Gives +24 magic Skill, -9 health skill'}, 'Legs', {'magic': 24, 'Health': -9}],
+    [{'NecromancerBoots': 'Gives +24 magic Skill, -9 health skill'}, 'Feet', {'magic': 24, 'Health': -9}],
+
+    [{'DarkPhoenixHelmet': 'Gives +31 magic Skill, -10 Defense skill'}, 'Head', {'magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixChestplate': 'Gives +31 magic Skill, -10 Defense skill'}, 'Chest', {'magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixLeggings': 'Gives +31 magic Skill, -10 Defense skill'}, 'Legs', {'magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixBoots': 'Gives +31 magic Skill, -10 Defense skill'}, 'Feet', {'magic': 31, 'Defense': -10}],
+
     [{'InfinityBoots': 'Gives +20 Magic Skill'}, 'Feet', {'Magic': 20}],
     [{'SpectralHelmet': 'Gives +15 Magic Skill'}, 'Head', {'Magic': 15}],
     [{'SpectralChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
     [{'SpectralLeggings': 'Gives +15 Magic Skill'}, 'Legs', {'Magic': 15}],
     [{'CursedMask': 'Gives -10 Defense Skill, -5 Luck Skill, +23 Magic Skill'}, 'Head', {'Magic': 23, 'Luck': -5, 'Defense': -10}],
-    [{'SpectralBoots': 'Gives +12 Magic Skill'}, 'Feet', {'Magic': 12}],
+    [{'SpectralBoots': 'Gives +15 Magic Skill'}, 'Feet', {'Magic': 15}],
 
     [{'WarlockLeggings': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 8, 'Healing': -3}],
     [{'WarlockBoots': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 8, 'Healing': -3}],

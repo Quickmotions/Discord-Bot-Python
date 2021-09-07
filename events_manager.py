@@ -11,7 +11,8 @@ def get_events():
     f = open("events.csv", "r")
     for event in f.readlines():
         event.strip()
-        events.append(ast.literal_eval(event))
+        if len(event) > 5:
+            events.append(ast.literal_eval(event))
     return events
 
 
@@ -51,17 +52,17 @@ def start_combat(user, users, mob, battle_type):
     user_data = []
 
     for member in user_party:
-        for user in users:
-            if user.user_id == member[0]:
+        for player in users:
+            if str(player.user_id) == member[0]:
                 # set up health and dodge
-                health_base = user.skills['Health'] + user.equipment_stats['Health']
-                magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
-                critical_base = user.skills['Critical'] + user.equipment_stats['Critical']
-                dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
-                agility_base = user.skills['Agility'] + user.equipment_stats['Agility']
-                defense_base = user.skills['Defense'] + user.equipment_stats['Defense']
+                health_base = player.skills['Health'] + player.equipment_stats['Health']
+                magic_base = player.skills['Magic'] + player.equipment_stats['Magic']
+                critical_base = player.skills['Critical'] + player.equipment_stats['Critical']
+                dodge_base = player.skills['Dodge'] + player.equipment_stats['Dodge']
+                agility_base = player.skills['Agility'] + player.equipment_stats['Agility']
+                defense_base = player.skills['Defense'] + player.equipment_stats['Defense']
 
-                dodge = ((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
+                dodge = round((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
 
                 max_hp = round(100 * ((((6 * health_base) - (2 * magic_base) - (1 * critical_base)) / 100) + 1))
                 if max_hp < 1:
@@ -71,8 +72,6 @@ def start_combat(user, users, mob, battle_type):
 
 
                 user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge])
-    if len(user_data) > 1:
-        user_data.reverse()
     event_data.append(user_data)
     event_data.append([mob[0], mob[1], mob[2], mob[2], mob[3], mob[4]])
 
@@ -104,15 +103,28 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     mob_hp_percent = round((100 / int(mob[3])) * int(mob[2]))
 
     if len(info) > 0:
-        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge = info
-        if extra == "pierce":
-            mob[4] = "🪡" + mob[4]
-        if extra == "no_attack":
-            mob[4] = 0
-        if extra == "dodged":
-            mob[4] = "Dodged"
+        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage = info
+        if int(mob_damage) == 0:
+            mob_damage = "Dodged"
+        elif extra == "pierce":
+            mob_damage = "🪡" + str(mob_damage)
         user_data[turn][4] = dodge
 
+    most_missing = 0
+    for pos in range(len(party)):
+        missing_current = int(user_data[pos][1]) - int(user_data[pos][0])
+        missing_most = int(user_data[most_missing][1]) - int(user_data[most_missing][0])
+        if missing_current > missing_most:
+            most_missing = pos
+
+    most_hp = 0
+    for pos in range(len(party)):
+        if int(user_data[pos][1]) > int(user_data[most_hp][1]) and int(user_data[pos][0]) > 0:
+            most_hp = pos
+
+    last_turn = turn - 1
+    if last_turn < 0:
+        selection = len(party) - 1
 
     gui = ["multiple"]
     players_gui = ""
@@ -125,10 +137,21 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     else:
         for pos in range(len(party)):
             player_hp_percent = round((100 / user_data[pos][1]) * user_data[pos][0])
-            players_gui += f"{party[pos][1]}:\n" \
-                           f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + {heal_gained}\n" \
-                           f"🛡️: {user_data[pos][2]} + {shield_gained}\n" \
-                           f"🗡️: {damage_dealt}\n" \
+            players_gui += f"{party[pos][1]}:\n"
+            if pos == most_missing and heal_gained > 0:
+                players_gui += f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + {heal_gained}"
+            else:
+                players_gui += f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%)"
+            if pos == most_hp:
+                players_gui += f" - {mob_damage}\n"
+            else:
+                players_gui += f"\n"
+            if pos == selection and int(shield_gained) > 0:
+                players_gui += f"🛡️: {user_data[pos][2]} + {shield_gained}\n"
+            else:
+                players_gui += f"🛡️: {user_data[pos][2]}\n"
+            if pos == selection:
+                players_gui += f"🗡️: {damage_dealt}\n"
 
 
     if start:
@@ -136,9 +159,12 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
                        f"💗: {mob[2]}/{mob[3]}\n" \
                        f"🗡️: {mob[4]}"
     else:
-        players_gui += f"{mob[1]}:\n" \
-                       f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%) - {damage_dealt}\n" \
-                       f"🗡️: {mob[4]}"
+        players_gui += f"{mob[1]}:\n"
+        if int(damage_dealt) > 0:
+            players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%) - {damage_dealt}\n"
+        else:
+            players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%)\n"
+        players_gui += f"🗡️: {mob_damage}"
 
     gui.append(players_gui)
     gui.append(f"{party[turn][1]}s Turn:\n{create_draw_gui(user_data[turn][3])}")
@@ -260,7 +286,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                         user.inv['HuntPoint'] += huntP_gain
                         give_xp(xp_gain, "Player", user, users)
 
-            loot_gained = award_hunt_loot(int(mob_data[0]), user, users)
+            loot_gained = award_hunt_loot(int(mob_data[0]), party, users)
             loot_message = ""
             if loot_gained is not None:
                 for loot in loot_gained:
@@ -274,19 +300,17 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                    f"{coins_gained} money\n" \
                    f"{xp_gain} Player XP\n" \
                    f"{huntP_gain} HuntPoint\n" \
-                   f"Last Hit:\n" \
                    f"{loot_message}"
 
 
         piercing_attack = False
         dodged = False
-        mob_attacked = False
 
-        turn += 1
+
 
         # find next alive or last
-
-        if turn == len(party):
+        mob_damage = 0
+        if turn == len(party) - 1:
             piercing_attack = False
             if random.randint(1, 12) == 1:
                 piercing_attack = True
@@ -294,16 +318,15 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             enemy_damage = random.randint(int(mob_data[4]) - 1, int(mob_data[4]) + 1)
             most_hp = 0
             for pos in range(len(party)):
-                if int(user_data[pos][0]) > 0:
-                    if int(user_data[pos][1]) > int(user_data[most_hp][1]):
-                        most_hp = pos
+                if int(user_data[pos][1]) > int(user_data[most_hp][1]) and int(user_data[pos][0]) > 0:
+                    most_hp = pos
 
             dodged = True
             if random.randint(1, 100) > user_data[most_hp][4]:
                 dodged = False
 
             if not dodged:
-                mob_attacked = True
+                mob_damage = enemy_damage
                 if not piercing_attack:
                     for _ in range(enemy_damage):
                         if user_data[most_hp][2] > 0:
@@ -312,7 +335,6 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                             user_data[most_hp][0] -= 1
                 if piercing_attack:
                     user_data[most_hp][0] -= enemy_damage
-
             # is player dead test for all members
             members_dead = 0
             for pos in range(len(party)):
@@ -331,13 +353,16 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 update_events_csv(new_event, events, 'delete')
                 return f"You were defeated by {mob_data[1]}:\n They stole £{coins_lost} from each party member"
 
-
-            if turn == len(party):
-                turn = 0
-            while int(user_data[turn][0]) <= 0:
+        turn += 1
+        if turn == len(party):
+            turn = 0
+        while int(user_data[turn][0]) <= 0:
+            if int(user_data[turn][0]) <= 0:
                 turn += 1
                 if turn == len(party):
                     turn = 0
+            else:
+                break
 
         # can player draw extra card
         if extra_draw:
@@ -346,9 +371,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             new_draw = draw_card_deck(party[turn][0], users)
         user_data[turn][3] = new_draw
 
-
-
-        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus]
+        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, mob_damage]
         new_event = [turn, battle_type, party, user_data, mob_data]
 
         start_update_csv(users)
@@ -356,8 +379,6 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
         if dodged:
             return create_battle_gui(new_event, False, info, "dodged")
-        if not mob_attacked:
-            return create_battle_gui(new_event, False, info, "no_attack")
         if piercing_attack:
             return create_battle_gui(new_event, False, info, "pierce")
         else:

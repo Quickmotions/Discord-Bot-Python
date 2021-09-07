@@ -187,16 +187,20 @@ loot_table = [
 ]
 
 
-def award_hunt_loot(level: int, user, users):
-
+def award_hunt_loot(level: int, party, users):
     loot_gained = []
-    for mob_level, item, amount, chance in loot_table:
-        if mob_level == int(level):
-            if random.randint(1, 1000) <= int(chance):
-                loot_gained.append([item, amount])
-                if item not in user.inv:
-                    user.inv[item] = 0
-                user.inv[item] += amount
+    for member in party:
+        loot_gained.append(["", f"{member[1]}:"])
+        for user in users:
+            if member[0] == user.user_id:
+                for mob_level, item, amount, chance in loot_table:
+                    if mob_level == int(level):
+                        if random.randint(1, 1000) <= int(chance):
+                            loot_gained.append([item, amount])
+                            if item not in user.inv:
+                                user.inv[item] = 0
+                            user.inv[item] += amount
+
     start_update_csv(users)
     return loot_gained
 
