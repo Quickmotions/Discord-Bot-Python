@@ -232,7 +232,7 @@ item_list = [
     [{'DiabloRing': 'Gives +14 Magic Skill'}, 'Ring', {'Magic': 14}],
     [{'StaffOfAegis': 'Gives +38 Magic Skill'}, 'Hand', {'Magic': 38}],
     [{'TormentShard': 'Gives +12 Magic Skill, +8 Healing Skill'}, 'Hand', {'Magic': 12, 'Healing': 8}],
-    [{'SlimeRing': 'Gives +7 Magic Skill, +7 Healing Skill'}, 'Ring', {'Magic': 7, 'Healing': 7}],
+    [{'SlimeRing': 'Gives +4 Magic Skill, +4 Healing Skill'}, 'Ring', {'Magic': 4, 'Healing': 4}],
     [{'MagicRing': 'Gives +6 Magic Skill'}, 'Ring', {'Magic': 6}],
     [{'ArchmageRing': 'Gives +20 Magic Skill'}, 'Ring', {'Magic': 20}],
     [{'ChaosRing': 'Gives +33 Magic Skill, -10 Health Skill, -5 Defense Skill'}, 'Ring', {'Magic': 33, 'Health': -10, 'Defense': -5}],
@@ -331,11 +331,17 @@ item_list = [
 
     # healing
     [{'Recharge': "Heal - 8"}, 'Card', {'Healing': 8}],
-    [{'Regeneration': "Heal - 25"}, 'Card', {'Healing': 25}],
+    [{'Regeneration': "Heal - 18"}, 'Card', {'Healing': 18}],
+    [{'Restoration': "Heal - 14, Extra Card Draw"}, 'Card', {'Healing': 14, 'Draw': 1}],
+    [{'HeavenlyGuard': "Heal - 20, Shield - 10"}, 'Card', {'Healing': 20, 'Shield': 10}],
+    [{'LifeTap': "Heal - 45, self - 45"}, 'Card', {'Healing': 45, 'Self': 45}],
 
     # defense
     [{'Defend': "Shield - 5"}, 'Card', {'Defense': 5}],
     [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
+    [{'LeechingWard': "Shield - 28, Self Damage - 20"}, 'Card', {'Defense': 28, 'Self': 20}],
+    [{'GoddessProtection': "Shield - 14, Healing - 10"}, 'Card', {'Defense': 14, 'Healing': 10}],
+    [{'HolyShield': "Shield - 15, , Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
 
 ]
 

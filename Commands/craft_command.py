@@ -108,6 +108,12 @@ craft_list = {
     'Shockwave': [{'AncientRune': 40, 'DevilIngot': 10}],
     'DarkSlice': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
 
+    'HeavenlyGuard': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
+    'LifeTap': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
+    'LeechingWard': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
+    'GoddessProtection': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
+    'HolyShield': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
+
     'TrainingPoint': [{'OakLog': 1}, {'Salmon': 1}, {'Blood': 1}, {'CutStone': 1}],
 
 }

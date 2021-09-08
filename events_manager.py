@@ -60,14 +60,14 @@ def start_combat(user, users, mob, battle_type):
         for player in users:
             if str(player.user_id) == member[0]:
                 # set up health and dodge
-                combat_base = user.skills['Combat'] + user.equipment_stats['Combat']
-                defense_base = user.skills['Defense'] + user.equipment_stats['Defense']
-                agility_base = user.skills['Agility'] + user.equipment_stats['Agility']
-                healing_base = user.skills['Healing'] + user.equipment_stats['Healing']
-                health_base = user.skills['Health'] + user.equipment_stats['Health']
-                dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
+                combat_base = player.skills['Combat'] + player.equipment_stats['Combat']
+                defense_base = player.skills['Defense'] + player.equipment_stats['Defense']
+                agility_base = player.skills['Agility'] + player.equipment_stats['Agility']
+                healing_base = player.skills['Healing'] + player.equipment_stats['Healing']
+                health_base = player.skills['Health'] + player.equipment_stats['Health']
+                dodge_base = player.skills['Dodge'] + player.equipment_stats['Dodge']
 
-                dodge = ((0.5 * dodge_base) + (0.1 * agility_base) - (0.25 * defense_base))
+                dodge = ((0.5 * dodge_base) + (0.1 * agility_base) + (0.25 * defense_base))
                 max_hp = round(100 * ((((10 * health_base) + (2 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
 
                 if max_hp < 1:
@@ -113,7 +113,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     if len(info) > 0:
         damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage = info
         if int(mob_damage) == 0:
-            mob_damage = "💨Dodged"
+            mob_damage = f"💨Dodged ({dodge}%)"
         elif extra == "pierce":
             mob_damage = "🪡" + str(mob_damage)
         user_data[turn][4] = dodge
@@ -140,8 +140,8 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     if start:
         for pos in range(len(party)):
             players_gui += f"{party[pos][1]}:\n" \
-                           f"💗: {user_data[pos][0]}/{user_data[pos][1]}\n" \
-                           f"🛡️: {user_data[pos][2]}\n"
+                           f"💗 {user_data[pos][0]}/{user_data[pos][1]}\n" \
+                           f"🛡️ {user_data[pos][2]}\n"
     else:
         for pos in range(len(party)):
             player_hp_percent = round((100 / user_data[pos][1]) * user_data[pos][0])
@@ -169,10 +169,10 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     else:
         players_gui += f"{mob[1]}:\n"
         if int(damage_dealt) > 0:
-            players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌{damage_dealt}\n"
+            players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌{damage_dealt}\n"
         else:
-            players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%)\n"
-        players_gui += f"🗡️: {mob_damage}"
+            players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%)\n"
+        players_gui += f"🗡️ {mob_damage}"
 
     gui.append(players_gui)
     gui.append(f"{party[turn][1]}s Turn:\n{create_draw_gui(user_data[turn][3])}")

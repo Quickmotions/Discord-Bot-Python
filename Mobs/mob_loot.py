@@ -186,6 +186,7 @@ loot_table = [
     [5, 'FangRing', 1, 8],
     [11, 'RavenEyeRing', 1, 5],
 
+
 ]
 
 
