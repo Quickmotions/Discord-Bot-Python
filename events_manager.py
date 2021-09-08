@@ -78,8 +78,8 @@ def start_combat(user, users, mob, battle_type):
                 user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge])
     event_data.append(user_data)
 
-    mob_max = mob[2] * (0.6 * len(user_party))
-    mob_dmg = mob[3] * (0.2 * len(user_party))
+    mob_max = round(int(mob[2]) * (0.6 * (len(user_party) - 1)))
+    mob_dmg = round(int(mob[3]) * (0.2 * (len(user_party) - 1)))
     event_data.append([mob[0], mob[1], mob_max, mob_max, mob_dmg, mob[4]])
 
     # info about EVENT_DATA: ----------------------------
