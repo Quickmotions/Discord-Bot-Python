@@ -63,6 +63,8 @@ async def on_message(message):
         user = USERS[-1]
         setup_skills(user, USERS)
         start_update_csv(USERS)
+        setup_equipment(user, USERS)
+        set_equipment_stats(user, USERS)
 
     if user_command in C.command_list:
         if user_found:

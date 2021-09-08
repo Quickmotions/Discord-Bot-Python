@@ -46,7 +46,12 @@ def start_combat(user, users, mob, battle_type):
         for member in event[2]:
             for user_id, username, membership in user_party:
                 if user_id == str(member[0]):
-                    return f"{username} already has an active combat:\nThey need to complete their event first."
+                    if len(event[2]) == 1 and len(user_party) > 1:
+                        update_events_csv(event, events, 'delete')
+                    elif len(event[2]) > 1 and len(user_party) == 1:
+                        update_events_csv(event, events, 'delete')
+                    else:
+                        return f"You need to complete your previous event first"
 
     event_data = [0, battle_type, user_party]
     user_data = []
@@ -68,7 +73,6 @@ def start_combat(user, users, mob, battle_type):
                 if max_hp < 1:
                     max_hp = 1
                 hp = max_hp
-
 
 
                 user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge])
@@ -124,7 +128,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
 
     last_turn = turn - 1
     if last_turn < 0:
-        selection = len(party) - 1
+        last_turn = len(party) - 1
 
     gui = ["multiple"]
     players_gui = ""
@@ -146,11 +150,11 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
                 players_gui += f" - {mob_damage}\n"
             else:
                 players_gui += f"\n"
-            if pos == selection and int(shield_gained) > 0:
+            if pos == last_turn and int(shield_gained) > 0:
                 players_gui += f"🛡️: {user_data[pos][2]} + {shield_gained}\n"
             else:
                 players_gui += f"🛡️: {user_data[pos][2]}\n"
-            if pos == selection:
+            if pos == last_turn:
                 players_gui += f"🗡️: {damage_dealt}\n"
 
 
@@ -243,6 +247,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         user_data[turn][0] -= self_damage
         user_data[turn][2] += shield_gained
 
+
         user_data[turn][4] = user_data[turn][5] + dodge_bonus
         if user_data[turn][4] < 0:
             user_data[turn][4] = 0
@@ -278,9 +283,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             for user in users:
                 for player in party:
                     if user.user_id == player[0]:
-                        if user.bal < coins_gained:
-                            coins_gained = user.bal
-                        user.bal -= coins_gained
+                        user.bal += coins_gained
                         if 'HuntPoint' not in user.inv:
                             user.inv['HuntPoint'] = 0
                         user.inv['HuntPoint'] += huntP_gain
@@ -317,9 +320,11 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
             enemy_damage = random.randint(int(mob_data[4]) - 1, int(mob_data[4]) + 1)
             most_hp = 0
+            biggest_hp_amount = 0
             for pos in range(len(party)):
-                if int(user_data[pos][1]) > int(user_data[most_hp][1]) and int(user_data[pos][0]) > 0:
+                if int(user_data[pos][1]) > biggest_hp_amount and int(user_data[pos][0]) > 0:
                     most_hp = pos
+                    biggest_hp_amount = user_data[pos][1]
 
             dodged = True
             if random.randint(1, 100) > user_data[most_hp][4]:
@@ -346,7 +351,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                     for player in party:
                         if user.user_id == player[0]:
                             if user.bal < coins_lost:
-                                coins_lost = user.bal
+                                user.bal = 0
                             user.bal -= coins_lost
                 start_update_csv(users)
                 new_event = [turn, battle_type, party, user_data, mob_data]
