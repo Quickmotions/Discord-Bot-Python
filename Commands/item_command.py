@@ -1,4 +1,6 @@
-mats = [
+from Mobs.mob_loot import loot_table
+
+item_list = [
     # Materials
     [{'Leather': 'Material used for crafting'}, 'None', {}],
     [{'SpruceLog': 'Material used for crafting'}, 'None', {}],
@@ -56,12 +58,7 @@ mats = [
     [{'BlackLeather': 'Material used for crafting'}, 'None', {}],
     [{'ShadeWoodLog': 'Material used for crafting'}, 'None', {}],
     [{'HelixCore': 'Material used for crafting'}, 'None', {}],
-]
 
-
-
-
-item_list = [
     # misc
     [{'pickaxe': 'Used to mine rocks'}, 'None', {}],
     [{'fishingrod': 'Used to fish'}, 'None', {}],
@@ -339,6 +336,16 @@ def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
         for item, slot, stats in item_list:
             for item_name, desc in item.items():
                 if args[3][0] == item_name.lower():
-                    return f"Info for  {item_name}: {slot}\n{desc}"
+                    response = f"Info for  {item_name}: {slot}\n{desc}"
+
+                    for loot in loot_table:
+                        if loot[1] == item_name:
+                            response += f"\nMob Drop:"
+                            break
+                    for difficulty, name, amount, chance in loot_table:
+                        if item_name == name:
+                            response += f"\n{chance / 10}% drop in hunt ({difficulty})"
+                    return response
+
     else:
         return f"Incorrect use of item:\ntry 'item (item-name)'"
