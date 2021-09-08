@@ -113,7 +113,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     if len(info) > 0:
         damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage = info
         if int(mob_damage) == 0:
-            mob_damage = "💨Dodged💨"
+            mob_damage = "💨Dodged"
         elif extra == "pierce":
             mob_damage = "🪡" + str(mob_damage)
         user_data[turn][4] = dodge
@@ -151,7 +151,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
             else:
                 players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%)"
             if pos == most_hp:
-                players_gui += f" - {mob_damage}\n"
+                players_gui += f" - 🎯{mob_damage}\n"
             else:
                 players_gui += f"\n"
             if pos == last_turn and int(shield_gained) > 0:

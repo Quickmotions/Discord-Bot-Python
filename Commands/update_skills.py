@@ -83,19 +83,27 @@ def skills_c(*args):
             else:
                 return f"Cannot put skillpoints into gathering skills."
         elif user_input.lower() == "reset":
-            args[0].skills["Player"][3] = args[0].skills["Player"][0]  # set skill point amount to total level
-            args[0].skills['Combat'] = 0
-            args[0].skills['Magic'] = 0
-            args[0].skills['Agility'] = 0
-            args[0].skills['Healing'] = 0
-            args[0].skills['Defense'] = 0
-            args[0].skills['Stealing'] = 0
-            args[0].skills['Luck'] = 0
-            args[0].skills['Critical'] = 0
-            args[0].skills['Health'] = 0
-            args[0].skills['Dodge'] = 0
-            start_update_csv(args[2])
-            return f"Reset all skill level and gave you {args[0].skills['Player'][0]} skillpoints."
+            if 'ResetSigil' in args[0].inv:
+                if args[0].inv['ResetSigil'] > 0:
+                    args[0].inv['ResetSigil'] -= 1
+                    args[0].skills["Player"][3] = args[0].skills["Player"][0]  # set skill point amount to total level
+                    args[0].skills['Combat'] = 0
+                    args[0].skills['Magic'] = 0
+                    args[0].skills['Agility'] = 0
+                    args[0].skills['Healing'] = 0
+                    args[0].skills['Defense'] = 0
+                    args[0].skills['Stealing'] = 0
+                    args[0].skills['Luck'] = 0
+                    args[0].skills['Critical'] = 0
+                    args[0].skills['Health'] = 0
+                    args[0].skills['Dodge'] = 0
+                    start_update_csv(args[2])
+                    return f"Reset all skill level and gave you {args[0].skills['Player'][0]} skillpoints.\n" \
+                           f"Costing you 1 ResetSigil you have {args[0].inv['ResetSigil']}(s) left."
+                else:
+                    return "You do not own any ResetSigils"
+            else:
+                return "You do not own any ResetSigils"
 
         elif user_input.lower() == "help":
             return "'stats (skill name) (number)' - adds skillpoints\n" \

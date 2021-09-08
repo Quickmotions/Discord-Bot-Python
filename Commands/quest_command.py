@@ -24,6 +24,17 @@ items = [
     ["IronIngot", 100],
     ["Leather", 20],
     ["GoldIngot", 140],
+    ["DarkShard", 50],
+    ["Ectoplasm", 40],
+    ["HelixCore", 300],
+    ["ShadeWoodLog", 100],
+    ["BlackLeather", 100],
+    ["DevilIngot", 300],
+    ["Coal", 20],
+    ["MithrilIngot", 180],
+    ["TitaniumIngot", 380],
+    ["Blood", 30],
+    ["AncientRune", 76],
     ["Bone", 25],
     ["OakLog", 40],
     ["SpruceLog", 40],
@@ -40,7 +51,6 @@ items = [
     ["AirRune", 220],
     ["IceRune", 350],
     ["FireRune", 500],
-
     ["HallowedHelmet", 2000],
     ["HallowedChestplate", 2000],
     ["HallowedLeggings", 2000],
@@ -57,7 +67,6 @@ class Quests:
         self.cost = str(cost)
         self.reward = str(reward)
         users = users_list.split('*')
-        print(users)
         self.users = []
         for user in users:
             if user != '\n' and user != '':
@@ -142,7 +151,7 @@ def new_quests():
     quests = []
     quest_value = 0
     for _ in range(3):  # create 3 quests each day
-        quest_value += random.randint(300, 1400)  # value for reward and price of the quest
+        quest_value += random.randint(300, 2000)  # value for reward and price of the quest
         item_chosen = ['None', 999999]  # empty base item
         # only select item which is worth less than the quest value so you cant get 0 item
         while item_chosen[1] > quest_value:
@@ -153,7 +162,7 @@ def new_quests():
         required_amount = round(quest_value / item_chosen[1])
 
         # make the reward randomly worth more or less than the quest requirement
-        reward_value = round(quest_value * (1 + (0.1 * random.randint(4, 12))))
+        reward_value = round(quest_value * (1 + (0.1 * random.randint(8, 30))))
 
         reward_choice = ['None', 999999]
         # repeat same as above but for the reward
@@ -161,15 +170,13 @@ def new_quests():
             reward_choice = random.choice(items)
         item_reward = reward_choice[0]
         amount_item_reward = round(quest_value / reward_choice[1])
-
+        reward_value = round(reward_value * 1.2)
         # 2/1 ratio of money reward to item reward quests
         options = [
             f"Gather {required_amount} {required_item}. Reward: £{reward_value}",
             f"Hand in {required_amount} {required_item}. Reward: £{reward_value}",
             f"Fetch {required_amount} {required_item}. Reward: £{reward_value}",
             f"Gather {required_amount} {required_item}. Reward: £{reward_value}",
-            f"Hand in {required_amount} {required_item}. Reward: £{reward_value}",
-            f"Fetch {required_amount} {required_item}. Reward: £{reward_value}",
             f"Gather {required_amount} {required_item}. Reward: {amount_item_reward} {item_reward}",
             f"Fetch {required_amount} {required_item}. Reward: {amount_item_reward} {item_reward}",
             f"Hand in {required_amount} {required_item}. Reward: {amount_item_reward} {item_reward}"
@@ -177,7 +184,8 @@ def new_quests():
         # sets start time as current date
         current_time = datetime.today().strftime('%Y-%m-%d')  # just date no time
         current_time += " 00:00:00.000009"
-        quest_info = random.randint(0, 8)  # random quest info in options
+        quest_info = random.randint(0, 6)  # random quest info in options
+
         if quest_info <= 5:  # money rewards
             quests.append(Quests(options[quest_info], current_time, f"{required_amount} {required_item}", f"{reward_value}", "*"))
         else:  # item rewards
