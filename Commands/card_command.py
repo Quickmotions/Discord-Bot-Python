@@ -8,15 +8,17 @@ def use_card(card, user, mob):
     magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
     agility_base = user.skills['Agility'] + user.equipment_stats['Agility']
     healing_base = user.skills['Healing'] + user.equipment_stats['Healing']
+    health_base = user.skills['Health'] + user.equipment_stats['Health']
     dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
 
 
-    combat = (6 * combat_base) + 100
-    defense = ((10 * defense_base) + (2 * combat_base) - (5 * dodge_base)) + 100
-    magic = (10 * magic_base) + 100
-    agility = (8 * agility_base) + 100
-    healing = (7 * healing_base) + 100
+    combat = ((6 * combat_base) / 100) + 1
+    defense = (((10 * defense_base) + (2 * combat_base) - (5 * dodge_base)) / 100) + 1
+    magic = ((10 * magic_base) / 100) + 1
+    agility = ((8 * agility_base) / 100) + 1
+    healing = ((7 * healing_base) / 100) + 1
     self_damage = 0
+
 
     if combat < 0.01:
         combat = 0.01
