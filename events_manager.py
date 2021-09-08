@@ -67,8 +67,8 @@ def start_combat(user, users, mob, battle_type):
                 health_base = player.skills['Health'] + player.equipment_stats['Health']
                 dodge_base = player.skills['Dodge'] + player.equipment_stats['Dodge']
 
-                dodge = ((0.5 * dodge_base) + (0.1 * agility_base) - (0.25 * defense_base))
-                max_hp = round(100 * ((((10 * health_base) + (2 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
+                dodge = ((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
+                max_hp = round(100 * ((((6 * health_base) + (4 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
 
                 if max_hp < 1:
                     max_hp = 1
@@ -152,10 +152,11 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
                 players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + 💕{heal_gained}"
             else:
                 players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%)"
-            if pos == most_hp and mob_damage > 0:
-                players_gui += f" - 🎯{mob_damage}\n"
-            else:
-                players_gui += f"\n"
+            if pos == most_hp:
+                if extra == "dodged" or mob_damage > 0:
+                    players_gui += f" - 🎯{mob_damage}\n"
+                else:
+                    players_gui += f"\n"
             if pos == last_turn and int(shield_gained) > 0:
                 players_gui += f"🛡️ {user_data[pos][2]} + 🛡️{shield_gained}\n"
             else:
@@ -316,6 +317,17 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         piercing_attack = False
         dodged = False
 
+        turn += 1
+        if turn == len(party):
+            turn = 0
+        while int(user_data[turn][0]) <= 0:
+            if int(user_data[turn][0]) <= 0:
+                turn += 1
+                if turn == len(party):
+                    turn = 0
+            else:
+                break
+
 
         dodge = 0
         # find next alive or last
@@ -367,16 +379,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 update_events_csv(new_event, events, 'delete')
                 return f"You were defeated by {mob_data[1]}:\n They stole £{coins_lost} from each party member"
 
-        turn += 1
-        if turn == len(party):
-            turn = 0
-        while int(user_data[turn][0]) <= 0:
-            if int(user_data[turn][0]) <= 0:
-                turn += 1
-                if turn == len(party):
-                    turn = 0
-            else:
-                break
+
 
         # can player draw extra card
         if extra_draw:

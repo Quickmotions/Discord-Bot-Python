@@ -20,13 +20,15 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     agility_base = args[0].skills['Agility'] + args[0].equipment_stats['Agility']
     healing_base = args[0].skills['Healing'] + args[0].equipment_stats['Healing']
     dodge_base = args[0].skills['Dodge'] + args[0].equipment_stats['Dodge']
-    dodge = ((0.5 * dodge_base) + (0.1 * agility_base) - (0.25 * defense_base))
-    combat = (6 * combat_base) + 100
-    defense = ((10 * defense_base) + (2 * combat_base) - (5 * dodge_base)) + 100
+
+
+    dodge = ((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
+    combat = (4 * combat_base) + 100
+    defense = ((10 * defense_base) + (4 * combat_base) - (5 * dodge_base)) + 100
     magic = (10 * magic_base) + 100
-    agility = (8 * agility_base) + 100
+    agility = (6 * agility_base) + 100
     healing = (7 * healing_base) + 100
-    health = round(100 * ((((10 * health_base) + (2 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
+    health = round(100 * ((((6 * health_base) + (4 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
 
     if combat < 1:
         combat = 1
