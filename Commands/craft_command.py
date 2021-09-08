@@ -1,5 +1,6 @@
 from Commands.update_csv import start_update_csv
 from Commands.item_command import item_list
+import math
 
 craft_list = {
     'IronIngot': [{'Ironore': 2}, {'Coal': 1}],
@@ -124,10 +125,11 @@ def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                             max_craftable = 9999999
                             for item, quantity in component.items():
                                 if args[0].inv[item] / quantity < max_craftable:
-                                    max_craftable = round(args[0].inv[item] / quantity)
-                                    if max_craftable == 0:
-                                        return f"{args[0].username}, You do not own {quantity} {item}(s)"
+                                    max_craftable = math.floor(args[0].inv[item] / quantity)
+
                             amount = max_craftable
+                            if amount == 0:
+                                amount = 1
                         else:
                             amount = int(args[3][1])
 
