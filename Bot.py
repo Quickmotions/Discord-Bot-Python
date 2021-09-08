@@ -1,5 +1,6 @@
 # bot.py
 import discord
+
 from env import env
 from datetime import datetime, timedelta
 
@@ -22,15 +23,17 @@ C = Commands()
 USERS = run_setup_users()
 CDS = run_setup_cool_down()
 
+for user in USERS:
+    setup_skills(user, USERS)
+    setup_equipment(user, USERS)
+    set_equipment_stats(user, USERS)
+
 
 @client.event
 async def on_ready():
     print("logged in as {0.user}\n\n".format(client))
-
-    for user in USERS:
-        setup_skills(user, USERS)
-        setup_equipment(user, USERS)
-        set_equipment_stats(user, USERS)
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening,
+                                                           name=f"{len(USERS)} users on {2} servers."))
 
 
 
@@ -54,7 +57,6 @@ async def on_message(message):
             user_found = True
             # finds the user who inputted command in the user data
             user_data_for_command = user
-
 
     if not user_found:  # user data missing creates new default for user
 
