@@ -236,7 +236,7 @@ item_list = [
     [{'MagicRing': 'Gives +6 Magic Skill'}, 'Ring', {'Magic': 6}],
     [{'ArchmageRing': 'Gives +20 Magic Skill'}, 'Ring', {'Magic': 20}],
     [{'ChaosRing': 'Gives +33 Magic Skill, -10 Health Skill, -5 Defense Skill'}, 'Ring', {'Magic': 33, 'Health': -10, 'Defense': -5}],
-    [{'VoidRing': 'Gives +12 Magic Skill, +2 Dodge Skill'}, 'Ring', {'Magic': 12, 'Dodge': 2}],
+    [{'FrostRing': 'Gives +18 Magic Skill, +2 Dodge Skill'}, 'Ring', {'Magic': 12, 'Dodge': 2}],
 
     # other
     [{'LuckyStick': 'Gives +18 Luck Skill'}, 'Hand', {'Luck': 18}],
