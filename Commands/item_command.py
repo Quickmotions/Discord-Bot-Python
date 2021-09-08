@@ -58,6 +58,11 @@ item_list = [
     [{'BlackLeather': 'Material used for crafting'}, 'None', {}],
     [{'ShadeWoodLog': 'Material used for crafting'}, 'None', {}],
     [{'HelixCore': 'Material used for crafting'}, 'None', {}],
+    [{'Ectoplasm': 'Material used for crafting'}, 'None', {}],
+    [{'DarkShard': 'Material used for crafting'}, 'None', {}],
+    [{'Crystalium': 'Material used for crafting bought from the shop'}, 'None', {}],
+    [{'Coal': 'Material used for crafting bought from the shop'}, 'None', {}],
+
 
     # misc
     [{'pickaxe': 'Used to mine rocks'}, 'None', {}],

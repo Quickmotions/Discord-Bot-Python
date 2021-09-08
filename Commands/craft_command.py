@@ -112,6 +112,7 @@ craft_list = {
 
 def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     if len(args[3]) > 0:
+        # crafting
         for craftable in craft_list:
             if args[3][0] == craftable.lower() or args[3][0] == craftable:
                 # check for components
@@ -119,7 +120,16 @@ def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
 
                     amount = 1
                     if len(args[3]) > 1:
-                        amount = int(args[3][1])
+                        if args[3][1].lower() == "max":
+                            max_craftable = 9999999
+                            for item, quantity in component.items():
+                                if args[0].inv[item] / quantity < max_craftable:
+                                    max_craftable = round(args[0].inv[item] / quantity)
+                                    if max_craftable == 0:
+                                        return f"{args[0].username}, You do not own {quantity} {item}(s)"
+                            amount = max_craftable
+                        else:
+                            amount = int(args[3][1])
 
                     for item, quantity in component.items():
                         if item not in args[0].inv:
@@ -151,13 +161,16 @@ def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                 start_update_csv(args[2])
                 return f"{args[0].username} crafted {amount} {craftable}."
 
+
+    # craft menu
     craft_display = list(craft_list.items())
     craft_page = 0
     if len(args[3]) > 0:
         try:
             craft_page = int(args[3][0]) - 1  # account for array start = 0
         except Exception as e:
-            return e
+            print(e)
+            return "You need to enter a page number:\nOr 'craft (item) (amount/max)'"
     min_shown = 0 + (12 * craft_page)
     max_shown = 12 + (12 * craft_page)
 
@@ -179,6 +192,6 @@ def craft_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
                     craft_display_string += f"{component} + "
         craft_display_string = craft_display_string[:-3] + "\n"
 
-    craft_display_string += "      \nType: 'craft (item) (amount)' to craft it:"
+    craft_display_string += "      \nType: 'craft (item) (amount/max)' to craft it:"
     craft_display_string += "\nType: 'craft (number)' to see other pages"
     return craft_display_string
