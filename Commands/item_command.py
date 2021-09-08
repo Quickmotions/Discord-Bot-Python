@@ -140,7 +140,9 @@ item_list = [
     [{'SteelGreatSword': 'Gives +14 Combat Skill'}, 'Hand', {'Combat': 14}],
     [{'Katana': 'Gives +7 Combat Skill, +7 Agility Skill'}, 'Hand', {'Combat': 7, 'Agility': 7}],
 
-
+    [{'GhostFangRing': 'Gives +13 Combat Skill'}, 'Ring', {'Combat': 13}],
+    [{'FuryRageRing': 'Gives +21 Combat Skill, -12 Defense Skill'}, 'Ring', {'Combat': 21, 'Defense': -12}],
+    [{'RavenEyeRing': 'Gives +32 Combat Skill, -11 Dodge Skill, +5 Health Skill'}, 'Ring', {'Combat': 32, 'Dodge': -11, 'Health': 5}],
 
     # agility
     [{'ShadowScaleHelmet': 'Gives +28 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 28, 'Health': -5}],
@@ -232,7 +234,9 @@ item_list = [
     [{'TormentShard': 'Gives +12 Magic Skill, +8 Healing Skill'}, 'Hand', {'Magic': 12, 'Healing': 8}],
     [{'SlimeRing': 'Gives +7 Magic Skill, +7 Healing Skill'}, 'Ring', {'Magic': 7, 'Healing': 7}],
     [{'MagicRing': 'Gives +6 Magic Skill'}, 'Ring', {'Magic': 6}],
-
+    [{'ArchmageRing': 'Gives +20 Magic Skill'}, 'Ring', {'Magic': 20}],
+    [{'ChaosRing': 'Gives +33 Magic Skill, -10 Health Skill, -5 Defense Skill'}, 'Ring', {'Magic': 33, 'Health': -10, 'Defense': -5}],
+    [{'VoidRing': 'Gives +12 Magic Skill, +2 Dodge Skill'}, 'Ring', {'Magic': 12, 'Dodge': 2}],
 
     # other
     [{'LuckyStick': 'Gives +18 Luck Skill'}, 'Hand', {'Luck': 18}],

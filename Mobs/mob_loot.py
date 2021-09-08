@@ -181,8 +181,10 @@ loot_table = [
     [6, 'HelixCore', 1, 30],
     [7, 'HelixCore', 2, 40],
     [8, 'HelixCore', 3, 50],
-
-
+    [8, 'FrostRing', 1, 14],
+    [9, 'ChaosRing', 1, 16],
+    [5, 'FangRing', 1, 8],
+    [11, 'RavenEyeRing', 1, 5],
 
 ]
 
