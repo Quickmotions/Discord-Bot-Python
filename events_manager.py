@@ -112,7 +112,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
 
     if len(info) > 0:
         damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage = info
-        if int(mob_damage) == 0:
+        if int(mob_damage) == 0 and extra == "dodged":
             mob_damage = f"💨Dodged ({dodge}%)"
         elif extra == "pierce":
             mob_damage = "🪡" + str(mob_damage)
@@ -126,9 +126,11 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
             most_missing = pos
 
     most_hp = 0
+    biggest_hp_amount = 0
     for pos in range(len(party)):
-        if int(user_data[pos][1]) > int(user_data[most_hp][1]) and int(user_data[pos][0]) > 0:
+        if int(user_data[pos][1]) > biggest_hp_amount and int(user_data[pos][0]) > 0:
             most_hp = pos
+            biggest_hp_amount = user_data[pos][1]
 
     last_turn = turn - 1
     if last_turn < 0:
@@ -150,7 +152,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
                 players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + 💕{heal_gained}"
             else:
                 players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%)"
-            if pos == most_hp:
+            if pos == most_hp and mob_damage > 0:
                 players_gui += f" - 🎯{mob_damage}\n"
             else:
                 players_gui += f"\n"
@@ -247,6 +249,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         user_data[turn][2] = int(user_data[turn][2])
         user_data[turn][4] = int(user_data[turn][4])
 
+
         mob_data[2] -= damage_dealt
         user_data[turn][0] -= self_damage
         user_data[turn][2] += shield_gained
@@ -314,7 +317,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         dodged = False
 
 
-
+        dodge = 0
         # find next alive or last
         mob_damage = 0
         if turn == len(party) - 1:
@@ -329,6 +332,8 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 if int(user_data[pos][1]) > biggest_hp_amount and int(user_data[pos][0]) > 0:
                     most_hp = pos
                     biggest_hp_amount = user_data[pos][1]
+
+            dodge = round(user_data[most_hp][4])
 
             dodged = True
             if random.randint(1, 100) > user_data[most_hp][4]:
@@ -380,7 +385,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             new_draw = draw_card_deck(party[turn][0], users)
         user_data[turn][3] = new_draw
 
-        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, round(user_data[most_hp][4] + dodge_bonus), mob_damage]
+        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage]
         new_event = [turn, battle_type, party, user_data, mob_data]
 
         start_update_csv(users)
