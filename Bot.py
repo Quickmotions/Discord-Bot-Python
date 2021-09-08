@@ -92,20 +92,24 @@ async def on_message(message):
 
             # run the command
             response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:])
-
+            command_string = user_input[0].title()
     else:  # message not in commands list (responses check)
         response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0])
-
+        command_string = "Hunt"
     # display output
     if response is not None:
         if isinstance(response, list):
             if response[0] == 'no_embed':
-                await message.channel.send(f"{response[1]}")
+                embedVar = discord.Embed(title=command_string, description=response[1:], color=0x800080)
+                await message.channel.send(embed=embedVar)
             if response[0] == 'multiple':
                 for text in response[1:]:
-                    await message.channel.send(f"```yaml\n{text}```")
+                    embedVar = discord.Embed(title=command_string, description=text, color=0x800080)
+                    await message.channel.send(embed=embedVar)
         else:
-            await message.channel.send(f"```yaml\n{response}```")
+            embedVar = discord.Embed(title=command_string, description=response, color=0x800080)
+            await message.channel.send(embed=embedVar)
+
 
 
 if __name__ == '__main__':

@@ -60,20 +60,21 @@ def start_combat(user, users, mob, battle_type):
         for player in users:
             if str(player.user_id) == member[0]:
                 # set up health and dodge
-                health_base = player.skills['Health'] + player.equipment_stats['Health']
-                magic_base = player.skills['Magic'] + player.equipment_stats['Magic']
-                critical_base = player.skills['Critical'] + player.equipment_stats['Critical']
-                dodge_base = player.skills['Dodge'] + player.equipment_stats['Dodge']
-                agility_base = player.skills['Agility'] + player.equipment_stats['Agility']
-                defense_base = player.skills['Defense'] + player.equipment_stats['Defense']
+                combat_base = user.skills['Combat'] + user.equipment_stats['Combat']
+                defense_base = user.skills['Defense'] + user.equipment_stats['Defense']
+                agility_base = user.skills['Agility'] + user.equipment_stats['Agility']
+                healing_base = user.skills['Healing'] + user.equipment_stats['Healing']
+                health_base = user.skills['Health'] + user.equipment_stats['Health']
+                dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
 
-                dodge = round((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
+                dodge = ((0.5 * dodge_base) + (0.1 * agility_base) - (0.25 * defense_base))
+                max_hp = round(100 * ((((10 * health_base) + (2 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
 
-                max_hp = round(100 * ((((6 * health_base) - (2 * magic_base) - (1 * critical_base)) / 100) + 1))
                 if max_hp < 1:
                     max_hp = 1
                 hp = max_hp
-
+                if dodge < 0:
+                    dodge = 0
 
                 user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge])
     event_data.append(user_data)
