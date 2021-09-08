@@ -78,8 +78,10 @@ async def on_message(message):
                     if current_datetime >= cd.cool_down_end:
                         del cd
                     else:  # tell user cool down is in progress
-                        await message.channel.send(f"```yaml\n{cd.command} Still on Cool-Down:\n"
-                                                   f"Will be done at {cd.cool_down_end}```")
+                        embedVar = discord.Embed(title="Cool-Down", description=f"{cd.command} Still on Cool-Down:\n"
+                                                                                f"Will be done at {cd.cool_down_end}",
+                                                                                color=0x800080)
+                        await message.channel.send(embed=embedVar)
                         return
 
             # set time for cool down to end

@@ -67,7 +67,7 @@ def start_combat(user, users, mob, battle_type):
                 health_base = player.skills['Health'] + player.equipment_stats['Health']
                 dodge_base = player.skills['Dodge'] + player.equipment_stats['Dodge']
 
-                dodge = ((0.5 * dodge_base) + (0.1 * agility_base) + (0.25 * defense_base))
+                dodge = ((0.5 * dodge_base) + (0.1 * agility_base) - (0.25 * defense_base))
                 max_hp = round(100 * ((((10 * health_base) + (2 * combat_base) + (2 * defense_base) + (3 * healing_base)) / 100) + 1))
 
                 if max_hp < 1:
@@ -380,7 +380,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             new_draw = draw_card_deck(party[turn][0], users)
         user_data[turn][3] = new_draw
 
-        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, mob_damage]
+        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, round(user_data[most_hp][4] + dodge_bonus), mob_damage]
         new_event = [turn, battle_type, party, user_data, mob_data]
 
         start_update_csv(users)
