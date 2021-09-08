@@ -80,7 +80,6 @@ def start_combat(user, users, mob, battle_type):
     event_data.append(user_data)
 
     mob_max = round(int(mob[2]) * (1 + (0.6 * (len(user_party) - 1))))
-    print(mob_max)
     mob_dmg = round(int(mob[3]) * (1 + (0.2 * (len(user_party) - 1))))
     event_data.append([mob[0], mob[1], mob_max, mob_max, mob_dmg, mob[4]])
 
@@ -114,7 +113,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     if len(info) > 0:
         damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage = info
         if int(mob_damage) == 0:
-            mob_damage = "Dodged"
+            mob_damage = "💨Dodged💨"
         elif extra == "pierce":
             mob_damage = "🪡" + str(mob_damage)
         user_data[turn][4] = dodge
@@ -148,29 +147,29 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
             player_hp_percent = round((100 / user_data[pos][1]) * user_data[pos][0])
             players_gui += f"{party[pos][1]}:\n"
             if pos == most_missing and heal_gained > 0:
-                players_gui += f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + {heal_gained}"
+                players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%) + 💕{heal_gained}"
             else:
-                players_gui += f"💗: {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%)"
+                players_gui += f"💗 {user_data[pos][0]}/{user_data[pos][1]} ({player_hp_percent}%)"
             if pos == most_hp:
                 players_gui += f" - {mob_damage}\n"
             else:
                 players_gui += f"\n"
             if pos == last_turn and int(shield_gained) > 0:
-                players_gui += f"🛡️: {user_data[pos][2]} + {shield_gained}\n"
+                players_gui += f"🛡️ {user_data[pos][2]} + 🛡️{shield_gained}\n"
             else:
-                players_gui += f"🛡️: {user_data[pos][2]}\n"
+                players_gui += f"🛡️ {user_data[pos][2]}\n"
             if pos == last_turn:
-                players_gui += f"🗡️: {damage_dealt}\n"
+                players_gui += f"🗡️ {damage_dealt}\n"
 
 
     if start:
         players_gui += f"{mob[1]}:\n" \
-                       f"💗: {mob[2]}/{mob[3]}\n" \
-                       f"🗡️: {mob[4]}"
+                       f"💗 {mob[2]}/{mob[3]}\n" \
+                       f"🗡️ {mob[4]}"
     else:
         players_gui += f"{mob[1]}:\n"
         if int(damage_dealt) > 0:
-            players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%) - {damage_dealt}\n"
+            players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌{damage_dealt}\n"
         else:
             players_gui += f"💗: {mob[2]}/{mob[3]} ({mob_hp_percent}%)\n"
         players_gui += f"🗡️: {mob_damage}"
