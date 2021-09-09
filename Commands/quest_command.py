@@ -186,7 +186,7 @@ def new_quests():
         current_time += " 00:00:00.000009"
         quest_info = random.randint(0, 6)  # random quest info in options
 
-        if quest_info <= 5:  # money rewards
+        if quest_info <= 3:  # money rewards
             quests.append(Quests(options[quest_info], current_time, f"{required_amount} {required_item}", f"{reward_value}", "*"))
         else:  # item rewards
             quests.append(Quests(options[quest_info], current_time, f"{required_amount} {required_item}", f"{amount_item_reward} {item_reward}", "*"))

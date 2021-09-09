@@ -155,6 +155,8 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
             if pos == most_hp:
                 if extra == "dodged":
                     players_gui += f" - 🎯{mob_damage}\n"
+                elif extra == "pierce":
+                    players_gui += f" - 🎯{mob_damage}\n"
                 elif int(mob_damage) > 0:
                     players_gui += f" - 🎯{mob_damage}\n"
                 else:

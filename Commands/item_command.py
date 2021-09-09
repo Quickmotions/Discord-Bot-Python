@@ -217,11 +217,11 @@ item_list = [
     [{'DarkPhoenixBoots': 'Gives +31 magic Skill, -10 Defense skill'}, 'Feet', {'magic': 31, 'Defense': -10}],
 
     [{'InfinityBoots': 'Gives +20 Magic Skill'}, 'Feet', {'Magic': 20}],
-    [{'SpectralHelmet': 'Gives +15 Magic Skill'}, 'Head', {'Magic': 15}],
-    [{'SpectralChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
-    [{'SpectralLeggings': 'Gives +15 Magic Skill'}, 'Legs', {'Magic': 15}],
+    [{'SpectralHelmet': 'Gives +19 Magic, +9 Critical Skill'}, 'Head', {'Magic': 19, 'Critical': 9}],
+    [{'SpectralChestplate': 'Gives +19 Magic, +9 Critical Skill'}, 'Chest', {'Magic': 19, 'Critical': 9}],
+    [{'SpectralLeggings': 'Gives +19 Magic, +9 Critical Skill'}, 'Legs', {'Magic': 19, 'Critical': 9}],
     [{'CursedMask': 'Gives -10 Defense Skill, -5 Luck Skill, +23 Magic Skill'}, 'Head', {'Magic': 23, 'Luck': -5, 'Defense': -10}],
-    [{'SpectralBoots': 'Gives +15 Magic Skill'}, 'Feet', {'Magic': 15}],
+    [{'SpectralBoots': 'Gives +19 Magic, +9 Critical Skill'}, 'Feet', {'Magic': 19, 'Critical': 9}],
 
     [{'WarlockLeggings': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 8, 'Healing': -3}],
     [{'WarlockBoots': 'Gives +8 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 8, 'Healing': -3}],
