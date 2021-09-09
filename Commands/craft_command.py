@@ -99,6 +99,10 @@ craft_list = {
     'HelixLeggings': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
     'HelixBoots': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
     'HelixCoreSword': [{'GoldIngot': 10, 'HelixCore': 10}],
+    'DarkPhoenixHelmet': [{'FireRune': 100, 'DevilsHorn': 400}],
+    'DarkPhoenixChestplate': [{'FireRune': 100, 'DevilsHorn': 400}],
+    'DarkPhoenixLeggings': [{'FireRune': 100, 'DevilsHorn': 400}],
+    'DarkPhoenixBoots': [{'FireRune': 100, 'DevilsHorn': 400}],
 
     # cards
     'Wrath': [{'AncientRune': 40, 'Blood': 40, 'Paper': 25}],
@@ -108,11 +112,11 @@ craft_list = {
     'Shockwave': [{'AncientRune': 40, 'DevilIngot': 10}],
     'DarkSlice': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
 
-    'HeavenlyGuard': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
-    'LifeTap': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
-    'LeechingWard': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
-    'GoddessProtection': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
-    'HolyShield': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
+    'HeavenlyGuard': [{'AncientRune': 50, 'HelicCore': 4, 'GoldIngot': 60}],
+    'LifeTap': [{'AncientRune': 35, 'Blood': 100, 'TitaniumIngot': 30}],
+    'LeechingWard': [{'AncientRune': 50, 'DeathLily': 100, 'Ectoplasm': 60}],
+    'GoddessProtection': [{'AncientRune': 28, 'Paper': 40, 'WaterRune': 20}],
+    'HolyShield': [{'AncientRune': 20, 'TinIngot': 50, 'Diamond': 100}],
 
     'TrainingPoint': [{'OakLog': 1}, {'Salmon': 1}, {'Blood': 1}, {'CutStone': 1}],
 

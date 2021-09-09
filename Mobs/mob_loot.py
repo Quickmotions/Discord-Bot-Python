@@ -185,6 +185,14 @@ loot_table = [
     [9, 'ChaosRing', 1, 16],
     [5, 'FangRing', 1, 8],
     [11, 'RavenEyeRing', 1, 5],
+    [5, 'NecromancerHelmet', 1, 2],
+    [7, 'NecromancerChestplate', 1, 2],
+    [6, 'NecromancerLeggings', 1, 2],
+    [8, 'NecromancerBoots', 1, 2],
+    [7, 'ArcaneHelmet', 1, 5],
+    [7, 'ArcaneChestplate', 1, 5],
+    [7, 'ArcaneLeggings', 1, 5],
+    [7, 'ArcaneBoots', 1, 5],
 
 
 ]
