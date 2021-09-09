@@ -145,6 +145,7 @@ item_list = [
     [{'RavenEyeRing': 'Gives +32 Combat Skill, -11 Dodge Skill, +5 Health Skill'}, 'Ring', {'Combat': 32, 'Dodge': -11, 'Health': 5}],
 
     # agility
+    # not added yet:
     [{'ShadowScaleHelmet': 'Gives +28 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 28, 'Health': -5}],
     [{'ShadowScaleChestplate': 'Gives +28 Agility Skill, -8 Health Skill'}, 'Chest', {'Agility': 28, 'Health': -8}],
     [{'ShadowScaleLeggings': 'Gives +28 Agility Skill, -4 Health Skill'}, 'Legs', {'Agility': 28, 'Health': -4}],
@@ -194,7 +195,7 @@ item_list = [
     [{'GemFishingRod': 'Gives +5 Fishing Skill'}, 'Hand', {'Fishing': 5}],
 
 
-    # magic (done)
+    # magic
 
     [{'MagicChestplate': 'Gives +5 Magic Skill'}, 'Chest', {'Magic': 5}],
     [{'ElementalChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
