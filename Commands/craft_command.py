@@ -112,7 +112,7 @@ craft_list = {
     'Shockwave': [{'AncientRune': 40, 'DevilIngot': 10}],
     'DarkSlice': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
 
-    'HeavenlyGuard': [{'AncientRune': 50, 'HelicCore': 4, 'GoldIngot': 60}],
+    'HeavenlyGuard': [{'AncientRune': 50, 'HelixCore': 4, 'GoldIngot': 60}],
     'LifeTap': [{'AncientRune': 35, 'Blood': 100, 'TitaniumIngot': 30}],
     'LeechingWard': [{'AncientRune': 50, 'DeathLily': 100, 'Ectoplasm': 60}],
     'GoddessProtection': [{'AncientRune': 28, 'Paper': 40, 'WaterRune': 20}],
