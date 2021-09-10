@@ -4,6 +4,7 @@ import discord
 from env import env
 from datetime import datetime, timedelta
 
+from backup import start_backup
 from Commands.update_skills import setup_skills
 from command_manager import Commands
 from users import run_setup_users
@@ -28,6 +29,7 @@ for user in USERS:
     setup_equipment(user, USERS)
     set_equipment_stats(user, USERS)
 
+start_backup(USERS)
 
 @client.event
 async def on_ready():
