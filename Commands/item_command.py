@@ -2,6 +2,10 @@ from Mobs.mob_loot import loot_table
 
 item_list = [
     # Materials
+    [{'TrainingPoints': 'Used to get player xp'}, 'None', {}],
+    [{'WorkPoints': 'Used to get job promotions'}, 'None', {}],
+    [{'RemovalSigil': 'Used to remove cards'}, 'None', {}],
+    [{'ResetSigil': 'Used to reset player stats'}, 'None', {}],
     [{'Leather': 'Material used for crafting'}, 'None', {}],
     [{'SpruceLog': 'Material used for crafting'}, 'None', {}],
     [{'OakLog': 'Material used for crafting'}, 'None', {}],
