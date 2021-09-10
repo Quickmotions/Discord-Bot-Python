@@ -7,16 +7,17 @@ def give_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
             if f"<@!{user.user_id}>" == str(args[3][0]) or f"<@{user.user_id}>" == str(args[3][0]):  # test @
                 amount_to_send = int(args[3][1])  # set amount
                 # admin send
-                if args[3][3] == "admin" and args[0].user_id == "482271768451612683":
-                    for item, slot, stats in item_list:
-                        for item_name, desc in item.items():
-                            if item_name.lower() == args[3][2]:
-                                if len(args[3]) > 3:
-                                    if item_name not in user.inv:
-                                        user.inv[item_name] = 0
-                                    user.inv[item_name] += amount_to_send
-                                    start_update_csv(args[2])
-                                    return f"Admin gave {amount_to_send} {item_name} to {user.username}"
+                if len(args[3]) > 3:
+                    if args[3][3] == "admin" and args[0].user_id == "482271768451612683":
+                        for item, slot, stats in item_list:
+                            for item_name, desc in item.items():
+                                if item_name.lower() == args[3][2]:
+                                    if len(args[3]) > 3:
+                                        if item_name not in user.inv:
+                                            user.inv[item_name] = 0
+                                        user.inv[item_name] += amount_to_send
+                                        start_update_csv(args[2])
+                                        return f"Admin gave {amount_to_send} {item_name} to {user.username}"
                 # normal send
                 if amount_to_send <= 0:
                     return f"Cannot send {amount_to_send}:\nTry an amount above 0 that's not a decimal."
