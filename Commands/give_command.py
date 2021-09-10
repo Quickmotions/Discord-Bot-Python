@@ -36,7 +36,7 @@ def give_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
                             start_update_csv(args[2])
                             return f"{args[0].username} sent {amount_to_send} {name} to {user.username}"
-                        return f"Item {item_to_send} not found in inventory."
+                    return f"Item {item_to_send} not found in inventory."
 
                 else:
                     # send money
