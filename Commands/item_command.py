@@ -327,10 +327,10 @@ item_list = [
     [{'Shieldbash': "(combat) Damage - 5"}, 'Card', {'Combat': 5}],
     [{'Bash': "(combat) Damage - 2, Shield - 4"}, 'Card', {'Combat': 2, 'Defense': 4}],
     [{'Whirlwind': "(combat) Damage - 5, Extra Card Draw"}, 'Card', {'Combat': 5, 'Draw': 1}],
-    [{'Onepunch': "(combat) Damage - 30"}, 'Card', {'Combat': 30}],
+    [{'Onepunch': "(combat) Damage - 18"}, 'Card', {'Combat': 18}],
     [{'Slam': "(combat) Damage - 5, Shield - 5, Heal - 4"}, 'Card', {'Combat': 5, 'Defense': 5, 'Healing': 4}],
-    [{'Smash': "(combat) Damage - 3, Heal - 10"}, 'Card', {'Agility': 4, 'Healing': 4}],
-    [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Magic': 6, 'Defense': 7}],
+    [{'Smash': "(combat) Damage - 3, Heal - 10"}, 'Card', {'Combat': 3, 'Healing': 4}],
+    [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Combat': 12, 'Draw': 1}],
     [{'Shatter': "(combat) Damage - 9, Heal - 5"}, 'Card', {'Combat': 9, 'Healing': 5}],
     [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
 

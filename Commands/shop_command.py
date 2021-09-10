@@ -25,7 +25,7 @@ shop_list = {
     'QuickStab': 5800,
     'Restoration': 5000,
     'Regeneration': 5800,
-    'Onepunch': 100000,
+    'Onepunch': 50000,
 }
 shop_item_list = {
     'Pickaxe': 300,

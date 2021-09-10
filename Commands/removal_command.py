@@ -1,10 +1,16 @@
 from Commands.update_csv import start_update_csv
+from events_manager import get_events
 
 
 def removal_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list
     if 'RemovalSigil' in args[0].inv:
         if args[0].inv['RemovalSigil'] > 0:
             if len(args[3]) > 0:
+                events = get_events()
+                for event in events:
+                    for member in event[2]:
+                        if args[0].user_id == str(member[0]):
+                            return f"You need to complete your current combat event first"
                 if len(args[0].cards) > 5:
                     card_chosen = str(args[3][0]).lower()
                     for card in args[0].cards:
