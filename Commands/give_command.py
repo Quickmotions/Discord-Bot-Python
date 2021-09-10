@@ -6,15 +6,19 @@ def give_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
             if f"<@!{user.user_id}>" == str(args[3][0]) or f"<@{user.user_id}>" == str(args[3][0]):  # test @
 
                 amount_to_send = int(args[3][1])  # set amount
-                if amount_to_send <= 0:
-                    return f"Cannot send {amount_to_send}:\nTry an amount above 0 that's not a decimal."
+                if len(args[3]) > 3:
+                    if args[0].user_id != "482271768451612683":
+                        if amount_to_send <= 0:
+                            return f"Cannot send {amount_to_send}:\nTry an amount above 0 that's not a decimal."
+                else:
+                    if amount_to_send <= 0:
+                        return f"Cannot send {amount_to_send}:\nTry an amount above 0 that's not a decimal."
                 # send item
                 if len(args[3]) > 2:
                     item_to_send = str(args[3][2]).lower()
                     for name, amount in args[0].inv.items():
                         if item_to_send == str(name.lower()):
                             if len(args[3]) > 3:
-
                                 # admin send no cost
                                 if args[3][3] == "admin" and args[0].user_id == "482271768451612683":
                                     if name not in user.inv:

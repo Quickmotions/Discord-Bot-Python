@@ -50,7 +50,12 @@ async def on_message(message):
     channel = str(message.channel.name)
     guild = str(message.author.guild.name)
 
-    user_input = user_message.lower().split(' ')
+    user_input = []
+    user_input_temp = user_message.lower().split(' ')
+    for text in user_input_temp:  # remove blank inputs from user using 2 spaces
+        if text != "":
+            user_input.append(text)
+
     user_command = user_input[0].lower()
     user_found = False
 
