@@ -100,9 +100,13 @@ async def on_message(message):
         command_string = "Hunt"
     # display output
     if response is not None:
+        if len(response) == 2:
+            embedVar = discord.Embed(title=response[0], description=response[1], color=0x800080)
+            await message.channel.send(embed=embedVar)
+            return
         if isinstance(response, list):
             if response[0] == 'no_embed':
-                embedVar = discord.Embed(title=command_string, description=response[1:], color=0x800080)
+                embedVar = discord.Embed(title="Source", description=response[1:], color=0x800080)
                 await message.channel.send(embed=embedVar)
             if response[0] == 'multiple':
                 for text in response[1:]:

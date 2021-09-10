@@ -320,6 +320,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
         piercing_attack = False
         dodged = False
+        mob_attacks = False
 
         turn += 1
         if turn == len(party):
@@ -329,6 +330,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 turn += 1
                 if turn == len(party):
                     turn = 0
+                    mob_attacks = True
             else:
                 break
 
@@ -336,7 +338,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         dodge = 0
         # find next alive or last
         mob_damage = 0
-        if turn == len(party) - 1:
+        if mob_attacks:
             piercing_attack = False
             if random.randint(1, 12) == 1:
                 piercing_attack = True

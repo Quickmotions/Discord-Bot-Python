@@ -195,26 +195,26 @@ item_list = [
     [{'GemFishingRod': 'Gives +5 Fishing Skill'}, 'Hand', {'Fishing': 5}],
 
 
-    # magic
+    # Magic
 
     [{'MagicChestplate': 'Gives +5 Magic Skill'}, 'Chest', {'Magic': 5}],
     [{'ElementalChestplate': 'Gives +15 Magic Skill'}, 'Chest', {'Magic': 15}],
     [{'ArchMageChestplate': 'Gives +27 Magic Skill'}, 'Chest', {'Magic': 27}],
 
-    [{'ArcaneHelmet': 'Gives +17 magic Skill'}, 'Head', {'magic': 17}],
-    [{'ArcaneChestplate': 'Gives +17 magic Skill'}, 'Chest', {'magic': 17}],
-    [{'ArcaneLeggings': 'Gives +17 magic Skill'}, 'Legs', {'magic': 17}],
-    [{'ArcaneBoots': 'Gives +17 magic Skill'}, 'Feet', {'magic': 17}],
+    [{'ArcaneHelmet': 'Gives +17 Magic Skill'}, 'Head', {'Magic': 17}],
+    [{'ArcaneChestplate': 'Gives +17 Magic Skill'}, 'Chest', {'Magic': 17}],
+    [{'ArcaneLeggings': 'Gives +17 Magic Skill'}, 'Legs', {'Magic': 17}],
+    [{'ArcaneBoots': 'Gives +17 Magic Skill'}, 'Feet', {'Magic': 17}],
 
-    [{'NecromancerHelmet': 'Gives +24 magic Skill, -9 health skill'}, 'Head', {'magic': 24, 'Health': -9}],
-    [{'NecromancerChestplate': 'Gives +24 magic Skill, -9 health skill'}, 'Chest', {'magic': 24, 'Health': -9}],
-    [{'NecromancerLeggings': 'Gives +24 magic Skill, -9 health skill'}, 'Legs', {'magic': 24, 'Health': -9}],
-    [{'NecromancerBoots': 'Gives +24 magic Skill, -9 health skill'}, 'Feet', {'magic': 24, 'Health': -9}],
+    [{'NecromancerHelmet': 'Gives +24 Magic Skill, -9 health skill'}, 'Head', {'Magic': 24, 'Health': -9}],
+    [{'NecromancerChestplate': 'Gives +24 Magic Skill, -9 health skill'}, 'Chest', {'Magic': 24, 'Health': -9}],
+    [{'NecromancerLeggings': 'Gives +24 Magic Skill, -9 health skill'}, 'Legs', {'Magic': 24, 'Health': -9}],
+    [{'NecromancerBoots': 'Gives +24 Magic Skill, -9 health skill'}, 'Feet', {'Magic': 24, 'Health': -9}],
 
-    [{'DarkPhoenixHelmet': 'Gives +31 magic Skill, -10 Defense skill'}, 'Head', {'magic': 31, 'Defense': -10}],
-    [{'DarkPhoenixChestplate': 'Gives +31 magic Skill, -10 Defense skill'}, 'Chest', {'magic': 31, 'Defense': -10}],
-    [{'DarkPhoenixLeggings': 'Gives +31 magic Skill, -10 Defense skill'}, 'Legs', {'magic': 31, 'Defense': -10}],
-    [{'DarkPhoenixBoots': 'Gives +31 magic Skill, -10 Defense skill'}, 'Feet', {'magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixHelmet': 'Gives +31 Magic Skill, -10 Defense skill'}, 'Head', {'Magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixChestplate': 'Gives +31 Magic Skill, -10 Defense skill'}, 'Chest', {'Magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixLeggings': 'Gives +31 Magic Skill, -10 Defense skill'}, 'Legs', {'Magic': 31, 'Defense': -10}],
+    [{'DarkPhoenixBoots': 'Gives +31 Magic Skill, -10 Defense skill'}, 'Feet', {'Magic': 31, 'Defense': -10}],
 
     [{'InfinityBoots': 'Gives +20 Magic Skill'}, 'Feet', {'Magic': 20}],
     [{'SpectralHelmet': 'Gives +19 Magic, +9 Critical Skill'}, 'Head', {'Magic': 19, 'Critical': 9}],
@@ -335,12 +335,12 @@ item_list = [
     [{'Regeneration': "Heal - 18"}, 'Card', {'Healing': 18}],
     [{'Restoration': "Heal - 14, Extra Card Draw"}, 'Card', {'Healing': 14, 'Draw': 1}],
     [{'HeavenlyGuard': "Heal - 20, Shield - 10"}, 'Card', {'Healing': 20, 'Shield': 10}],
-    [{'LifeTap': "Heal - 45, self - 45"}, 'Card', {'Healing': 45, 'Self': 45}],
+    [{'LifeTap': "Heal - 45, self - 45"}, 'Card', {'Healing': 45, 'Self': 100}],
 
     # defense
     [{'Defend': "Shield - 5"}, 'Card', {'Defense': 5}],
     [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
-    [{'LeechingWard': "Shield - 28, Self Damage - 20"}, 'Card', {'Defense': 28, 'Self': 20}],
+    [{'LeechingWard': "Shield - 28, Self Damage - 20"}, 'Card', {'Defense': 30, 'Self': 80}],
     [{'GoddessProtection': "Shield - 14, Healing - 10"}, 'Card', {'Defense': 14, 'Healing': 10}],
     [{'HolyShield': "Shield - 15, , Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
 

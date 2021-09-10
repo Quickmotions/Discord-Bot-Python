@@ -12,7 +12,8 @@ def start_update_csv(users):
                 f"{user.gathering}*"
                 f"{user.gathering_time}*"
                 f"{user.equipment}/{user.equipment_stats}*"
-                f"{user.party}\n")
+                f"{user.party}*"
+                f"{user.buildings}\n")
     f.close()
 
 
