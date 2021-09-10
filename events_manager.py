@@ -325,6 +325,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         turn += 1
         if turn == len(party):
             turn = 0
+            mob_attacks = True
         while int(user_data[turn][0]) <= 0:
             if int(user_data[turn][0]) <= 0:
                 turn += 1
