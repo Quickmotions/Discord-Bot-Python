@@ -52,7 +52,7 @@ def land_c(*args):
                     if building_name.lower() == args[3][1].lower():
                         price, reward_text, reward_type, reward = info
                         if "Empty Land" in args[0].buildings:
-
+                            pass
 
 
 
