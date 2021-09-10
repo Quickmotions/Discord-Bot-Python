@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class Player:
-    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}", gathering="gathering=no", gathering_time="None", equipment="{}/{}", party="None"):
+    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}", gathering="gathering=no", gathering_time="None", equipment="{}/{}", party="None", buildings="[]"):
         u_id, username = user_id.split(' ', 1)
         # user data
         self.user_id = str(u_id)
@@ -37,6 +37,7 @@ class Player:
 
         # cards
         self.cards = ast.literal_eval(cards)
+        self.buildings = ast.literal_eval(buildings)
 
         # gathering
         self.gathering = gathering
@@ -71,7 +72,7 @@ def get_data():
         item = item.strip()  # remove \n
         items = item.split('*')  # split into items
         # create class for each user
-        users.append(Player(items[0], items[1], items[2], items[3], items[4], items[5], items[6], items[7], items[8], items[9], items[10]))
+        users.append(Player(items[0], items[1], items[2], items[3], items[4], items[5], items[6], items[7], items[8], items[9], items[10], items[11]))
     return users  # return list of users (classes)
 
 
