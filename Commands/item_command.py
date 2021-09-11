@@ -1,4 +1,6 @@
 from Mobs.mob_loot import loot_table
+from Commands.update_csv import start_update_csv
+import random
 
 item_list = [
     # Materials
@@ -64,6 +66,12 @@ item_list = [
     [{'HelixCore': 'Material used for crafting'}, 'None', {}],
     [{'Ectoplasm': 'Material used for crafting'}, 'None', {}],
     [{'DarkShard': 'Material used for crafting'}, 'None', {}],
+    [{'ElementalDust': 'Material used for crafting'}, 'None', {}],
+    [{'ChaosDust': 'Material used for crafting'}, 'None', {}],
+    [{'Pearl': 'Material used for crafting'}, 'None', {}],
+    [{'BlackPearl': 'Material used for crafting'}, 'None', {}],
+    [{'VoidStone': 'Material used for crafting'}, 'None', {}],
+    [{'VoidPowder': 'Material used for crafting'}, 'None', {}],
     [{'Crystalium': 'Material used for crafting bought from the shop'}, 'None', {}],
     [{'Coal': 'Material used for crafting bought from the shop'}, 'None', {}],
 
@@ -112,11 +120,25 @@ item_list = [
     [{'HallowedBoots': 'Gives +30 Defense Skill, +6 Luck Skill'}, 'Feet', {'Defense': 30, 'Luck': 6}],
     [{'HallowedSpear': 'Gives +30 Defense Skill, +5 Combat Skill'}, 'Hand', {'Defense': 30, 'Combat': 5}],
 
-    [{'Shield': 'Grants 5 shield each turn'}, 'Hand', {}],
+    [{'DarkShield': 'Grants 10 shield each turn'}, 'Hand', {}],
+    [{'EmptyHelmet': 'Gives +35 Defense Skill'}, 'Head', {'Defense': 35}],
+    [{'GuardianSword': 'Gives +29 Defense Skill'}, 'Hand', {'Defense': 29}],
+    [{'AbyssalShield': 'Gives +25 Defense, +10 Health Skill'}, 'Chest', {'Defense': 25, 'Health': 10}],
+
+    [{'ToughAlloyBoots': 'Gives +11 Defense, +8 Health Skill'}, 'Feet', {'Defense': 11, 'Health': 8}],
+    [{'VibrantLeggings': 'Gives +26 Defense, -8 Magic Skill'}, 'Legs', {'Defense': 26, 'Magic': -8}],
+    [{'SomberChestplate': 'Gives +17 Defense Skill'}, 'Chest', {'Defense': 17}],
+    [{'DraconianMailHelmet': 'Gives +5 Defense, 3 Health, 4 Combat Skill'}, 'Head', {'Defense': 5, 'Health': 3, 'Combat': 4}],
+
+    [{'ChaosHelmet': 'Gives +10 Magic, +10 Combat, +10 Agility Skill, -50 Luck Skill'}, 'Head', {'Magic': 10, 'Combat': 10, 'Agility': 10, 'Luck': -50}],
+    [{'ChaosChestplate': 'Gives +10 Magic, +10 Combat, +10 Agility Skill, -50 Luck Skill'}, 'Chest', {'Magic': 10, 'Combat': 10, 'Agility': 10, 'Luck': -50}],
+    [{'ChaosLeggings': 'Gives +10 Magic, +10 Combat, +10 Agility Skill, -50 Luck Skill'}, 'Legs', {'Magic': 10, 'Combat': 10, 'Agility': 10, 'Luck': -50}],
+    [{'ChaosBoots': 'Gives +10 Magic, +10 Combat, +10 Agility Skill, -50 Luck Skill'}, 'Feet', {'Magic': 10, 'Combat': 10, 'Agility': 10, 'Luck': -50}],
+
+    [{'DarkShield': 'Grants 10 shield each turn'}, 'Hand', {}],
     [{'EternalGuardianShield': 'Gives +30 Defense Skill'}, 'Hand', {'Defense': 30}],
     [{'BasaltShield': 'Gives +15 Defense Skill'}, 'Hand', {'Defense': 15}],
     [{'OldIronChestplate': 'Gives +6 Defense Skill'}, 'Chest', {'Defense': 6}],
-
 
     # combat
     [{'HellHoundHelmet': 'Gives +41 Combat Skill, -7 healing Skill, +5 Defense Skill'}, 'Head', {'Combat': 41, 'Healing': -7, 'Defense': 5}],
@@ -137,6 +159,11 @@ item_list = [
     [{'CombatChestplate': 'Gives +5 Combat Skill'}, 'Chest', {'Combat': 7}],
     [{'ChampionChestplate': 'Gives +15 Combat Skill'}, 'Chest', {'Combat': 15}],
     [{'WarBornChestplate': 'Gives +27 Combat Skill'}, 'Chest', {'Combat': 27}],
+
+    [{'WaterStoneHelmet': 'Gives +24 Combat, +16 Magic Skill'}, 'Head', {'Combat': 24, 'Magic': 16}],
+    [{'WaterStoneChestplate': 'Gives +24 Combat, +16 Magic Skill'}, 'Chest', {'Combat': 24, 'Magic': 16}],
+    [{'WaterStoneLeggings': 'Gives +24 Combat, +16 Magic Skill'}, 'Legs', {'Combat': 24, 'Magic': 16}],
+    [{'WaterStoneBoots': 'Gives +24 Combat, +16 Magic Skill'}, 'Feet', {'Combat': 24, 'Magic': 16}],
 
     [{'IronSword': 'Gives +8 Combat Skill'}, 'Hand', {'Combat': 8}],
     [{'LavaSword': 'Gives +52 Combat Skill'}, 'Hand', {'Combat': 52}],
@@ -177,26 +204,32 @@ item_list = [
     [{'SkyDarkLeggings': 'Gives +12 Dodge Skill'}, 'Legs', {'Dodge': 12}],
     [{'SkyDarkBoots': 'Gives +15 Dodge Skill'}, 'Feet', {'Dodge': 15}],
 
+    [{'VoidWalkerHelmet': 'Gives +28 Agility, +20 Critical Skill'}, 'Head', {'Agility': 28, 'Critical': 20}],
+    [{'VoidWalkerChestplate': 'Gives +28 Agility, +20 Critical Skill'}, 'Chest', {'Agility': 28, 'Critical': 20}],
+    [{'VoidWalkerLeggings': 'Gives +28 Agility, +20 Critical Skill'}, 'Legs', {'Agility': 28, 'Critical': 20}],
+    [{'VoidWalkerBoots': 'Gives +28 Agility, +20 Critical Skill'}, 'Feet', {'Agility': 28, 'Critical': 20}],
+
     [{'SkeletalChestplate': 'Gives +19 Agility Skill'}, 'Chest', {'Agility': 19}],
     [{'DarkBoots': 'Gives +18 Agility Skill'}, 'Feet', {'Agility': 18}],
 
     [{'AbyssalDagger': 'Gives +6 Agility Skill, +4 Defense Skill'}, 'Hand', {'Agility': 6, 'Defense': 4}],
     [{'BonerSword': 'Gives +10 Agility Skill, +10 Dodge Skill'}, 'Hand', {'Agility': 10, 'Dodge': 10}],
     [{'WraithDagger': 'Gives +6 Agility Skill, +17 Dodge Skill'}, 'Hand', {'Agility': 6, 'Dodge': 17}],
-
+    [{'WickedBarkKnife': 'Gives +28 Agility Skill'}, 'Hand', {'Agility': 28}],
+    [{'ShadowBane': 'Gives +30 Dodge Skill'}, 'Hand', {'Dodge': 30}],
 
     # gathering
 
-    [{'FishBoots': 'Gives +2 Fishing Skill'}, 'Feet', {'Fishing': 2}],
-    [{'FishChestplate': 'Gives +2 Fishing Skill'}, 'Chest', {'Fishing': 2}],
-    [{'FishLeggings': 'Gives +2 Fishing Skill'}, 'Legs', {'Fishing': 2}],
-    [{'FishHelmet': 'Gives +2 Fishing Skill'}, 'Head', {'Fishing': 2}],
-    [{'MinerBoots': 'Gives +2 Mining Skill'}, 'Feet', {'Mining': 2}],
-    [{'MinerHelmet': 'Gives +2 Mining Skill'}, 'Head', {'Mining': 2}],
-    [{'MinerChestplate': 'Gives +2 Mining Skill'}, 'Chest', {'Mining': 2}],
-    [{'MinerLeggings': 'Gives +2 Mining Skill'}, 'Legs', {'Mining': 2}],
+    [{'FishBoots': 'Gives +15 Fishing Skill'}, 'Feet', {'Fishing': 15}],
+    [{'FishChestplate': 'Gives +15 Fishing Skill'}, 'Chest', {'Fishing': 15}],
+    [{'FishLeggings': 'Gives +15 Fishing Skill'}, 'Legs', {'Fishing': 15}],
+    [{'FishHelmet': 'Gives +15 Fishing Skill'}, 'Head', {'Fishing': 15}],
+    [{'MinerBoots': 'Gives +15 Mining Skill'}, 'Feet', {'Mining': 15}],
+    [{'MinerHelmet': 'Gives +15 Mining Skill'}, 'Head', {'Mining': 15}],
+    [{'MinerChestplate': 'Gives +15 Mining Skill'}, 'Chest', {'Mining': 15}],
+    [{'MinerLeggings': 'Gives +15 Mining Skill'}, 'Legs', {'Mining': 15}],
 
-    [{'GemFishingRod': 'Gives +5 Fishing Skill'}, 'Hand', {'Fishing': 5}],
+    [{'GemFishingRod': 'Gives +20 Fishing Skill'}, 'Hand', {'Fishing': 20}],
 
 
     # Magic
@@ -209,6 +242,11 @@ item_list = [
     [{'ArcaneChestplate': 'Gives +21 Magic Skill'}, 'Chest', {'Magic': 21}],
     [{'ArcaneLeggings': 'Gives +24 Magic Skill'}, 'Legs', {'Magic': 24}],
     [{'ArcaneBoots': 'Gives +20 Magic Skill'}, 'Feet', {'Magic': 20}],
+
+    [{'AmazonHelmet': 'Gives +14 Magic, +14 Health Skill'}, 'Head', {'Magic': 14, 'Health': 14}],
+    [{'AmazonChestplate': 'Gives +14 Magic, +14 Health Skill'}, 'Chest', {'Magic': 14, 'Health': 14}],
+    [{'AmazonLeggings': 'Gives +14 Magic, +14 Health Skill'}, 'Legs', {'Magic': 14, 'Health': 14}],
+    [{'AmazonBoots': 'Gives +14 Magic, +14 Health Skill'}, 'Feet', {'Magic': 14, 'Health': 14}],
 
     [{'NecromancerHelmet': 'Gives +20 Magic Skill, -9 health skill'}, 'Head', {'Magic': 20, 'Health': -9}],
     [{'NecromancerChestplate': 'Gives +32 Magic Skill, -9 health skill'}, 'Chest', {'Magic': 32, 'Health': -9}],
@@ -230,6 +268,7 @@ item_list = [
     [{'WarlockLeggings': 'Gives +15 Magic Skill, -3 Healing Skill'}, 'Legs', {'Magic': 15, 'Healing': -3}],
     [{'WarlockBoots': 'Gives +15 Magic Skill, -3 Healing Skill'}, 'Feet', {'Magic': 15, 'Healing': -3}],
 
+    [{'JungleStaff': 'Gives +10 Magic, +8 Dodge, +12 Health Skill'}, 'Hand', {'Magic': 10, 'Dodge': 8, 'Health': 12}],
     [{'MagicStaff': 'Gives +9 Magic Skill'}, 'Hand', {'Magic': 9}],
     [{'ElectrumWand': 'Gives +17 Magic Skill'}, 'Hand', {'Magic': 17}],
     [{'SorcererWand': 'Gives +14 Magic Skill, +2 Defense Skill'}, 'Hand', {'Magic': 14, 'Defense': 2}],
@@ -250,8 +289,14 @@ item_list = [
 
 
     # health
+    [{'LionBeastHelmet': 'Gives +31 Health Skill, -6 Defense skill'}, 'Head', {'Health': 31, 'Defense': -6}],
+    [{'LionBeastChestplate': 'Gives +32 Health Skill, -6 Defense skill'}, 'Chest', {'Health': 32, 'Defense': -6}],
+    [{'LionBeastLeggings': 'Gives +32 Health Skill, -6 Defense skill'}, 'Legs', {'Health': 32, 'Defense': -6}],
+    [{'LionBeastBoots': 'Gives +31 Health Skill, -6 Defense skill'}, 'Feet', {'Health': 31, 'Defense': -6}],
+
     [{'AncientChestplate': 'Gives +16 Health Skill'}, 'Chest', {'Health': 16}],
     [{'PurityChestplate': 'Gives +30 Health Skill'}, 'Chest', {'Health': 30}],
+    [{'ShieldOfHealing': 'Gives +20 Health, +8 Healing Skill'}, 'Chest', {'Health': 20, 'Healing': 8}],
 
     # healing
 
@@ -371,3 +416,28 @@ def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
     else:
         return f"Incorrect use of item:\ntry 'item (item-name)'"
+
+
+def award_hunt_loot(level: int, party, users):
+    loot_gained = []
+    for member in party:
+        loot_gained.append(["", f"{member[1]}:"])
+        for user in users:
+            if member[0] == user.user_id:
+                for mob_level, loot_name, amount, chance in loot_table:
+                    if mob_level == int(level):
+                        if random.randint(1, 1000) <= int(chance):
+                            loot_gained.append([loot_name, amount])
+                            for item, slot, stats in item_list:
+                                for item_name, desc in item.items():
+                                    if loot_name == item_name and slot == "Card":
+                                        if loot_name not in user.cards:
+                                            user.cards[loot_name] = 0
+                                        user.cards[loot_name] += amount
+                                        start_update_csv(users)
+                                        return loot_gained
+                            if loot_name not in user.inv:
+                                user.inv[loot_name] = 0
+                            user.inv[loot_name] += amount
+                            start_update_csv(users)
+                            return loot_gained

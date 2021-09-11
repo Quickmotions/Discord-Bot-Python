@@ -1,6 +1,3 @@
-from Commands.update_csv import start_update_csv
-import random
-
 loot_table = [
     # mob lvl, item, amount, chance
 
@@ -105,6 +102,11 @@ loot_table = [
     [6, 'NecromancerLeggings', 1, 2],
     [6, 'TrueSteelLeggings', 1, 4],
 
+    [7, 'ToughAlloyBoots', 1, 9]
+    [7, 'VibrantLeggings', 1, 9]
+    [7, 'SomberChestplate', 1, 9]
+    [7, 'DraconianMailHelmet', 1, 9]
+
     [8, 'Paper', 2, 700],
     [8, 'WandOfHealing', 1, 9],
     [8, 'ElectrumWand', 1, 7],
@@ -125,10 +127,19 @@ loot_table = [
     [8, 'ArcaneBoots', 1, 5],
     [8, 'SkyDarkBoots', 1, 8],
     [8, 'EternalHelmet', 1, 10],
+    [8, 'ShieldOfHealing', 1, 5],
     [8, 'TrueSteelBoots', 1, 4],
     [8, 'UnholyStaff', 1, 5],
 
-    [10, 'IceRune', 1, 500],
+    [9, 'TrueSteelBoots', 1, 8],
+    [9, 'UnholyStaff', 1, 10],
+    [9, 'LionBeastHelmet', 1, 14],
+    [9, 'LionBeastChestplate', 1, 13],
+    [9, 'LionBeastLeggings', 1, 11],
+    [9, 'LionBeastBoots', 1, 12],
+    [9, 'ShieldOfHealing', 1, 15],
+
+    [10, 'IceRune', 1, 600],
     [10, 'ElectrumWand', 1, 8],
     [10, 'BasaltHelmet', 1, 20],
     [10, 'SteelGreatSword', 1, 8],
@@ -136,20 +147,45 @@ loot_table = [
     [10, 'EternalBoots', 1, 8],
     [10, 'TrueSteelBoots', 1, 4],
     [10, 'AberrantChestplate', 1, 3],
+    [10, 'ShieldOfHealing', 1, 16],
     [10, 'ProtectorsCurse', 1, 9],
     [10, 'HelixCore', 3, 50],
     [10, 'FrostRing', 1, 14],
     [10, 'NecromancerBoots', 1, 2],
     [10, 'AberrantBoots', 1, 3],
 
-    [13, 'PurityChestplate', 1, 11],
+    [11, 'AberrantBoots', 1, 1],
+    [11, 'NecromancerBoots', 1, 10],
+    [11, 'WickedBarkKnife', 1, 30],
+    [11, 'AmazonHelmet', 1, 14],
+    [11, 'AmazonChestplate', 1, 13],
+    [11, 'AmazonLeggings', 1, 11],
+    [11, 'AmazonBoots', 1, 12],
+    [11, 'JungleStaff', 1, 15],
+    [11, 'ShieldOfHealing', 1, 8],
 
+    [12, 'ShadowBane', 1, 4],
+    [12, 'ChaosHelmet', 1, 6],
+    [12, 'ChaosChestplate', 1, 6],
+    [12, 'ChaosLeggings', 1, 6],
+    [12, 'ChaosBoots', 1, 6],
+    [12, 'ChaosDust', 1, 6],
+    [12, 'ShieldOfHealing', 1, 3],
+
+    [13, 'PurityChestplate', 1, 11],
     [13, 'GunPart', 1, 900],
     [13, 'InfinityBoots', 1, 80],
     [13, 'ChaosRing', 1, 2],
+    [13, 'HallowedBoots', 1, 2],
+    [13, 'HallowedChestplate', 1, 2],
 
-    [15, 'SandRune', 1, 400],
-    [15, 'ElectrumWand', 1, 10],
+    [14, 'EarthRune', 1, 600],
+    [14, 'DarkShield', 1, 15],
+    [14, 'EmptyHelmet', 1, 15],
+    [14, 'GuardianSword', 1, 4],
+    [14, 'AbyssalShield', 1, 8],
+
+    [15, 'SandRune', 1, 600],
     [15, 'InfinityBoots', 1, 30],
     [15, 'HallowedHelmet', 1, 5],
     [15, 'HallowedChestplate', 1, 5],
@@ -161,16 +197,31 @@ loot_table = [
     [15, 'AberrantHelmet', 1, 5],
     [15, 'AberrantLeggings', 1, 5],
 
+    [16, 'Pearl', 2, 300],
+    [16, 'Pearl', 3, 200],
+    [16, 'BlackPearl', 1, 50],
+    [16, 'DevilsHorn', 30, 80],
+    [16, 'AberrantLeggings', 1, 5],
+    [16, 'WaterStoneHelmet', 1, 10],
+    [16, 'WaterStoneChestplate', 1, 10],
+    [16, 'WaterStoneLeggings', 1, 10],
+    [16, 'WaterStoneBoots', 1, 10],
 
-    [17, 'EarthRune', 1, 300],
+    [17, 'AirRune', 1, 600],
     [17, 'GolemHelmet', 1, 40],
     [17, 'GolemChestplate', 1, 40],
     [17, 'GolemLeggings', 1, 40],
     [17, 'GolemBoots', 1, 40],
     [17, 'RavenEyeRing', 1, 5],
 
+    [18, 'VoidWalkerHelmet', 1, 10],
+    [18, 'VoidWalkerChestplate', 1, 10],
+    [18, 'VoidWalkerLeggings', 1, 10],
+    [18, 'VoidWalkerBoots', 1, 10],
+    [18, 'VoidStone', 1, 100],
+    [18, 'VoidPowder', 10, 200],
 
-    [19, 'FireRune', 1, 300],
+    [19, 'FireRune', 1, 600],
     [19, 'LavaSword', 1, 8],
     [19, 'DiabloRing', 1, 13],
     [19, 'HellhoundHelmet', 1, 10],
@@ -250,25 +301,18 @@ loot_table = [
     [19, 'Blood', 14, 200],
     [20, 'Blood', 20, 200],
     [21, 'Blood', 40, 200],
-
+    [101, 'Waterrune', 6, 200],
+    [101, 'Earthrune', 4, 200],
+    [101, 'Firerune', 1, 200],
+    [101, 'Sandrune', 3, 200],
+    [101, 'Icerune', 5, 200],
+    [101, 'Airrune', 2, 200],
+    [101, 'ElementalDust', 6, 500],
+    [101, 'ElementalDust', 2, 250],
+    [101, 'ElementalDust', 4, 100],
 ]
 
 
-def award_hunt_loot(level: int, party, users):
-    loot_gained = []
-    for member in party:
-        loot_gained.append(["", f"{member[1]}:"])
-        for user in users:
-            if member[0] == user.user_id:
-                for mob_level, item, amount, chance in loot_table:
-                    if mob_level == int(level):
-                        if random.randint(1, 1000) <= int(chance):
-                            loot_gained.append([item, amount])
-                            if item not in user.inv:
-                                user.inv[item] = 0
-                            user.inv[item] += amount
 
-    start_update_csv(users)
-    return loot_gained
 
 

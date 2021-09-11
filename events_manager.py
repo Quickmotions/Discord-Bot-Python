@@ -2,7 +2,7 @@ from Commands.update_csv import start_update_csv
 from datetime import datetime
 import random
 import ast
-from Mobs.mob_loot import award_hunt_loot
+from Commands.item_command import award_hunt_loot
 from Commands.update_skills import give_xp
 
 

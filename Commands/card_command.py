@@ -76,5 +76,7 @@ def use_card(card, user, mob):
                             del user.cards[card]
 
     if user.equipment['Hand'] == "Shield":
-        shield_gained += round(3 * defense)
+        shield_gained += round(5 * defense)
+    if user.equipment['Hand'] == "DarkShield":
+        shield_gained += round(10 * defense)
     return damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus
