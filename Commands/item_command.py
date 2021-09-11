@@ -378,7 +378,7 @@ item_list = [
     [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Combat': 12, 'Draw': 1}],
     [{'Shatter': "(combat) Damage - 9, Heal - 5"}, 'Card', {'Combat': 9, 'Healing': 5}],
     [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
-    [{'JumpKick':  "Damage - 10, Lose Defense - 5"}, 'Card', {'Combat': 10, 'Reduce Shield': 5}],
+    [{'JumpKick':  "Damage - 15, Self Damage - 5"}, 'Card', {'Combat': 15, 'Self': 5}],
 
 
     # healing
@@ -411,7 +411,7 @@ def item_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
                             break
                     for difficulty, name, amount, chance in loot_table:
                         if item_name == name:
-                            response += f"\n{chance / 10}% drop in hunt ({difficulty})"
+                            response += f"\n{round(chance / 20,4)}% drop in hunt ({difficulty})"
                     return response
 
     else:
