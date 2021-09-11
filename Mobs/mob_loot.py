@@ -102,10 +102,10 @@ loot_table = [
     [6, 'NecromancerLeggings', 1, 2],
     [6, 'TrueSteelLeggings', 1, 4],
 
-    [7, 'ToughAlloyBoots', 1, 9]
-    [7, 'VibrantLeggings', 1, 9]
-    [7, 'SomberChestplate', 1, 9]
-    [7, 'DraconianMailHelmet', 1, 9]
+    [7, 'ToughAlloyBoots', 1, 9],
+    [7, 'VibrantLeggings', 1, 9],
+    [7, 'SomberChestplate', 1, 9],
+    [7, 'DraconianMailHelmet', 1, 9],
 
     [8, 'Paper', 2, 700],
     [8, 'WandOfHealing', 1, 9],
