@@ -142,9 +142,9 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
                 # sets all stats with factor of -0.3 to 0.3 of the stats for that difficulty
                 name = random_mob[1]
-                hp = round(stats[difficulty][0] * (1 + (0.1 * random.randint(-0.5, 0.5))))
-                dmg = round(stats[difficulty][1] * (1 + (0.1 * random.randint(-0.5, 0.5))))
-                loot = round(stats[difficulty][2] * (1 + (0.1 * random.randint(-0.5, 0.5))))
+                hp = round(stats[difficulty][0] * (1 + (0.05 * random.randrange(-1, 1))))
+                dmg = round(stats[difficulty][1] * (1 + (0.05 * random.randrange(-1, 1))))
+                loot = round(stats[difficulty][2] * (1 + (0.05 * random.randrange(-1, 1))))
 
                 mob_data = [difficulty, name, hp, dmg, loot]
 
