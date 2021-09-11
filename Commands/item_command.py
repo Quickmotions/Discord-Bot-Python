@@ -386,12 +386,12 @@ item_list = [
     [{'Regeneration': "Heal - 18"}, 'Card', {'Healing': 18}],
     [{'Restoration': "Heal - 14, Extra Card Draw"}, 'Card', {'Healing': 14, 'Draw': 1}],
     [{'HeavenlyGuard': "Heal - 20, Shield - 10"}, 'Card', {'Healing': 20, 'Shield': 10}],
-    [{'LifeTap': "Heal - 45, self - 45"}, 'Card', {'Healing': 45, 'Self': 100}],
+    [{'LifeTap': "Heal - 25, self - 45"}, 'Card', {'Healing': 25, 'Self': 100}],
 
     # defense
     [{'Defend': "Shield - 5"}, 'Card', {'Defense': 5}],
     [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
-    [{'LeechingWard': "Shield - 28, Self Damage - 20"}, 'Card', {'Defense': 30, 'Self': 80}],
+    [{'LeechingWard': "Shield - 28, Self Damage - 60"}, 'Card', {'Defense': 30, 'Self': 60}],
     [{'GoddessProtection': "Shield - 14, Healing - 10"}, 'Card', {'Defense': 14, 'Healing': 10}],
     [{'HolyShield': "Shield - 15, , Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
 
