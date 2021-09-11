@@ -426,7 +426,7 @@ def award_hunt_loot(level: int, party, users):
             if member[0] == user.user_id:
                 for mob_level, loot_name, amount, chance in loot_table:
                     if mob_level == int(level):
-                        if random.randint(1, 1000) <= int(chance):
+                        if random.randint(1, 2000) <= int(chance):
                             loot_gained.append([loot_name, amount])
                             for item, slot, stats in item_list:
                                 for item_name, desc in item.items():
