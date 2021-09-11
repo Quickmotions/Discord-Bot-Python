@@ -1,35 +1,89 @@
-1,Sheep,15,4,4
-1,Cow,30,3,6
-1,Chicken,20,5,7
-1,Goat,35,4,5
-2,Spider,40,10,10
-2,Fox,45,12,12
-2,Bear,50,11,15
-3,Shrek,150,20,25
-3,Slime,100,24,23
-3,Squid,110,22,25
-4,Shrimp,140,39,41
-4,Gold Fish,160,41,39
-4,Mosqitto,135,45,42
-5,Horse,350,55,69
-5,Chad Goat,300,60,75
-6,Zombie,380,85,99
-6,Skeleton,400,71,104
-6,Ghoul,420,75,110
-7,Ninja,600,99,160
-7,Dragon,750,90,180
-7,Samurai,550,108,200
-8,Snow Monster,920,137,270
-8,Yeti,1084,152,290
-9,Chuck Norris,1280,172,350
-9,Boris,1300,160,420
-9,Vladmir,1271,152,380
-10,Zombie Mummy,1602,201,420
-10,Anubis,1818,202,500
-10,Ancient Pharoah,1750,195,380
-11,Shadow Goat,2400,250,620
-11,Giant Troll,2513,300,666
-12,Graham,10000,500,3800
-12,Graham Servant,5000,380,1500
-13,Jesus,7500,675,4000
-13,Fallen Angel,8200,700,4500
+1,Sheep
+1,Cow
+1,Chicken
+1,Goat
+2,Spider
+2,Fox
+2,Bear
+3,Shrek
+3,Slime
+3,Squid
+3,Witch
+3,Poison Mutant
+3,Leech
+4,Shrimp
+4,Gold Fish
+4,Mosqitto
+5,Horse
+5,Chad Goat
+6,Zombie
+6,Skeleton
+6,Ghoul
+7,Corpse Beast
+7,Bone Lord
+7,Ghost
+8,Ninja
+8,Drunken Master
+8,Chinese Dragon
+8,Samurai
+8,Monk
+8,Kung Fu Panda
+8,Sensei
+9,Lion
+9,Elephant
+9,Giraffe
+9,Leopard
+9,Plain Strider
+9,Rock Monster
+10,Snow Monster
+10,Yeti
+11,Demon Monkey
+11,King Kong
+11,Tiger
+11,Pirate
+11,Cobra
+12,Creature of the Dark
+12,Shadow Fiend
+12,Demon Bear
+12,Risen Dead
+12,Shadow Snake
+12,Ancient Demon
+12,Reaper
+12,Zombie Warlord
+13,Chuck Norris
+13,Boris
+13,Vladimir
+14,Vampire
+14,Giant Worm
+14,Cave Ghoul
+14,Cave Crawler
+14,Giant Bat
+15,Zombie Mummy
+15,Anubis
+15,Ancient Pharaoh
+16,SeaGuardian
+16,Serpent
+16,Elder
+16,Poseidon
+16,SharkRider
+17,Shadow Goat
+17,Giant
+17,Troll
+17,Cloud Serpent
+18,Vortexling
+18,Void Dragon
+18,Void Crawler
+18,Void Demon
+19,Fire Dragon
+19,Fire Servant
+19,Fire Lizard
+20,Jesus,
+20,Angel
+21,Fallen Angel
+21,Satan
+21,Demonkin
+21,Doombeast
+101,Earth Elemental
+101,Water Elemental
+101,Fire Elemental
+101,Air Elemental

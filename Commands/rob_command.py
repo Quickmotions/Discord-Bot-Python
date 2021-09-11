@@ -31,7 +31,7 @@ def rob_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
                             return f"Robbed {victim.username}:\nYour Stealing: {user_steal}" \
                                    f", Their Defense: {victim_defense}\nYou Failed\nYou had a {chance}% to rob them."
 
-                        amount_to_steal = (victim.bal * base_steal) * steal_multiplier
+                        amount_to_steal = round((victim.bal * base_steal) * steal_multiplier)
 
                         # stop over stealing max
                         if amount_to_steal > victim.bal:

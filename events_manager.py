@@ -6,17 +6,24 @@ from Mobs.mob_loot import award_hunt_loot
 from Commands.update_skills import give_xp
 
 
+# clear events at start up
+f = open("events.csv", 'w').close()
+
+
 def get_events():
+    """returns list of on going events """
     events = []
     f = open("events.csv", "r")
     for event in f.readlines():
         event.strip()
         if len(event) > 5:
-            events.append(ast.literal_eval(event))
+            events.append(ast.literal_eval(event))  # turns the events line into a list of usable combat data
     return events
 
 
 def draw_card_deck(user_id, users, draw_amount=3):
+    """sorts users deck into a list and picks returns a random pick from them"""
+    # draws a new hand for a specified user
     for user in users:
         if user.user_id == user_id:
             user_deck = user.cards
@@ -36,6 +43,7 @@ def draw_card_deck(user_id, users, draw_amount=3):
 
 
 def start_combat(user, users, mob, battle_type):
+    """Begins a combat event with data send from hunt command"""
     user_party = []
     for member in user.party:
         if member[2] == 'member':
@@ -98,6 +106,7 @@ def start_combat(user, users, mob, battle_type):
 
 
 def create_draw_gui(draw):
+    """displays the users hand which they draw"""
     count = 1
     gui = ""
     for card in draw:
@@ -107,6 +116,7 @@ def create_draw_gui(draw):
 
 
 def create_battle_gui(event_data, start, info=[], extra="None"):
+    """displays the whole battle view with all info after each turn"""
     turn, battle_type, party, user_data, mob = event_data
     mob_hp_percent = round((100 / int(mob[3])) * int(mob[2]))
 
@@ -187,6 +197,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
 
 
 def check_event_response(*args):
+    """checks users inputs to see if they are in a combat"""
     # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list 4 = events 5 = input message
     if args[4] == "1" or args[4] == "2" or args[4] == "3" or args[4] == "4":
         events = get_events()
@@ -198,7 +209,17 @@ def check_event_response(*args):
 
 
 def update_events_csv(event_updated, events, update_type):
+    """updates the events csv with combat updates after each turn"""
     new_events = []
+
+    # if the party list is empty due to players leaving party mid combat delete the event
+    active_events = []
+    for event in events:
+        if len(event[2]) > 0:
+            active_events.append(event)
+
+    events = active_events
+
     if update_type == 'append':
         f = open("events.csv", 'a')
         f.write(f'{event_updated}\n')
@@ -229,6 +250,7 @@ def update_events_csv(event_updated, events, update_type):
 
 
 def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, response, events):
+    """begins the users, performs the users actions and begins next turn and waits for next users input"""
     if party[turn][0] == user.user_id:
         draw = list(user_data[turn][3])
         if response == "1":
