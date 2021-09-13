@@ -434,10 +434,8 @@ def award_hunt_loot(level: int, party, users):
                                         if loot_name not in user.cards:
                                             user.cards[loot_name] = 0
                                         user.cards[loot_name] += amount
-                                        start_update_csv(users)
-                                        return loot_gained
                             if loot_name not in user.inv:
                                 user.inv[loot_name] = 0
                             user.inv[loot_name] += amount
-                            start_update_csv(users)
-                            return loot_gained
+        start_update_csv(users)
+        return loot_gained
