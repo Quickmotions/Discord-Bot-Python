@@ -10,15 +10,15 @@ from Commands.update_skills import give_xp
 f = open("events.csv", 'w').close()
 
 
-def get_events():
-    """returns list of on going events """
-    events = []
-    f = open("events.csv", "r")
-    for event in f.readlines():
-        event.strip()
-        if len(event) > 5:
-            events.append(ast.literal_eval(event))  # turns the events line into a list of usable combat data
-    return events
+# def get_events():
+#     """returns list of on going events """
+#     events = []
+#     f = open("events.csv", "r")
+#     for event in f.readlines():
+#         event.strip()
+#         if len(event) > 5:
+#             events.append(ast.literal_eval(event))  # turns the events line into a list of usable combat data
+#     return events
 
 
 def draw_card_deck(user_id, users, draw_amount=3):
@@ -42,22 +42,21 @@ def draw_card_deck(user_id, users, draw_amount=3):
             return draw
 
 
-def start_combat(user, users, mob, battle_type):
+def start_combat(user, users, mob, battle_type, events):
     """Begins a combat event with data send from hunt command"""
     user_party = []
     for member in user.party:
         if member[2] == 'member':
             user_party.append(member)
 
-    events = get_events()
     for event in events:
         for member in event[2]:
             for user_id, username, membership in user_party:
                 if user_id == str(member[0]):
                     if len(event[2]) == 1 and len(user_party) > 1:
-                        update_events_csv(event, events, 'delete')
+                        events = update_events_csv(event, events, 'delete')
                     elif len(event[2]) > 1 and len(user_party) == 1:
-                        update_events_csv(event, events, 'delete')
+                        events = update_events_csv(event, events, 'delete')
                     else:
                         return f"You need to complete your previous event first"
 
@@ -99,10 +98,10 @@ def start_combat(user, users, mob, battle_type):
     # mob_data = [difficulty, name, hp, maxhp, dmg, coins]
     # ---------------------------------------------------
 
-    update_events_csv(event_data, events, 'append')
+    events = update_events_csv(event_data, events, 'append')
 
     gui = create_battle_gui(event_data, True)
-    return gui
+    return [gui, events]
 
 
 def create_draw_gui(draw):
@@ -200,7 +199,7 @@ def check_event_response(*args):
     """checks users inputs to see if they are in a combat"""
     # 0 = this user_data, 1 = Command Class, 2 = all user data, 3 = extra args in list 4 = events 5 = input message
     if args[4] == "1" or args[4] == "2" or args[4] == "3" or args[4] == "4":
-        events = get_events()
+        events = args[5]
         for event in events:
             for member in event[2]:
                 if str(member[0]) == args[0].user_id:
@@ -221,10 +220,11 @@ def update_events_csv(event_updated, events, update_type):
     events = active_events
 
     if update_type == 'append':
-        f = open("events.csv", 'a')
-        f.write(f'{event_updated}\n')
-        f.close()
-        return
+        # f = open("events.csv", 'a')
+        # f.write(f'{event_updated}\n')
+        # f.close()
+        # return
+        new_events.append(event_updated)
 
     elif update_type == 'delete':
         for position in range(len(events)):
@@ -243,10 +243,11 @@ def update_events_csv(event_updated, events, update_type):
     else:
         print('ERROR: MISSING OR INCORRECT UPDATE TYPE FOR UPDATE_EVENTS_CSV <----------------------------------------')
         return
-    f = open("events.csv", 'w')
-    for event in new_events:
-        f.write(f"{event}\n")
-    f.close()
+    # f = open("events.csv", 'w')
+    # for event in new_events:
+    #     f.write(f"{event}\n")
+    # f.close()
+    return new_events
 
 
 def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, response, events):
@@ -331,13 +332,13 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
             start_update_csv(users)
             new_event = [turn, battle_type, party, user_data, mob_data]
-            update_events_csv(new_event, events, 'delete')
-            return f"You defeated {mob_data[1]}:\n" \
-                   f"Each Player Looted:\n" \
-                   f"{coins_gained} money\n" \
-                   f"{xp_gain} Player XP\n" \
-                   f"{huntP_gain} HuntPoint\n" \
-                   f"{loot_message}"
+            events = update_events_csv(new_event, events, 'delete')
+            return [f"You defeated {mob_data[1]}:\n"
+                    f"Each Player Looted:\n"
+                    f"{coins_gained} money\n"
+                    f"{xp_gain} Player XP\n"
+                    f"{huntP_gain} HuntPoint\n"
+                    f"{loot_message}", events]
 
 
         piercing_attack = False
@@ -405,8 +406,8 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                             user.bal -= coins_lost
                 start_update_csv(users)
                 new_event = [turn, battle_type, party, user_data, mob_data]
-                update_events_csv(new_event, events, 'delete')
-                return f"You were defeated by {mob_data[1]}:\n They stole £{coins_lost} from each party member"
+                events = update_events_csv(new_event, events, 'delete')
+                return [f"You were defeated by {mob_data[1]}:\n They stole £{coins_lost} from each party member", events]
 
 
 
@@ -421,13 +422,13 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         new_event = [turn, battle_type, party, user_data, mob_data]
 
         start_update_csv(users)
-        update_events_csv(new_event, events, 'update')
+        events = update_events_csv(new_event, events, 'update')
 
         if dodged:
-            return create_battle_gui(new_event, False, info, "dodged")
+            return [create_battle_gui(new_event, False, info, "dodged"), events]
         if piercing_attack:
-            return create_battle_gui(new_event, False, info, "pierce")
+            return [create_battle_gui(new_event, False, info, "pierce"), events]
         else:
-            return create_battle_gui(new_event, False, info)
+            return [create_battle_gui(new_event, False, info), events]
     else:
         return "not your turn"

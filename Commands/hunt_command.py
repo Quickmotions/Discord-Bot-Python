@@ -148,7 +148,7 @@ def hunt_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 
 
                 mob_data = [difficulty, name, hp, dmg, loot]
 
-                return start_combat(args[0], args[2], mob_data, 'PVE')
+                return start_combat(args[0], args[2], mob_data, 'PVE', args[4])
             else:
                 return "You are already doing a different type of gathering"
 

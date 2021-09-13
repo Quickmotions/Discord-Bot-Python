@@ -23,6 +23,8 @@ intents.members = True  # Subscribe to the privileged members intent.
 C = Commands()
 USERS = run_setup_users()
 CDS = run_setup_cool_down()
+EVENTS = []
+
 
 for user in USERS:
     setup_skills(user, USERS)
@@ -75,6 +77,7 @@ async def on_message(message):
         setup_equipment(user, USERS)
         set_equipment_stats(user, USERS)
 
+    global EVENTS
     if user_command in C.command_list:
         if user_found:
             current_datetime = datetime.today()
@@ -100,11 +103,14 @@ async def on_message(message):
             start_update_cooldown(CDS)
 
             # run the command
-            response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:])
+            response = C.run_command(user_input, user_data_for_command, C, USERS, user_input[1:], EVENTS)
             command_string = user_input[0].title()
     else:  # message not in commands list (responses check)
-        response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0])
+        response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0], EVENTS)
         command_string = "Hunt"
+    if isinstance(response[-1], list):
+        EVENTS = response[-1]
+        response = response[:-1][0]
     # display output
     if response is not None:
         if len(response) == 2:

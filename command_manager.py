@@ -59,5 +59,5 @@ class Commands:
             "land": [land_c, 5]
         }
 
-    def run_command(self, name, user_data, c, users, args):
-        return self.command_list[name[0]][0](user_data, c, users, args)
+    def run_command(self, name, user_data, c, users, args, events):
+        return self.command_list[name[0]][0](user_data, c, users, args, events)
