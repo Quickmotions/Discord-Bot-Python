@@ -14,7 +14,7 @@ from events_manager import start_combat
 # 9-Savannah - 700 - 120 Drops: 25
 # 10-Arctic - 840 - 150 Drops: 26
 # 11-Jungle  - 1000 - 160 Drops: 28
-# 12-Darkforrest- 1200 - 160 Drops: 30
+# 12-Graveyard- 1200 - 160 Drops: 30
 # 13-Russia - 1300 - 170 Drops: 32
 # 14-Cave- 1550 - 180 Drops: 35
 # 15-Egypt - 1800 - 200 Drops: 38

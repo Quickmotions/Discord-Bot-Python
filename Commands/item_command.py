@@ -84,6 +84,7 @@ item_list = [
     [{'HunterRing': 'Gives +5 Combat Skill, +4 Agility Skill, +5 Magic Skill'}, 'Ring', {'Agility': 4, 'Magic': 5, 'Combat': 5}],
 
     # defense
+
     [{'KnightHelmet': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Head', {'Defense': 5, 'Combat': 3}],
     [{'KnightChestplate': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Chest', {'Defense': 5, 'Combat': 3}],
     [{'KnightLeggings': 'Gives +5 Defense Skill, +3 Combat Skill'}, 'Legs', {'Defense': 5, 'Combat': 3}],
@@ -137,12 +138,20 @@ item_list = [
     [{'ChaosLeggings': 'Gives +10 Magic, +10 Combat, +10 Agility Skill, -50 Luck Skill'}, 'Legs', {'Magic': 10, 'Combat': 10, 'Agility': 10, 'Luck': -50}],
     [{'ChaosBoots': 'Gives +10 Magic, +10 Combat, +10 Agility Skill, -50 Luck Skill'}, 'Feet', {'Magic': 10, 'Combat': 10, 'Agility': 10, 'Luck': -50}],
 
+    [{'SiegeRing': 'Gives +8 Defense Skill, +4 Health Skill'}, 'Ring', {'Defense': 8, 'Health': 4}],
+    [{'BurningEclipseRing': 'Gives +12 Defense Skill, +7 Combat Skill'}, 'Ring', {'Defense': 12, 'Combat': 7}],
+    [{'ShieldBaneRing': 'Gives +15 Defense Skill, +9 Health Skill, -4 Combat Skill'}, 'Ring', {'Defense': 15, 'Health': 9 , 'Combat': -4}],
+    [{'DragonClawRing': 'Gives +24 Defense Skill, +4 Combat Skill, -8 Agility Skill'}, 'Ring', {'Defense': 24, 'Combat': 4, 'Agility': -8}],
+    [{'IronShadeRing': 'Gives +23 Defense Skill, +17 Health Skill, -7 Combat Skill'}, 'Ring', {'Defense': 23, 'Health': 17,  'Combat': -7}],
+
     [{'DarkShield': 'Grants 10 shield each turn'}, 'Hand', {}],
     [{'EternalGuardianShield': 'Gives +30 Defense Skill'}, 'Hand', {'Defense': 30}],
     [{'BasaltShield': 'Gives +15 Defense Skill'}, 'Hand', {'Defense': 15}],
     [{'OldIronChestplate': 'Gives +6 Defense Skill'}, 'Chest', {'Defense': 6}],
 
+
     # combat
+
     [{'HellHoundHelmet': 'Gives +41 Combat Skill, -7 healing Skill, +5 Defense Skill'}, 'Head', {'Combat': 41, 'Healing': -7, 'Defense': 5}],
     [{'HellHoundChestplate': 'Gives +41 Combat Skill, -9 healing Skill, +5 Defense Skill'}, 'Chest', {'Combat': 41, 'Healing': -9, 'Defense': 5}],
     [{'HellHoundLeggings': 'Gives +41 Combat Skill, -8 healing Skill, +5 Defense Skill'}, 'Legs', {'Combat': 41, 'Healing': -8, 'Defense': 5}],
@@ -163,20 +172,26 @@ item_list = [
     [{'PowerLeggings': 'Gives +24 Combat, 6 Health Skill'}, 'Legs', {'Combat': 24, 'Health': 6}],
     [{'PowerBoots': 'Gives +24 Combat Skill, 6 Health Skill'}, 'Feet', {'Combat': 24, 'Health': 6}],
 
+    [{'WolfSilverHelmet': 'Gives +20 Combat, 6 Defense Skill'}, 'Head', {'Combat': 20, 'Defense': 6}],
+    [{'WolfSilverChestplate': 'Gives +20 Combat, 6 Defense Skill'}, 'Chest', {'Combat': 20, 'Defense': 6}],
+    [{'WolfSilverLeggings': 'Gives +20 Combat, 6 Defense Skill'}, 'Legs', {'Combat': 20, 'Defense': 6}],
+    [{'WolfSilverBoots': 'Gives +20 Combat Skill, 6 Defense Skill'}, 'Feet', {'Combat': 20, 'Defense': 6}],
+
     [{'CombatChestplate': 'Gives +5 Combat Skill'}, 'Chest', {'Combat': 7}],
     [{'ChampionChestplate': 'Gives +15 Combat Skill'}, 'Chest', {'Combat': 15}],
     [{'WarBornChestplate': 'Gives +27 Combat Skill'}, 'Chest', {'Combat': 27}],
 
-    [{'WaterStoneHelmet': 'Gives +24 Combat, +16 Magic Skill'}, 'Head', {'Combat': 24, 'Magic': 16}],
-    [{'WaterStoneChestplate': 'Gives +24 Combat, +16 Magic Skill'}, 'Chest', {'Combat': 24, 'Magic': 16}],
-    [{'WaterStoneLeggings': 'Gives +24 Combat, +16 Magic Skill'}, 'Legs', {'Combat': 24, 'Magic': 16}],
-    [{'WaterStoneBoots': 'Gives +24 Combat, +16 Magic Skill'}, 'Feet', {'Combat': 24, 'Magic': 16}],
+    [{'WaterStoneHelmet': 'Gives +24 Combat, +15 Magic Skill'}, 'Head', {'Combat': 24, 'Magic': 15}],
+    [{'WaterStoneChestplate': 'Gives +24 Combat, +15 Magic Skill'}, 'Chest', {'Combat': 24, 'Magic': 15}],
+    [{'WaterStoneLeggings': 'Gives +24 Combat, +15 Magic Skill'}, 'Legs', {'Combat': 24, 'Magic': 15}],
+    [{'WaterStoneBoots': 'Gives +24 Combat, +15 Magic Skill'}, 'Feet', {'Combat': 24, 'Magic': 15}],
 
     [{'IronSword': 'Gives +8 Combat Skill'}, 'Hand', {'Combat': 8}],
     [{'LavaSword': 'Gives +52 Combat Skill'}, 'Hand', {'Combat': 52}],
     [{'PunySword': 'Gives +6 Combat Skill'}, 'Hand', {'Combat': 6}],
     [{'SteelGreatSword': 'Gives +20 Combat Skill'}, 'Hand', {'Combat': 20}],
-    [{'Katana': 'Gives +12 Combat Skill, +12 Agility Skill'}, 'Hand', {'Combat': 12, 'Agility': 12}],
+    [{'Katana': 'Gives +12 Combat, +12 Agility Skill'}, 'Hand', {'Combat': 12, 'Agility': 12}],
+    [{'ShadeCoreAxe': 'Gives +20 Combat Skill, +20 Dodge Skill'}, 'Hand', {'Combat': 20, 'Dodge': 20}],
 
     [{'FangRing': 'Gives +15 Combat Skill'}, 'Ring', {'Combat': 15}],
     [{'FuryRageRing': 'Gives +21 Combat Skill, -12 Defense Skill'}, 'Ring', {'Combat': 21, 'Defense': -12}],
@@ -184,9 +199,12 @@ item_list = [
     [{'ElephantRing': 'Gives +26 Combat Skill, -6 Health Skill'}, 'Ring', {'Combat': 26, 'Health': -6}],
     [{'TitanRing': 'Gives +17 Combat Skill, +17 Health Skill'}, 'Ring', {'Combat': 17, 'Health': 17}],
     [{'GiantRing': 'Gives +23 Combat Skill, +23 Health Skill'}, 'Ring', {'Combat': 23, 'Health': 23}],
+    [{'HellScarRing': 'Gives +14 Combat Skill, +7 Defense Skill'}, 'Ring', {'Combat': 14, 'Defense': 7}],
+    [{'SilverPeltRing': 'Gives +20 Combat Skill, +3 Defense Skill'}, 'Ring', {'Combat': 20, 'Defense': 3}],
+    [{'GrandThornRing': 'Gives +25 Combat Skill, +11 Defense Skill'}, 'Ring', {'Combat': 25, 'Defense': 11}],
 
     # agility
-    # not added yet:
+
     [{'ShadowScaleHelmet': 'Gives +28 Agility Skill, -5 Health Skill'}, 'Head', {'Agility': 28, 'Health': -5}],
     [{'ShadowScaleChestplate': 'Gives +28 Agility Skill, -8 Health Skill'}, 'Chest', {'Agility': 28, 'Health': -8}],
     [{'ShadowScaleLeggings': 'Gives +28 Agility Skill, -4 Health Skill'}, 'Legs', {'Agility': 28, 'Health': -4}],
@@ -229,6 +247,7 @@ item_list = [
     [{'ShadowBane': 'Gives +30 Dodge Skill'}, 'Hand', {'Dodge': 30}],
     [{'ShadowRing': 'Gives +36 Agility Skill'}, 'Ring', {'Agility': 36}],
     [{'GlassRing': 'Gives +44 Agility, -8 Health Skill'}, 'Ring', {'Agility': 44, 'Health': 8}],
+    [{'RingOfSuffering': 'Gives +64 Agility, -22 Health Skill'}, 'Ring', {'Agility': 64, 'Health': -22}],
 
     # gathering
 
@@ -291,8 +310,13 @@ item_list = [
     [{'SlimeRing': 'Gives +4 Magic Skill, +4 Healing Skill'}, 'Ring', {'Magic': 4, 'Healing': 4}],
     [{'MagicRing': 'Gives +6 Magic Skill'}, 'Ring', {'Magic': 6}],
     [{'ArchmageRing': 'Gives +20 Magic Skill'}, 'Ring', {'Magic': 20}],
+    [{'ThunderBoltStaff': 'Gives +21 Magic Skill, +6 Healing Skill, -9 Defense Skill'}, 'Hand', {'Magic': 21, 'Healing': 6, 'Defense': -9}],
+    [{'DragonBeamWand': 'Gives +27 Magic Skill, -4 Healing Skill, +4 Agility Skill'}, 'Hand', {'Magic': 27, 'Healing': -4, 'Agility': 4}],
+    [{'EnergyOrb': 'Gives +34 Magic Skill, +2 Health Skill, -15 Luck Skill'}, 'Hand', {'Magic': 34, 'Health': 2, 'Luck': -15}],
     [{'ChaosRing': 'Gives +43 Magic Skill, -10 Health Skill, -5 Defense Skill'}, 'Ring', {'Magic': 43, 'Health': -10, 'Defense': -5}],
     [{'FrostRing': 'Gives +21 Magic Skill, +2 Dodge Skill'}, 'Ring', {'Magic': 21, 'Dodge': 2}],
+    [{'StarFireRing': 'Gives +28 Magic Skill, -2 Defense Skill, -3 Health Skill'}, 'Ring', {'Magic': 28, 'Defense': -2, 'Health': -3}],
+    [{'BlazeFlareRing': 'Gives +27 Magic Skill, +4 Dodge Skill'}, 'Ring', {'Magic': 27, 'Dodge': 4}],
 
     # other
     [{'LuckyStick': 'Gives +18 Luck Skill'}, 'Hand', {'Luck': 18}],
@@ -305,6 +329,12 @@ item_list = [
     [{'LionBeastChestplate': 'Gives +32 Health Skill, -6 Defense skill'}, 'Chest', {'Health': 32, 'Defense': -6}],
     [{'LionBeastLeggings': 'Gives +32 Health Skill, -6 Defense skill'}, 'Legs', {'Health': 32, 'Defense': -6}],
     [{'LionBeastBoots': 'Gives +31 Health Skill, -6 Defense skill'}, 'Feet', {'Health': 31, 'Defense': -6}],
+
+    [{'LifeFireHelmet': 'Gives +30 Health Skill, 25 Critical skill'}, 'Head', {'Health': 30, 'Critical': 25}],
+    [{'LifeFireChestplate': 'Gives +30 Health Skill, 25 Critical skill'}, 'Chest', {'Health': 30, 'Critical': 25}],
+    [{'LifeFireLeggings': 'Gives +30 Health Skill, 25 Critical skill'}, 'Legs', {'Health': 30, 'Critical': 25}],
+    [{'LifeFireBoots': 'Gives +30 Health Skill, 25 Critical skill'}, 'Feet', {'Health': 30, 'Critical': 25}],
+
 
     [{'AncientChestplate': 'Gives +16 Health Skill'}, 'Chest', {'Health': 16}],
     [{'PurityChestplate': 'Gives +30 Health Skill'}, 'Chest', {'Health': 30}],
@@ -321,6 +351,10 @@ item_list = [
     [{'Spellbinder': 'Gives +9 Healing Skill, +9 Defense'}, 'Hand', {'Healing': 9, 'Defense': 9}],
     [{'ProtectorsCurse': 'Gives +10 Healing Skill, +8 Defense, -6 Health'}, 'Hand', {'Healing': 10, 'Defense': 8, 'Health': -6}],
 
+    [{'SoothSayerHelmet': 'Gives +41 Healing Skill'}, 'Head', {'Healing': 41}],
+    [{'SoothSayerChestplate': 'Gives +41 Healing Skill'}, 'Chest', {'Healing': 41}],
+    [{'SoothSayerLeggings': 'Gives +41 Healing Skill'}, 'Legs', {'Healing': 41}],
+    [{'SoothSayerBoots': 'Gives +41 Healing Skill'}, 'Feet', {'Healing': 41}],
 
     [{'AngelHelmet': 'Gives +60 Healing Skill'}, 'Head', {'Healing': 60}],
     [{'AngelChestplate': 'Gives +60 Healing Skill'}, 'Chest', {'Healing': 60}],
@@ -347,7 +381,11 @@ item_list = [
     [{'AberrantLeggings': 'Gives +24 Healing Skill, +16 Dodge'}, 'Legs', {'Healing': 24, 'Dodge': 16}],
     [{'AberrantBoots': 'Gives +18 Healing Skill, +8 Dodge'}, 'Feet', {'Healing': 18, 'Dodge': 8}],
 
-
+    # critical
+    [{'DestinyHelmet': 'Gives +4 Luck, +28 Critical Skill'}, 'Head', {'Luck': 4, 'Critical': 28}],
+    [{'DestinyChestplate': 'Gives +11 Luck, +31 Critical Skill'}, 'Chest', {'Luck': 11, 'Critical': 31}],
+    [{'DestinyLeggings': 'Gives +5 Luck, +29 Critical Skill'}, 'Legs', {'Luck': 5, 'Critical': 29}],
+    [{'DestinyBoots': 'Gives +14 Luck, +30 Critical Skill'}, 'Feet', {'Luck': 14, 'Critical': 30}],
 
 
     # cards -------------------
