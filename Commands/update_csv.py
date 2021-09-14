@@ -8,7 +8,7 @@ def start_update_csv(users):
                 f"{user.skills}*"
                 f"{user.job} {user.pay} {user.promotion}*"
                 f"{user.last_work}*"
-                f"{user.cards}*"
+                f"{user.cards}/{user.loadout}*"
                 f"{user.gathering}*"
                 f"{user.gathering_time}*"
                 f"{user.equipment}/{user.equipment_stats}*"

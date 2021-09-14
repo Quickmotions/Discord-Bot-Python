@@ -22,6 +22,7 @@ from Commands.guild_command import guild_c
 from Commands.party_command import party_c
 from Commands.building_command import land_c
 from Commands.duel_command import duel_c
+from Commands.loadout_command import loadout_c
 
 
 # controls inputted and outputted commands
@@ -58,7 +59,8 @@ class Commands:
             "removal": [removal_c, 1],
             "guild": [guild_c, 1],
             "party": [party_c, 3],
-            "land": [land_c, 5]
+            "land": [land_c, 5],
+            "loadout": [loadout_c, 1]
         }
 
     def run_command(self, name, user_data, c, users, args, events):

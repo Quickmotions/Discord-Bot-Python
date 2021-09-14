@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class Player:
-    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}", gathering="gathering=no", gathering_time="None", equipment="{}/{}", party="None", buildings="[]"):
+    def __init__(self, user_id, bal="0.0", inv="{}", skills="{}", job="None 0.0 200", last_work="None", cards="{'Slash': 3, 'Defend': 1, 'Charge': 1}/[]", gathering="gathering=no", gathering_time="None", equipment="{}/{}", party="None", buildings="[]"):
         u_id, username = user_id.split(' ', 1)
         # user data
         self.user_id = str(u_id)
@@ -36,7 +36,18 @@ class Player:
             self.last_work = "None"
 
         # cards
-        self.cards = ast.literal_eval(cards)
+
+        # adds loadouts if missing
+        if cards[-1] != "]":
+            cards += "/[]"
+
+        cards = cards.split('/')
+        self.loadout = ast.literal_eval(cards[1])
+        self.cards = ast.literal_eval(cards[0])
+        if len(self.loadout) == 0:
+            self.loadout.append(self.cards)
+
+        # buildings
         self.buildings = ast.literal_eval(buildings)
 
         # gathering
