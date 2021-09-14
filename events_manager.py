@@ -120,7 +120,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     mob_hp_percent = round((100 / int(mob[3])) * int(mob[2]))
 
     if len(info) > 0:
-        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage, cool_down, mob_attacks = info
+        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage, cool_down, mob_attacks, crit = info
         if extra == "dodged":
             mob_damage = f"💨Dodged ({dodge}%)"
         elif extra == "pierce":
@@ -175,7 +175,9 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
             else:
                 players_gui += f"🛡️ {user_data[pos][2]}\n"
             if pos == last_turn:
-                players_gui += f"🗡️ {damage_dealt}\n"
+                if crit:
+                    players_gui += f"💢"  # crit emoji
+                players_gui += f" {damage_dealt}\n"
 
 
     if start:
@@ -185,7 +187,10 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     else:
         players_gui += f"{mob[1]}:\n"
         if int(damage_dealt) > 0:
-            players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌{damage_dealt}\n"
+            if crit:
+                players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌💢{damage_dealt}\n"
+            else:
+                players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌{damage_dealt}\n"
         else:
             players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%)\n"
         players_gui += f"🗡️ {mob_damage}"
@@ -271,7 +276,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         # player turn
         from Commands.card_command import use_card
 
-        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, cool_down \
+        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, cool_down, crit \
             = use_card(draw[choice], user, mob_data)
 
 
@@ -439,7 +444,8 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 dodge,
                 mob_damage,
                 cool_down,
-                mob_attacks
+                mob_attacks,
+                crit
                 ]
 
         new_event = [turn, battle_type, party, user_data, mob_data]
