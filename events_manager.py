@@ -176,8 +176,9 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
                 players_gui += f"🛡️ {user_data[pos][2]}\n"
             if pos == last_turn:
                 if crit:
-                    players_gui += f"💢"  # crit emoji
-                players_gui += f" {damage_dealt}\n"
+                    players_gui += f"💢 {damage_dealt}\n"  # crit emoji
+                else:
+                    players_gui += f"🗡️ {damage_dealt}\n"  # dagger emoji
 
 
     if start:
@@ -188,7 +189,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
         players_gui += f"{mob[1]}:\n"
         if int(damage_dealt) > 0:
             if crit:
-                players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌💢{damage_dealt}\n"
+                players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 💢{damage_dealt}\n"
             else:
                 players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%) - 📌{damage_dealt}\n"
         else:
