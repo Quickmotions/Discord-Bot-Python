@@ -60,7 +60,8 @@ class Commands:
             "guild": [guild_c, 1],
             "party": [party_c, 3],
             "land": [land_c, 5],
-            "loadout": [loadout_c, 1]
+            "loadout": [loadout_c, 1],
+            "loadouts": [loadout_c, 1],
         }
 
     def run_command(self, name, user_data, c, users, args, events):
