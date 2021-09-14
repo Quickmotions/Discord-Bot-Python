@@ -105,6 +105,10 @@ craft_list = {
     'DarkPhoenixBoots': [{'FireRune': 100, 'DevilsHorn': 400}],
     'ShadowRing': [{'VoidStone': 10, 'MithrilIngot': 60}],
     'TitanRing': [{'IronIngot': 200, 'TitaniumIngot': 60}],
+    'WaterStoneHelmet': [{'WaterRune': 500, 'BlackPearl': 4, 'Pearl': 50}],
+    'WaterStoneChestplate': [{'WaterRune': 500, 'BlackPearl': 4, 'Pearl': 50}],
+    'WaterStoneLeggings': [{'WaterRune': 500, 'BlackPearl': 4, 'Pearl': 50}],
+    'WaterStoneBoots': [{'WaterRune': 500, 'BlackPearl': 4, 'Pearl': 50}],
 
     # cards
     'Wrath': [{'AncientRune': 40, 'Blood': 40, 'Paper': 25}],
