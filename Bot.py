@@ -108,11 +108,13 @@ async def on_message(message):
     else:  # message not in commands list (responses check)
         response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0], EVENTS)
         command_string = "Hunt"
-    if isinstance(response[-1], list):
-        EVENTS = response[-1]
-        response = response[:-1][0]
     # display output
     if response is not None:
+        if len(response) > 1:
+            if isinstance(response[-1], list):
+                EVENTS = response[-1]
+                response = response[:-1][0]
+
         if len(response) == 2:
             embedVar = discord.Embed(title=response[0], description=response[1], color=0x800080)
             await message.channel.send(embed=embedVar)
@@ -128,8 +130,6 @@ async def on_message(message):
         else:
             embedVar = discord.Embed(title=command_string, description=response, color=0x800080)
             await message.channel.send(embed=embedVar)
-
-
 
 if __name__ == '__main__':
     client.run(TOKEN)

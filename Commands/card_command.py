@@ -2,7 +2,6 @@ from Commands.item_command import item_list
 
 
 def use_card(card, user, mob):
-
     combat_base = user.skills['Combat'] + user.equipment_stats['Combat']
     defense_base = user.skills['Defense'] + user.equipment_stats['Defense']
     magic_base = user.skills['Magic'] + user.equipment_stats['Magic']
@@ -11,14 +10,12 @@ def use_card(card, user, mob):
     health_base = user.skills['Health'] + user.equipment_stats['Health']
     dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
 
-
     combat = ((6 * combat_base) / 100) + 1
     defense = (((10 * defense_base) + (2 * combat_base) - (5 * dodge_base)) / 100) + 1
     magic = ((10 * magic_base) / 100) + 1
     agility = ((8 * agility_base) / 100) + 1
     healing = ((7 * healing_base) / 100) + 1
     self_damage = 0
-
 
     if combat < 0.01:
         combat = 0.01
@@ -31,8 +28,8 @@ def use_card(card, user, mob):
     if healing < 0.01:
         healing = 0.01
 
-
     dodge_bonus = 0
+    cool_down = 0
     damage_dealt = 0
     shield_gained = 0
     heal_gained = 0
@@ -59,6 +56,9 @@ def use_card(card, user, mob):
                     elif skill == "Self":
                         self_damage = amount
 
+                    elif skill == "Turn":
+                        cool_down = amount
+
                     elif skill == "Draw":
                         extra_draw = True
 
@@ -79,4 +79,4 @@ def use_card(card, user, mob):
         shield_gained += round(5 * defense)
     if user.equipment['Hand'] == "DarkShield":
         shield_gained += round(10 * defense)
-    return damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus
+    return damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, cool_down

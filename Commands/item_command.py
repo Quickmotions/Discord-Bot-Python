@@ -378,8 +378,9 @@ item_list = [
     [{'DarkCharge': "(combat) Damage - 12, Extra Card Draw"}, 'Card', {'Combat': 12, 'Draw': 1}],
     [{'Shatter': "(combat) Damage - 9, Heal - 5"}, 'Card', {'Combat': 9, 'Healing': 5}],
     [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
-    [{'JumpKick':  "Damage - 15, Self Damage - 5"}, 'Card', {'Combat': 15, 'Self': 5}],
-
+    [{'JumpKick':  "(combat) Damage - 15, Self Damage - 5"}, 'Card', {'Combat': 15, 'Self': 5}],
+    [{'GushingWound': "(combat) Damage - 12, (agility) Damage - 8"}, 'Card', {'Combat': 12, 'Agility': 8}],
+    [{'Crush': "(combat) Damage - 22, 1 turn "}, 'Card', {'Combat': 22, 'Turn': 1}],
 
     # healing
     [{'Recharge': "Heal - 8"}, 'Card', {'Healing': 8}],
@@ -394,6 +395,7 @@ item_list = [
     [{'LeechingWard': "Shield - 28, Self Damage - 60"}, 'Card', {'Defense': 30, 'Self': 60}],
     [{'GoddessProtection': "Shield - 14, Healing - 10"}, 'Card', {'Defense': 14, 'Healing': 10}],
     [{'HolyShield': "Shield - 15, , Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
+    [{'Guard': "Shield - 17"}, 'Card', {'Defense': 17}],
 
 ]
 

@@ -83,7 +83,7 @@ def start_combat(user, users, mob, battle_type, events):
                 if dodge < 0:
                     dodge = 0
 
-                user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge])
+                user_data.append([hp, max_hp, 0, draw_card_deck(user_party[0][0], users), 0, dodge, 0])
     event_data.append(user_data)
 
     mob_max = round(int(mob[2]) * (1 + (0.6 * (len(user_party) - 1))))
@@ -94,7 +94,7 @@ def start_combat(user, users, mob, battle_type, events):
     # turn, battle_type, party, user_data, mob_data
     # ---------------------------------------------------
     # party = [user_id, username, 'member/invite'] * party
-    # user_data = [hp, maxhp, shield, draw, dodge, reg_dodge] * party
+    # user_data = [hp, maxhp, shield, draw, dodge, reg_dodge, cool_down] * party
     # mob_data = [difficulty, name, hp, maxhp, dmg, coins]
     # ---------------------------------------------------
 
@@ -120,7 +120,7 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
     mob_hp_percent = round((100 / int(mob[3])) * int(mob[2]))
 
     if len(info) > 0:
-        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage = info
+        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage, cool_down, mob_attacks = info
         if extra == "dodged":
             mob_damage = f"💨Dodged ({dodge}%)"
         elif extra == "pierce":
@@ -189,6 +189,8 @@ def create_battle_gui(event_data, start, info=[], extra="None"):
         else:
             players_gui += f"💗 {mob[2]}/{mob[3]} ({mob_hp_percent}%)\n"
         players_gui += f"🗡️ {mob_damage}"
+        if mob_attacks > 1:
+            players_gui += f" ({mob_attacks}x)"
 
     gui.append(players_gui)
     gui.append(f"{party[turn][1]}s Turn:\n{create_draw_gui(user_data[turn][3])}")
@@ -269,14 +271,11 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         # player turn
         from Commands.card_command import use_card
 
-        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus \
+        damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, cool_down \
             = use_card(draw[choice], user, mob_data)
 
-        mob_data[2] = int(mob_data[2])
-        user_data[turn][0] = int(user_data[turn][0])
-        user_data[turn][2] = int(user_data[turn][2])
-        user_data[turn][4] = int(user_data[turn][4])
 
+        user_data[turn][6] += cool_down
 
         mob_data[2] -= damage_dealt
         user_data[turn][0] -= self_damage
@@ -340,58 +339,50 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                     f"{huntP_gain} HuntPoint\n"
                     f"{loot_message}", events]
 
+        mob_attacks = 0
+        esc_counter = 0
+        while True:
+            # turn counter
+            turn += 1
+            if turn == len(party):
+                turn = 0
 
-        piercing_attack = False
-        dodged = False
-        mob_attacks = False
-
-        turn += 1
-        if turn == len(party):
-            turn = 0
-            mob_attacks = True
-        while int(user_data[turn][0]) <= 0:
-            if int(user_data[turn][0]) <= 0:
-                turn += 1
-                if turn == len(party):
-                    turn = 0
-                    mob_attacks = True
-            else:
-                break
-
-
-        dodge = 0
-        # find next alive or last
-        mob_damage = 0
-        if mob_attacks:
             piercing_attack = False
-            if random.randint(1, 12) == 1:
-                piercing_attack = True
+            dodged = False
+            dodge = 0
+            # mob attack on turn reset
+            if turn == 0:
+                # find next alive or last
+                mob_damage = 0
+                mob_attacks += 1
+                piercing_attack = False
+                if random.randint(1, 12) == 1:
+                    piercing_attack = True
 
-            enemy_damage = random.randint(int(mob_data[4]) - 1, int(mob_data[4]) + 1)
-            most_hp = 0
-            biggest_hp_amount = 0
-            for pos in range(len(party)):
-                if int(user_data[pos][1]) > biggest_hp_amount and int(user_data[pos][0]) > 0:
-                    most_hp = pos
-                    biggest_hp_amount = user_data[pos][1]
+                enemy_damage = random.randint(int(mob_data[4]) - 1, int(mob_data[4]) + 1)
+                most_hp = 0
+                biggest_hp_amount = 0
+                for pos in range(len(party)):
+                    if int(user_data[pos][1]) > biggest_hp_amount and int(user_data[pos][0]) > 0:
+                        most_hp = pos
+                        biggest_hp_amount = user_data[pos][1]
 
-            dodge = round(user_data[most_hp][4])
+                dodged = True
+                if random.randint(1, 100) > user_data[most_hp][4]:
+                    dodged = False
 
-            dodged = True
-            if random.randint(1, 100) > user_data[most_hp][4]:
-                dodged = False
+                if not dodged:
+                    mob_damage += enemy_damage
+                    if not piercing_attack:
+                        for _ in range(enemy_damage):
+                            if user_data[most_hp][2] > 0:
+                                user_data[most_hp][2] -= 1
+                            else:
+                                user_data[most_hp][0] -= 1
+                    if piercing_attack:
+                        user_data[most_hp][0] -= enemy_damage
 
-            if not dodged:
-                mob_damage = enemy_damage
-                if not piercing_attack:
-                    for _ in range(enemy_damage):
-                        if user_data[most_hp][2] > 0:
-                            user_data[most_hp][2] -= 1
-                        else:
-                            user_data[most_hp][0] -= 1
-                if piercing_attack:
-                    user_data[most_hp][0] -= enemy_damage
-            # is player dead test for all members
+            # test players dead
             members_dead = 0
             for pos in range(len(party)):
                 if user_data[pos][0] <= 0:
@@ -407,7 +398,29 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
                 start_update_csv(users)
                 new_event = [turn, battle_type, party, user_data, mob_data]
                 events = update_events_csv(new_event, events, 'delete')
-                return [f"You were defeated by {mob_data[1]}:\n They stole £{coins_lost} from each party member", events]
+                return [
+                    f"You were defeated by {mob_data[1]}:\n They stole £{coins_lost} from each party member",
+                    events]
+
+            # test if next turn valid
+            if int(user_data[turn][0]) > 0 and int(user_data[turn][6]) == 0:
+                break
+
+            # attack cool down
+            if user_data[turn][6] > 0:
+                user_data[turn][6] -= 1
+
+            # loop break out error
+            if esc_counter > 10:
+                new_event = [turn, battle_type, party, user_data, mob_data]
+                events = update_events_csv(new_event, events, 'delete')
+                return [
+                    f"The event timed out due to an error, it has been deleted please start a new one.", events]
+            esc_counter += 1
+
+
+
+
 
 
 
@@ -418,7 +431,18 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
             new_draw = draw_card_deck(party[turn][0], users)
         user_data[turn][3] = new_draw
 
-        info = [damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge, mob_damage]
+        info = [damage_dealt,
+                self_damage,
+                shield_gained,
+                extra_draw,
+                heal_gained,
+                extra_draw,
+                dodge,
+                mob_damage,
+                cool_down,
+                mob_attacks
+                ]
+
         new_event = [turn, battle_type, party, user_data, mob_data]
 
         start_update_csv(users)
