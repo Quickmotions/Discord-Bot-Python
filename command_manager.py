@@ -21,6 +21,7 @@ from Commands.removal_command import removal_c
 from Commands.guild_command import guild_c
 from Commands.party_command import party_c
 from Commands.building_command import land_c
+from Commands.duel_command import duel_c
 
 
 # controls inputted and outputted commands
@@ -45,6 +46,7 @@ class Commands:
             "skills": [skills_c, 1],
             "rob": [rob_c, 20000],
             "hunt": [hunt_c, 5],
+            "duel": [duel_c, 5],
             "source": [source_c, 60],
             "steal": [steal_c, 60],
             "gamble": [gamble_c, 1],

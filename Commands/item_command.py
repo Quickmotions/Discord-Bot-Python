@@ -410,7 +410,7 @@ item_list = [
     [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
     [{'LeechingWard': "Shield - 25, Self Damage - 60"}, 'Card', {'Defense': 25, 'Self': 60}],
     [{'GoddessProtection': "Shield - 14, Healing - 10"}, 'Card', {'Defense': 14, 'Healing': 10}],
-    [{'HolyShield': "Shield - 15, , Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
+    [{'HolyShield': "Shield - 15, Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
     [{'Guard': "Shield - 17"}, 'Card', {'Defense': 17}],
 
 ]
