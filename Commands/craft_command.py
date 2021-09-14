@@ -103,6 +103,8 @@ craft_list = {
     'DarkPhoenixChestplate': [{'FireRune': 100, 'DevilsHorn': 400}],
     'DarkPhoenixLeggings': [{'FireRune': 100, 'DevilsHorn': 400}],
     'DarkPhoenixBoots': [{'FireRune': 100, 'DevilsHorn': 400}],
+    'ShadowRing': [{'VoidStone': 10, 'MithrilIngot': 60}],
+    'TitanRing': [{'IronIngot': 200, 'TitaniumIngot': 60}],
 
     # cards
     'Wrath': [{'AncientRune': 40, 'Blood': 40, 'Paper': 25}],
@@ -111,12 +113,16 @@ craft_list = {
     'Evasion': [{'AncientRune': 40, 'Sapphire': 80}],
     'Shockwave': [{'AncientRune': 40, 'DevilIngot': 10}],
     'DarkSlice': [{'AncientRune': 20, 'Crystalium': 80, 'CutBasalt': 33}],
-
     'HeavenlyGuard': [{'AncientRune': 50, 'HelixCore': 4, 'GoldIngot': 60}],
     'LifeTap': [{'AncientRune': 35, 'Blood': 100, 'TitaniumIngot': 30}],
     'LeechingWard': [{'AncientRune': 50, 'DeathLily': 100, 'Ectoplasm': 60}],
     'GoddessProtection': [{'AncientRune': 28, 'Paper': 40, 'WaterRune': 20}],
     'HolyShield': [{'AncientRune': 20, 'TinIngot': 50, 'Diamond': 100}],
+    'DesperateHeal': [{'AncientRune': 20, 'TinIngot': 50, 'Diamond': 100}],
+    'JumpKick': [{'AncientRune': 20, 'WaterRune': 80, 'Leather': 120}],
+    'GushingWound': [{'AncientRune': 36, 'Ooze': 500, 'Obsidian': 150}],
+    'Crush': [{'AncientRune': 50, 'EarthRune': 60, 'BlackPearl': 1}],
+    'MaceSwing': [{'AncientRune': 15, 'DarkShard': 15, 'BloodInfusedStone': 60}],
 
     'TrainingPoint': [{'OakLog': 1}, {'Salmon': 1}, {'Blood': 1}, {'CutStone': 1}],
 

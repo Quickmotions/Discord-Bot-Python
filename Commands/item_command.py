@@ -72,6 +72,8 @@ item_list = [
     [{'BlackPearl': 'Material used for crafting'}, 'None', {}],
     [{'VoidStone': 'Material used for crafting'}, 'None', {}],
     [{'VoidPowder': 'Material used for crafting'}, 'None', {}],
+    [{'Ooze': 'Material used for crafting'}, 'None', {}],
+    [{'DeathRune': 'Material used for crafting'}, 'None', {}],
     [{'Crystalium': 'Material used for crafting bought from the shop'}, 'None', {}],
     [{'Coal': 'Material used for crafting bought from the shop'}, 'None', {}],
 
@@ -156,6 +158,11 @@ item_list = [
     [{'SteelLeggings': 'Gives +14 Combat Skill'}, 'Legs', {'Combat': 14}],
     [{'SteelBoots': 'Gives +14 Combat Skill'}, 'Feet', {'Combat': 14}],
 
+    [{'PowerHelmet': 'Gives +24 Combat, 6 Health Skill'}, 'Head', {'Combat': 24, 'Health': 6}],
+    [{'PowerChestplate': 'Gives +24 Combat, 6 Health Skill'}, 'Chest', {'Combat': 24, 'Health': 6}],
+    [{'PowerLeggings': 'Gives +24 Combat, 6 Health Skill'}, 'Legs', {'Combat': 24, 'Health': 6}],
+    [{'PowerBoots': 'Gives +24 Combat Skill, 6 Health Skill'}, 'Feet', {'Combat': 24, 'Health': 6}],
+
     [{'CombatChestplate': 'Gives +5 Combat Skill'}, 'Chest', {'Combat': 7}],
     [{'ChampionChestplate': 'Gives +15 Combat Skill'}, 'Chest', {'Combat': 15}],
     [{'WarBornChestplate': 'Gives +27 Combat Skill'}, 'Chest', {'Combat': 27}],
@@ -174,6 +181,9 @@ item_list = [
     [{'FangRing': 'Gives +15 Combat Skill'}, 'Ring', {'Combat': 15}],
     [{'FuryRageRing': 'Gives +21 Combat Skill, -12 Defense Skill'}, 'Ring', {'Combat': 21, 'Defense': -12}],
     [{'RavenEyeRing': 'Gives +52 Combat Skill, -11 Dodge Skill, +5 Health Skill'}, 'Ring', {'Combat': 52, 'Dodge': -11, 'Health': 5}],
+    [{'ElephantRing': 'Gives +26 Combat Skill, -6 Health Skill'}, 'Ring', {'Combat': 26, 'Health': -6}],
+    [{'TitanRing': 'Gives +17 Combat Skill, +17 Health Skill'}, 'Ring', {'Combat': 17, 'Health': 17}],
+    [{'GiantRing': 'Gives +23 Combat Skill, +23 Health Skill'}, 'Ring', {'Combat': 23, 'Health': 23}],
 
     # agility
     # not added yet:
@@ -217,6 +227,8 @@ item_list = [
     [{'WraithDagger': 'Gives +6 Agility Skill, +17 Dodge Skill'}, 'Hand', {'Agility': 6, 'Dodge': 17}],
     [{'WickedBarkKnife': 'Gives +28 Agility Skill'}, 'Hand', {'Agility': 28}],
     [{'ShadowBane': 'Gives +30 Dodge Skill'}, 'Hand', {'Dodge': 30}],
+    [{'ShadowRing': 'Gives +36 Agility Skill'}, 'Ring', {'Agility': 36}],
+    [{'GlassRing': 'Gives +44 Agility, -8 Health Skill'}, 'Ring', {'Agility': 44, 'Health': 8}],
 
     # gathering
 
@@ -297,6 +309,8 @@ item_list = [
     [{'AncientChestplate': 'Gives +16 Health Skill'}, 'Chest', {'Health': 16}],
     [{'PurityChestplate': 'Gives +30 Health Skill'}, 'Chest', {'Health': 30}],
     [{'ShieldOfHealing': 'Gives +20 Health, +8 Healing Skill'}, 'Chest', {'Health': 20, 'Healing': 8}],
+
+    [{'PrayerRing': 'Gives +38 Health Skill'}, 'Ring', {'Health': 38}],
 
     # healing
 
@@ -380,19 +394,21 @@ item_list = [
     [{'RagingFury': "(combat) Damage - 6, Heal - 6"}, 'Card', {'Combat': 6, 'Healing': 6}],
     [{'JumpKick':  "(combat) Damage - 15, Self Damage - 5"}, 'Card', {'Combat': 15, 'Self': 5}],
     [{'GushingWound': "(combat) Damage - 12, (agility) Damage - 8"}, 'Card', {'Combat': 12, 'Agility': 8}],
-    [{'Crush': "(combat) Damage - 22, 1 turn "}, 'Card', {'Combat': 22, 'Turn': 1}],
+    [{'Crush': "(combat) Damage - 22, Lose 1 turn"}, 'Card', {'Combat': 22, 'Turn': 1}],
+    [{'MaceSwing': "(combat) Damage - 16, 10% Dodge, Lose 1 turn"}, 'Card', {'Combat': 22, 'Dodge': 20, 'Turn': 1}],
 
     # healing
     [{'Recharge': "Heal - 8"}, 'Card', {'Healing': 8}],
     [{'Regeneration': "Heal - 18"}, 'Card', {'Healing': 18}],
     [{'Restoration': "Heal - 14, Extra Card Draw"}, 'Card', {'Healing': 14, 'Draw': 1}],
     [{'HeavenlyGuard': "Heal - 20, Shield - 10"}, 'Card', {'Healing': 20, 'Shield': 10}],
-    [{'LifeTap': "Heal - 25, self - 45"}, 'Card', {'Healing': 25, 'Self': 100}],
+    [{'LifeTap': "Heal - 25, self - 100"}, 'Card', {'Healing': 25, 'Self': 100}],
+    [{'DesperateHeal': "Heal - 80, Lose 2 turns"}, 'Card', {'Healing': 80, 'Turn': 2}],
 
     # defense
     [{'Defend': "Shield - 5"}, 'Card', {'Defense': 5}],
     [{'Towershield': "Shield - 12"}, 'Card', {'Defense': 12}],
-    [{'LeechingWard': "Shield - 28, Self Damage - 60"}, 'Card', {'Defense': 30, 'Self': 60}],
+    [{'LeechingWard': "Shield - 25, Self Damage - 60"}, 'Card', {'Defense': 25, 'Self': 60}],
     [{'GoddessProtection': "Shield - 14, Healing - 10"}, 'Card', {'Defense': 14, 'Healing': 10}],
     [{'HolyShield': "Shield - 15, , Extra Card Draw"}, 'Card', {'Defense': 15, 'Draw': 1}],
     [{'Guard': "Shield - 17"}, 'Card', {'Defense': 17}],
