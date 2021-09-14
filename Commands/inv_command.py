@@ -11,12 +11,12 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
     setup_equipment(args[0], args[2])
 
     if page < 3:
-        response = f"{args[0].username}s Inventory ({page+1}):\n--------------------"
+        response = f"{args[0].username}s Inventory ({page + 1}):\n--------------------"
         for item, value in players_inv[page].items():
             if int(value) > 0:
                 response += f"\n{item} : {value}"
     else:
-        response = f"{args[0].username}s Deck ({page+1}):\n--------------------"
+        response = f"{args[0].username}s Deck ({page + 1}):\n--------------------"
         for item, value in args[0].cards.items():
             if int(value) > 0:
                 response += f"\n{item} : {value}"
@@ -26,11 +26,14 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
     for slot, equipped in args[0].equipment.items():
         equipment += f"\n{slot} : {equipped}"
 
-
     return ["multiple", equipment, response, response2]
 
 
 def equip_c(*args):
+    for event in args[4]:
+        for user_id, username, membership in event[2]:
+            if user_id == str(args[0].user_id):
+                return f"You need to complete your previous event first"
     if len(args[3]) > 0:
         user_input = args[3][0].lower()
         response = f"Cannot equip {user_input}"
@@ -59,12 +62,10 @@ def unequip_c(*args):
     return f"Replaced all items with None."
 
 
-
-
 def sort_inventory(inv):
     # categories: special, resource, else
     special = ['TrainingPoint', 'RemovalSigil', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune',
-               'EarthRune', 'FireRune','AncientRune']
+               'EarthRune', 'FireRune', 'AncientRune']
     resource = ['Coal', 'Cod', 'Mackerel', 'Carp', 'Trout', 'Salmon', 'Catfish', 'Tuna', 'Stone', 'Limestone',
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
                 'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
@@ -97,7 +98,9 @@ def setup_equipment(user, users_data):
 
 
 def set_equipment_stats(user, users):
-    temp_stats = {'Combat': 0, 'Magic': 0, 'Agility': 0, 'Healing': 0, 'Defense': 0, 'Stealing': 0, 'Strength': 0, 'Healing': 0, 'Luck': 0, 'Fishing': 0, 'Mining': 0, 'Woodcut': 0, 'Health': 0, 'Critical': 0, 'Dodge': 0}
+    temp_stats = {'Combat': 0, 'Magic': 0, 'Agility': 0, 'Healing': 0, 'Defense': 0, 'Stealing': 0, 'Strength': 0,
+                  'Healing': 0, 'Luck': 0, 'Fishing': 0, 'Mining': 0, 'Woodcut': 0, 'Health': 0, 'Critical': 0,
+                  'Dodge': 0}
     for item, slot, stats in item_list:
         for equipment_slot, equipment in user.equipment.items():
             for item_name, desc in item.items():
@@ -106,7 +109,3 @@ def set_equipment_stats(user, users):
                         temp_stats[stat] += amount
     user.equipment_stats = temp_stats
     start_update_csv(users)
-
-
-
-
