@@ -27,7 +27,8 @@ def loadout_c(*args):
     for loadout in args[0].loadout:
         loadout_lists += f"Loadout {count}:\n"
         for card, amount in loadout.items():
-            loadout_lists += f"{amount} {card}, "
+            if amount > 0:
+                loadout_lists += f"{amount} {card}, "
         loadout_lists = loadout_lists[:-2] + "\n\n"
         count += 1
 
