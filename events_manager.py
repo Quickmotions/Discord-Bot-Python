@@ -281,7 +281,7 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
         user_data[turn][0] -= self_damage
         user_data[turn][2] += shield_gained
 
-
+        dodge = round(user_data[turn][5] + dodge_bonus)
         user_data[turn][4] = user_data[turn][5] + dodge_bonus
         if user_data[turn][4] < 0:
             user_data[turn][4] = 0
@@ -349,7 +349,6 @@ def battle_turn(turn, battle_type, party, user_data, mob_data, user, users, resp
 
             piercing_attack = False
             dodged = False
-            dodge = 0
             # mob attack on turn reset
             if turn == 0:
                 # find next alive or last
