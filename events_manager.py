@@ -281,7 +281,8 @@ def check_event_response(*args):
 
 def update_events_csv(event_updated, events, update_type):
     """updates the events csv with combat updates after each turn"""
-    new_events = events
+    new_events = []
+
 
     # if the party list is empty due to players leaving party mid combat delete the event
 
@@ -290,6 +291,7 @@ def update_events_csv(event_updated, events, update_type):
         # f.write(f'{event_updated}\n')
         # f.close()
         # return
+        new_events = events
         new_events.append(event_updated)
 
     elif update_type == 'delete':
