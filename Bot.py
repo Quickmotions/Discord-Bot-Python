@@ -108,6 +108,7 @@ async def on_message(message):
     else:  # message not in commands list (responses check)
         response = check_event_response(user_data_for_command, C, USERS, user_input[1:], user_input[0], EVENTS)
         command_string = "Hunt"
+
     # display output
     if response is not None:
         if len(response) > 1:

@@ -43,6 +43,7 @@ def draw_card_deck(user_id, users, draw_amount=3):
 
 def start_combat(user, users, mob, battle_type, events):
     """Begins a combat event with data send from hunt or duel command"""
+    print(events)
 
     if battle_type == "PVE":
         user_party = []
@@ -280,15 +281,9 @@ def check_event_response(*args):
 
 def update_events_csv(event_updated, events, update_type):
     """updates the events csv with combat updates after each turn"""
-    new_events = []
+    new_events = events
 
     # if the party list is empty due to players leaving party mid combat delete the event
-    active_events = []
-    for event in events:
-        if len(event[2]) > 0:
-            active_events.append(event)
-
-    events = active_events
 
     if update_type == 'append':
         # f = open("events.csv", 'a')
