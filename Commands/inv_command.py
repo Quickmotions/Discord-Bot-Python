@@ -15,18 +15,19 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
         for item, value in players_inv[page].items():
             if int(value) > 0:
                 response += f"\n{item} : {value}"
+
+    elif page == 6:
+        response = f"{args[0].username}s Equipment:\n--------------------"
+        for slot, equipped in args[0].equipment.items():
+            response += f"\n{slot} : {equipped}"
+
     else:
         response = f"{args[0].username}s Deck ({page + 1}):\n--------------------"
         for item, value in args[0].cards.items():
             if int(value) > 0:
                 response += f"\n{item} : {value}"
-    response2 = "page: 1 = special, 2 = Material\n3 = Drop, 4 = Equipment\n5 = cards"
-
-    equipment = f"{args[0].username}s Equipment:\n--------------------"
-    for slot, equipped in args[0].equipment.items():
-        equipment += f"\n{slot} : {equipped}"
-
-    return ["multiple", equipment, response, response2]
+    response2 = "page: 1 = special, 2 = Material\n3 = Drop, 4 = Equipment\n5 = cards, 6 = Equipped"
+    return ["multiple", response, response2]
 
 
 def equip_c(*args):
