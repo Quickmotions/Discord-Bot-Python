@@ -75,7 +75,7 @@ def sort_inventory(inv):
                 'CutStone', 'Crystalium', 'Titaniumore', 'Obsidian',
                 'Mithrilore', 'BloodInfusedDiamond', 'MithrilIngot', 'TitaniumIngot']
 
-    sorted_inv = [{}, {}, {}]
+    sorted_inv = [{}, {}, {}, {}]
     for item, amount in inv.items():
         if item in special:
             sorted_inv[0][item] = amount
