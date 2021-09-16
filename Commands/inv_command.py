@@ -20,7 +20,7 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
         for item, value in args[0].cards.items():
             if int(value) > 0:
                 response += f"\n{item} : {value}"
-    response2 = "page: 1 = special, 2 = resource, 3 = other, 4 = cards"
+    response2 = "page: 1 = special, 2 = Drop\n 3 = Material, 5 = Equipment 4 = cards"
 
     equipment = f"{args[0].username}s Equipment:\n--------------------"
     for slot, equipped in args[0].equipment.items():
@@ -64,14 +64,16 @@ def unequip_c(*args):
 
 def sort_inventory(inv):
     # categories: special, resource, else
-    special = ['TrainingPoint', 'RemovalSigil', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune',
-               'EarthRune', 'FireRune', 'AncientRune']
+    special = ['TrainingPoint', 'RemovalSigil', 'ResetSigil', 'WorkPoint', 'HuntPoint', 'WaterRune', 'IceRune', 'SandRune',
+               'EarthRune', 'FireRune', 'AncientRune', 'DeathRune']
+    drop = ['Pearl', 'ElementalDust', 'BlackPearl', 'HelixCore', 'Ectoplasm', 'DarkShard', 'DevilsHorn', 'DeathLily',
+            'Blood', 'GunPart', 'Leather', 'Bone']
     resource = ['Coal', 'Cod', 'Mackerel', 'Carp', 'Trout', 'Salmon', 'Catfish', 'Tuna', 'Stone', 'Limestone',
                 'Basalt', 'Ironore', 'Goldore', 'Tinore', 'Ruby', 'Sapphire', 'Diamond', 'OakLog', 'SpruceLog',
-                'PineLog', 'BeechLog', 'MapleLog', 'AshLog', 'Leather', 'Bone', 'Paper', 'GunPart', 'IronIngot',
-                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot', 'BlackLeather', 'ShadeWoodLog', 'Blood', 'DevilsHorn',
-                'DarkShard', 'CutStone', 'Crystalium', 'Ectoplasm', 'DeathLily', 'Titaniumore', 'Obsidian',
-                'Mithrilore', 'BloodInfusedDiamond']
+                'PineLog', 'BeechLog', 'MapleLog', 'AshLog',   'Paper',  'IronIngot',
+                'TinIngot', 'GoldIngot', 'GemIngot', 'FishIngot', 'BlackLeather', 'ShadeWoodLog',
+                'CutStone', 'Crystalium', 'Titaniumore', 'Obsidian',
+                'Mithrilore', 'BloodInfusedDiamond', 'MithrilIngot', 'TitaniumIngot']
 
     sorted_inv = [{}, {}, {}]
     for item, amount in inv.items():
@@ -79,8 +81,10 @@ def sort_inventory(inv):
             sorted_inv[0][item] = amount
         elif item in resource:
             sorted_inv[1][item] = amount
-        else:
+        elif item in drop:
             sorted_inv[2][item] = amount
+        else:
+            sorted_inv[3][item] = amount
 
     return sorted_inv
 
