@@ -10,7 +10,7 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
 
     setup_equipment(args[0], args[2])
 
-    if page < 3:
+    if page < 4:
         response = f"{args[0].username}s Inventory ({page + 1}):\n--------------------"
         for item, value in players_inv[page].items():
             if int(value) > 0:
@@ -20,7 +20,7 @@ def inv_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data, 3
         for item, value in args[0].cards.items():
             if int(value) > 0:
                 response += f"\n{item} : {value}"
-    response2 = "page: 1 = special, 2 = Drop\n 3 = Material, 5 = Equipment 4 = cards"
+    response2 = "page: 1 = special, 2 = Material\n3 = Drop, 4 = Equipment\n5 = cards"
 
     equipment = f"{args[0].username}s Equipment:\n--------------------"
     for slot, equipped in args[0].equipment.items():

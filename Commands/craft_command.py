@@ -93,6 +93,10 @@ craft_list = {
     'EbonBoots': [{'DarkShard': 100, 'Obsidian': 50, 'BloodInfusedStone': 25}],
     'Spellbinder': [{'DarkShard': 50, 'Obsidian': 50, 'BloodInfusedStone': 50}],
     'WandOfHealing': [{'GoldIngot': 35, 'BloodInfusedIngot': 20}],
+    'DeathCrystal': [{'DeathRune': 20, 'Crystalium': 100}],
+    'TwistingCore': [{'MithrilIngot': 10, 'Blood': 10}],
+    'TwistingDarkness': [{'DarkShard': 550, 'TwistingCore': 100, 'ShadowMembrane': 20}],
+
     'DemonScythe': [{'DarkShard': 200, 'BlackLeather': 80, 'MithrilIngot': 100}],
     'HelixHelmet': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
     'HelixChestplate': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],

@@ -93,4 +93,6 @@ def use_card(card, user, mob):
         shield_gained += round(5 * defense)
     if user.equipment['Hand'] == "DarkShield":
         shield_gained += round(10 * defense)
+    if user.equipment['Hand'] == "DeathBringer":
+        damage_dealt += round(14 * combat)
     return damage_dealt, self_damage, shield_gained, extra_draw, heal_gained, extra_draw, dodge_bonus, cool_down, crit

@@ -74,6 +74,8 @@ item_list = [
     [{'VoidPowder': 'Material used for crafting'}, 'None', {}],
     [{'Ooze': 'Material used for crafting'}, 'None', {}],
     [{'DeathRune': 'Material used for crafting'}, 'None', {}],
+    [{'DeathCrystal': 'Material used for crafting'}, 'None', {}],
+    [{'DeathBringerGem': 'Material used for crafting the DeathBringer'}, 'None', {}],
     [{'Crystalium': 'Material used for crafting bought from the shop'}, 'None', {}],
     [{'Coal': 'Material used for crafting bought from the shop'}, 'None', {}],
 
@@ -192,6 +194,7 @@ item_list = [
     [{'SteelGreatSword': 'Gives +20 Combat Skill'}, 'Hand', {'Combat': 20}],
     [{'Katana': 'Gives +12 Combat, +12 Agility Skill'}, 'Hand', {'Combat': 12, 'Agility': 12}],
     [{'ShadeCoreAxe': 'Gives +20 Combat Skill, +20 Dodge Skill'}, 'Hand', {'Combat': 20, 'Dodge': 20}],
+    [{'DeathBringer': '*Legendary Sword* Gives +35 Combat Skill, Does 14 (combat) Damage per turn'}, 'Hand', {'Combat': 35}],
 
     [{'FangRing': 'Gives +15 Combat Skill'}, 'Ring', {'Combat': 15}],
     [{'FuryRageRing': 'Gives +21 Combat Skill, -12 Defense Skill'}, 'Ring', {'Combat': 21, 'Defense': -12}],
@@ -243,6 +246,7 @@ item_list = [
     [{'AbyssalDagger': 'Gives +6 Agility Skill, +4 Defense Skill'}, 'Hand', {'Agility': 6, 'Defense': 4}],
     [{'BonerSword': 'Gives +10 Agility Skill, +10 Dodge Skill'}, 'Hand', {'Agility': 10, 'Dodge': 10}],
     [{'WraithDagger': 'Gives +6 Agility Skill, +17 Dodge Skill'}, 'Hand', {'Agility': 6, 'Dodge': 17}],
+    [{'TwistingDarkness': '*Legendary Dagger* Gives +15 Critical Skill, Does 18 (agility) Damage Per Turn'}, 'Hand', {'Agility': 18}],
     [{'WickedBarkKnife': 'Gives +28 Agility Skill'}, 'Hand', {'Agility': 28}],
     [{'ShadowBane': 'Gives +30 Dodge Skill'}, 'Hand', {'Dodge': 30}],
     [{'ShadowRing': 'Gives +36 Agility Skill'}, 'Ring', {'Agility': 36}],

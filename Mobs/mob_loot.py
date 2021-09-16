@@ -280,6 +280,7 @@ loot_table = [
     [16, 'SoothSayerLeggings', 1, 15],
     [16, 'SoothSayerBoots', 1, 15],
     [16, 'RingOfSuffering', 1, 8],
+    [16, 'DeathBringerGem', 1, 200],
 
     [17, 'RingOfSuffering', 1, 12],
     [17, 'ShadeCoreAxe', 1, 9],
@@ -290,6 +291,7 @@ loot_table = [
     [17, 'GolemBoots', 1, 40],
     [17, 'RavenEyeRing', 1, 5],
     [17, 'GiantRing', 1, 9],
+    [17, 'DeathBringerGem', 2, 200],
 
     [18, 'ShadeCoreAxe', 1, 12],
     [18, 'GiantRing', 1, 14],
@@ -299,6 +301,10 @@ loot_table = [
     [18, 'VoidWalkerBoots', 1, 10],
     [18, 'VoidStone', 1, 200],
     [18, 'VoidPowder', 10, 800],
+    [18, 'DeathBringerGem', 3, 200],
+    [18, 'ShadowMembrane', 1, 100],
+
+
 
     [19, 'FireRune', 1, 1200],
     [19, 'LavaSword', 1, 8],
@@ -312,12 +318,13 @@ loot_table = [
     [19, 'LifeFireLeggings', 1, 9],
     [19, 'LifeFireBoots', 1, 11],
 
+
     [20, 'AngelHelmet', 1, 10],
     [20, 'AngelChestplate', 1, 10],
     [20, 'AngelLeggings', 1, 10],
     [20, 'AngelBoots', 1, 10],
     [20, 'StaffOfAegis', 1, 2],
-
+    [20, 'DeathBringerGem', 6, 500],
 
     [1, 'ResetSigil', 1, 200],
     [2, 'ResetSigil', 1, 200],
