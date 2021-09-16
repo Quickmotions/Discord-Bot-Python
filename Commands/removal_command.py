@@ -10,7 +10,11 @@ def removal_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user dat
                     for member in event[2]:
                         if args[0].user_id == str(member[0]):
                             return f"You need to complete your current combat event first"
-                if len(args[0].cards) > 5:
+                card_amount = 0
+                for card in args[0].cards:  # get all cards in deck
+                    for _ in range(args[0][card]):  # add card multiple times for how many user owns
+                        card_amount += 1
+                if card_amount > 4:
                     card_chosen = str(args[3][0]).lower()
                     for card in args[0].cards:
                         if card_chosen == card.lower():
