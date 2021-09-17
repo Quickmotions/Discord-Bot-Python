@@ -21,7 +21,7 @@ def stats_c(*args):  # 0 = this user_data, 1 = Command Class, 2 = all user data,
     healing_base = args[0].skills['Healing'] + args[0].equipment_stats['Healing']
     dodge_base = args[0].skills['Dodge'] + args[0].equipment_stats['Dodge']
 
-    critical = (0.5 * critical_base)
+    critical = (0.25 * critical_base)
     dodge = ((0.5 * dodge_base) + (0.2 * agility_base) - (0.25 * defense_base))
     combat = (4 * combat_base) + 100
     defense = ((10 * defense_base) + (4 * combat_base) - (5 * dodge_base)) + 100

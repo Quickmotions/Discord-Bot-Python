@@ -7,7 +7,7 @@ skill_info = {
     'Agility': '6% Agility Damage,  0.2% Dodge,',
     'Healing': '7% Healing Increase, 3% Health Increase',
     'Defense': '+8% Shield Increase, 2% Health Increase, 0.25% Dodge Decrease',
-    'Critical': '+0.5% Critical Chance',
+    'Critical': '+0.25% Critical Chance',
     'Health': '+6% Health',
     'Stealing': '+1% Stealing Chance',
     'Luck': '+1% Gambling Chance',

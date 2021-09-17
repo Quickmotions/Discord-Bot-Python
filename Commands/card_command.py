@@ -13,7 +13,7 @@ def use_card(card, user, mob):
     dodge_base = user.skills['Dodge'] + user.equipment_stats['Dodge']
     critical_base = user.skills['Critical'] + user.equipment_stats['Critical']
 
-    crit_chance = (0.5 * critical_base)
+    crit_chance = (0.25 * critical_base)
     combat = ((6 * combat_base) / 100) + 1
     defense = (((10 * defense_base) + (2 * combat_base) - (5 * dodge_base)) / 100) + 1
     magic = ((10 * magic_base) / 100) + 1
