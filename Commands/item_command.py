@@ -415,13 +415,13 @@ item_list = [
     [{'Assassinate': "(agility) Damage - 9, + 3 if target below 40%"}, 'Card', {'Agility': 9, 'Finisher': 3}],
     [{'Stab': "(agility) Damage - 5, Extra Card Draw"}, 'Card', {'Agility': 5, 'Draw': 1}],
     [{'ShadowSlice': "(agility) Damage - 4, (magic) Damage - 2"}, 'Card', {'Agility': 4, 'Magic': 2}],
-    [{'FrostArrow': "(agility) Damage - 8, + 15 if target below 40%"}, 'Card', {'Agility': 8, 'Finisher': 15}],
+    [{'FrostArrow': "(agility) Damage - 8, + 25 if target below 40%"}, 'Card', {'Agility': 8, 'Finisher': 25}],
     [{'Shockwave': "(agility) Damage - 16, 2 - Healing, Self Damage - 15"}, 'Card', {'Agility': 16, 'Healing': 2, 'Self': 15}],
     [{'Evasion': "(agility) Damage - 8, Dodge - +15% "}, 'Card', {'Agility': 8, 'Dodge': 30}],
     [{'QuickStab': "(agility) Damage - 13"}, 'Card', {'Agility': 13}],
     [{'FirstAid': "(agility) Damage - 6, Healing - 8"}, 'Card', {'Agility': 6, 'Healing': 8}],
-    [{'MultiShot': "(agility) Damage - 12, Dodge - +5%"}, 'Card', {'Agility': 12, 'Dodge': 10}],
-    [{'DarkSlice': "(agility) Damage - 10, Healing - 5"}, 'Card', {'Agility': 10, 'Healing': 5}],
+    [{'MultiShot': "(agility) Damage - 14, Dodge - +5%"}, 'Card', {'Agility': 14, 'Dodge': 10}],
+    [{'DarkSlice': "(agility) Damage - 14, Healing - 5"}, 'Card', {'Agility': 14, 'Healing': 5}],
 
     # combat
     [{'Slash': "(combat) Damage - 3"}, 'Card', {'Combat': 3}],
