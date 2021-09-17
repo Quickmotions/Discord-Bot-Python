@@ -228,7 +228,7 @@ loot_table = [
     [13, 'DragonClawRing', 1, 4],
     [13, 'DragonBeamWand', 1, 17],
     [13, 'DestinyChestplate', 1, 20],
-    [19, 'ChaosRune', 1, 1200],
+    [13, 'ChaosRune', 1, 1200],
 
     [14, 'DragonBeamWand', 1, 11],
     [14, 'DragonClawRing', 1, 7],
