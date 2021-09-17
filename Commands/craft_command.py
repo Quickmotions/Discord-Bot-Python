@@ -96,8 +96,11 @@ craft_list = {
     'DeathCrystal': [{'DeathRune': 20, 'Crystalium': 100}],
     'TwistingCore': [{'MithrilIngot': 10, 'Blood': 5}],
     'TwistingDarkness': [{'DarkShard': 550, 'TwistingCore': 100, 'ShadowMembrane': 20}],
-
     'DemonScythe': [{'DarkShard': 200, 'BlackLeather': 80, 'MithrilIngot': 100}],
+    'RogueHelmet': [{'Leather': 170, 'GunPart': 5, 'ChaosRune': 20}],
+    'RogueChestplate': [{'Leather': 200, 'GunPart': 5, 'ChaosRune': 20}],
+    'RogueLeggings': [{'Leather': 180, 'GunPart': 5, 'ChaosRune': 20}],
+    'RogueBoots': [{'Leather': 160, 'GunPart': 5, 'ChaosRune': 20}],
     'HelixHelmet': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
     'HelixChestplate': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
     'HelixLeggings': [{'BloodInfusedDiamond': 10, 'HelixCore': 5}],
@@ -131,6 +134,8 @@ craft_list = {
     'GushingWound': [{'AncientRune': 36, 'Ooze': 500, 'Obsidian': 150}],
     'Crush': [{'AncientRune': 50, 'EarthRune': 60, 'BlackPearl': 1}],
     'MaceSwing': [{'AncientRune': 15, 'DarkShard': 15, 'BloodInfusedStone': 60}],
+    'ShotgunBlast': [{'AncientRune': 55, 'GunPart': 5, 'FireRune': 10}],
+    'MagicShield': [{'AncientRune': 55, 'IceRune': 100, 'Crystalium': 200}],
 
     'TrainingPoint': [{'OakLog': 1}, {'Salmon': 1}, {'Blood': 1}, {'CutStone': 1}],
 

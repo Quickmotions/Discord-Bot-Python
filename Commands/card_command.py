@@ -73,6 +73,9 @@ def use_card(card, user, mob):
                     elif skill == "Turn":
                         cool_down = amount
 
+                    elif skill == "MagicDefense":
+                        shield_gained += round(amount * magic * crit_modifier)
+
                     elif skill == "Draw":
                         extra_draw = True
 

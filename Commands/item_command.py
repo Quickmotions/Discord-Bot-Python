@@ -72,6 +72,7 @@ item_list = [
     [{'BlackPearl': 'Material used for crafting'}, 'None', {}],
     [{'VoidStone': 'Material used for crafting'}, 'None', {}],
     [{'VoidPowder': 'Material used for crafting'}, 'None', {}],
+    [{'ChaosRune': 'Material used for crafting'}, 'None', {}],
     [{'Ooze': 'Material used for crafting'}, 'None', {}],
     [{'DeathRune': 'Material used for crafting'}, 'None', {}],
     [{'DeathCrystal': 'Material used for crafting'}, 'None', {}],
@@ -224,6 +225,11 @@ item_list = [
     [{'HelixLeggings': 'Gives +10 Dodge, +10 Agility, +10 Health Skill'}, 'Legs', {'Dodge': 10, 'Agility': 10, 'Health': 10}],
     [{'HelixBoots': 'Gives +10 Dodge, +10 Agility, +10 Health Skill, '}, 'Feet', {'Dodge': 10, 'Agility': 10, 'Health': 10}],
     [{'HelixCoreSword': '+18 Agility, +5 Health Skill, '}, 'Hand', {'Agility': 18, 'Health': 5}],
+
+    [{'RogueHelmet': 'Gives +32 Agility Skill'}, 'Head', {'Agility': 32}],
+    [{'RogueChestplate': 'Gives +33 Agility Skill'}, 'Chest', {'Agility': 33}],
+    [{'RogueLeggings': 'Gives +30 Agility Skill'}, 'Legs', {'Agility': 30}],
+    [{'RogueBoots': 'Gives +31 Agility Skill'}, 'Feet', {'Agility': 31}],
 
     [{'AssassinsHelmet': 'Gives +13 Agility Skill'}, 'Head', {'Agility': 13}],
     [{'AssassinsChestplate': 'Gives +13 Agility Skill'}, 'Chest', {'Agility': 13}],
@@ -405,6 +411,7 @@ item_list = [
     [{'ShadowStep': "(magic) Damage - 1, Shield - 4"}, 'Card', {'Magic': 1, 'Defense': 4}],
     [{'Wrath': "(magic) Damage - 15"}, 'Card', {'Magic': 15}],
     [{'Corruption': "(magic) Damage - 20, Self Damage - 30"}, 'Card', {'Magic': 20, 'Self': 30}],
+    [{'MagicShield': "Self Damage - 30, Gain (magic) Shield - 20"}, 'Card', {'Self': 30, 'MagicDefense': 20}],
 
     # agility
     [{'Charge': "(agility) Damage - 2, Extra Card Draw"}, 'Card', {'Agility': 2, 'Draw': 1}],
@@ -422,6 +429,7 @@ item_list = [
     [{'FirstAid': "(agility) Damage - 6, Healing - 8"}, 'Card', {'Agility': 6, 'Healing': 8}],
     [{'MultiShot': "(agility) Damage - 14, Dodge - +5%"}, 'Card', {'Agility': 14, 'Dodge': 10}],
     [{'DarkSlice': "(agility) Damage - 14, Healing - 5"}, 'Card', {'Agility': 14, 'Healing': 5}],
+    [{'ShotgunBlast': "(agility) Damage - 1, + 39 if target below 40%"}, 'Card', {'Agility': 1, 'Finisher': 39}],
 
     # combat
     [{'Slash': "(combat) Damage - 3"}, 'Card', {'Combat': 3}],
