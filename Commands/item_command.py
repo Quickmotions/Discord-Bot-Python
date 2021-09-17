@@ -411,7 +411,7 @@ item_list = [
     [{'ShadowStep': "(magic) Damage - 1, Shield - 4"}, 'Card', {'Magic': 1, 'Defense': 4}],
     [{'Wrath': "(magic) Damage - 15"}, 'Card', {'Magic': 15}],
     [{'Corruption': "(magic) Damage - 20, Self Damage - 30"}, 'Card', {'Magic': 20, 'Self': 30}],
-    [{'MagicShield': "Self Damage - 30, Gain (magic) Shield - 20"}, 'Card', {'Self': 30, 'MagicDefense': 20}],
+    [{'MagicShield': "Self Damage - 20, Gain (magic) Shield - 8"}, 'Card', {'Self': 20, 'MagicDefense': 8}],
 
     # agility
     [{'Charge': "(agility) Damage - 2, Extra Card Draw"}, 'Card', {'Agility': 2, 'Draw': 1}],
